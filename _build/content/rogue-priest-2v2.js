@@ -1,0 +1,1212 @@
+/* 内容模块 · rogue-priest-2v2
+   由 freeze.js 从旧版单体页固化而来（2026-08-10）
+   这是构建期输入，不会发给浏览器。改内容改这里，然后跑 node build.js
+   题目 40 道 · 对阵 6 条 · 技能 74 个 */
+module.exports = {
+ "meta": {
+  "title": "贼 + 戒律牧 2v2 组合训练器 · 魔兽世界 12.0.7",
+  "desc": "魔兽世界 12.0.7 头号 2v2 组合「贼 + 戒律牧」双视角配合训练。2v2 赢在两个人的伤害叠在一起——含击杀链、防守链、双人决策器与 40 道分视角判断题。",
+  "keywords": "2v2,贼牧,组合,竞技场,魔兽世界,12.0.7,配合,arena 2v2",
+  "h1": "<span class=\"r\">贼</span> + <span class=\"p\">戒律牧</span> · 2v2 组合训练器",
+  "footer": "Patch 12.0.7 · Midnight 赛季一。图标与中文技能名来自 <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口（逐个实测）。\n  组合定位与天赋数据 <a href=\"https://www.icy-veins.com/wow/discipline-priest-pvp-best-arena-compositions\" target=\"_blank\">Icy Veins</a> ·\n  <a href=\"https://murlok.io/priest/discipline/2v2\" target=\"_blank\">Murlok.io 戒律牧 2v2</a> ·\n  <a href=\"https://murlok.io/rogue/subtlety/2v2\" target=\"_blank\">Murlok.io 敏锐贼 2v2</a>。训练记录只存在这台浏览器里。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
+  "jsonld": null
+ },
+ "nav": [
+  {
+   "s": "s1",
+   "label": "骨架"
+  },
+  {
+   "s": "s2",
+   "label": "击杀链"
+  },
+  {
+   "s": "s3",
+   "label": "防守链"
+  },
+  {
+   "s": "s4",
+   "label": "分对局"
+  },
+  {
+   "s": "s5",
+   "label": "判断训练"
+  },
+  {
+   "s": "s6",
+   "label": "赛前速查"
+  }
+ ],
+ "sections": {
+  "s1": "<div class=\"wrap\">\n\n<div class=\"thesis\">\n  <div class=\"lbl\">这个组合唯一要记住的一句</div>\n  <div class=\"big\">贼牧不是\"贼杀人、牧师奶\"。<br>是两个人<span style=\"color:var(--ac2)\">轮流当主角</span>——输的那局，通常是两个人同时想当主角，或者同时以为对方是主角。</div>\n</div>\n\n<div class=\"rows\">\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">这个组合唯一的输法：牧师先死</span>\n    <span class=\"sub\">所以贼的第一职责不是杀人</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p>2v2 只有两个人，<strong>贼是唯一的伤害来源，牧师是唯一的治疗来源，没有替补。</strong></p>\n      <p style=\"margin-top:8px\"><strong>贼杀不掉人不会输</strong>——还有下一轮、还有消耗阶段。<strong>但牧师一死就是零。</strong></p>\n      <p style=\"margin-top:8px\">所以：<strong>贼的第一职责是保证牧师不被抓死，第二职责才是杀人。</strong>这跟单人训练时\"窗口不能空转\"的直觉是冲突的——<b>在 2v2 里，为了救牧师而放弃一个成型的窗口，经常是对的。</b></p>\n      <div class=\"note\"><b>反过来对牧师也成立：</b>你活着比你治疗量高重要。<strong>宁可少治一口，也不要把自己走到会被抓的位置。</strong></div>\n    </div></div>\n\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">分工：发起者 vs 维持者</span>\n    <span class=\"sub\">但戒律牧是个会打伤害的维持者</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <div class=\"duo\">\n        <div class=\"cR\"><div class=\"who\">🗡 贼 · 发起者</div><div class=\"txt\">\n          决定<b>什么时候开</b>、开谁、控谁。<br>\n          他掌握着这个组合的<b>节奏权</b>——什么时候进攻、什么时候脱战重来，是贼说了算。<br>\n          <b>但节奏权的代价是：他也要为牧师的安全负责。</b>\n        </div></div>\n        <div class=\"cP\"><div class=\"who\">✚ 牧师 · 维持者（会打伤害的那种）</div><div class=\"txt\">\n          戒律牧<b>必须打伤害才能治疗</b>（<sk>救赎</sk> 把伤害的 60% 转成治疗）。<br>\n          所以他不是站着奶——<b>他是这个组合的第二个伤害来源</b>，而且他的伤害同时在回血。<br>\n          <b>在 2v2 里这一点被放大：</b>牧师的输出经常是压垮对面治疗的最后一根稻草。\n        </div></div>\n        <div class=\"link\"><span class=\"lk\">耦合点</span><div>贼进场的那一刻，<b>牧师应该已经在输出了</b>——不是等贼打出伤害才开始跟。牧师的伤害既在治疗，也在给对面施压，<b>两个人的伤害叠在同一个目标上，对面治疗才会崩</b>。</div></div>\n      </div>\n    </div></div>\n\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">2v2 不是\"3v3 少一个人\"</span>\n    <span class=\"sub\">实测天赋分布都不一样</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p>top50 的实测数据能直接看出两种赛制是不同的游戏：</p>\n      <div class=\"g2\" style=\"margin-top:10px\">\n        <div class=\"mini-card\"><h4 style=\"color:var(--priest2)\">戒律牧英雄天赋</h4>\n          <p><b>3v3：</b>Oracle 45 / Voidweaver 5</p>\n          <p><b>2v2：</b>Oracle 32 / Voidweaver 18</p>\n          <p style=\"color:var(--tx3);margin-top:5px\">2v2 里 Voidweaver 明显更多——<b>因为 2v2 更吃牧师自己的输出</b>。</p></div>\n        <div class=\"mini-card\"><h4 style=\"color:var(--rogue2)\">敏锐贼 PvP 天赋</h4>\n          <p><b>3v3：</b><sk>卸除武装</sk> 29/50</p>\n          <p><b>2v2：</b><sk>卸除武装</sk> 33/50</p>\n          <p style=\"color:var(--tx3);margin-top:5px\">2v2 里缴械更值钱——<b>只有两个人，掐掉一个人的输出就是掐掉一半</b>。</p></div>\n      </div>\n      <div class=\"note\" style=\"margin-top:12px\"><b>更重要的结构差异：</b>2v2 的<strong>消耗（dampening）来得更快更狠</strong>。3v3 里两个 DPS 压一个治疗，2v2 是一个 DPS 压一个治疗——<b>打不穿的概率高得多，所以\"什么时候认打不穿、转消耗\"是 2v2 独有的判断。</b></div>\n    </div></div>\n</div>\n\n<h2>能不能开这一波？两个人的条件一起看</h2>\n<p class=\"lead\">前面单专精的决策器都只看自己。<strong>这个决策器一半是贼的条件、一半是牧师的——因为在 2v2 里，看不到队友状态就等于在瞎开。</strong></p>\n<div class=\"gobox\">\n  <div class=\"gh\">开场判断器</div>\n  <div class=\"gt\">现在的局面满足哪几条？</div>\n  <div class=\"checks\" id=\"checks\"></div>\n  <div class=\"verdict\" id=\"verdict\"></div>\n</div>\n\n<h2>三个共享时钟</h2>\n<p class=\"lead\">单人时是\"我的时钟\"，2v2 里这三个是<strong>两个人共用的</strong>——任何一个见底，两个人一起输。</p>\n<div class=\"rows\" id=\"clocks\"></div>\n\n<h2>本版定盘（2v2 实测）</h2>\n<div class=\"rows\" id=\"setup\"></div>\n\n<div class=\"note\" style=\"margin-top:18px\"><b>关于数据的诚实交代。</b> 组合层面的公开攻略非常少（Icy Veins 只把\"戒律牧 + 贼\"列为 12.0.7 头号 2v2 组合，没有展开战术）。<strong>所以这份的天赋/使用率数据是实测的，但战术结构是我按两个职业的机制推的</strong>——推导过程都写在页面上，你可以自己检验。技能名和图标逐个核过。</div>\n\n</div>",
+  "s2": "<div class=\"wrap\">\n  <p class=\"lead\">一个完整的击杀回合，八步。<strong>每一步都是两个人同时在做事——中间的「耦合点」是这两件事为什么必须配套。</strong></p>\n  <div class=\"stepper\" id=\"stepBody\"></div>\n  <h2>击杀链最常断在哪</h2>\n  <div class=\"rows\" id=\"killfail\"></div>\n</div>",
+  "s3": "<div class=\"wrap\">\n  <p class=\"lead\">2v2 输的方式只有几种，而且大部分跟\"牧师被抓\"有关。<strong>每一种的处置都是双人的。</strong></p>\n  <div class=\"rows\" id=\"defense\"></div>\n</div>",
+  "s4": "<div class=\"wrap\">\n  <p class=\"lead\">2v2 打的是<strong>组合结构</strong>，不是单个职业。按对面的结构分六类——<strong>这比背 13×13 张表有用，因为结构决定打法，职业只决定细节。</strong></p>\n  <div class=\"split\">\n    <div class=\"sidecol\"><div class=\"cls-grid\" id=\"clsGrid\"></div></div>\n    <div id=\"clsDetail\"></div>\n  </div>\n</div>",
+  "s5": "<div class=\"wrap\">\n  <div class=\"statbar\">\n    <div class=\"stat\"><span class=\"k\">累计答题</span><span class=\"v\" id=\"stPlayed\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">总正确率</span><span class=\"v\" id=\"stAcc\">—</span></div>\n    <div class=\"stat\"><span class=\"k\">最长连对</span><span class=\"v\" id=\"stBest\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">错题库</span><span class=\"v\" id=\"stWrong\">0</span></div>\n  </div>\n  <div class=\"qtop\">\n    <select id=\"fWho\">\n      <option value=\"cur\">跟随当前视角</option>\n      <option value=\"all\">两个视角都练</option>\n      <option value=\"rogue\">只练贼</option>\n      <option value=\"priest\">只练牧师</option>\n    </select>\n    <select id=\"fDiff\">\n      <option value=\"all\">全部难度</option>\n      <option value=\"1\">基础 · 机制</option>\n      <option value=\"2\">进阶 · 时机</option>\n      <option value=\"3\">高阶 · 权衡</option>\n    </select>\n    <button class=\"btn\" onclick=\"startQuiz(false)\">开始一轮（10 题）</button>\n    <button class=\"btn ghost\" onclick=\"startQuiz(true)\">只练错题</button>\n    <button class=\"btn ghost\" onclick=\"resetStats()\">清空记录</button>\n  </div>\n  <div id=\"quizArea\"></div>\n</div>",
+  "s6": "<div class=\"wrap\">\n  <p class=\"lead\">上场前一人扫一栏。<strong>建议两个人都看一遍对方那栏——知道队友在想什么，比记住自己该按什么更重要。</strong></p>\n  <div class=\"sheet\" id=\"sheet\"></div>\n</div>"
+ },
+ "fragments": {
+  "clocks": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"暗影之舞\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_shadowdance.jpg\" alt=\"暗影之舞\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"肾击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"肾击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"心灵尖啸\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_psychicscream.jpg\" alt=\"心灵尖啸\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">发起时钟</span><span class=\"sub\">贼的爆发 + 双方的控制递减</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>贼的爆发冷却，加上<b>两个人共用的控制递减预算</b>。</p><div class=\"mini\"><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>控制递减是两个人共用的</span><span class=\"ar\">▸</span></div><div class=\"mb\">贼的 <sk>偷袭</sk>/<sk>肾击</sk> 是眩晕类，牧师的 <sk>心灵尖啸</sk> 是恐惧类——<b>它们类别不同，可以接成长链</b>。<br><b>但如果两个人的控制打在同一类别上，第二个只剩一半。</b>这就是\"没沟通的双控等于没控\"。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>谁控治疗、谁控目标，开场前就该定</span><span class=\"ar\">▸</span></div><div class=\"mb\">2v2 里通常是：<b>贼用 <sk>闷棍</sk>/<sk>致盲</sk> 处理对面治疗（失能类），牧师的 <sk>心灵尖啸</sk> 留给突发状况</b>。分工乱了就会互相打断。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"全神贯注\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_rapture.jpg\" alt=\"全神贯注\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"痛苦压制\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"痛苦压制\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">续航时钟</span><span class=\"sub\">牧师的蓝 + 两个人的保命牌</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>牧师的法力是这个组合真正的血条。</strong>他见底了，两个人一起输。</p><div class=\"mini\"><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>贼也在花牧师的蓝</span><span class=\"ar\">▸</span></div><div class=\"mb\">贼每挨一次不必要的伤害，都在消耗牧师的法力。<b>2v2 里\"贼站桩硬吃伤害\"的代价，是牧师提前破产。</b>贼的 <sk>佯攻</sk>/<sk>闪避</sk>/走位不只是自保，是在替队友省蓝。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>保命牌要两个人一起记账</span><span class=\"ar\">▸</span></div><div class=\"mb\">对面还剩几张爆发牌、我们还剩几张保命牌。<b>这个差额决定你们能撑到第几轮。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"救赎\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_priest_atonement.jpg\" alt=\"救赎\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">消耗时钟（Dampening）</span><span class=\"sub\">2v2 独有，压在两个人头上</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>2v2 的消耗<strong>来得比 3v3 更快更狠</strong>——因为这里是<b>一个 DPS 压一个治疗</b>，打不穿的概率高得多。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>\"什么时候认打不穿\"是 2v2 独有的判断</span><span class=\"ar\">▸</span></div><div class=\"mb\">如果连续两三轮都在同一血线被拉回去，<b>说明纯靠伤害赢不了</b>。这时候策略要转：<b>省蓝、逼对面的治疗多花、把胜负交给消耗</b>。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>转消耗之后两个人的工作都变了</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>贼</b>：从\"追求击杀\"转成\"逼技能 + 保持压力 + 绝不白挨伤害\"。<br><b>牧师</b>：从\"跟着输出\"转成\"最大化法力效率\"——但<b>戒律牧的输出恰好是最省蓝的治疗方式</b>，所以他反而不该完全停手。</div></div></div></div></div>",
+  "setup": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"卸除武装\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"卸除武装\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">2v2 的天赋跟 3v3 不一样</span><span class=\"sub\">实测数据</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">敏锐贼（2v2 top50）</div><div class=\"txt\"><sk>烟雾弹</sk> <b>50/50</b> · 先发制人 <b>47/50</b> · <sk>卸除武装</sk> <b>33/50</b><br><span style=\"color:var(--tx3)\">缴械在 2v2 比 3v3 更常带（33 vs 29）——<b>只有两个人，掐掉一个人的输出就是掐掉一半。</b></span></div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">戒律牧（2v2 top50）</div><div class=\"txt\">Ultimate Radiance <b>48/50</b> · Inner Light <b>46/50</b> · Phase Shift <b>39/50</b><br>英雄天赋：Oracle 32 / Voidweaver 18<br><span style=\"color:var(--tx3)\">对比 3v3：Inner Light 只有 33/50、Phase Shift 有 48/50、Oracle 45/5。<b>2v2 明显更吃牧师自己的输出。</b></span></div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div>两边的数据指向同一件事：<b>2v2 里\"两个人都要能输出\"</b>。贼带缴械压制对方输出，牧师带偏输出的天赋补足伤害——<b>因为一个 DPS 打不穿一个治疗。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"暗影之舞\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_shadowdance.jpg\" alt=\"暗影之舞\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"命运骨骰\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_rollthebones.jpg\" alt=\"命运骨骰\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">专精选择：敏锐还是狂徒</span><span class=\"sub\">两个都能打，风格完全不同</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"duo\"><div class=\"cR\"><div class=\"who\">🗡 敏锐</div><div class=\"txt\"><b>爆发型。</b>攒一个窗口一次结账，窗口外几乎没有压力。<br><b>配牧师的好处：</b>控制链极强（<sk>闷棍</sk> <sk>致盲</sk> <sk>偷袭</sk> <sk>肾击</sk>），能给牧师创造干净的输出环境。<br><b>代价：</b>窗口外对面治疗能回满，所以<b>非常依赖牧师的伤害补足</b>。</div></div><div class=\"cP\"><div class=\"who\">🗡 狂徒</div><div class=\"txt\"><b>持续型。</b>有稳定压力、机动性强、防御厚。<br><b>配牧师的好处：</b>持续压力更适合消耗战，<b>而 2v2 经常打成消耗战</b>。<br><b>代价：</b>控制不如敏锐干净，而且 <sk>剑刃乱舞</sk> 的溅射会打破牧师的控制——<b>沟通成本更高。</b></div></div><div class=\"link\"><span class=\"lk\">怎么选</span><div><b>对面有治疗、预计打消耗</b> → 狂徒的持续压力更稳。<b>对面没治疗、要抢先手</b> → 敏锐的爆发更容易一波带走。<br>本页其余内容以<b>敏锐</b>为主线，狂徒的差异点会单独标出。</div></div></div></div></div>",
+  "killfail": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"闷棍\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_sap.jpg\" alt=\"闷棍\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"暗言术：痛\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_shadowwordpain.jpg\" alt=\"暗言术：痛\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">① 牧师的持续伤害打破了贼的闷棍</span><span class=\"sub\">最高频，也最容易修</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>闷棍</sk> <sk>致盲</sk> 都是受伤即破。牧师挂在对面治疗身上的 <sk>暗言术：痛</sk>、或者 <sk>苦修</sk> 的溅射，都会瞬间破掉。</p><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\">控之前<b>喊一声</b>，别指望队友能读心。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\">听到就<b>立刻停手并确认目标身上干净</b>——包括还在跳的持续伤害。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>这条是纯沟通问题，不是操作问题。</b>修好它，你们的击杀率会立刻上一档。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"惩击\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_holysmite.jpg\" alt=\"惩击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">② 两个人的伤害没叠在同一个窗口</span><span class=\"sub\">对面治疗能各个击破</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>贼开了窗口在打，牧师还在铺 <sk>救赎</sk> 或者在打别人——<b>对面治疗只需要应付一个人的伤害，轻松就能顶住。</b></p><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\">进场前给个明确信号，<b>别默默开</b>。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\">贼进场的那一刻你就该在输出，<b>不是等他打出伤害才跟</b>。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>2v2 只有两个伤害源，不叠在一起就打不穿治疗。</b>这是这个组合最基本的乘法。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"暗影之舞\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_shadowdance.jpg\" alt=\"暗影之舞\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"痛苦压制\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"痛苦压制\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">③ 贼在窗口里，牧师被抓了</span><span class=\"sub\">攻守转换的临界点</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>贼全力收人的几秒，正是对面反手抓牧师的最佳时机。<b>贼在窗口里是\"瞎\"的。</b></p><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><b>这时候要做取舍</b>：目标马上能死 → 收完再回去；目标还有半管血 → <b>立刻放弃窗口去救</b>。<br>参见「防守链」第一条。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>不要等到血危险才喊。</b>被贴上的第一时间就说，给贼判断的时间。<br>同时自己先用瞬发撑住（护盾、<sk>痛苦压制</sk>）。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>这个组合唯一的输法是牧师先死。</b>所以这个取舍的默认答案偏向\"回去救\"——<b>除非目标真的一击就能死。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"渐隐术\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_magic_lesserinvisibilty.jpg\" alt=\"渐隐术\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">④ 撤退不同步</span><span class=\"sub\">贼走了牧师还在原地</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>贼脱战重新潜行，牧师却还在原地继续输出——<b>然后对面转头把落单的牧师抓死。</b></p><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\">撤的时候<b>喊一声</b>，别默默消失。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>贼撤你就撤。</b>你没有位移，落单等于送。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div>牧师留在原地的那点伤害，<b>永远不值一次被抓的风险</b>。</div></div></div></div></div>",
+  "defense": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"痛苦压制\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"痛苦压制\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"肾击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"肾击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"烟雾弹\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_smoke.jpg\" alt=\"烟雾弹\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">牧师被抓 —— 这是最要紧的一条</span><span class=\"sub\">贼要做取舍，牧师要先自救</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>这个组合 80% 的失败都从这里开始。</strong></p><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><b>先做取舍</b>：<br>· 目标<b>一击就能死</b> → 收完再回<br>· 目标还有半管血 → <b>立刻放弃窗口回去救</b><br><br>救的手段按成本排：<br>1. <sk>肾击</sk>/<sk>凿击</sk> 打断对面（便宜）<br>2. <sk>烟雾弹</sk> 罩住牧师（<b>一个 GCD，对面点不到他</b>）<br>3. <sk>致盲</sk> 控住抓他的人<br>4. <sk>偷天换日</sk> 把仇恨拉走</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>先自救，别等贼。</b>按成本排：<br>1. 提前挂的 <sk>真言术：盾</sk>（免费，所以要提前挂）<br>2. <sk>渐隐术</sk> 降低被选中<br>3. <sk>佯攻</sk>… 没有，你是牧师——用 <sk>痛苦压制</sk>（<b>被眩晕时也能按</b>）<br>4. <sk>心灵尖啸</sk> 把人吓开<br>5. 解控道具（最贵，最后用）</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>默认答案偏向\"贼回去救\"。</b>贼杀不掉人不会输，牧师死了就是零。<br><b>但牧师必须先自己撑住一两秒</b>——如果他一被抓就交光所有牌等着被救，那贼救回来之后你们依然是裸的。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"闪避\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_shadowward.jpg\" alt=\"闪避\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"暗影斗篷\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_nethercloak.jpg\" alt=\"暗影斗篷\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">贼被抓</span><span class=\"sub\">比想象中不严重</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>贼的自保能力远强于牧师（<sk>消失</sk> <sk>闪避</sk> <sk>暗影斗篷</sk> <sk>佯攻</sk>），<b>而且他被抓的时候牧师还能自由施法</b>。</p><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><b>按伤害类型选防御</b>：物理 → <sk>闪避</sk>，法术/魔法控制 → <sk>暗影斗篷</sk>。<br><b>不要立刻交 <sk>消失</sk></b>——那是最贵的一张。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\">给贼挂 <sk>真言术：盾</sk> 和 <sk>救赎</sk>，<b>然后继续输出</b>——你的伤害在治疗他。<br><b>不要因为贼掉血就停下来硬读治疗</b>，那是最低效的救法。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>贼被抓的时候，牧师反而该加大输出。</b>因为救赎让输出＝治疗，而且这时候没人压你。<b>停下来硬读治疗是双输：治得少，伤害也没了。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"渐隐术\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_magic_lesserinvisibilty.jpg\" alt=\"渐隐术\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">两个人同时被压</span><span class=\"sub\">先决定放弃什么</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>对面分头压，你们两个都动不了。<b>这时候最糟的做法是两个人都试图\"扛住\"。</b></p><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><b>你的机动性更好，所以由你来打破僵局。</b><br>脱离 → 绕后 → 控住压牧师的那个人。<b>不要跟贴着你的人对拼，先解决牧师那边。</b></div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>保命优先级：活着 &gt; 治疗量。</b><br>用瞬发维持基本盘，把位置调到贼能够到的地方。<b>喊出你的状态。</b></div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>两个人不能同时防守。</b>贼的机动性决定了他是那个应该主动打破僵局的人——<b>而僵局的破口永远在\"牧师那边\"，不是\"贼这边\"。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"痛苦压制\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"痛苦压制\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"真言术：盾\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_powerwordshield.jpg\" alt=\"真言术：盾\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">对面开大（爆发窗口）</span><span class=\"sub\">提前一步，而不是补救</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>对面的爆发标志亮起（翅膀、爆发姿态、进潜行、蓄力）。</p><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><b>如果目标是你</b>：提前交减伤，别等血掉。<br><b>如果目标是牧师</b>：立刻回防，别赌他能自己扛。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b><sk>痛苦压制</sk> 要在队友血量高的时候用，不要等他血低。</b>（这是官方攻略明确强调的一条）<br>提前铺 <sk>真言术：盾</sk> 和 <sk>救赎</sk>——伤害到来时你的治疗已经在流动。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>爆发标志是送给你们的提前量。</b>看到了不动，等于把这个提前量扔掉。<b>戒律牧的治疗链条有延迟（铺→输出→生效），反应型操作永远慢一拍。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"肾击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"肾击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">控制链：谁先交道具</span><span class=\"sub\">2v2 里道具就是命</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>2v2 只有两张解控道具。<b>交光了，任何一次控制链都可能直接结束比赛。</b></p><div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><b>你的道具优先级低于牧师的。</b>你有 <sk>消失</sk> 和一堆自保，牧师没有。<br>能用 <sk>消失</sk> 解决的，别用道具。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>你的道具是团队资源，不是你个人的。</b>但也不能太早交——<br>判据：① 队友还能撑多久 ② 对面还有没有后续控制 ③ <b>我提前铺的东西还在不在工作</b>。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>两个人不该在同一轮都交道具。</b>如果贼已经交了，牧师这一轮就得靠别的手段撑——反之亦然。<b>留一张在手上，对面的击杀链就永远差一环。</b></div></div></div></div></div>",
+  "sheet": "<div class=\"sc wide\"><h4>组合三铁律</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">这个组合唯一的输法是牧师先死</div><div class=\"dd\">贼杀不掉人不会输（还有下一轮、还有消耗），牧师死了就是零。所以贼的第一职责是保牧师。</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">两个人的伤害必须叠在同一个窗口</div><div class=\"dd\">2v2 只有两个伤害源，分散开对面治疗能各个击破。牧师不能等贼打出伤害才跟。</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">贼控之前必须喊，牧师听到就停手</div><div class=\"dd\">失能类控制受伤即破。牧师的 <sk>暗言术：痛</sk> 破掉一次闷棍，就是一整轮机会没了。</div></div></div></div></div><div class=\"sc r\"><h4>🗡 贼 · 上场前</h4><div class=\"line\">● <b>第一职责是保牧师，第二才是杀人</b><br>● 控之前<b>喊一声</b>，让牧师收持续伤害<br>● 撤退<b>喊一声</b>，牧师没有位移<br>● 看到对面关键冷却被用掉 → <b>立刻说</b><br>● 双近战对局：工作是<b>剥离</b>，不是击杀<br>● 牧师被抓：目标<b>一击能死</b>才继续，否则回去救</div></div><div class=\"sc p\"><h4>✚ 牧师 · 上场前</h4><div class=\"line\">● <b>开局第一件事是站位，不是输出准备</b><br>● 贼进场那一刻<b>你就该在输出</b><br>● 贼喊控 → <b>停手 + 等持续伤害掉完</b><br>● <sk>痛苦压制</sk> <b>在队友血高时用</b>，不是等血低<br>● 被抓<b>第一时间说状态</b>（不是喊救命）<br>● 贼被抓时<b>加大输出</b>，别停下来硬读治疗</div></div><div class=\"sc\"><h4>能不能开 · 四条件</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">[贼] 贼的爆发资源齐了</div><div class=\"dd\">暗影之舞/暗影之刃/影分身 就绪，诡术师层数接近满（狂徒：骰面能打 + 眉心增益在）</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">[牧] 牧师能自由施法</div><div class=\"dd\">没被控、学派没锁、对面近战没贴他。牧师被压住＝这个组合失去一半输出</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">[贼] 对面治疗被处理了 / 对面没治疗</div><div class=\"dd\">闷棍住、被隔开、或者对面是双 DPS</div></div></div><div class=\"b3\"><div class=\"n\">4</div><div><div class=\"tt\">[牧] 我们俩至少还有一张解控道具</div><div class=\"dd\">2v2 里道具就是命。两个人都没有道具的时候，任何一次控制链都可能直接结束比赛</div></div></div></div></div><div class=\"sc\"><h4>按对面结构选打法</h4><div class=\"line\"><b style=\"color:var(--no)\">双 DPS 无治疗</b> → 抢先手，两个人都偏进攻<br><b style=\"color:var(--wa)\">DPS + 治疗</b> → 控制干净度决定胜负<br><b style=\"color:var(--no)\">双近战</b> → 贼负责剥离，牧师围绕\"被缠住\"规划<br><b style=\"color:var(--ok)\">双远程</b> → 围绕柱子活动，贼最舒服<br><b>镜像</b> → 赢在失误更少（控制干净度 + 法力效率）<br><b>被克制</b> → 承认它，从\"要赢\"改成\"要拖\"</div></div><div class=\"sc wide\"><h4>三个最高频的翻车点</h4><div class=\"line\">● <b>牧师的持续伤害破掉贼的闷棍</b> —— 纯沟通问题，修好立刻上一档<br>● <b>两个人的伤害没叠在一起</b> —— 对面治疗轻松各个击破<br>● <b>撤退不同步</b> —— 贼走了，牧师留在原地被抓死</div></div>"
+ },
+ "sk": {
+  "潜行": "ability_stealth",
+  "偷袭": "ability_cheapshot",
+  "肾击": "ability_rogue_kidneyshot",
+  "暗影之舞": "ability_rogue_shadowdance",
+  "暗影之刃": "inv_knife_1h_grimbatolraid_d_03",
+  "影分身": "ability_rogue_sinistercalling",
+  "刺骨": "ability_rogue_eviscerate",
+  "暗影打击": "ability_rogue_shadowstrike",
+  "背刺": "ability_backstab",
+  "消失": "ability_vanish",
+  "暗影斗篷": "spell_shadow_nethercloak",
+  "闪避": "spell_shadow_shadowward",
+  "佯攻": "ability_rogue_feint",
+  "致盲": "spell_shadow_mindsteal",
+  "闷棍": "ability_sap",
+  "凿击": "ability_gouge",
+  "脚踢": "ability_kick",
+  "烟雾弹": "ability_rogue_smoke",
+  "疾跑": "ability_rogue_sprint",
+  "暗影步": "ability_rogue_shadowstep",
+  "卸除武装": "ability_rogue_dismantle",
+  "偷天换日": "ability_rogue_tricksofthetrade",
+  "隐秘之刃": "inv_weapon_shortblade_55",
+  "致命一击": "inv_ability_tricksterrogue_coupdegrace",
+  "命运骨骰": "ability_rogue_rollthebones",
+  "正中眉心": "inv_weapon_rifle_01",
+  "斩击": "ability_rogue_waylay",
+  "冲动": "spell_shadow_shadowworddominate",
+  "剑刃乱舞": "ability_warrior_punishingblow",
+  "抓钩": "ability_rogue_grapplinghook",
+  "救赎": "ability_priest_atonement",
+  "真言术：盾": "spell_holy_powerwordshield",
+  "苦修": "spell_holy_penance",
+  "暗影愈合": "spell_shadow_shadowmend",
+  "真言术：耀": "spell_priest_power-word",
+  "痛苦压制": "spell_holy_painsupression",
+  "全神贯注": "spell_holy_rapture",
+  "摧心魔": "spell_shadow_soulleech_3",
+  "能量灌注": "spell_holy_powerinfusion",
+  "惩击": "spell_holy_holysmite",
+  "心灵震爆": "spell_shadow_unholyfrenzy",
+  "暗言术：痛": "spell_shadow_shadowwordpain",
+  "群体驱散": "spell_arcane_massdispel",
+  "驱散魔法": "spell_nature_nullifydisease",
+  "纯净术": "spell_holy_dispelmagic",
+  "渐隐术": "spell_magic_lesserinvisibilty",
+  "绝望祷言": "spell_holy_testoffaith",
+  "信仰飞跃": "priest_spell_leapoffaith_a",
+  "心灵尖啸": "spell_shadow_psychicscream",
+  "精神控制": "spell_shadow_shadowworddominate",
+  "真言术：障": "spell_holy_powerwordbarrier",
+  "愈合祷言": "spell_holy_prayerofmendingtga",
+  "快速治疗": "spell_holy_flashheal",
+  "圣盾术": "spell_holy_divineshield",
+  "保护祝福": "spell_holy_sealofprotection",
+  "破咒祝福": "spell_holy_blessingofprotection",
+  "寒冰屏障": "spell_frost_frost",
+  "变形术": "spell_nature_polymorph",
+  "法术反制": "spell_frost_iceshock",
+  "虚空行走": "spell_warlock_demonsoul",
+  "灵龟守护": "ability_hunter_pet_turtle",
+  "假死": "ability_rogue_feigndeath",
+  "反魔法护罩": "spell_shadow_antimagicshell",
+  "冰封之韧": "spell_deathknight_iceboundfortitude",
+  "消散": "spell_shadow_dispersion",
+  "树皮术": "spell_nature_stoneclawtotem",
+  "业报之触": "ability_monk_touchofkarma",
+  "剑在人在": "ability_warrior_challange",
+  "破胆怒吼": "ability_golemthunderclap",
+  "恐惧": "spell_shadow_possession",
+  "星界转移": "ability_shaman_astralshift",
+  "悬空": "ability_evoker_hover",
+  "classicon_rogue": "classicon_rogue",
+  "classicon_priest": "classicon_priest"
+ },
+ "enemy": [
+  "圣盾术",
+  "保护祝福",
+  "破咒祝福",
+  "寒冰屏障",
+  "变形术",
+  "法术反制",
+  "虚空行走",
+  "灵龟守护",
+  "假死",
+  "反魔法护罩",
+  "冰封之韧",
+  "消散",
+  "树皮术",
+  "业报之触",
+  "剑在人在",
+  "破胆怒吼",
+  "恐惧",
+  "星界转移",
+  "悬空"
+ ],
+ "own": {
+  "r": [
+   "潜行",
+   "偷袭",
+   "肾击",
+   "暗影之舞",
+   "暗影之刃",
+   "影分身",
+   "刺骨",
+   "暗影打击",
+   "背刺",
+   "消失",
+   "暗影斗篷",
+   "闪避",
+   "佯攻",
+   "致盲",
+   "闷棍",
+   "凿击",
+   "脚踢",
+   "烟雾弹",
+   "疾跑",
+   "暗影步",
+   "卸除武装",
+   "偷天换日",
+   "隐秘之刃",
+   "致命一击",
+   "命运骨骰",
+   "正中眉心",
+   "斩击",
+   "冲动",
+   "剑刃乱舞",
+   "抓钩"
+  ],
+  "p": [
+   "救赎",
+   "真言术：盾",
+   "苦修",
+   "暗影愈合",
+   "真言术：耀",
+   "痛苦压制",
+   "全神贯注",
+   "摧心魔",
+   "能量灌注",
+   "惩击",
+   "心灵震爆",
+   "暗言术：痛",
+   "群体驱散",
+   "驱散魔法",
+   "纯净术",
+   "渐隐术",
+   "绝望祷言",
+   "信仰飞跃",
+   "心灵尖啸",
+   "精神控制",
+   "真言术：障",
+   "愈合祷言",
+   "快速治疗"
+  ]
+ },
+ "cond": [
+  {
+   "k": "burst",
+   "w": "r",
+   "t": "贼的爆发资源齐了",
+   "d": "暗影之舞/暗影之刃/影分身 就绪，诡术师层数接近满（狂徒：骰面能打 + 眉心增益在）"
+  },
+  {
+   "k": "free",
+   "w": "p",
+   "t": "牧师能自由施法",
+   "d": "没被控、学派没锁、对面近战没贴他。牧师被压住＝这个组合失去一半输出"
+  },
+  {
+   "k": "heal",
+   "w": "r",
+   "t": "对面治疗被处理了 / 对面没治疗",
+   "d": "闷棍住、被隔开、或者对面是双 DPS"
+  },
+  {
+   "k": "trink",
+   "w": "p",
+   "t": "我们俩至少还有一张解控道具",
+   "d": "2v2 里道具就是命。两个人都没有道具的时候，任何一次控制链都可能直接结束比赛"
+  }
+ ],
+ "verdicts": [
+  {
+   "cls": "bad",
+   "html": "<div class=\"vi\">◇</div><div style=\"flex:1\"><h3>别开。现在开就是白送一轮冷却</h3><p>条件差太多。<b>2v2 只有两个人，一次失败的进攻代价比 3v3 大得多</b>——你的冷却空转，对面却完好无损。</p><div class=\"vsplit\"><div class=\"vc r\"><span class=\"w\">🗡 贼</span>退回 <sk>潜行</sk>，去消耗对面、叠层、看站位。<b>别为了\"有事做\"而进场。</b></div><div class=\"vc p\"><span class=\"w\">✚ 牧师</span>保持距离、回蓝、把 <sk>救赎</sk> 铺好。<b>这时候你的工作是让贼有个安全的下一次机会。</b></div></div><!--MISSING--></div>"
+  },
+  {
+   "cls": "bad",
+   "html": "<div class=\"vi\">◇</div><div style=\"flex:1\"><h3>别开。现在开就是白送一轮冷却</h3><p>条件差太多。<b>2v2 只有两个人，一次失败的进攻代价比 3v3 大得多</b>——你的冷却空转，对面却完好无损。</p><div class=\"vsplit\"><div class=\"vc r\"><span class=\"w\">🗡 贼</span>退回 <sk>潜行</sk>，去消耗对面、叠层、看站位。<b>别为了\"有事做\"而进场。</b></div><div class=\"vc p\"><span class=\"w\">✚ 牧师</span>保持距离、回蓝、把 <sk>救赎</sk> 铺好。<b>这时候你的工作是让贼有个安全的下一次机会。</b></div></div><!--MISSING--></div>"
+  },
+  {
+   "cls": "warn",
+   "html": "<div class=\"vi\">△</div><div style=\"flex:1\"><h3>只能消耗，不能赌击杀</h3><p>进场逼一张牌就撤，目标是<b>让对面花掉一个答案</b>，不是杀人。</p><div class=\"vsplit\"><div class=\"vc r\"><span class=\"w\">🗡 贼</span>用 <sk>偷袭</sk> 进场打两下、逼出防御，然后 <sk>消失</sk> 或走位撤出。<b>别贪。</b></div><div class=\"vc p\"><span class=\"w\">✚ 牧师</span>跟着贼一起输出（<sk>救赎</sk> 让你的伤害同时回血），但<b>不要把保命牌花在这一轮</b>。</div></div><!--MISSING--></div>"
+  },
+  {
+   "cls": "warn",
+   "html": "<div class=\"vi\">◐</div><div style=\"flex:1\"><h3>可以开，但缺的那一条决定你们能压多久</h3><p>压力足够。<b>缺谁的条件，谁就要负责兜底。</b></p><div class=\"vsplit\"><div class=\"vc r\"><span class=\"w\">🗡 贼</span>正常开，但<b>留一个撤退手段</b>——尤其在牧师条件不满足的时候，你随时可能要回去救他。</div><div class=\"vc p\"><span class=\"w\">✚ 牧师</span>跟输出，同时<b>盯着缺失项</b>。如果缺的是你自己的自由施法，先解决位置再谈输出。</div></div><!--MISSING--></div>"
+  },
+  {
+   "cls": "good",
+   "html": "<div class=\"vi\">◆</div><div style=\"flex:1\"><h3>全压。两个人的条件同时成立不常有</h3><p><b>这是 2v2 里最稀缺的时刻</b>——两个人同时处在最好状态。这时候不开，前面所有的消耗都白做了。</p><div class=\"vsplit\"><div class=\"vc r\"><span class=\"w\">🗡 贼</span><sk>偷袭</sk> 上点 → 爆发全交 → <sk>肾击</sk> 卡伤害落地。<b>控住对面治疗的活交给牧师。</b></div><div class=\"vc p\"><span class=\"w\">✚ 牧师</span><b>全力输出</b>（你的伤害就是治疗），同时准备 <sk>心灵尖啸</sk> 挡掉对面的救援动作。<b>这一轮你是第二个 DPS。</b></div></div><!--MISSING--></div>"
+  }
+ ],
+ "steps": null,
+ "match": {
+  "list": [
+   {
+    "id": "nohealer",
+    "n": "双 DPS（无治疗）",
+    "c": "var(--no)",
+    "eg": [
+     "战士+法师",
+     "贼+DH",
+     "双法系爆发"
+    ],
+    "one": "抢先手。谁先死谁输，消耗对你们没有意义。",
+    "threat": "两个 DPS 的伤害叠在一起非常猛，<b>而你们只有一个治疗</b>。他们能在很短时间内打死你们中的一个。",
+    "r": "<b>你是先手的关键。</b>从 <sk>潜行</sk> 开一波，目标选<b>更脆、更没有保命的那个</b>。<br><b>不要打消耗</b>——没有对面治疗，你的伤害不会被抹平，全力压就行。<br><sk>卸除武装</sk> 优先给对面的物理输出。",
+    "p": "<b>你可以放开输出。</b>没有对面治疗意味着你的伤害是纯收益，而且救赎回血足够撑住。<br><b>但要盯紧自己</b>——两个 DPS 很可能都来抓你。<b>提前铺、提前交减伤。</b>",
+    "l": "<b>无治疗对局是\"谁先死\"的比赛，不是消耗。</b>两个人都该偏进攻——<b>牧师站着奶反而是错的</b>，因为你们需要的伤害量只有两个人一起打才够。"
+   },
+   {
+    "id": "healer",
+    "n": "DPS + 治疗",
+    "c": "var(--wa)",
+    "eg": [
+     "战士+奶骑",
+     "法师+戒律",
+     "DH+奶德"
+    ],
+    "one": "最常见，也最考验配合。核心是\"能不能打穿他们的治疗\"。",
+    "threat": "对面治疗会把你们的伤害抹平。<b>如果打不穿，这局会拖进消耗——而消耗对 2v2 是残酷的。</b>",
+    "r": "<b>控制对面治疗是你的核心工作。</b><sk>闷棍</sk> 开场、<sk>致盲</sk> 在窗口里、<sk>烟雾弹</sk> 隔开视线。<br><b>控之前一定要喊，让牧师收手。</b><br>如果连续两三轮打不穿，<b>主动提出转消耗</b>。",
+    "p": "<b>你的伤害是打穿治疗的关键一环。</b>一个 DPS 打不穿一个治疗，两个人的伤害叠起来才行。<br><b>同时你要跟对面治疗比法力效率</b>——尽量用输出转治疗，少硬读。<br><b>贼喊控的时候立刻停手</b>，包括持续伤害。",
+    "l": "<b>这个对局的胜负手是\"控制的干净程度\"。</b>贼的控制被牧师的持续伤害破掉一次，往往就是一整轮的击杀机会没了。<b>沟通成本在这个对局是最高的。</b>"
+   },
+   {
+    "id": "melee2",
+    "n": "双近战",
+    "c": "var(--no)",
+    "eg": [
+     "战士+DK",
+     "DH+武僧",
+     "双贼"
+    ],
+    "one": "牧师会被压死。贼的第一职责变成\"剥离\"。",
+    "threat": "<b>两个近战会一起黏在牧师身上。</b>而牧师没有位移，他自己摆脱不了——<b>这是这个组合最难受的对局类型。</b>",
+    "r": "<b>你的工作从\"杀人\"变成\"剥离\"。</b>控住其中一个（<sk>致盲</sk>/<sk>闷棍</sk>/<sk>卸除武装</sk>），让牧师至少只用面对一个人。<br><b><sk>烟雾弹</sk> 在这个对局价值极高</b>——罩住牧师，两个近战都点不到他。<br>击杀机会要在剥离成功之后才找。",
+    "p": "<b>接受\"我会一直被贴着\"这个现实，然后围绕它规划。</b><br>多用瞬发、提前铺、<sk>痛苦压制</sk> 留到被控时用。<br><b>主动、明确地告诉贼你需要剥离</b>——这不是麻烦别人，是战术分工。<br>柱子和站位是你不花冷却的保命手段。",
+    "l": "<b>这个对局赢不了\"对拼\"，只能赢\"生存\"。</b>撑到对面的爆发窗口都用完，你们才有窗口。<b>贼必须接受这一局他的击杀机会会很少。</b>"
+   },
+   {
+    "id": "ranged2",
+    "n": "双远程",
+    "c": "var(--ok)",
+    "eg": [
+     "法师+术士",
+     "双猎",
+     "法系组合"
+    ],
+    "one": "贼最舒服的对局。牧师要小心被集火。",
+    "threat": "远程能在你们够不到的地方输出。<b>而且他们的控制通常比近战多</b>——变形、恐惧、陷阱。",
+    "r": "<b>这是你最舒服的对局。</b>潜行接近、控制、爆发——远程职业普遍脆且缺乏近战应对手段。<br><b>但要注意他们的免疫牌</b>（<sk>寒冰屏障</sk>、<sk>虚空行走</sk>）和瞬发脱离。<br><b>柱子对你有利</b>：断视线让他们打不到，同时你能贴上去。",
+    "p": "<b>你会是被集火的那个</b>（远程点你比点贼容易）。<br>柱子、Phase Shift、提前铺——<b>不要站在开阔地</b>。<br>你的 <sk>纯净术</sk> 和 <sk>驱散魔法</sk> 在法系对局价值极高，<b>驱散他们的关键增益等于给贼白送一段窗口</b>。",
+    "l": "<b>双远程对局，\"地形\"是第三个队友。</b>贼靠柱子接近，牧师靠柱子躲输出——<b>两个人都该围绕柱子活动，而不是站在场中间。</b>"
+   },
+   {
+    "id": "mirror",
+    "n": "镜像 · 贼牧 vs 贼牧",
+    "c": "var(--ac)",
+    "eg": [
+     "敏锐+戒律",
+     "狂徒+戒律"
+    ],
+    "one": "拼的是控制的干净程度和法力效率，不是伤害。",
+    "threat": "对面跟你们有完全一样的工具。<b>所以赢的一方通常不是操作更快的，是失误更少的。</b>",
+    "r": "<b>先手价值极高，但别赌。</b>镜像里双方都能脱战重来，一次失败的开场只是浪费冷却。<br><b>你的核心任务是压对面的牧师</b>——对面贼杀不掉你们，但对面牧师死了他们就完了（反之亦然）。<br><b><sk>卸除武装</sk> 对镜像的贼极有效。</b>",
+    "p": "<b>驱散战是核心。</b>你解他给贼的增益，他解你的——<b>驱散更准的一方多出一整轮优势</b>。<br><b>法力效率决定谁先破产。</b>尽量用输出转治疗。<br>你会是对面贼的首要目标，<b>提前铺和站位比什么都重要</b>。",
+    "l": "<b>镜像的胜负点不在治疗量，在两件事：控制被打破的次数，和法力见底的先后。</b>两个都是配合问题，不是个人操作问题。"
+   },
+   {
+    "id": "nasty",
+    "n": "高威胁特化组合",
+    "c": "var(--no)",
+    "eg": [
+     "法师+奶骑（控制链）",
+     "DK+术士（沉默+恐惧）",
+     "双治疗"
+    ],
+    "one": "针对性极强的组合，需要专门的应对。",
+    "threat": "某些组合的工具刚好克制贼牧的弱点——<b>大量沉默/打断（牧师治不了）、或者极强的免疫（贼打不动）。</b>",
+    "r": "<b>面对高控制组合</b>：把 <sk>暗影斗篷</sk> 留给关键控制链，<sk>消失</sk> 留到最后。<br><b>面对双治疗</b>：这局你杀不掉人，<b>目标转成\"逼技能 + 保牧师\"</b>，把胜负交给消耗。",
+    "p": "<b>面对沉默/打断多的组合</b>：假读条是必修课，清点你的瞬发手段，<b>提前铺的价值被放大到最高</b>。<br><b>面对双治疗</b>：法力效率是唯一重要的事，尽量少硬读。",
+    "l": "<b>遇到明显克制的组合，先承认它，然后改目标。</b>从\"这局要赢\"改成\"这局要拖\"——<b>2v2 的消耗机制会给拖住的一方机会。</b>硬按原来的打法只会输得更快。"
+   }
+  ],
+  "members": [
+   {
+    "k": "r",
+    "cls": "R",
+    "label": "贼",
+    "icon": "classicon_rogue"
+   },
+   {
+    "k": "p",
+    "cls": "P",
+    "label": "牧师",
+    "icon": "classicon_priest"
+   }
+  ]
+ },
+ "roles": null,
+ "memb": null,
+ "play": null,
+ "quiz": [
+  {
+   "id": "r1",
+   "w": "r",
+   "d": 3,
+   "s": "你的窗口正开着，目标还有 <em>半管血</em>。这时候<em>你的牧师被两个人抓住了</em>，血在快速下降。",
+   "a": "继续收人还是回去救？",
+   "o": [
+    "继续收，杀掉目标就解围了",
+    "立刻放弃窗口回去救牧师",
+    "让牧师自己交道具",
+    "用 <sk>偷天换日</sk> 把仇恨拉过来，继续打"
+   ],
+   "r": 1,
+   "e": [
+    "半管血的目标在你窗口结束前不一定死，<b>而你的牧师可能先死</b>。这是拿确定的损失赌不确定的收益。",
+    "正解。<b>这个组合唯一的输法是牧师先死。</b>贼杀不掉人不会输——还有下一轮、还有消耗。<b>但牧师一死就是零。</b>目标只有一击就能死时才值得赌，半管血不值。",
+    "道具是最贵的资源，而且这不能替代你的判断。<b>牧师交了道具，如果控制链还有后续，他还是会死。</b>",
+    "<sk>偷天换日</sk> 转移的是威胁值，在 PvP 里对玩家的攻击目标影响有限——<b>它不能替代真正的控制或隔断。</b>"
+   ],
+   "k": "贼的第一职责是保证牧师不死，第二才是杀人。目标\"一击能死\"才值得赌，半管血不值。"
+  },
+  {
+   "id": "r2",
+   "w": "r",
+   "d": 1,
+   "s": "你准备 <sk>闷棍</sk> 对面治疗，开始击杀链。你的牧师<em>刚才在那个治疗身上挂了 <sk>暗言术：痛</sk></em>。",
+   "a": "现在闷棍会怎样？",
+   "o": [
+    "正常生效，闷棍不受持续伤害影响",
+    "持续伤害会立刻打破闷棍，控制白费",
+    "闷棍时长会缩短",
+    "需要先驱散"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>闷棍</sk> 是失能类控制，<b>受任何伤害立刻破</b>。",
+    "正解。<b>这是这个组合最高频的翻车点。</b><sk>暗言术：痛</sk> 每跳一次就会打破 <sk>闷棍</sk>。<b>控之前必须喊，让牧师停手并等持续伤害掉完。</b>这是纯沟通问题，不是操作问题——修好它，击杀率立刻上一档。",
+    "不是缩短，是直接破掉。",
+    "你不能驱散自己队友挂的伤害效果，而且这不是解法——解法是提前沟通。"
+   ],
+   "k": "失能类控制受伤即破。控之前要喊，队友的持续伤害跟你自己的一样致命。"
+  },
+  {
+   "id": "r3",
+   "w": "r",
+   "d": 2,
+   "s": "2v2，对面是<em>战士 + 死亡骑士</em>（双近战），两个人都黏在你的牧师身上。",
+   "a": "你这一局的核心工作是什么？",
+   "o": [
+    "全力输出，快速杀掉一个",
+    "剥离——控住其中一个，让牧师只用面对一个人",
+    "跟牧师站在一起互相保护",
+    "打消耗，拖到后期"
+   ],
+   "r": 1,
+   "e": [
+    "你的牧师撑不到你杀掉人。<b>双近战对局，牧师是先受不了的那个。</b>",
+    "正解。<b>双近战是这个组合最难受的对局，因为牧师没有位移、自己摆脱不了。</b>你的工作从\"杀人\"变成\"剥离\"：<sk>致盲</sk>/<sk>闷棍</sk>/<sk>卸除武装</sk> 控住一个，<b><sk>烟雾弹</sk> 罩住牧师让两个人都点不到他</b>。<b>击杀机会要在剥离成功之后才找。</b>",
+    "站在一起会让你也被压住，两个人一起被控。",
+    "打消耗方向可能对，但前提还是牧师得先活下来——<b>剥离是所有其他计划的前提。</b>"
+   ],
+   "k": "双近战对局，贼的第一工作是剥离不是击杀。牧师活下来才有后面的事。"
+  },
+  {
+   "id": "r4",
+   "w": "r",
+   "d": 2,
+   "s": "你的窗口结束，目标没死，你准备脱战重新 <sk>潜行</sk>。",
+   "a": "脱战之前该做什么？",
+   "o": [
+    "直接走，越快越好",
+    "喊一声让牧师一起撤",
+    "先补最后几下伤害",
+    "交 <sk>消失</sk> 保证安全"
+   ],
+   "r": 1,
+   "e": [
+    "默默走是这个组合最常见的死法之一——<b>牧师还在原地输出，然后被落单抓死。</b>",
+    "正解。<b>撤退必须是同步的。</b>牧师没有位移，落单就是送。<b>他留在原地那点伤害，永远不值一次被抓的风险。</b>贼要喊撤，牧师要跟。",
+    "补伤害是恋战。窗口结束后的零散伤害会被治疗抹平（敏锐尤其如此）。",
+    "<sk>消失</sk> 是最贵的资源，正常脱战不需要用它。"
+   ],
+   "k": "撤退要同步。贼有位移可以随时走，牧师没有——所以撤之前必须喊。"
+  },
+  {
+   "id": "r5",
+   "w": "r",
+   "d": 3,
+   "s": "连续三轮，你都把目标打到 <em>30% 左右</em>就被对面治疗拉回去。你们的蓝和冷却都在消耗。",
+   "a": "该改什么？",
+   "o": [
+    "再打狠一点，多试几轮",
+    "跟牧师商量转消耗——承认打不穿，改成逼技能和保人",
+    "换目标打对面治疗",
+    "让牧师少奶多打"
+   ],
+   "r": 1,
+   "e": [
+    "同样的打法打三次得到同样的结果，<b>而且你们的资源在消耗，对面的也在——但 2v2 的消耗机制对进攻方更不利。</b>",
+    "正解。<b>\"什么时候认打不穿\"是 2v2 独有的判断。</b>连续三轮同一血线说明纯靠伤害赢不了。<b>转消耗之后两个人的工作都变：贼从追击杀转成逼技能+绝不白挨伤害，牧师转成最大化法力效率。</b>关键是<b>两个人要同时转</b>——一个人还在追击杀会破坏整个计划。",
+    "换目标打治疗在 2v2 通常更难（治疗自保能力强）。",
+    "\"少奶多打\"方向有一半对（戒律牧的输出就是治疗），但没有回答\"整体策略要不要变\"。"
+   ],
+   "k": "2v2 打不穿要认，而且要两个人同时认。策略转换必须是同步的，一个人还在追击杀就等于没转。"
+  },
+  {
+   "id": "r6",
+   "w": "r",
+   "d": 2,
+   "s": "对面是<em>法师 + 治疗</em>。法师刚刚用掉了 <sk>法术反制</sk>。",
+   "a": "这个信息该告诉牧师吗？",
+   "o": [
+    "不用，那是我自己的信息",
+    "要——那是牧师能安全读条的窗口",
+    "等他问再说",
+    "自己记住就行"
+   ],
+   "r": 1,
+   "e": [
+    "你看到的信息如果只有你知道，对队友就等于不存在。",
+    "正解。<b>对面打断的冷却，对牧师比对你更重要。</b>牧师需要读条治疗，<sk>法术反制</sk> 在冷却意味着<b>他可以放心读大治疗</b>。<b>2v2 里信息共享是配合的一部分——贼视野好（经常在对面身后），看到的东西要说出来。</b>",
+    "等他问就晚了，那个窗口只有几秒。",
+    "自己记住只对自己有用，而这个信息主要是给牧师用的。"
+   ],
+   "k": "2v2 里信息也是资源。你看到的东西如果对队友更有用，就要立刻说。"
+  },
+  {
+   "id": "r7",
+   "w": "r",
+   "d": 1,
+   "s": "你正在打对面的目标。你的牧师喊\"我被抓了\"，但他<em>血量还很健康</em>。",
+   "a": "怎么理解这个信号？",
+   "o": [
+    "血还健康，不用管",
+    "这是正确的沟通时机——他在给你判断的时间，不是在求救",
+    "他太紧张了",
+    "让他先自己撑"
+   ],
+   "r": 1,
+   "e": [
+    "等血危险了才喊，你就没有判断时间了，只能被动救火。",
+    "正解。<b>被贴上的第一时间就说，是正确的做法。</b>他在给你判断的时间——<b>你可以从容决定\"收完再回\"还是\"立刻放弃窗口\"</b>，而不是被迫做紧急处置。<b>好的沟通是提前给信息，不是危急时喊救命。</b>",
+    "这不是紧张，是标准的信息同步。",
+    "\"先自己撑\"是他应该做的（用瞬发），但不代表他不该说。"
+   ],
+   "k": "好的队内沟通是提前给信息，不是危急时喊救命。早说 = 给队友判断时间。"
+  },
+  {
+   "id": "r8",
+   "w": "r",
+   "d": 3,
+   "s": "2v2 对面是<em>双 DPS，没有治疗</em>。你习惯性地想先 <sk>闷棍</sk> 一个人然后打消耗。",
+   "a": "这个思路有问题吗？",
+   "o": [
+    "没问题，标准开局",
+    "有——没有对面治疗，消耗对你们没意义，应该抢先手全力压",
+    "应该先打伤害高的那个",
+    "应该退防守"
+   ],
+   "r": 1,
+   "e": [
+    "\"标准开局\"是针对有治疗的对局形成的习惯。",
+    "正解。<b>无治疗对局是\"谁先死\"的比赛，不是消耗。</b>你的伤害不会被抹平，所以全力压是对的。<b>而且拖久了对你们更不利</b>——两个 DPS 的伤害叠起来，你们只有一个治疗。<b>抢先手、选更脆的那个、全力打。</b>",
+    "目标选择上通常选\"更脆、更没保命\"的，不一定是伤害最高的。",
+    "退防守把主动权交给对面，而这个对局主动权就是一切。"
+   ],
+   "k": "对面没有治疗时，消耗是没有意义的。把打有治疗的习惯照搬过来会输在节奏上。"
+  },
+  {
+   "id": "p1",
+   "w": "p",
+   "d": 1,
+   "s": "你的贼喊\"我要闷棍治疗了\"。你正在对那个治疗输出，身上还挂着你的 <sk>暗言术：痛</sk>。",
+   "a": "现在做什么？",
+   "o": [
+    "继续输出，多打一点是一点",
+    "立刻停手，并确认目标身上的持续伤害掉完",
+    "换个目标输出",
+    "先驱散自己"
+   ],
+   "r": 1,
+   "e": [
+    "<b>你的持续伤害会立刻打破 <sk>闷棍</sk></b>——这一下会让贼的整个击杀链作废。",
+    "正解。<b>停手不只是\"不按新技能\"，还要确认已经挂上去的持续伤害掉完。</b><sk>暗言术：痛</sk> 每跳一次就破一次控制。<b>这是这个组合最高频的翻车点，而且完全是沟通和习惯问题。</b>",
+    "换目标是对的方向，但如果原目标身上的持续伤害还在跳，问题依然存在。",
+    "驱散不能移除你自己给敌人挂的伤害效果。"
+   ],
+   "k": "队友要控的时候，\"停手\"包括等你已经挂上去的持续伤害掉完。"
+  },
+  {
+   "id": "p2",
+   "w": "p",
+   "d": 2,
+   "s": "你的贼进场开始打目标。你刚铺完 <sk>救赎</sk>，正准备继续铺给自己。",
+   "a": "现在最该做什么？",
+   "o": [
+    "继续铺救赎，把准备做扎实",
+    "立刻开始对同一个目标输出",
+    "读一个治疗预备",
+    "观察局势"
+   ],
+   "r": 1,
+   "e": [
+    "准备阶段应该在贼进场之前完成。<b>他进场之后你还在做准备，等于这一轮只有一个人在打。</b>",
+    "正解。<b>贼进场的那一刻你就该在输出。</b>2v2 只有两个伤害源，<b>不叠在同一个窗口就打不穿对面治疗</b>——这是这个组合最基本的乘法。而且你的伤害通过 <sk>救赎</sk> 同时在回血，不存在\"输出就没治疗\"的取舍。",
+    "没人掉血的时候读治疗是纯浪费。",
+    "\"观察\"在贼已经进场时太被动了。"
+   ],
+   "k": "2v2 只有两个伤害源，必须叠在同一个目标同一个窗口。牧师不能等贼打出伤害才跟。"
+  },
+  {
+   "id": "p3",
+   "w": "p",
+   "d": 2,
+   "s": "你被一个近战贴上了，血量还健康。你的贼正在窗口里打对面的目标。",
+   "a": "现在做什么？",
+   "o": [
+    "默默用瞬发撑住，别打扰贼",
+    "立刻告诉贼，同时自己用瞬发撑住",
+    "立刻喊救命",
+    "交解控道具"
+   ],
+   "r": 1,
+   "e": [
+    "默默硬扛是这个组合最常见的失败模式。<b>贼在窗口里是\"瞎\"的，他根本不知道你的处境。</b>",
+    "正解。<b>两件事同时做。</b>① 立刻说——<b>血还健康的时候说，是给贼判断的时间</b>，让他能从容决定收完再回还是立刻放弃窗口；② 自己先用瞬发撑住（<sk>真言术：盾</sk>、<sk>痛苦压制</sk>）。<b>一被抓就交光所有牌等着被救，贼救回来之后你们依然是裸的。</b>",
+    "血还健康就喊救命，会让贼误判紧急程度、过早放弃一个可能能成的窗口。<b>说状态，不是喊救命。</b>",
+    "道具是最贵的资源，血健康时交是浪费。"
+   ],
+   "k": "被抓的第一时间就说状态（不是喊救命），同时自己先用便宜手段撑住。"
+  },
+  {
+   "id": "p4",
+   "w": "p",
+   "d": 3,
+   "s": "你的贼被对面集火，血量在掉。你手上有满连击点式的选择：可以停下来读大治疗，也可以继续输出。",
+   "a": "哪个更好？",
+   "o": [
+    "停下来读大治疗，先把血补上",
+    "继续输出——救赎让你的伤害就是治疗，而且更省蓝",
+    "两个交替",
+    "先交 <sk>痛苦压制</sk>"
+   ],
+   "r": 1,
+   "e": [
+    "硬读治疗是戒律牧最低效的模式：<b>又贵又慢，而且你放弃了伤害。</b>",
+    "正解。<b>贼被抓的时候，牧师反而该加大输出。</b>救赎已经铺着的情况下，你的输出既在治疗他，又在给对面压力，<b>而且蓝耗远低于直接治疗</b>。<b>停下来硬读治疗是双输：治得少，伤害也没了。</b>",
+    "交替会让两边都不到位。",
+    "<sk>痛苦压制</sk> 是外部减伤，血刚开始掉时太早——<b>而且它该在队友血量高的时候预防性使用，不是等血低才补救</b>（这是官方明确强调的）。这里的问题是\"输出还是治疗\"。"
+   ],
+   "k": "贼被抓时牧师该加大输出。救赎让输出＝治疗，停下来硬读是双输。"
+  },
+  {
+   "id": "p5",
+   "w": "p",
+   "d": 2,
+   "s": "你的队友血量还很健康，但你看到对面惩戒骑的<em>翅膀亮了</em>。你的 <sk>痛苦压制</sk> 是好的。",
+   "a": "什么时候用痛苦压制？",
+   "o": [
+    "等他血掉到 30% 再用",
+    "现在就用，在他血量高的时候",
+    "等他血掉一半再用",
+    "不用，留给更危险的时候"
+   ],
+   "r": 1,
+   "e": [
+    "等血低了才用是补救，<b>而爆发窗口的伤害是集中落下的</b>——你可能来不及。",
+    "正解。<b>官方攻略明确强调：<sk>痛苦压制</sk> 要在队友血量高的时候用，不要等到血低。</b>它是减伤不是治疗——<b>在伤害到来之前挂上，才能减掉整个爆发窗口的伤害</b>。等血低了再挂，前面那些伤害你已经吃满了。",
+    "同上，还是补救思维。",
+    "\"留给更危险的时候\"跟这个技能的用法矛盾——预防性减伤越早越值钱。"
+   ],
+   "k": "痛苦压制是预防不是补救。在队友血量高、爆发标志亮起时就用。"
+  },
+  {
+   "id": "p6",
+   "w": "p",
+   "d": 3,
+   "s": "2v2 消耗阶段（dampening），你的法力剩 <em>40%</em>。你的贼还在积极找击杀机会。",
+   "a": "你该做什么？",
+   "o": [
+    "跟着他打，保持压力",
+    "告诉他你的法力状态——那决定你们还能打几轮",
+    "停止输出，纯省蓝",
+    "交所有剩余的牌搏一把"
+   ],
+   "r": 1,
+   "e": [
+    "跟着打没错，<b>但他不知道你还剩多少蓝，就没法判断该拼还是该拖。</b>",
+    "正解。<b>牧师的法力是这个组合真正的血条，而只有你知道它还剩多少。</b>贼需要这个信息来决定策略：<b>蓝还多 → 可以继续找机会；蓝快见底 → 必须立刻转成\"这一轮就是最后一轮\"的打法。</b><b>复位阶段的沟通要包含三件事：对面还剩什么、我们还剩什么、下一轮打谁。</b>",
+    "完全停止输出反而更费蓝——<b>戒律牧的输出是最省蓝的治疗方式</b>。",
+    "搏一把在没有共识的情况下会变成\"你交了牌但队友没跟\"。"
+   ],
+   "k": "牧师的法力是团队信息，不是个人信息。只有你知道它，所以你必须主动说。"
+  },
+  {
+   "id": "p7",
+   "w": "p",
+   "d": 2,
+   "s": "对面是<em>双近战</em>，两个人都在你身上。你的贼正在努力剥离其中一个。",
+   "a": "你该怎么调整？",
+   "o": [
+    "尽量输出，帮贼快点解决",
+    "接受\"我会一直被贴着\"，围绕它规划：多用瞬发、提前铺、保命牌留到被控时",
+    "疯狂跑位",
+    "交所有保命牌"
+   ],
+   "r": 1,
+   "e": [
+    "被两个近战压着时你几乎没有安稳施法窗口，<b>硬追求输出会让你死得更快。</b>",
+    "正解。<b>双近战对局是这个组合最难受的类型，而牧师没有位移。</b>正确做法是围绕现实规划：① 多用瞬发维持基本盘；② <b>提前铺，因为你随时会被打断</b>；③ <sk>痛苦压制</sk> 留到被控时用（它被眩晕时也能按）；④ <b>主动、明确地要求贼剥离</b>。",
+    "纯跑位会让你完全失去治疗输出，而且你跑不过近战。",
+    "一次交光，对面第二波来时你就裸了。"
+   ],
+   "k": "摆脱不了的时候，围绕\"被缠住\"重新规划打法，而不是徒劳地想摆脱。"
+  },
+  {
+   "id": "p8",
+   "w": "p",
+   "d": 1,
+   "s": "2v2 开局，你和贼都还没接触对面。你站在场地中间开阔处，正在给贼铺 <sk>救赎</sk>。",
+   "a": "有什么问题？",
+   "o": [
+    "没问题，铺救赎是对的",
+    "站位有问题——开局第一件事是找好安全位置，不是找输出机会",
+    "应该先铺给自己",
+    "应该先观察"
+   ],
+   "r": 1,
+   "e": [
+    "铺救赎是对的动作，<b>但站在开阔处做这件事是错的位置。</b>",
+    "正解。<b>牧师开局第一件事是建立生存底盘（柱子、掩体、跟贼的相对位置），不是找输出机会。</b><b>最常见的开局错误是牧师站得太靠前，导致贼一开场就得先回来救他</b>——那等于把整局的节奏权白白让出去。",
+    "铺给自己和铺给贼都对，问题不在铺给谁。",
+    "观察是贼的活（他在潜行里侦察），你的活是站好位置。"
+   ],
+   "k": "牧师开局的第一件事是站位，不是输出准备。站错位置会让贼的整局节奏都被拖累。"
+  },
+  {
+   "id": "b1",
+   "w": "b",
+   "d": 3,
+   "s": "你们俩<em>都被控制/压制</em>，两个人都动不了或者动得很难受。",
+   "a": "谁该主动打破僵局？",
+   "o": [
+    "牧师，因为他要保证治疗",
+    "贼，因为他的机动性更好",
+    "谁先脱困谁来",
+    "两个人都专心自保"
+   ],
+   "r": 1,
+   "e": [
+    "牧师没有位移，他打破不了僵局——<b>他能做的只有活着。</b>",
+    "正解。<b>贼的机动性决定了他是那个应该主动打破僵局的人。</b>而且<b>僵局的破口永远在\"牧师那边\"</b>——贼脱离之后应该去控住压牧师的那个人，而不是跟贴着自己的人对拼。<b>两个人不能同时防守，必须有一个转向进攻性的解法。</b>",
+    "\"谁先脱困谁来\"听起来灵活，但会导致两个人都在等对方。",
+    "两个人都自保 = 没有人在解决问题，僵局会一直持续到有人死。"
+   ],
+   "k": "两个人不能同时防守。机动性好的那个负责打破僵局，而破口在治疗那一边。"
+  },
+  {
+   "id": "b2",
+   "w": "b",
+   "d": 2,
+   "s": "一次交战中，贼交了解控道具。几秒后，牧师也进入了一个可以用道具解开的控制。",
+   "a": "牧师该交吗？",
+   "o": [
+    "交，两个人的道具是各自的",
+    "慎重——2v2 只有两张道具，都交光的话下一次控制链可能直接结束比赛",
+    "一定要交，牧师的命最重要",
+    "看血量决定"
+   ],
+   "r": 1,
+   "e": [
+    "道具虽然是各自的，<b>但在 2v2 里它是团队资源</b>——它保护的是\"你们还有多少次容错\"。",
+    "正解。<b>2v2 只有两张解控道具，交光了，任何一次控制链都可能直接结束比赛。</b><b>两个人不该在同一轮都交道具</b>——留一张在手上，对面的击杀链就永远差一环。所以牧师要先判断：能不能用别的手段撑过去（<sk>痛苦压制</sk>、提前铺的护盾、贼的救援）。",
+    "\"最重要\"是对的方向，但不代表要立刻交最贵的牌。<b>先看有没有更便宜的解法。</b>",
+    "血量是判据之一，但不是全部——还要看对面还有没有后续控制。"
+   ],
+   "k": "2v2 里解控道具是团队资源。两个人不该在同一轮都交光，留一张对面的击杀链就永远差一环。"
+  },
+  {
+   "id": "b3",
+   "w": "b",
+   "d": 3,
+   "s": "你们在复位阶段（脱战重整），准备开下一轮。",
+   "a": "这几秒最该做的是什么？",
+   "o": [
+    "各自恢复资源就行",
+    "把三件事对齐：对面还剩什么、我们还剩什么、下一轮打谁",
+    "立刻重新开，不给对面喘息",
+    "讨论刚才哪里做错了"
+   ],
+   "r": 1,
+   "e": [
+    "各自恢复是必要的，<b>但如果不对齐信息，你们会带着不同的假设进入下一轮。</b>",
+    "正解。<b>复位阶段是唯一能沟通的时间。</b>三件事：① 对面还剩什么（免疫、保命、道具）；② 我们还剩什么（贼的冷却、牧师的蓝和牌）；③ 下一轮打谁、用什么策略（继续追击杀还是转消耗）。<b>不对齐就重新开，等于把上一轮辛苦得到的信息全扔了。</b>",
+    "\"不给喘息\"在你们自己也没恢复的情况下是自杀。",
+    "复盘应该在赛后，<b>比赛中的沟通要面向下一个决策</b>，不是回顾。"
+   ],
+   "k": "复位阶段要对齐三件事：对面还剩什么、我们还剩什么、下一轮打谁。这是唯一的沟通窗口。"
+  },
+  {
+   "id": "b4",
+   "w": "b",
+   "d": 2,
+   "s": "贼准备用眩晕控住目标，牧师同时想用 <sk>心灵尖啸</sk> 控住同一个人。",
+   "a": "这样做会怎样？",
+   "o": [
+    "双保险，控得更久",
+    "浪费——但不是因为递减，两个是不同类别",
+    "会触发递减，第二个只剩一半",
+    "完全无效"
+   ],
+   "r": 1,
+   "e": [
+    "同时用不会更久，两个控制会重叠。",
+    "正解。<b>眩晕类和恐惧类是不同的递减类别，所以它们不共享递减</b>——正因为如此，它们<b>应该接成长链而不是同时用</b>：先眩晕，眩晕结束接恐惧，目标会被锁住很长时间。<b>同时用是把这个优势浪费掉了。</b>",
+    "这是常见误解——它们是不同类别，不触发彼此的递减。<b>但同时用依然是浪费，因为重叠了。</b>",
+    "不是无效，是重叠浪费。"
+   ],
+   "k": "不同类别的控制应该接成长链，不是同时放。同时放不吃递减但会重叠，等于扔掉一个。"
+  },
+  {
+   "id": "b5",
+   "w": "b",
+   "d": 1,
+   "s": "对面是<em>双 DPS 没有治疗</em>。牧师习惯性地想站远一点专心治疗。",
+   "a": "这个思路对吗？",
+   "o": [
+    "对，安全第一",
+    "不对——无治疗对局需要两个人的伤害才够，牧师站着奶是错的",
+    "对，但要偶尔输出",
+    "要看具体职业"
+   ],
+   "r": 1,
+   "e": [
+    "安全重要，但<b>\"站着奶\"在无治疗对局是效率最低的模式。</b>",
+    "正解。<b>没有对面治疗意味着你的伤害是纯收益，不会被抹平。</b>而且这个对局是\"谁先死\"的比赛——<b>你们需要的伤害量只有两个人一起打才够</b>。同时救赎回血足够撑住，你不需要靠硬读治疗维持。<b>两个人都该偏进攻。</b>",
+    "\"偶尔\"太保守了，这个对局应该是主要在输出。",
+    "职业细节影响战术，但不改变\"无治疗对局要抢先手\"这个结构判断。"
+   ],
+   "k": "对面没治疗时，牧师要当第二个 DPS。你们需要的伤害量只有两个人一起打才够。"
+  },
+  {
+   "id": "b6",
+   "w": "b",
+   "d": 2,
+   "s": "贼看到对面法师的 <sk>寒冰屏障</sk> 刚刚用掉。牧师看到对面治疗的大保命刚交。",
+   "a": "这两个信息该怎么处理？",
+   "o": [
+    "各自记住，用在自己的判断上",
+    "立刻互相同步——两个信息合起来才构成\"现在能杀\"的判断",
+    "等复位时再说",
+    "只有贼需要知道"
+   ],
+   "r": 1,
+   "e": [
+    "<b>信息分散在两个人手里，任何一个都不完整。</b>",
+    "正解。<b>贼知道\"目标没有免疫了\"，牧师知道\"对面治疗没有大牌了\"——这两个信息合起来才是\"现在可以全力打\"。</b>各自记住的话，可能贼在等牧师、牧师在等贼，机会就过去了。<b>2v2 里信息共享本身就是战斗力。</b>",
+    "等复位就晚了，这些窗口都是有时限的。",
+    "两个人都需要——牧师也要知道该不该切换到进攻模式。"
+   ],
+   "k": "2v2 的判断经常需要两个人的信息合起来。看到关键冷却被用掉，立刻说。"
+  },
+  {
+   "id": "b7",
+   "w": "b",
+   "d": 3,
+   "s": "镜像对局：贼牧 vs 贼牧。双方都打不穿，比赛进入僵持。",
+   "a": "胜负最可能在哪里分出？",
+   "o": [
+    "谁的伤害更高",
+    "谁的控制被打破的次数更少，以及谁的法力先见底",
+    "谁的操作更快",
+    "谁的装备更好"
+   ],
+   "r": 1,
+   "e": [
+    "镜像里双方工具相同，伤害差距不会很大。",
+    "正解。<b>镜像的胜负点是两件事，而且都是配合问题不是个人操作问题：</b>① <b>控制被打破的次数</b>——牧师的持续伤害破掉贼的闷棍一次，就是一整轮击杀机会没了；② <b>法力见底的先后</b>——谁的牧师先破产谁输。<b>这两件事都靠沟通和纪律，不靠手速。</b>",
+    "手速在镜像里的作用远小于配合质量。",
+    "装备接近的情况下不构成胜负点。"
+   ],
+   "k": "镜像对局赢的是失误更少的一方，不是操作更快的。控制干净度和法力效率都是配合问题。"
+  },
+  {
+   "id": "b8",
+   "w": "b",
+   "d": 2,
+   "s": "你们遇到一个明显克制的组合（比如大量沉默让牧师治不了，或者极强免疫让贼打不动）。",
+   "a": "该怎么调整？",
+   "o": [
+    "硬按原来的打法，多打几轮总有机会",
+    "承认被克制，把目标从\"赢\"改成\"拖\"——2v2 的消耗机制会给拖住的一方机会",
+    "立刻放弃",
+    "换个目标打"
+   ],
+   "r": 1,
+   "e": [
+    "遇到克制还硬按原打法，<b>只会输得更快</b>——因为你们的每一轮都在消耗资源，而对面的克制手段是结构性的。",
+    "正解。<b>遇到明显克制的组合，先承认它，然后改目标。</b>从\"这局要赢\"改成\"这局要拖\"：贼转成逼技能+保牧师，牧师转成最大化法力效率。<b>2v2 的消耗机制会给拖住的一方机会</b>——只要你们能撑得比对面久，克制关系会被消耗抹平一部分。",
+    "放弃太早，消耗机制还没给你机会。",
+    "换目标可能有帮助，但没解决\"结构性克制\"这个根本问题。"
+   ],
+   "k": "遇到克制先承认，再改目标。从\"要赢\"改成\"要拖\"，让消耗机制替你工作。"
+  },
+  {
+   "id": "r9",
+   "w": "r",
+   "d": 2,
+   "s": "你在 <sk>潜行</sk> 里准备开场。你的牧师<em>站在开阔地</em>，离柱子很远。",
+   "a": "该先做什么？",
+   "o": [
+    "正常开场，站位是他自己的事",
+    "先提醒他调整位置，再开场",
+    "等他自己发现",
+    "把开场目标改成离他近的那个"
+   ],
+   "r": 1,
+   "e": [
+    "<b>在 2v2 里，队友的站位就是你的事</b>——他站错了，你的整个进攻计划都会被\"回去救他\"打断。",
+    "正解。<b>牧师站得太靠前，是这个组合最常见的开局错误。</b>你一开场进攻，对面立刻反手抓他，<b>你就得放弃刚建立的优势回防</b>——等于把整局的节奏权白白让出去。<b>花三秒提醒，比花整局补救便宜。</b>",
+    "等他发现的时候，通常已经被抓了。",
+    "改目标不解决根本问题——他的位置依然危险。"
+   ],
+   "k": "开场前先看队友的位置。牧师站错位，贼的整局节奏都会被拖累。"
+  },
+  {
+   "id": "r10",
+   "w": "r",
+   "d": 3,
+   "s": "目标只剩<em>一点点血</em>，你的 <sk>肾击</sk> 能收掉他。同时牧师喊\"我被抓了\"，血量<em>还有一半</em>。",
+   "a": "怎么选？",
+   "o": [
+    "立刻回去救牧师",
+    "收掉目标——他一击就能死，这正是\"值得赌\"的情况",
+    "两边都顾，先控一下再回头收",
+    "让牧师交道具"
+   ],
+   "r": 1,
+   "e": [
+    "<b>\"永远优先救牧师\"是把原则背成了教条。</b>牧师还有一半血且刚被抓，他能撑住几秒；而目标一击就死——放掉这次击杀，你们可能整局都等不到第二次。",
+    "正解。<b>原则是\"目标一击能死才值得赌\"，这题正好是那个例外。</b>牧师半血、刚被抓，有 <sk>真言术：盾</sk> 和 <sk>痛苦压制</sk> 能撑；而击杀一旦完成，<b>2v2 就变成 2v1，局面直接结束</b>。<b>收完立刻回防</b>。",
+    "\"两边都顾\"会导致目标没收掉、牧师也没救到——<b>2v2 里最忌讳半吊子</b>。",
+    "让他交道具是可能的补充，但不能替代你的判断——而且道具很贵。"
+   ],
+   "k": "\"优先救牧师\"是默认值不是铁律。判据是\"目标一击能死吗\"——能，就收完再回。"
+  },
+  {
+   "id": "p9",
+   "w": "p",
+   "d": 2,
+   "s": "贼喊\"撤\"，但你手上正好攒着一发能打出去的伤害，目标血线也不低。",
+   "a": "打不打？",
+   "o": [
+    "打完这一发再撤，不差这一秒",
+    "立刻跟着撤",
+    "看贼撤到哪再决定",
+    "打完并且再补一个治疗"
+   ],
+   "r": 1,
+   "e": [
+    "<b>\"不差这一秒\"正是牧师被抓死的标准剧本。</b>贼已经脱离，对面的注意力会立刻转到你身上——而你没有位移。",
+    "正解。<b>撤退必须同步。</b>你留在原地那点伤害，<b>永远不值一次被抓的风险</b>。而且贼撤了之后，对面两个人的注意力全在你身上——落单的牧师是这个组合最脆弱的状态。",
+    "\"看情况\"会让你多站几秒，而那几秒正是危险窗口。",
+    "这是最糟的选项，在原地多做两个动作。"
+   ],
+   "k": "贼喊撤就撤，不要贪最后一发。牧师落单是这个组合最脆弱的状态。"
+  },
+  {
+   "id": "p10",
+   "w": "p",
+   "d": 3,
+   "s": "贼正在窗口里全力收人，你注意到<em>对面治疗正在读一个大治疗</em>。你的 <sk>心灵尖啸</sk> 是好的。",
+   "a": "现在做什么？",
+   "o": [
+    "继续输出，帮贼多打一点",
+    "用控制或打断阻止那个大治疗",
+    "读一个治疗给贼预备",
+    "什么都不做，看结果"
+   ],
+   "r": 1,
+   "e": [
+    "你多打的那点伤害，<b>会被那个正在读的大治疗直接抹平</b>——净收益接近零。",
+    "正解。<b>贼在窗口里是\"瞎\"的，他全部注意力在目标身上。</b>你这几秒的核心工作是<b>当他的眼睛：挡掉对面的救援动作</b>。阻止一个大治疗的价值，远大于你多打的那几下伤害。<b>这就是\"耦合点\"——贼负责输出，牧师负责让没人能救他。</b>",
+    "贼在输出不需要预备治疗，而且这浪费了阻止救援的窗口。",
+    "看结果是把主动权交给对面。"
+   ],
+   "k": "贼在窗口里时，牧师的核心工作是\"不让人救他\"，不是多打几下伤害。"
+  },
+  {
+   "id": "p11",
+   "w": "p",
+   "d": 1,
+   "s": "对面是<em>双远程</em>（法师+术士），你站在场地中间。",
+   "a": "最要紧的调整是什么？",
+   "o": [
+    "多加治疗，扛住输出",
+    "移动到柱子附近——不要站在开阔地",
+    "交所有减伤",
+    "让贼快点杀人"
+   ],
+   "r": 1,
+   "e": [
+    "扛输出是最被动的方案，而且双远程的持续输出会耗干你的蓝。",
+    "正解。<b>双远程对局，\"地形\"是第三个队友。</b>你会是被集火的那个（远程点你比点贼容易）。<b>柱子不花任何冷却，但能断掉他们大部分的输出</b>。贼靠柱子接近，你靠柱子躲输出——<b>两个人都该围绕柱子活动，而不是站在场中间。</b>",
+    "一次交光，后面就裸了。",
+    "催队友不是你能控制的事，站位是。"
+   ],
+   "k": "打远程先解决\"视线\"不是\"血量\"。柱子是不花冷却的减伤。"
+  },
+  {
+   "id": "b9",
+   "w": "b",
+   "d": 2,
+   "s": "这一轮你们两个都把爆发和保命交得差不多了，但没杀掉人。对面看起来资源比你们充裕。",
+   "a": "下一轮该怎么打？",
+   "o": [
+    "再拼一轮，赌对面失误",
+    "拖——绕柱子、脱战、等冷却，把节奏慢下来",
+    "分头行动，分散对面注意力",
+    "换目标"
+   ],
+   "r": 1,
+   "e": [
+    "资源劣势时拼，是把劣势放大。<b>对面有牌你没有，正面对撞必输。</b>",
+    "正解。<b>2v2 有脱战重来的机制，资源劣势时\"拖\"是免费的补救手段。</b>绕柱子、断视线、脱战——<b>让你们的冷却先转好，把资源差距抹平，再重新开始</b>。这时候贼的机动性和潜行是团队资产，不只是他个人的。",
+    "<b>分头行动在 2v2 是自杀</b>——牧师落单必死。",
+    "换目标不改变资源劣势这个事实。"
+   ],
+   "k": "2v2 资源劣势时，拖时间是免费的补救。脱战重来把差距抹平，再重新开始。"
+  },
+  {
+   "id": "b10",
+   "w": "b",
+   "d": 3,
+   "s": "你们在 2v2 打到消耗后期（dampening 很高），双方都很难杀死人。牧师的蓝还剩 <em>30%</em>，对面治疗看起来蓝更多。",
+   "a": "这局该怎么赢？",
+   "o": [
+    "疯狂进攻，趁还有资源",
+    "逼对面治疗多花蓝——用持续压力，而不是一次性爆发",
+    "完全防守，等对面失误",
+    "放弃这局"
+   ],
+   "r": 1,
+   "e": [
+    "疯狂进攻在高消耗阶段的伤害会被大幅削减，<b>而且会加速你们的蓝见底</b>。",
+    "正解。<b>蓝的劣势要用\"逼对面多花\"来弥补，不是用\"我们省一点\"。</b>持续的中等压力会逼对面治疗不断施法，<b>而一次性爆发被顶住之后，对面反而能停下来回蓝</b>。<b>贼：保持压力但绝不白挨伤害；牧师：最大化输出转治疗的比例（那是最省蓝的治疗方式）。</b>",
+    "纯防守让对面自由回蓝，蓝差会越拉越大。",
+    "30% 蓝在消耗后期还能打不少轮。"
+   ],
+   "k": "法力劣势不能靠省，要靠逼对面花。持续压力比一次性爆发更能榨干对面治疗。"
+  },
+  {
+   "id": "b11",
+   "w": "b",
+   "d": 1,
+   "s": "开局前的准备阶段，你们在讨论这一局怎么打。",
+   "a": "最该先对齐的是什么？",
+   "o": [
+    "各自的技能循环",
+    "先打谁、谁控谁",
+    "装备和天赋",
+    "对面的段位"
+   ],
+   "r": 1,
+   "e": [
+    "循环是个人操作，不需要对齐。",
+    "正解。<b>2v2 开局最该对齐的两件事：击杀目标是谁、控制怎么分工。</b>控制分工尤其重要——<b>通常是贼用失能类（<sk>闷棍</sk>/<sk>致盲</sk>）处理对面治疗，牧师的 <sk>心灵尖啸</sk> 留给突发</b>。分工乱了就会互相打断，那是这个组合最高频的翻车点。",
+    "天赋在进场前就定了，不是开局讨论的内容。",
+    "段位不影响你们的战术选择。"
+   ],
+   "k": "开局对齐两件事：打谁、谁控谁。控制分工不清是这个组合最高频的失败原因。"
+  },
+  {
+   "id": "x1",
+   "w": "r",
+   "d": 2,
+   "s": "【贼】你窗口正开，目标（法师）<em>40%</em>。此刻<em>牧师喊\"我被贴上了\"</em>，他血量还有八成。你的 <sk>烟雾弹</sk>、<sk>致盲</sk>、<sk>肾击</sk> 都可用。",
+   "a": "最省的处置是什么？",
+   "o": [
+    "<sk>致盲</sk> → 抓牧师的那个人（要跑过去）",
+    "<sk>烟雾弹</sk> → 罩住牧师（一个 GCD，不用离开目标）",
+    "立刻脱离窗口回去",
+    "<sk>肾击</sk> → 继续打目标，让牧师自己扛"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>致盲</sk> 有效，<b>但你要跑过去，会丢掉窗口</b>——牧师血量还有八成，不需要这么贵的处置。",
+    "正解。<b><sk>烟雾弹</sk> 的防守用法只花一个 GCD，而且你不用离开目标</b>——烟外的敌人无法选中烟内的人。<b>这是\"一个动作解决两个问题\"的典型：牧师安全了，你的窗口还在继续。</b>先找最省的解法，别一上来就用最贵的。",
+    "八成血就放弃窗口太早了。",
+    "完全不管会让\"被贴上\"发展成\"被抓死\"。"
+   ],
+   "k": "先找\"一个动作解决两个问题\"的选项。烟雾弹罩队友只花一个 GCD，不用放弃窗口。"
+  },
+  {
+   "id": "x2",
+   "w": "p",
+   "d": 2,
+   "s": "【牧师】贼喊\"我要闷棍治疗了\"。你刚才对那个治疗放了 <sk>暗言术：痛</sk>，现在<em>还在跳</em>。",
+   "a": "该怎么回复贼？",
+   "o": [
+    "\"可以了\"，然后停手",
+    "\"等一下，我的持续伤害还在跳\"，等它掉完再说可以",
+    "不用回复，停手就行",
+    "让他换个目标控"
+   ],
+   "r": 1,
+   "e": [
+    "<b>停手不等于持续伤害消失</b>——<sk>暗言术：痛</sk> 每跳一次就破一次控制。回\"可以了\"会让贼白扔一个闷棍。",
+    "正解。<b>\"停手\"包括等已经挂上去的持续伤害掉完。</b>而且<b>要明确回复</b>——贼需要知道什么时候真的可以控。<b>只停手不说话，他不知道要等；说\"可以了\"但伤害还在跳，他会白扔。</b>",
+    "不回复会让贼要么干等、要么误判时机。沟通是这个动作的一半。",
+    "换目标不解决问题，你的持续伤害在哪个目标身上都一样。"
+   ],
+   "k": "\"停手\"要包括等持续伤害掉完，而且要明确回复。沉默和误报一样坏。"
+  },
+  {
+   "id": "x3",
+   "w": "r",
+   "d": 3,
+   "s": "【贼】2v2 对面是<em>战士 + 死亡骑士</em>（双近战），两人都在你的牧师身上。你的 <sk>卸除武装</sk>、<sk>致盲</sk>、<sk>烟雾弹</sk> 都可用。",
+   "a": "第一个动作是什么？",
+   "o": [
+    "<sk>卸除武装</sk> → 战士（掐掉他的输出）",
+    "<sk>烟雾弹</sk> → 罩住牧师（两个人同时点不到他）",
+    "<sk>致盲</sk> → 死亡骑士",
+    "冲上去打其中一个"
+   ],
+   "r": 1,
+   "e": [
+    "缴械只处理一个人，<b>另一个还在压</b>。而且战士的爆发不一定正在进行。",
+    "正解。<b>双近战对局里，<sk>烟雾弹</sk> 的价值最高——它一次性让两个人都无法选中牧师。</b>单体控制（缴械、致盲）一次只能处理一个，<b>而问题是\"两个人同时压他\"</b>。先用范围解法把压力整体解除，再用单体控制处理剩下的。",
+    "致盲同样只处理一个，而且受伤即破（另一个近战的溅射会破掉它）。",
+    "打人不解决牧师被压这个核心问题。"
+   ],
+   "k": "一个问题有多个来源时，先找能一次性处理全部的手段。烟雾弹对双近战压人是最优解。"
+  },
+  {
+   "id": "x4",
+   "w": "p",
+   "d": 3,
+   "s": "【牧师】贼被对面集火，血量掉到 <em>50%</em>。你手上有满蓝，<sk>快速治疗</sk>、<sk>苦修</sk>、以及输出技能都可用。贼身上<em>有 <sk>救赎</sk></em>。",
+   "a": "最高效的救法是什么？",
+   "o": [
+    "停下来读 <sk>快速治疗</sk>",
+    "继续输出对面（救赎转化成治疗），必要时补 <sk>苦修</sk>",
+    "<sk>真言术：障</sk> 放在贼脚下",
+    "交 <sk>痛苦压制</sk>"
+   ],
+   "r": 1,
+   "e": [
+    "<b>硬读治疗是戒律牧最低效的模式</b>：又贵又慢，而且你放弃了伤害。",
+    "正解。<b>贼被抓的时候牧师反而该加大输出。</b>救赎铺着的情况下，你的输出既在治疗他、又在给对面压力，<b>而且蓝耗远低于直接治疗</b>。<sk>苦修</sk> 是你的爆发恢复（本版还有几率触发三人护盾），需要时补。<b>停下来硬读是双输：治得少，伤害也没了。</b>",
+    "<sk>真言术：障</sk> 是较贵的团队牌，50% 血还没到该交的程度。",
+    "<sk>痛苦压制</sk> 同理，留到血线真正危险时。"
+   ],
+   "k": "队友被抓时牧师该加大输出。救赎让输出＝治疗，停下来硬读是双输。"
+  },
+  {
+   "id": "x5",
+   "w": "b",
+   "d": 2,
+   "s": "2v2 你们连续两轮都在目标 <em>30%</em> 被拉回去。贼的窗口和牧师的蓝都在消耗。",
+   "a": "该改什么？",
+   "o": [
+    "贼再打狠一点",
+    "两个人一起转消耗——贼从追击杀转成逼技能+不白挨伤害，牧师转成最大化法力效率",
+    "换目标",
+    "牧师少奶多打"
+   ],
+   "r": 1,
+   "e": [
+    "同样的打法打三次得到同样的结果，<b>而 2v2 的消耗机制对进攻方更不利</b>。",
+    "正解。<b>\"什么时候认打不穿\"是 2v2 独有的判断，而且必须两个人同时转。</b>贼继续追击杀而牧师已经开始省蓝，会导致两边都不到位。<b>转消耗之后：贼保持压力但绝不白挨伤害（每次挨打都在花牧师的蓝），牧师最大化输出转治疗的比例。</b>",
+    "换目标在 2v2 通常更难（治疗自保强）。",
+    "\"少奶多打\"方向有一半对，但没回答\"整体策略要不要变\"。"
+   ],
+   "k": "2v2 打不穿要认，而且必须两个人同时转。一个人还在追击杀就等于没转。"
+  },
+  {
+   "id": "x6",
+   "w": "r",
+   "d": 2,
+   "s": "【贼】你脱战重新 <sk>潜行</sk> 了。你注意到对面法师的 <sk>寒冰屏障</sk> <em>刚刚用掉</em>。",
+   "a": "这个信息该怎么处理？",
+   "o": [
+    "自己记住，用在下次开场判断",
+    "立刻告诉牧师",
+    "等复位时一起说",
+    "不重要，法师还有别的保命"
+   ],
+   "r": 1,
+   "e": [
+    "自己记住只对自己有用，<b>而牧师同样需要这个信息来决定要不要切换到进攻模式</b>。",
+    "正解。<b>2v2 里信息共享本身就是战斗力。</b>贼视野好（经常在对面身后），<b>看到的关键冷却要立刻说</b>——牧师知道\"对面法师没有屏障了\"，才会把资源从防守转向输出。<b>这些窗口都是有时限的，等复位就过去了。</b>",
+    "等复位时窗口已经过去了。",
+    "屏障是法师最硬的一张牌，它没了就是你们的机会窗口。"
+   ],
+   "k": "2v2 里信息也是资源。看到关键冷却被用掉，立刻说，不要等复位。"
+  },
+  {
+   "id": "x7",
+   "w": "p",
+   "d": 2,
+   "s": "【牧师】2v2 开局，你和贼都还没接触对面。你正在给贼铺 <sk>救赎</sk>，站在<em>场地中间的开阔处</em>。",
+   "a": "有什么问题？",
+   "o": [
+    "没问题，铺救赎是对的",
+    "动作对但位置错——开局第一件事是找好安全位置",
+    "应该先铺给自己",
+    "应该等贼先动"
+   ],
+   "r": 1,
+   "e": [
+    "铺救赎是对的动作，<b>但在开阔处做这件事是错的位置</b>。",
+    "正解。<b>牧师开局第一件事是建立生存底盘（柱子、掩体、跟贼的相对位置）。</b><b>最常见的开局错误是牧师站得太靠前，导致贼一开场就得先回来救他</b>——那等于把整局的节奏权白白让出去。",
+    "铺给谁不是问题所在。",
+    "等不等贼不改变你站错位置这件事。"
+   ],
+   "k": "牧师开局第一件事是站位。站错位置会让贼的整局节奏都被拖累。"
+  },
+  {
+   "id": "x8",
+   "w": "b",
+   "d": 3,
+   "s": "2v2 中，贼刚交了解控道具。几秒后牧师也被一个可以用道具解开的控制锁住，<em>他血量还有七成</em>。",
+   "a": "牧师该交道具吗？",
+   "o": [
+    "交，牧师的命最重要",
+    "先看还有没有别的解法——2v2 只有两张道具，都交光下一次控制链就可能结束比赛",
+    "交，同时喊贼来救",
+    "不交，等控制自然结束"
+   ],
+   "r": 1,
+   "e": [
+    "\"最重要\"是对的方向，<b>但不代表要立刻交最贵的牌</b>——七成血说明还有缓冲。",
+    "正解。<b>2v2 里道具是团队资源，两个人不该在同一轮都交光。</b>先判断：① 血量还能撑多久（七成，能撑）② 对面还有没有后续控制 ③ 提前铺的护盾和救赎还在不在工作。<b>留一张在场上，对面的击杀链就永远差一环。</b>",
+    "喊贼来救是对的补充，但核心判断是\"该不该现在交道具\"。",
+    "完全不交也不对——要看血量和对面的后续。<b>关键是判断，不是一律不交。</b>"
+   ],
+   "k": "2v2 只有两张道具。两个人不该在同一轮都交光，留一张对面的击杀链就永远差一环。"
+  }
+ ]
+};

@@ -1,0 +1,1752 @@
+/* 内容模块 · outlaw-rogue
+   由 freeze.js 从旧版单体页固化而来（2026-08-10）
+   这是构建期输入，不会发给浏览器。改内容改这里，然后跑 node build.js
+   题目 51 道 · 对阵 13 条 · 技能 67 个 */
+module.exports = {
+ "meta": {
+  "title": "狂徒贼 PvP 判断训练器 · 魔兽世界 12.0.7 Midnight 赛季一",
+  "desc": "魔兽世界正式服 12.0.7 狂徒潜行者 PvP 竞技场判断训练。核心是",
+  "keywords": "狂徒贼,潜行者,PVP,竞技场,魔兽世界,12.0.7,命运骨骰,outlaw rogue,arena",
+  "h1": "<span class=\"sp\">狂徒贼</span> PvP 判断训练器",
+  "footer": "Patch 12.0.7 · Midnight 赛季一。图标与中文技能名来自 <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口（逐个实测）。\n  打法来源 <a href=\"https://www.icy-veins.com/wow/outlaw-rogue-pvp-guide\" target=\"_blank\">Icy Veins</a> ·\n  <a href=\"https://murlok.io/rogue/outlaw/fatebound/3v3\" target=\"_blank\">Murlok.io（top50 实测）</a> ·\n  <a href=\"https://www.method.gg/guides/outlaw-rogue/talents\" target=\"_blank\">Method</a>。训练记录只存在这台浏览器里。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
+  "jsonld": null
+ },
+ "nav": [
+  {
+   "s": "s1",
+   "label": "骨架"
+  },
+  {
+   "s": "s2",
+   "label": "通用手法"
+  },
+  {
+   "s": "s3",
+   "label": "分职业"
+  },
+  {
+   "s": "s4",
+   "label": "判断训练"
+  },
+  {
+   "s": "s5",
+   "label": "赛前速查"
+  }
+ ],
+ "sections": {
+  "s1": "<div class=\"wrap\">\n\n<div class=\"thesis\">\n  <div class=\"lbl\">这版本唯一要记住的一句</div>\n  <div class=\"big\">狂徒不问\"什么时候开\"。<br>狂徒问的是——<span style=\"color:var(--ac2)\">我现在有多强？</span></div>\n</div>\n\n<div class=\"rows\">\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">为什么狂徒跟敏锐是两种生物</span>\n    <span class=\"sub\">它的强度是骰出来的，不是恒定的</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p>敏锐没有持续压力，靠攒一个窗口一次结账。<strong>狂徒相反——它有持续压力、机动性最强、防御最厚，能一直待在场上。</strong></p>\n      <p style=\"margin-top:8px\">代价是：<strong>你的强度不恒定。</strong> 伤害底座是 <sk>正中眉心</sk> 挂着的那个增益（最高 40%）加上 <sk>命运骨骰</sk> 骰出来的面。这两样在，你是压制方；这两样掉了，你打谁都疼不起来。</p>\n      <p style=\"margin-top:8px\"><strong>所以狂徒的判断核心不是\"该不该开\"，是\"我现在这个状态该压还是该耗\"。</strong></p>\n    </div></div>\n\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">Midnight 改了一件影响生死的事</span>\n    <span class=\"sub\">不安之刃不再缩减消失冷却</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p>过去狂徒可以靠不安之刃（Restless Blades）把 <sk>消失</sk> 的冷却压得很短，出事就消失、重置、再来。<strong>12.0 把这条砍了。</strong></p>\n      <p style=\"margin-top:8px\">结果：<strong>你的命现在挂在机动性上，不挂在消失上。</strong> <sk>抓钩</sk> <sk>刀锋冲刺</sk> <sk>疾跑</sk> 才是你的常规生存手段，<sk>消失</sk> 变成了一张真正稀缺的牌——用掉就很久没有。</p>\n      <p style=\"margin-top:8px\">还有两条：<b>移除了 Cold Blood 和 Float Like a Butterfly</b>；<sk>正中眉心</sk> 改成<b>造成伤害并提升你的伤害，最高 40%</b>——它从一个\"眩晕/伤害技\"变成了你的<b>伤害底座</b>。</p>\n    </div></div>\n\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">命运骨骰在 Midnight 改成四选一</span>\n    <span class=\"sub\">一次只能有一个增益</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p>过去可以同时挂多个骰面。<strong>现在是四选一，一次只有一个。</strong> 这让\"骰到什么\"的权重比以前高得多——你不再能靠数量堆出稳定强度。</p>\n      <div class=\"dice\" id=\"diceList\"></div>\n      <div class=\"note\"><b>骰面中文名以游戏内为准。</b> 这四个是 Midnight 的新骰面（One of a Kind / Double Trouble / Triple Threat / Jackpot），官方简体译名我没能核到，所以这里<strong>不编中文名</strong>，用英文原名 + 机制分类。<b>判断逻辑不依赖名字</b>——你要读的是\"这个面让我更强还是只让我更顺\"。</div>\n    </div></div>\n\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">命运之缚（Fatebound）：你不用管它</span>\n    <span class=\"sub\">全自动，不占你的判断</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p>英雄天赋 <b>Fatebound</b>（top50 三对三 8/8 全用）的机制：<strong>每次放终结技抛一枚 <sk>命运硬币</sk>，每 7 枚触发一次幸运币，给你敏捷增益并强化后续硬币。</strong></p>\n      <p style=\"margin-top:8px\"><strong>它全自动，不干扰循环，也不需要你规划。</strong> 写在这里是为了让你别去管它——有人会因为想凑硬币而改变终结技节奏，那是纯亏。</p>\n    </div></div>\n</div>\n\n<h2>该压还是该耗？勾一下就知道</h2>\n<p class=\"lead\">狂徒版的四条件跟敏锐完全不同。敏锐数的是\"对面还剩几张牌\"，狂徒数的是\"我现在有多强、能不能留下来\"。</p>\n<div class=\"gobox\">\n  <div class=\"gh\">压制判断器</div>\n  <div class=\"gt\">现在的状态满足哪几条？</div>\n  <div class=\"checks\" id=\"checks\"></div>\n  <div class=\"verdict\" id=\"verdict\"></div>\n</div>\n\n<h2>三个时钟</h2>\n<p class=\"lead\">狂徒读的三个钟跟敏锐是对称但完全不同的东西。</p>\n<div class=\"rows\" id=\"clocks\"></div>\n\n<h2>本版定盘（top50 三对三实测）</h2>\n<div class=\"rows\" id=\"setup\"></div>\n\n<div class=\"note\" style=\"margin-top:18px\"><b>关于数据的诚实交代。</b> 技能名与图标取自 Wowhead 官方数据（简体中文），逐个核过；核不到的（新骰面）明确标出来不编。<strong>刻意不写具体冷却秒数</strong>——数值每次平衡都在动，写的是相对关系和判断逻辑。</div>\n\n</div>",
+  "s2": "<div class=\"wrap\">\n  <p class=\"lead\">按一轮完整交战的时间顺序排。<strong>点标题看细节，点里面的小圆点看理由。</strong></p>\n  <div class=\"rows\" id=\"general\"></div>\n</div>",
+  "s3": "<div class=\"wrap\">\n  <p class=\"lead\">四问对所有敌人是同一套，练熟了能迁移到新对手身上。<strong>注意狂徒的答案跟敏锐经常相反</strong>——敏锐该脱战重开的地方，狂徒往往该留下来压。</p>\n  <div class=\"split\">\n    <div class=\"sidecol\">\n      <div class=\"cls-grid\" id=\"clsGrid\"></div>\n      <div class=\"modebar\" id=\"modebar\">\n        <button class=\"on\" data-m=\"arena\">竞技场</button>\n        <button data-m=\"duel\">单挑</button>\n      </div>\n    </div>\n    <div id=\"clsDetail\"></div>\n  </div>\n</div>",
+  "s4": "<div class=\"wrap\">\n  <div class=\"statbar\">\n    <div class=\"stat\"><span class=\"k\">累计答题</span><span class=\"v\" id=\"stPlayed\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">总正确率</span><span class=\"v\" id=\"stAcc\">—</span></div>\n    <div class=\"stat\"><span class=\"k\">最长连对</span><span class=\"v\" id=\"stBest\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">错题库</span><span class=\"v\" id=\"stWrong\">0</span></div>\n  </div>\n  <div class=\"qtop\">\n    <select id=\"fCat\"><option value=\"all\">全部范围</option></select>\n    <select id=\"fDiff\">\n      <option value=\"all\">全部难度</option>\n      <option value=\"1\">基础 · 机制</option>\n      <option value=\"2\">进阶 · 时机</option>\n      <option value=\"3\">高阶 · 权衡</option>\n    </select>\n    <button class=\"btn\" onclick=\"startQuiz(false)\">开始一轮（10 题）</button>\n    <button class=\"btn ghost\" onclick=\"startQuiz(true)\">只练错题</button>\n    <button class=\"btn ghost\" onclick=\"resetStats()\">清空记录</button>\n  </div>\n  <div id=\"quizArea\"></div>\n</div>",
+  "s5": "<div class=\"wrap\">\n  <p class=\"lead\">上场前扫一眼就够。<strong>这页只放能在 30 秒内看完的东西。</strong></p>\n  <div class=\"sheet\" id=\"sheet\"></div>\n</div>"
+ },
+ "fragments": {
+  "clocks": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"命运骨骰\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_rollthebones.jpg\" alt=\"命运骨骰\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"时运继延\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_keepitrolling.jpg\" alt=\"时运继延\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">骰子时钟</span><span class=\"sub\">狂徒独有，也最容易被忘</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>命运骨骰</sk> 的当前面还剩多久，以及 <sk>时运继延</sk> 能不能续。</p><p style=\"margin-top:7px\"><b>本版一次只有一个骰面</b>，所以\"什么时候重骰\"变成了真判断，不是随手按。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>什么时候该重骰</span><span class=\"ar\">▸</span></div><div class=\"mb\">骰面<b>快过期</b>，或者<b>当前面明显不适合下一轮要做的事</b>（比如你要杀人但骰到的是资源面）。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>什么时候不该重骰</span><span class=\"ar\">▸</span></div><div class=\"mb\">为了追\"完美骰面\"反复重骰，会<b>拖掉整个开局</b>。骰到能打的面就去打——狂徒的强度来自持续压制，不来自最优骰面。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_keepitrolling.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">时运继延</sk> 怎么用</span><span class=\"ar\">▸</span></div><div class=\"mb\">它是延长当前面，不是重骰。<b>骰到好面时用它把好状态拉长</b>，是狂徒把随机性变成确定性的唯一手段。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"正中眉心\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_weapon_rifle_01.jpg\" alt=\"正中眉心\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"切割\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_slicedice.jpg\" alt=\"切割\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">增益时钟</span><span class=\"sub\">眉心 + 切割，两条线不能断</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>正中眉心</sk> 现在造成伤害<b>并提升你的伤害最高 40%</b>——它不是一个眩晕技，是你的<b>伤害底座</b>。<sk>切割</sk> 同理。</p><p style=\"margin-top:7px\"><b>这两条断线的时候，你就是个弱化版的自己。</b>狂徒最常见的输出问题不是循环打错，是让底座掉线了还在硬打。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"抓钩\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_grapplinghook.jpg\" alt=\"抓钩\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"刀锋冲刺\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_arakkoa_spinning_blade.jpg\" alt=\"刀锋冲刺\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"疾跑\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_sprint.jpg\" alt=\"疾跑\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">回家时钟</span><span class=\"sub\">本版消失不再快速转好</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>抓钩</sk> <sk>刀锋冲刺</sk> <sk>疾跑</sk> 是你的常规进出手段，<sk>消失</sk> 是真正的最后一张。</p><p style=\"margin-top:7px\">12.0 拿掉了「不安之刃缩减消失冷却」——<strong>你不能再靠消失频繁重置了</strong>。</p><div class=\"mini\"><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>位移要分轮用，不要一起交</span><span class=\"ar\">▸</span></div><div class=\"mb\">把两个接近手段连着交给同一次追击，是狂徒最常见的死法。<b>留一个用于重新接近，另一个用于脱离。</b></div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_grapplinghook.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">抓钩</sk> 不只是追人</span><span class=\"ar\">▸</span></div><div class=\"mb\">它同样是<b>脱离和绕柱</b>的工具。被集火时用它跳出去，比硬跑省得多。</div></div></div></div></div>",
+  "setup": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"命运硬币\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_ability_fateboundrogue_handoffateheads.jpg\" alt=\"命运硬币\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">英雄天赋：命运之缚（Fatebound）</span><span class=\"sub\">top50 三对三 8/8 全用</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><b>Fatebound</b> 在竞技场是压倒性选择（8/8），诡术师是 0。<b>它全自动，不需要你规划</b>——见骨架页第四条。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"卸除武装\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"卸除武装\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"烟雾弹\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_smoke.jpg\" alt=\"烟雾弹\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"局势逆转\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_waylay.jpg\" alt=\"局势逆转\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">PvP 天赋：两必带 + 一个机动格</span><span class=\"sub\">卸除武装 + 烟雾弹 都是 8/8</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>卸除武装</sk> <strong>8/8</strong> · <sk>烟雾弹</sk> <strong>8/8</strong>——这两个在狂徒这边都是全员必带，<b>跟敏锐不一样</b>（敏锐的卸除武装只有 29/50）。</p><p style=\"margin-top:8px\">第三格：<b>先发制人（Preemptive Maneuver）</b> 5/8 是主流；<sk>局势逆转</sk> 是少数派选择。</p><div class=\"mini\"><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>为什么狂徒必带 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">卸除武装</sk></span><span class=\"ar\">▸</span></div><div class=\"mb\">狂徒是贴身持续压制的打法，<b>在近战对拼里待的时间比敏锐长得多</b>——缴械既能掐掉对面爆发，也能在你收人时阻止 <sk class=\"e\"><img class=\"ic\" src=\"assets/icons/ability_warrior_challange.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">剑在人在</sk> 这类物理免疫。攻防两用，所以是必带不是选带。</div></div></div></div></div>",
+  "general": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"潜行\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_stealth.jpg\" alt=\"潜行\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"命运骨骰\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_rollthebones.jpg\" alt=\"命运骨骰\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"正中眉心\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_weapon_rifle_01.jpg\" alt=\"正中眉心\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">01 · 一轮交战的完整流程</span><span class=\"sub\">八步，点着走一遍</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"stepper\" id=\"stepBody\"></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"剑刃乱舞\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_warrior_punishingblow.jpg\" alt=\"剑刃乱舞\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致盲\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"致盲\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"闷棍\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_sap.jpg\" alt=\"闷棍\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">02 · 剑刃乱舞会打破你自己的控制</span><span class=\"sub\">狂徒最贵的自伤陷阱</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>这是狂徒独有、也是最容易翻车的一条。</strong> <sk>剑刃乱舞</sk> 会把你的伤害溅射到附近的敌人身上——<strong>包括你刚控住的那个人。</strong></p><div class=\"mini\"><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>它会破掉什么</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">致盲</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_sap.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">闷棍</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_gouge.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">凿击</sk> <b>全部受伤即破</b>。你控住治疗，然后开着剑刃乱舞去打旁边的目标——溅射一下就把控制打断了。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>什么时候必须关掉</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>你或队友即将起一段失能类控制之前。</b>收人的那一刻尤其危险：你想全力输出，但控制链正好在这时候最脆弱。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>什么时候该开</span><span class=\"ar\">▸</span></div><div class=\"mb\">对面站得散、没有正在生效的失能类控制、或者你就是要打群体压力的时候。<b>它本身很强，问题只在\"跟控制同时存在\"。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"正中眉心\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_weapon_rifle_01.jpg\" alt=\"正中眉心\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"切割\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_slicedice.jpg\" alt=\"切割\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"命运骨骰\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_rollthebones.jpg\" alt=\"命运骨骰\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">03 · 保持压力：三条线不能断</span><span class=\"sub\">狂徒的输出问题多半在这里</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>狂徒不靠爆发窗口吃饭，靠<b>底座不断线</b>。三条线：</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/inv_weapon_rifle_01.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">正中眉心</sk> 的伤害增益（最高 40%）</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>本版它是你的伤害底座，不是一个眩晕技。</b>掉线了你的所有输出同时打折。有满连击点就该续上。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_slicedice.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">切割</sk></span><span class=\"ar\">▸</span></div><div class=\"mb\">同样是底座的一部分。断了就是白打。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_rollthebones.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">命运骨骰</sk> 的当前面</span><span class=\"ar\">▸</span></div><div class=\"mb\">过期了要重骰，好面要用 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_keepitrolling.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">时运继延</sk> 拉长。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>贴身本身也是伤害</span><span class=\"ar\">▸</span></div><div class=\"mb\">自动攻击贡献伤害和能量。<b>但不要为了贴人把自己带离治疗或追进死角</b>——那是拿命换几下平砍。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"肾击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"肾击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致盲\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"致盲\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"凿击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_gouge.jpg\" alt=\"凿击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">04 · 控链与递减</span><span class=\"sub\">控制预算怎么花</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>同类控制连续命中同一目标，时长按 <strong>100% → 50% → 25% → 免疫</strong> 衰减。<strong>不同类别互不影响。</strong></p><div class=\"mini\"><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>四类控制</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>眩晕</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷袭</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">肾击</sk>（共享）<br><b>失能</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">致盲</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_sap.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">闷棍</sk>（共享，受伤即破）<br><b>致残</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_gouge.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">凿击</sk>（单独一类，受伤即破）<br><b>缴械</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">卸除武装</sk>（不吃眩晕递减）</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>团队里眩晕要分给不同的人</span><span class=\"ar\">▸</span></div><div class=\"mb\">你和队友的眩晕都堆在同一个目标上会立刻触发递减，第二个只剩一半。<b>你晕治疗、队友晕目标</b>，两个都吃满时长。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>逼出解控道具就是收益</span><span class=\"ar\">▸</span></div><div class=\"mb\">狂徒的击杀经常不是一轮打死，是<b>第一轮逼道具、第二轮真杀</b>。目标交了道具要记住，那是你下一轮的入场券。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"烟雾弹\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_smoke.jpg\" alt=\"烟雾弹\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">05 · 烟雾弹</span><span class=\"sub\">两边都必带的那张牌</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>机制：<strong>烟外的敌人无法选中烟内的任何人。</strong></p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>进攻用（最值钱）</span><span class=\"ar\">▸</span></div><div class=\"mb\">你和目标在烟里、治疗在烟外 → <b>治疗看不见他</b>。<b>下弹之前先确认对面的救援手段（传送、位移、救人技）能不能把目标带走。</b></div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>防守用：只花一个 GCD</span><span class=\"ar\">▸</span></div><div class=\"mb\">队友要死了，扔在他身上让对面点不到。<b>这不打断你的输出。</b></div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>它挡选中，不挡范围</span><span class=\"ar\">▸</span></div><div class=\"mb\">不挡地面 AOE。放烟前先看对面有没有不需要选中的手段。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"脚踢\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_kick.jpg\" alt=\"脚踢\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"凿击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_gouge.jpg\" alt=\"凿击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">06 · 断法与假动作</span><span class=\"sub\">脚踢锁的是学派</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"mini\"><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>不要见读条就踢</span><span class=\"ar\">▸</span></div><div class=\"mb\">好的治疗会用小治疗骗你的 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_kick.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">脚踢</sk>，然后你锁不住真正的大治疗。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>能用便宜的就别用脚踢</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_gouge.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">凿击</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">致盲</sk> 眩晕都能中断且<b>不占脚踢冷却</b>。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>踢什么要看队友状态</span><span class=\"ar\">▸</span></div><div class=\"mb\">打断不只是减少伤害。<b>保护你的治疗免于被控，往往比断掉一个伤害技更值钱。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"抓钩\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_grapplinghook.jpg\" alt=\"抓钩\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"刀锋冲刺\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_arakkoa_spinning_blade.jpg\" alt=\"刀锋冲刺\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"闪避\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_shadowward.jpg\" alt=\"闪避\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"暗影斗篷\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_nethercloak.jpg\" alt=\"暗影斗篷\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"猩红之瓶\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_crimsonvial.jpg\" alt=\"猩红之瓶\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">07 · 机动与防御：本版狂徒的命门</span><span class=\"sub\">不靠消失，靠位移</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>12.0 拿掉了「不安之刃缩减消失冷却」</strong>——这一条改变了狂徒的整个生存模型。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>防御按伤害类型选</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>物理爆发</b> → <sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_shadowward.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">闪避</sk><br><b>法术压力或魔法控制</b> → <sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_nethercloak.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">暗影斗篷</sk><br>选错等于没交。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>预判眩晕按 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_feint.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">佯攻</sk></span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>晕前减伤，比晕后发现按不了值钱得多。</b>带了先发制人的话这一下几乎没有代价。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_crimsonvial.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">猩红之瓶</sk> 是补缺口，不是大防</span><span class=\"ar\">▸</span></div><div class=\"mb\">它帮治疗省事，但不要指望它单独扛住一波爆发。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_vanish.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">消失</sk> 是最后一张，不是常规操作</span><span class=\"ar\">▸</span></div><div class=\"mb\">本版它不再快速转好。<b>前面所有便宜手段都用完了才轮到它。</b>用掉之后你会有很长一段时间没有退路。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>活下来之后别立刻乱开</span><span class=\"ar\">▸</span></div><div class=\"mb\">复位结束先看：治疗控制怎么样、目标道具在不在、我的底座还在不在。<b>回到骨架页那四条件。</b></div></div></div></div></div>",
+  "sheet": "<div class=\"sc wide\"><h4>三条铁律</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">剑刃乱舞会破你自己的控制</div><div class=\"dd\">起 <sk>致盲</sk>/<sk>闷棍</sk>/<sk>凿击</sk> 之前先关掉它。收人那一刻最危险。</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">正中眉心是底座，不是技能</div><div class=\"dd\">最高 40% 伤害增益。快掉的时候，续它优先于任何伤害。</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">消失是最后一张，不是常规操作</div><div class=\"dd\">本版不再快速转好。<sk>抓钩</sk>/<sk>刀锋冲刺</sk>/<sk>疾跑</sk> 才是你的日常退路。</div></div></div></div></div><div class=\"sc\"><h4>该压还是该耗 · 四条件</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">正中眉心的伤害增益挂着</div><div class=\"dd\">最高 40%——这是你的伤害底座。掉了你打谁都疼不起来</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">骰子是能打的面</div><div class=\"dd\">Jackpot / One of a Kind 是可以赌击杀的面；另外两个只够继续架伤害</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">治疗被处理了</div><div class=\"dd\">控住了、被烟雾弹隔在外面、或者根本不在场</div></div></div><div class=\"b3\"><div class=\"n\">4</div><div><div class=\"tt\">我有回来的路</div><div class=\"dd\">抓钩 / 刀锋冲刺 / 疾跑 至少一个可用。本版消失不再快速转好，别把它当常规退路</div></div></div></div></div><div class=\"sc\"><h4>骰面怎么读</h4><div class=\"line\"><b style=\"color:var(--ok)\">Jackpot / One of a Kind</b> → 可以赌击杀<br><b style=\"color:var(--wa)\">Triple Threat / Double Trouble</b> → 继续架伤害，别赌<br><span style=\"color:var(--tx3);font-size:13px\">重骰的时机：快过期，或当前面不适合下一轮要做的事。<b>别为追完美骰面拖掉开局。</b></span></div></div><div class=\"sc wide\"><h4>看到这些图标 · 立刻停手或转火</h4><div class=\"imm\"><div class=\"immc\"><img class=\"ic\" data-sk=\"圣盾术\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_holy_divineshield.jpg\" alt=\"圣盾术\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">圣盾术</div><div class=\"w\">圣骑士 · 全免疫</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"寒冰屏障\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_frost_frost.jpg\" alt=\"寒冰屏障\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">寒冰屏障</div><div class=\"w\">法师 · 全免疫，出来时已回蓝</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"虚空行走\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_warlock_demonsoul.jpg\" alt=\"虚空行走\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">虚空行走</div><div class=\"w\">恶魔猎手 · 全免疫，可移动</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"业报之触\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_monk_touchofkarma.jpg\" alt=\"业报之触\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">业报之触</div><div class=\"w\">武僧 · 化解并反弹，硬打=自伤</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"剑在人在\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_warrior_challange.jpg\" alt=\"剑在人在\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">剑在人在</div><div class=\"w\">战士 · 免物理≈对你全免疫</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"保护祝福\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_holy_sealofprotection.jpg\" alt=\"保护祝福\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">保护祝福</div><div class=\"w\">圣骑士 · 免物理</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"灵龟守护\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_hunter_pet_turtle.jpg\" alt=\"灵龟守护\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">灵龟守护</div><div class=\"w\">猎人 · 只免伤害，不免控</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"反魔法护罩\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_shadow_antimagicshell.jpg\" alt=\"反魔法护罩\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">反魔法护罩</div><div class=\"w\">死骑 · 只免魔法，物理照打</div></div></div></div></div><div class=\"sc\"><h4>三个高频误判</h4><div class=\"line\">● 开着 <sk>剑刃乱舞</sk> 起控制 —— 溅射一下就破<br>● 追人把两个位移一起交 —— 追上了没有回来的路<br>● 追 <sk>寒冰屏障</sk> 后的\"假血线\" —— 他刚回过蓝</div></div><div class=\"sc\"><h4>天赋定盘</h4><div class=\"line\">英雄天赋：<b>命运之缚 Fatebound</b>（8/8 全用，全自动不用管）<br>PvP 必带：<sk>卸除武装</sk> 8/8 + <sk>烟雾弹</sk> 8/8<br>第三格：<b>先发制人</b>（5/8 主流）</div></div>"
+ },
+ "sk": {
+  "影袭": "spell_shadow_ritualofsacrifice",
+  "手枪射击": "ability_rogue_pistolshot",
+  "伏击": "ability_rogue_ambush",
+  "斩击": "ability_rogue_waylay",
+  "正中眉心": "inv_weapon_rifle_01",
+  "命运骨骰": "ability_rogue_rollthebones",
+  "冲动": "spell_shadow_shadowworddominate",
+  "剑刃乱舞": "ability_warrior_punishingblow",
+  "抓钩": "ability_rogue_grapplinghook",
+  "影舞步": "inv_112_rogue_betweentheeyes",
+  "刀锋冲刺": "ability_arakkoa_spinning_blade",
+  "猩红之瓶": "ability_rogue_crimsonvial",
+  "切割": "ability_rogue_slicedice",
+  "时运继延": "ability_rogue_keepitrolling",
+  "菊花茶": "inv_drink_milk_05",
+  "可乘之机": "ability_rogue_pistolshot",
+  "局势逆转": "ability_rogue_waylay",
+  "命运硬币": "inv_ability_fateboundrogue_handoffateheads",
+  "潜行": "ability_stealth",
+  "偷袭": "ability_cheapshot",
+  "肾击": "ability_rogue_kidneyshot",
+  "消失": "ability_vanish",
+  "暗影斗篷": "spell_shadow_nethercloak",
+  "闪避": "spell_shadow_shadowward",
+  "佯攻": "ability_rogue_feint",
+  "致盲": "spell_shadow_mindsteal",
+  "闷棍": "ability_sap",
+  "凿击": "ability_gouge",
+  "脚踢": "ability_kick",
+  "烟雾弹": "ability_rogue_smoke",
+  "疾跑": "ability_rogue_sprint",
+  "暗影步": "ability_rogue_shadowstep",
+  "卸除武装": "ability_rogue_dismantle",
+  "偷天换日": "ability_rogue_tricksofthetrade",
+  "圣盾术": "spell_holy_divineshield",
+  "保护祝福": "spell_holy_sealofprotection",
+  "自由祝福": "spell_holy_sealofvalor",
+  "破咒祝福": "spell_holy_blessingofprotection",
+  "寒冰屏障": "spell_frost_frost",
+  "变形术": "spell_nature_polymorph",
+  "虚空行走": "spell_warlock_demonsoul",
+  "疾影": "ability_demonhunter_blur",
+  "恶魔变形": "ability_demonhunter_metamorphasistank",
+  "灵龟守护": "ability_hunter_pet_turtle",
+  "假死": "ability_rogue_feigndeath",
+  "反魔法护罩": "spell_shadow_antimagicshell",
+  "反魔法领域": "spell_deathknight_antimagiczone",
+  "冰封之韧": "spell_deathknight_iceboundfortitude",
+  "消散": "spell_shadow_dispersion",
+  "真言术：盾": "spell_holy_powerwordshield",
+  "痛苦压制": "spell_holy_painsupression",
+  "绝望祷言": "spell_holy_testoffaith",
+  "树皮术": "spell_nature_stoneclawtotem",
+  "旅行形态": "ability_druid_travelform",
+  "业报之触": "ability_monk_touchofkarma",
+  "气定神闲": "spell_nature_enchantarmor",
+  "玄牛下凡": "spell_monk_brewmaster_spec",
+  "剑在人在": "ability_warrior_challange",
+  "盾墙": "ability_warrior_shieldwall",
+  "破胆怒吼": "ability_golemthunderclap",
+  "集结呐喊": "ability_warrior_rallyingcry",
+  "不灭决心": "spell_shadow_demonictactics",
+  "恐惧": "spell_shadow_possession",
+  "星界转移": "ability_shaman_astralshift",
+  "黑曜鳞片": "inv_artifact_dragonscales",
+  "新生光焰": "ability_evoker_masterylifebinder_red",
+  "悬空": "ability_evoker_hover"
+ },
+ "enemy": [
+  "圣盾术",
+  "保护祝福",
+  "自由祝福",
+  "破咒祝福",
+  "寒冰屏障",
+  "变形术",
+  "虚空行走",
+  "疾影",
+  "恶魔变形",
+  "灵龟守护",
+  "假死",
+  "反魔法护罩",
+  "反魔法领域",
+  "冰封之韧",
+  "消散",
+  "真言术：盾",
+  "痛苦压制",
+  "绝望祷言",
+  "树皮术",
+  "旅行形态",
+  "业报之触",
+  "气定神闲",
+  "玄牛下凡",
+  "剑在人在",
+  "盾墙",
+  "破胆怒吼",
+  "集结呐喊",
+  "不灭决心",
+  "恐惧",
+  "星界转移",
+  "黑曜鳞片",
+  "新生光焰",
+  "悬空"
+ ],
+ "own": null,
+ "cond": [
+  {
+   "k": "bte",
+   "t": "正中眉心的伤害增益挂着",
+   "d": "最高 40%——这是你的伤害底座。掉了你打谁都疼不起来"
+  },
+  {
+   "k": "dice",
+   "t": "骰子是能打的面",
+   "d": "Jackpot / One of a Kind 是可以赌击杀的面；另外两个只够继续架伤害"
+  },
+  {
+   "k": "heal",
+   "t": "治疗被处理了",
+   "d": "控住了、被烟雾弹隔在外面、或者根本不在场"
+  },
+  {
+   "k": "exit",
+   "t": "我有回来的路",
+   "d": "抓钩 / 刀锋冲刺 / 疾跑 至少一个可用。本版消失不再快速转好，别把它当常规退路"
+  }
+ ],
+ "verdicts": [
+  {
+   "cls": "bad",
+   "html": "<div class=\"vi\">◇</div><div><h3>别压，先把自己修好</h3><p><b>你现在不强。</b>去补 <sk>正中眉心</sk> 的增益、重骰、把 <sk>切割</sk> 挂上。狂徒在弱状态硬压，是把机动性优势白白换成挨打时间。</p><!--MISSING--></div>"
+  },
+  {
+   "cls": "bad",
+   "html": "<div class=\"vi\">◇</div><div><h3>别压，先把自己修好</h3><p><b>你现在不强。</b>去补 <sk>正中眉心</sk> 的增益、重骰、把 <sk>切割</sk> 挂上。狂徒在弱状态硬压，是把机动性优势白白换成挨打时间。</p><!--MISSING--></div>"
+  },
+  {
+   "cls": "warn",
+   "html": "<div class=\"vi\">△</div><div><h3>继续架伤害，不要赌击杀</h3><p>可以贴着打、逼技能、消耗对面的答案，<b>但这一轮不指望杀人</b>。目标是把缺的那两条补回来，同时不让自己掉出压制位。</p><!--MISSING--></div>"
+  },
+  {
+   "cls": "warn",
+   "html": "<div class=\"vi\">◐</div><div><h3>可以压，但留好那条退路</h3><p>压力足够了。缺的那一项决定你能压多久——<b>尤其如果缺的是\"回来的路\"，别把 <sk>冲动</sk> 和位移一起交完</b>，本版 <sk>消失</sk> 不会很快转好。</p><!--MISSING--></div>"
+  },
+  {
+   "cls": "good",
+   "html": "<div class=\"vi\">◆</div><div><h3>全压。这是狂徒最舒服的状态</h3><p><sk>冲动</sk> 起手 → 满连击点 <sk>正中眉心</sk> 续上增益 → <sk>斩击</sk> 倒伤害 → 治疗被隔开时下 <sk>烟雾弹</sk> 收。<b>注意 <sk>剑刃乱舞</sk> 会打破你自己的控制，收人前先关掉。</b></p><!--MISSING--></div>"
+  }
+ ],
+ "steps": [
+  [
+   "潜行并先定计划",
+   "和队友确认击杀目标、控制目标、谁先交爆发。<b>没有计划的双控等于没有控。</b>",
+   "潜行"
+  ],
+  [
+   "潜行中先把骰子起好",
+   "先拿到增益再进场。<b>但不要为了追完美骰面拖掉整个开局</b>——能打的面就够了。",
+   "命运骨骰"
+  ],
+  [
+   "能闷棍就先制造人数差",
+   "优先 <sk>闷棍</sk> 一个目标。谁被闷取决于你和队友的控制链，<b>不必永远闷治疗</b>。",
+   "闷棍"
+  ],
+  [
+   "从另一个目标起手造点",
+   "安全时 <sk>伏击</sk>；对方能立刻破坏开局时先 <sk>偷袭</sk>。<b>狂徒允许花几个 GCD 把伤害架起来</b>——这是它跟敏锐最大的不同。",
+   "伏击"
+  ],
+  [
+   "造到 5+ 连击点",
+   "有可乘之机触发就用 <sk>手枪射击</sk>；能 <sk>伏击</sk> 就伏击；否则 <sk>影袭</sk>。<b>别在 2–3 点时急着交 <sk>肾击</sk>。</b>",
+   "影袭"
+  ],
+  [
+   "凿击治疗，交给队友续控",
+   "够得到治疗时用 <sk>凿击</sk>，让队友接控。<b>够不到就别为追治疗丢掉击杀目标。</b>",
+   "凿击"
+  ],
+  [
+   "满连击点肾击杀目标",
+   "目标还在闷棍里时上满 <sk>肾击</sk>，让他来不及提前交防御。<b>逼他交解控道具就是这一轮最大的收益。</b>",
+   "肾击"
+  ],
+  [
+   "正中眉心续上增益，然后倒伤害",
+   "<sk>正中眉心</sk> 挂上最高 40% 的伤害增益，再造点 → <sk>斩击</sk>。条件好时转入 <sk>冲动</sk> 爆发。",
+   "正中眉心"
+  ]
+ ],
+ "match": {
+  "qlbl": [
+   "1 · 他什么时候能杀人",
+   "2 · 他那张\"你杀不死我\"的牌",
+   "3 · 你必须处理的那一个",
+   "4 · 你的开场怎么打"
+  ],
+  "list": [
+   {
+    "id": "warrior",
+    "n": "战士",
+    "ic": "classicon_warrior",
+    "c": "#C69B6D",
+    "diff": "中等偏难",
+    "cards": [
+     "剑在人在",
+     "破胆怒吼",
+     "盾墙",
+     "集结呐喊"
+    ],
+    "one": "他想用连续物理压力逼你把防御一次交完，再在你空窗时眩晕收尾。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "爆发窗口和斩杀阶段。<b>他的压力比敏锐面对的更持续</b>——因为你在近战里待得久，吃到的量也大。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>剑在人在</sk> <b>免疫物理伤害</b>——狂徒几乎全是物理，这对你等于全免疫。另有 <sk>破胆怒吼</sk>、<sk>盾墙</sk>。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<sk>卸除武装</sk>。<b>它在这个对局是攻防两用</b>：既掐掉他的爆发起点，也能在你收人时阻止他开 <sk>剑在人在</sk>。"
+     ],
+     [
+      "你的开场",
+      "用 <sk>佯攻</sk> 吃常规压力，<sk>闪避</sk> 对准他真正的爆发——<b>别把两个防御一起交</b>。先逼出他的解控道具和 <sk>剑在人在</sk>，下一轮再用满连击点 + <sk>烟雾弹</sk> 收。"
+     ]
+    ],
+    "arena": "战士擅长把你拖离治疗。<b>你的胜点是错开他的 <sk>剑在人在</sk> 和 <sk>破胆怒吼</sk></b>，别让两个同时生效。",
+    "duel": "别把所有位移都用来追冲锋。<sk>卸除武装</sk>、<sk>闪避</sk>、<sk>消失</sk> 要覆盖不同轮次——本版消失转得慢，交早了后面没退路。"
+   },
+   {
+    "id": "paladin",
+    "n": "圣骑士",
+    "ic": "classicon_paladin",
+    "c": "#F48CBA",
+    "diff": "中等",
+    "cards": [
+     "圣盾术",
+     "保护祝福",
+     "自由祝福",
+     "破咒祝福"
+    ],
+    "one": "他的外部技能太多，一轮只能逼一到两个答案。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "惩戒骑的翅膀窗口很明确。治疗专精靠 <sk>圣盾术</sk>、<sk>保护祝福</sk> 和瞬发救援把你的击杀窗口抹掉。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>圣盾术</sk>（全免疫）、<sk>保护祝福</sk>（免物理，对你≈全免疫）、<sk>自由祝福</sk>、<sk>破咒祝福</sk>。<b>四张牌，你一轮撕不完。</b>"
+     ],
+     [
+      "你必须处理的那一个",
+      "治疗骑的大治疗要读条，<sk>脚踢</sk> 价值高。<b><sk>暗影斗篷</sk> 可以预防制裁类的魔法控制。</b>"
+     ],
+     [
+      "你的开场",
+      "<b>技能一亮起就停手或换目标</b>，不要把 <sk>冲动</sk> 砸进 <sk>圣盾术</sk> 或 <sk>保护祝福</sk>。<b>每轮只逼一到两个答案，记清楚下一轮他少了哪一个</b>——这个对局是算账，不是一波流。"
+     ]
+    ],
+    "arena": "圣骑的外部技能很多。<b>逼技能时要分清\"他自己交的\"和\"队友给他的\"</b>——后者说明治疗也花了资源，那是你压治疗的机会。",
+    "duel": "惩戒开翅膀不等于必须对拼。用柱子、<sk>凿击</sk>、<sk>闪避</sk>/<sk>暗影斗篷</sk> 拆开用，等制裁和爆发错开。"
+   },
+   {
+    "id": "hunter",
+    "n": "猎人",
+    "ic": "classicon_hunter",
+    "c": "#AAD372",
+    "diff": "中等",
+    "cards": [
+     "灵龟守护",
+     "假死"
+    ],
+    "one": "他想用距离和陷阱把你的位移耗光，再在你接不上身时输出。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "射击猎的爆发极高且是远程。<b>你被风筝的每一秒都在掉血，而本版你的位移比以前珍贵。</b>"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>灵龟守护</sk>：<b>免疫伤害，但不免疫控制</b>。<sk>假死</sk> 能直接脱战并让你掉目标。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<sk>卸除武装</sk> 对射击猎极有效（缴械期间他射不出东西）。<b>要断的是他的\"跑\"而不是他的\"放\"。</b>"
+     ],
+     [
+      "你的开场",
+      "<b><sk>灵龟守护</sk> 亮起时直接控住他</b>——用控制把免疫时长吃掉。<sk>闪避</sk> 对猎人很强。<b>不要沿直线追进陷阱区</b>，那是本版最贵的错误：交掉位移还中了陷阱。"
+     ]
+    ],
+    "arena": "猎人很擅长控你的治疗。<b>你不只看自己血量，还要看冰冻陷阱有没有命中治疗。</b>",
+    "duel": "<b>别把两次接近手段连着交给位移。</b>留一次重新接近，另一次留给他 <sk>假死</sk> 之后重新贴上。"
+   },
+   {
+    "id": "rogue",
+    "n": "潜行者",
+    "ic": "classicon_rogue",
+    "c": "#FFF468",
+    "diff": "高",
+    "cards": [
+     "暗影斗篷",
+     "闪避",
+     "消失"
+    ],
+    "one": "镜像争的是先手、晕前减伤，和谁更会保存道具与消失。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "敏锐贼的爆发窗口极短极猛，<b>他能在几秒内带走你</b>。狂徒对狂徒则是持续消耗。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>暗影斗篷</sk> 让你的毒和魔法伤害失效，<sk>闪避</sk> 让你的物理几乎全空（<b>你几乎全是物理</b>），<sk>消失</sk> 抹掉他的劣势。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<sk>卸除武装</sk> 是镜像最强的破点。<b>贼几乎无读条，<sk>脚踢</sk> 基本无用。</b>"
+     ],
+     [
+      "你的开场",
+      "<b>预判 <sk>肾击</sk> 按 <sk>佯攻</sk></b>，<sk>闪避</sk> 可以躲掉肾击。他开 <sk>闪避</sk> 你立刻停手。<b>面对敏锐贼：尊重他的短爆发，必要时早交道具接防御</b>——他打不死你就得走，你只要活过那几秒就赢了一半。"
+     ]
+    ],
+    "arena": "<b>镜像里\"谁先交解控道具\"通常比\"谁先打掉 20% 血\"更重要。</b>优先看双方治疗的控制链。",
+    "duel": "失去先手时目标是<b>用最低成本活过第一轮</b>，不是立刻抢回节奏。<sk>卸除武装</sk>、<sk>闪避</sk>、<sk>消失</sk> 分别覆盖不同轮，别重叠。"
+   },
+   {
+    "id": "priest",
+    "n": "牧师",
+    "ic": "classicon_priest",
+    "c": "#FFFFFF",
+    "diff": "中等",
+    "cards": [
+     "消散",
+     "真言术：盾",
+     "痛苦压制",
+     "绝望祷言"
+    ],
+    "one": "外部减伤和反控会拆掉你的窗口，护盾会先吃掉你的伤害。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "暗牧靠魔法压力和爆发逼你的 <sk>暗影斗篷</sk>。治疗牧不杀你，他熬死你。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>消散</sk>、<sk>痛苦压制</sk>、<sk>绝望祷言</sk>，以及 <sk>真言术：盾</sk>——<b>护盾会先吃掉你的伤害</b>。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<b><sk>脚踢</sk> 价值最高的对局之一。</b>但要留给<b>真正能改变血线的</b>那个治疗或控制，不是随手断。"
+     ],
+     [
+      "你的开场",
+      "治疗交道具后，<sk>致盲</sk> → <sk>闷棍</sk>/<sk>凿击</sk> 制造长链。<b>控之前先关掉 <sk>剑刃乱舞</sk></b>，不然溅射会把自己的控制打断。对暗牧先逼 <sk>消散</sk>，结束后再回头。"
+     ]
+    ],
+    "arena": "队友有眩晕时，<b>把 <sk>肾击</sk> 给牧师、让队友晕击杀目标</b>，两个眩晕落在不同人身上各自吃满时长。",
+    "duel": "暗牧开 <sk>消散</sk> 就重整资源，不要追着减伤打。结束后用满连击点重新开始。"
+   },
+   {
+    "id": "dk",
+    "n": "死亡骑士",
+    "ic": "classicon_deathknight",
+    "c": "#C41E3A",
+    "diff": "中等",
+    "cards": [
+     "反魔法护罩",
+     "冰封之韧",
+     "反魔法领域"
+    ],
+    "one": "他用拉拽和减速夺走你选择距离的权利。缴械是这个对局最强的进攻按钮。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "冰霜/邪恶的爆发很硬，而且他的控制链能让你长时间动不了。<b>邪恶的持续压力对狂徒尤其难受</b>，因为你贴得久。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>反魔法护罩</sk>（只免魔法，<b>你的物理照打</b>）、<sk>冰封之韧</sk>（大减伤+免控，<b>这个才是停手信号</b>）。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<b><sk>卸除武装</sk> 可以阻止灵界打击</b>——这是很强的进攻按钮。<b>目标低血时先缴械再上满连击点，能明显减少他自救的机会。</b>"
+     ],
+     [
+      "你的开场",
+      "<sk>暗影斗篷</sk> 在这里价值极高（他的伤害和控制大量是魔法系，还能一次解掉减速）。<b>别只靠跑直线摆脱 DK</b>——他会把你拽回来，白费一个位移。"
+     ]
+    ],
+    "arena": "DK 会把你拉离治疗、或把目标拉出 <sk>烟雾弹</sk>。<b>下弹前先看双方站位。</b>",
+    "duel": "低血时 <sk>卸除武装</sk> 的进攻价值大于随手减伤。但没形成击杀条件时要留给下一轮。"
+   },
+   {
+    "id": "shaman",
+    "n": "萨满祭司",
+    "ic": "classicon_shaman",
+    "c": "#0C69FF",
+    "diff": "中等偏难",
+    "cards": [
+     "星界转移"
+    ],
+    "one": "图腾会替他回答你的控制和击杀，击退会惩罚你直线追人。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "增强萨近战爆发高，元素萨是远程炮台，恢复萨靠图腾续命。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>星界转移</sk>、先祖之魂类保命，以及<b>各种图腾——破控图腾能直接废掉你的控制链</b>。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<b>先处理关键图腾，再决定要不要下 <sk>烟雾弹</sk>。</b><sk>脚踢</sk> 留给真正致命的治疗或伤害施法。"
+     ],
+     [
+      "你的开场",
+      "<b>图腾血极低，一两下就碎，收益远高于打人。</b>控制链之前先看地上有没有破控类图腾——有的话你的整套控制会白扔。击退会打断你的追击，<b>别把位移交在被击退的方向上</b>。"
+     ]
+    ],
+    "arena": "萨满对局的\"目标\"经常不是玩家，<b>而是一个正在改变规则的图腾</b>。",
+    "duel": "不要只盯血条。先处理能救命或破控的图腾，再用满连击点建立真正的窗口。"
+   },
+   {
+    "id": "mage",
+    "n": "法师",
+    "ic": "classicon_mage",
+    "c": "#3FC7EB",
+    "diff": "高",
+    "cards": [
+     "寒冰屏障",
+     "变形术"
+    ],
+    "one": "他用减速和定身逼你把接近手段用光，然后才开始输出。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "控制 → 爆发的连招能在几秒内秒人。<b>你必须假设他随时能起手一套。</b>"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>寒冰屏障</sk>（全免疫，期间他能回蓝解效果，<b>但不能移动</b>）、<sk>变形术</sk>、以及大量瞬发脱离。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<b><sk>脚踢</sk> 处理关键的 <sk>变形术</sk> 或伤害施法。</b>注意：他保护队友的价值和保护你自己一样高。"
+     ],
+     [
+      "你的开场",
+      "<b><sk>暗影斗篷</sk> 既能防魔法伤害，也能穿过控制完成一次接近 + 满连击点 <sk>肾击</sk>。</b>别过早浪费在小法伤上。<b>不要追着 <sk>寒冰屏障</sk> 结束后的假血线打</b>——他刚回过蓝，那不是真正的残血。"
+     ]
+    ],
+    "arena": "<sk>脚踢</sk> 不只断伤害，也是保护治疗免于 <sk>变形术</sk>。<b>看队友状态决定踢什么。</b>",
+    "duel": "别把对局变成无尽追逐。逼位移、守好接近手段，在斗篷期间完成一次带满连击点的有效接近。"
+   },
+   {
+    "id": "warlock",
+    "n": "术士",
+    "ic": "classicon_warlock",
+    "c": "#8788EE",
+    "diff": "中等偏难",
+    "cards": [
+     "不灭决心",
+     "恐惧"
+    ],
+    "one": "他在你露头时把持续伤害铺满，用恐惧掐断你的控制窗口。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "伤害是<b>叠加式复利</b>。他很少一击秒你，但自由施法越久越难处理。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>不灭决心</sk> 类大减伤、灵魂石、恶魔传送门，以及 <sk>恐惧</sk> 和死亡缠绕。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<b><sk>脚踢</sk> 价值极高。</b>但先判断<b>恐惧和伤害哪个更致命</b>，别见条就踢。"
+     ],
+     [
+      "你的开场",
+      "柱子、<sk>脚踢</sk>、<sk>凿击</sk> 轮流切断施法。<b><sk>暗影斗篷</sk> 能一次抹掉一整套持续伤害，也能处理死亡缠绕类魔法控制。</b><sk>烟雾弹</sk> 还能防守挡掉即将命中的混乱箭。<b>不要站在空地上跟术士比木桩。</b>"
+     ]
+    ],
+    "arena": "术士自由施法越久越难处理。<b>你的控制要同时服务于\"杀人\"和\"停止他建立压力\"。</b>",
+    "duel": "用柱子逼他移动，再接近，才有真正的杀窗。空地对拼是他的主场。"
+   },
+   {
+    "id": "monk",
+    "n": "武僧",
+    "ic": "classicon_monk",
+    "c": "#00FF98",
+    "diff": "中等",
+    "cards": [
+     "业报之触",
+     "气定神闲",
+     "玄牛下凡"
+    ],
+    "one": "业报之触是最常见的送分点——它反弹伤害，硬打等于帮他打你自己。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "风行的扫堂腿窗口和爆发很高。<b>他机动性极强，你很难甩掉他。</b>"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>业报之触</sk>（<b>化解并反弹</b>，还能移动）、<sk>气定神闲</sk>、<sk>玄牛下凡</sk>。"
+     ],
+     [
+      "你必须处理的那一个",
+      "织雾的关键治疗要读条。<b>更重要的是记住他的传送点位</b>——那决定你的 <sk>烟雾弹</sk> 会不会落空。"
+     ],
+     [
+      "你的开场",
+      "<b><sk>业报之触</sk> 亮起就停手、换目标或控制</b>，不要打进去。<b>扫堂腿前按 <sk>佯攻</sk></b>（晕前减伤最值钱）。<sk>闪避</sk> 对踏风的物理爆发有效。"
+     ]
+    ],
+    "arena": "<b>武僧的传送能让 <sk>烟雾弹</sk> 落空。</b>先逼出位移或确认位置，再下弹。织雾的还魂/茧类救援没走完之前别急着收。",
+    "duel": "<sk>业报之触</sk> 期间停手，拿这段时间重整能量、位置和控制递减。"
+   },
+   {
+    "id": "druid",
+    "n": "德鲁伊",
+    "ic": "classicon_druid",
+    "c": "#FF7C0A",
+    "diff": "高",
+    "cards": [
+     "树皮术",
+     "旅行形态"
+    ],
+    "one": "形态切换、持续治疗和流血会让你的控制链和消失复位都变得不稳。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "平衡德的爆发叠加高，野德的控制链能秒人。<b>野德的流血还会破坏你的 <sk>消失</sk> 复位</b>——本版消失稀缺，这一条格外疼。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>树皮术</sk>、化身、熊形态、<sk>旅行形态</sk>，加上强力自我治疗。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<b><sk>脚踢</sk> 价值高，但他能切形态躲学派锁定</b>，别指望一次踢锁死他。"
+     ],
+     [
+      "你的开场",
+      "逼出 <sk>树皮术</sk> 等防御后停手。<b>对治疗德：<sk>致盲</sk> 之前先确认他身上没有持续伤害</b>，也<b>先关掉 <sk>剑刃乱舞</sk></b>——不然控制接不上。对野德提前减伤，别等流血压满才处理。"
+     ]
+    ],
+    "arena": "对恢复德真正的技术点是<b>\"让致盲之后还能接上控制\"</b>，不是把致盲按出去就完事。",
+    "duel": "野德的持续伤害让 <sk>消失</sk> 更不可靠。提前减伤、用 <sk>闪避</sk> 和控制创造真正的脱离时间。"
+   },
+   {
+    "id": "dh",
+    "n": "恶魔猎手",
+    "ic": "classicon_demonhunter",
+    "c": "#A330C9",
+    "diff": "中等偏难",
+    "cards": [
+     "虚空行走",
+     "疾影",
+     "恶魔变形"
+    ],
+    "one": "高机动加持续压力会逼你把位移用光，幽灵视觉还会破坏你的潜行开局。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "浩劫的爆发高且是范围，<b>他能一直贴着你</b>。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>虚空行走</sk>（<b>全免疫且可移动</b>）、<sk>疾影</sk>（高闪避）、<sk>恶魔变形</sk>，以及极高的自愈。"
+     ],
+     [
+      "你必须处理的那一个",
+      "DH 读条极少，<sk>脚踢</sk> 价值低。要处理的是他的眩晕和拉扯链。"
+     ],
+     [
+      "你的开场",
+      "<b>不要从最可预测的路径接近</b>——幽灵视觉会看破 <sk>潜行</sk>。<b>逼出 <sk>疾影</sk>/<sk>虚空行走</sk> 后用控制等它结束，再进下一轮。</b>别为了追他把位移连续清空——本版你的位移就是你的命。"
+     ]
+    ],
+    "arena": "开门先考虑幽灵视觉，<b>不要让站位把你逼进唯一入口。</b>",
+    "duel": "先诱导他交位移，再用你的接近手段回接。他的防御结束后才花终结资源。"
+   },
+   {
+    "id": "evoker",
+    "n": "唤魔师",
+    "ic": "classicon_evoker",
+    "c": "#33937F",
+    "diff": "中等偏难",
+    "cards": [
+     "黑曜鳞片",
+     "悬空",
+     "新生光焰"
+    ],
+    "one": "中距离高机动加蓄力技能，让你很难稳定贴身。",
+    "q": [
+     [
+      "他什么时候能杀人",
+      "恢复者能瞬间把队伍拉满。增辉/毁灭的蓄力打满时爆发很高。"
+     ],
+     [
+      "他那张\"你杀不死我\"的牌",
+      "<sk>黑曜鳞片</sk>、<sk>新生光焰</sk>，以及 <sk>悬空</sk>——<b>他能一瞬间飞到你完全够不到的地方</b>。"
+     ],
+     [
+      "你必须处理的那一个",
+      "<b>蓄力技能是他的命门。</b><sk>脚踢</sk> 留给关键蓄力或治疗，<b>高频出现的蓄力用 <sk>凿击</sk> 处理就够了</b>。"
+     ],
+     [
+      "你的开场",
+      "<b>保留一个接近手段专门应对 <sk>悬空</sk>。</b>先逼出 <sk>黑曜鳞片</sk> 等防御再压。<b>下 <sk>烟雾弹</sk> 之前先确认他的救援和位移是否可用</b>——他能把目标从弹里带走。"
+     ]
+    ],
+    "arena": "唤魔师能把目标救出 <sk>烟雾弹</sk>。<b>先逼或控制他的位移工具，再把弹当收尾。</b>",
+    "duel": "第一次拉开只用跑速追，把接近手段留给第二次。避免后面彻底断档。"
+   }
+  ]
+ },
+ "roles": null,
+ "memb": null,
+ "play": null,
+ "quiz": [
+  {
+   "id": "g1",
+   "t": "general",
+   "d": 1,
+   "s": "你控住了对面治疗（<sk>致盲</sk>），转身去打击杀目标。你的 <sk>剑刃乱舞</sk> <em>正开着</em>，两人站得不远。",
+   "a": "会发生什么？",
+   "o": [
+    "没事，剑刃乱舞只打你的当前目标",
+    "溅射伤害会立刻打破 <sk>致盲</sk>，你的控制白费了",
+    "致盲不受伤害影响",
+    "剑刃乱舞会让致盲时间变短"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>剑刃乱舞</sk> 的整个作用就是把伤害溅射到附近敌人身上。",
+    "正解。<b>这是狂徒最贵的自伤陷阱。</b><sk>致盲</sk> <sk>闷棍</sk> <sk>凿击</sk> 全都受伤即破，溅射一下就断。<b>起失能类控制之前先关掉剑刃乱舞</b>——收人那一刻尤其危险，因为你正想全力输出。",
+    "致盲是失能类，受任何伤害立刻破。",
+    "不是变短，是直接破掉。"
+   ],
+   "k": "剑刃乱舞和失能类控制不能同时存在。控人之前先关掉它。"
+  },
+  {
+   "id": "g2",
+   "t": "general",
+   "d": 2,
+   "s": "你刚重骰，骰到的是一个<em>偏资源和节奏</em>的面（不是伤害面）。目标满血，治疗还没被处理。",
+   "a": "这一轮该做什么？",
+   "o": [
+    "直接压，狂徒有持续伤害，慢慢磨也能死",
+    "继续架伤害、逼技能，但这一轮不指望杀人",
+    "立刻重骰，追到伤害面为止",
+    "换目标打治疗"
+   ],
+   "r": 1,
+   "e": [
+    "磨是可以磨，但目标满血 + 治疗没被处理 + 骰面不给伤害，三个条件都不利。<b>硬压只是把自己暴露在挨打的位置。</b>",
+    "正解。<b>骰面决定这一轮的性质。</b>资源/节奏面适合继续架伤害、消耗对面的答案、把 <sk>正中眉心</sk> 的增益续好——目标是把缺的条件补回来，而不是赌一次击杀。",
+    "<b>为了追完美骰面反复重骰会拖掉整个开局。</b>能打的面就该去打。",
+    "换目标不解决\"我现在不够强\"这个核心问题。"
+   ],
+   "k": "骰面不是好坏问题，是\"这一轮该做什么\"的问题。伤害面赌击杀，资源面架伤害。"
+  },
+  {
+   "id": "g3",
+   "t": "general",
+   "d": 1,
+   "s": "你在持续输出，注意到 <sk>正中眉心</sk> 的伤害增益<em>还有几秒就掉</em>。你手上有满连击点。",
+   "a": "这个满连击点该用在哪？",
+   "o": [
+    "<sk>斩击</sk>，倒伤害",
+    "<sk>正中眉心</sk>，续上增益",
+    "<sk>肾击</sk>，控住目标",
+    "存着等爆发窗口"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>斩击</sk> 是伤害没错，但增益掉了之后你所有的输出同时打折——<b>这一发斩击换不回损失的那 40%。</b>",
+    "正解。<b>本版 <sk>正中眉心</sk> 是你的伤害底座（最高 40%），不是一个眩晕技。</b>底座断线是狂徒最常见的输出问题——不是循环打错，是让增益掉了还在硬打。",
+    "控制有价值，但这题的关键是底座即将断线。",
+    "狂徒不靠攒爆发吃饭，靠底座不断线。存着等于主动让自己变弱。"
+   ],
+   "k": "正中眉心的增益是底座不是技能。快掉的时候，续它优先于任何伤害。"
+  },
+  {
+   "id": "g4",
+   "t": "general",
+   "d": 3,
+   "s": "你被集火，血量掉到 <em>50%</em>。你的 <sk>抓钩</sk>、<sk>疾跑</sk>、<sk>消失</sk> 都可用，身上没有减速。",
+   "a": "先用哪个？",
+   "o": [
+    "<sk>消失</sk>，最彻底",
+    "<sk>抓钩</sk> 跳出去，把消失留着",
+    "<sk>疾跑</sk> 跑开",
+    "原地开防御硬扛"
+   ],
+   "r": 1,
+   "e": [
+    "<b>本版 <sk>消失</sk> 不再快速转好</b>（12.0 拿掉了不安之刃缩减它的冷却）。50% 血、身上没减速、还有两个位移可用——这时候交消失，等于把最后一张牌用在能用便宜牌解决的问题上。",
+    "正解。<b><sk>抓钩</sk> 不只是追人，也是脱离工具。</b>它能直接把你跳出集火位置，成本远低于消失。<b>本版狂徒的命挂在机动性上，不挂在消失上。</b>",
+    "<sk>疾跑</sk> 可以，但直线跑开容易被追上和控住。抓钩的位移是跳跃式的，更难跟。",
+    "50% 血被集火还硬扛，是把选择权交给对面。"
+   ],
+   "k": "脱离先找最便宜的。本版消失是真正稀缺的最后一张，前面所有手段用完才轮到它。"
+  },
+  {
+   "id": "g5",
+   "t": "general",
+   "d": 2,
+   "s": "团队战。你和队友都有眩晕。对面是<em>治疗 + 一个击杀目标</em>。",
+   "a": "你的 <sk>肾击</sk> 该给谁？",
+   "o": [
+    "击杀目标，确保他跑不掉",
+    "治疗，让队友的眩晕去晕击杀目标",
+    "留着等目标残血",
+    "谁先动手晕谁"
+   ],
+   "r": 1,
+   "e": [
+    "两个眩晕堆在同一个人身上会立刻触发递减，<b>第二个只剩一半时长，等于浪费一个</b>。",
+    "正解。<b>你晕治疗、队友晕目标，两个眩晕落在不同的人身上各自吃满时长。</b>这形成一个更稳的双控：治疗被锁住的同时目标也动不了。",
+    "\"留着补\"会错过唯一能同时锁住两个人的时机。",
+    "眩晕分配是最需要计划的——递减规则决定了随便按会浪费一半。"
+   ],
+   "k": "队伍里有多个眩晕时，分给不同的人比堆在同一个人身上多出一倍的控制时间。"
+  },
+  {
+   "id": "g6",
+   "t": "general",
+   "d": 2,
+   "s": "开局你在 <sk>潜行</sk> 里，重骰了两次都没骰到理想的面。队友已经在场上开始压了。",
+   "a": "现在该怎么办？",
+   "o": [
+    "继续重骰，直到骰到伤害面",
+    "用当前能打的面进场，跟上队友的节奏",
+    "退出去等冷却，让队友先撑一会儿",
+    "换个目标再骰"
+   ],
+   "r": 1,
+   "e": [
+    "<b>为了追完美骰面拖掉整个开局，是狂徒最常见的开场错误。</b>你多骰的每一秒，队友都在没有你的情况下承压。",
+    "正解。<b>狂徒的强度来自持续压制，不来自最优骰面。</b>能打的面就够进场——进场之后你还有 <sk>时运继延</sk> 和后续重骰的机会，但错过的开场时间补不回来。",
+    "让队友单独承压比骰面差得多。",
+    "骰面跟目标无关，换目标不改变骰的结果。"
+   ],
+   "k": "骰子是加成不是前提。追完美骰面的时间成本，通常大于骰面本身的收益差。"
+  },
+  {
+   "id": "g7",
+   "t": "general",
+   "d": 3,
+   "s": "你的所有条件都很好：眉心增益挂着、骰面是伤害面、治疗被队友控住了。但你的 <sk>抓钩</sk>、<sk>疾跑</sk>、<sk>消失</sk> <em>全在冷却</em>。",
+   "a": "压不压？",
+   "o": [
+    "压，四条件里三条都满足，机会难得",
+    "压，但不要把 <sk>冲动</sk> 也交完，留住撤退的余地",
+    "不压，等位移转好再说",
+    "压，同时让队友准备接应"
+   ],
+   "r": 1,
+   "e": [
+    "\"三条满足\"不等于可以无脑压。<b>缺的那一条恰好是\"我能不能回来\"</b>——一旦对面反打，你没有任何脱离手段。",
+    "正解。三条件成立时可以压，但<b>缺的那一项决定你能压多久</b>。没有退路的时候，不要把爆发和剩余资源一次性倒完——留住随时能止损的余地。<b>本版狂徒尤其如此，因为消失不会很快转好。</b>",
+    "完全不压太保守——三个条件同时满足的窗口不常有，白白让它过去也是浪费。",
+    "让队友接应是好习惯，但它不改变\"你自己没有退路\"这个事实。判断的主体是你。"
+   ],
+   "k": "条件不齐的时候，缺的那一项决定你能走多远。缺退路时压，就得压得能随时停。"
+  },
+  {
+   "id": "g8",
+   "t": "general",
+   "d": 1,
+   "s": "对面是<em>射击猎 + 恢复萨</em>，你在选第三个 PvP 天赋（前两个是 <sk>卸除武装</sk> 和 <sk>烟雾弹</sk>）。",
+   "a": "为什么狂徒的卸除武装是必带，敏锐却经常不带？",
+   "o": [
+    "因为狂徒的缴械时间更长",
+    "因为狂徒贴身时间长得多，缴械攻防两用",
+    "因为敏锐不能带这个天赋",
+    "因为狂徒伤害低，需要削弱对手"
+   ],
+   "r": 1,
+   "e": [
+    "两个专精的缴械是同一个技能，时长一样。",
+    "正解。<b>狂徒是贴身持续压制的打法，在近战对拼里待的时间比敏锐长得多。</b>缴械既能掐掉对面爆发（防），也能在收人时阻止 <sk>剑在人在</sk> 这类物理免疫（攻）。所以在狂徒这边是 8/8 全员必带，在敏锐那边只有 29/50。",
+    "敏锐也能带，只是使用率低得多。",
+    "狂徒伤害不低。这个理由跟实际机制无关。"
+   ],
+   "k": "同一个天赋在不同专精的价值不同，取决于你的打法在场上停留多久。"
+  },
+  {
+   "id": "g9",
+   "t": "general",
+   "d": 2,
+   "s": "你正准备下 <sk>烟雾弹</sk> 完成击杀。目标是个<em>织雾武僧</em>的队友，武僧站在烟的范围之外。",
+   "a": "下弹之前要确认什么？",
+   "o": [
+    "目标身上有没有护盾",
+    "武僧的传送是否可用——他能瞬移进烟里",
+    "自己的连击点够不够",
+    "队友的位置"
+   ],
+   "r": 1,
+   "e": [
+    "护盾影响伤害，但不影响弹的机制。",
+    "正解。<b>武僧的传送能让 <sk>烟雾弹</sk> 落空</b>——他一瞬移进烟里，你精心设计的\"治疗看不见目标\"就作废了。<b>下弹之前先逼出他的位移或确认位置。</b>唤魔师的救援、DK 的死亡之握也是同类威胁。",
+    "连击点是输出问题，不影响弹能不能成立。",
+    "队友位置重要，但这题的关键变量是武僧的位移。"
+   ],
+   "k": "烟雾弹靠\"隔开位置\"生效。任何能瞬间改变位置的技能都是它的天敌，下弹前先排除。"
+  },
+  {
+   "id": "g10",
+   "t": "general",
+   "d": 2,
+   "s": "你被一个战士和一个法师同时打，血量 <em>45%</em>，身上有法师的减速和几个持续法伤。<sk>暗影斗篷</sk>、<sk>闪避</sk> 都好。",
+   "a": "先按哪个？",
+   "o": [
+    "<sk>闪避</sk>，战士是主要伤害来源",
+    "<sk>暗影斗篷</sk>，一次抹掉法伤和减速",
+    "两个一起交，稳一点",
+    "<sk>猩红之瓶</sk> 先补血"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>闪避</sk> 只挡物理，法师那一半伤害照进来，减速也还在——<b>减速对本版狂徒尤其致命</b>，你的机动性就是你的命。",
+    "正解。<b>斗篷抹掉魔法伤害 + 身上所有魔法减益。</b>一次解决法伤、减速、以及法师接下来的输出。解掉减速你才能正常用位移。",
+    "两个一起交是把两轮的资源压在一轮上。<b>防御要分轮覆盖，不是叠在一起用。</b>",
+    "<sk>猩红之瓶</sk> 是补缺口不是大防，撑不住两个人的集火。"
+   ],
+   "k": "防御按伤害类型选：物理用闪避，法术压力和魔法减益用斗篷。选错等于没交。"
+  },
+  {
+   "id": "g11",
+   "t": "general",
+   "d": 3,
+   "s": "你压了一整轮，目标被打到 <em>35%</em> 但交了解控道具活下来了。你的爆发进冷却了。",
+   "a": "这一轮该怎么评价？",
+   "o": [
+    "失败了，没杀掉人",
+    "成功了——逼出道具就是下一轮的入场券",
+    "平手，双方各消耗了一些",
+    "失败，应该早点交烟雾弹"
+   ],
+   "r": 1,
+   "e": [
+    "用\"有没有杀掉\"来评价单轮，会让你在下一轮做出更急躁的决定。",
+    "正解。<b>狂徒的击杀经常不是一轮打死，是第一轮逼道具、第二轮真杀。</b>目标交了解控道具意味着他下一轮没有这张牌——<b>记住这个信息，那就是你的入场券。</b>",
+    "不是平手。你消耗的是可以再生的冷却，他消耗的是很长时间才能再来一次的解控道具。<b>这个交换你赚了。</b>",
+    "烟雾弹时机可以讨论，但把这一轮定性为失败是错的。"
+   ],
+   "k": "狂徒是算账型的打法。单轮不看杀没杀掉，看双方各花掉了什么。"
+  },
+  {
+   "id": "g12",
+   "t": "general",
+   "d": 2,
+   "s": "你正在追一个跑开的目标。<sk>抓钩</sk> 和 <sk>疾跑</sk> 都可用，目标还在你的中距离。",
+   "a": "该用哪个追？",
+   "o": [
+    "两个都用，确保追上",
+    "先用 <sk>疾跑</sk>，把 <sk>抓钩</sk> 留着",
+    "先用 <sk>抓钩</sk>，疾跑留着",
+    "都不用，让他跑"
+   ],
+   "r": 1,
+   "e": [
+    "<b>把两个位移连着交给同一次追击，是狂徒最常见的死法。</b>追上了但你没有回来的路，对面一反打你就走不掉。",
+    "正解。<b>位移要分轮用。</b><sk>疾跑</sk> 是持续加速，适合常规追击；<sk>抓钩</sk> 是跳跃式位移，更适合<b>关键的重新接近或者脱离</b>。留住抓钩就是留住退路——本版 <sk>消失</sk> 不再快速转好，位移就是你的命。",
+    "顺序反了。抓钩这种\"能跳出去\"的技能价值更高，该留给更关键的时刻。",
+    "中距离还追得上，直接放弃是浪费压制机会。"
+   ],
+   "k": "两个位移覆盖两件事：一个追，一个撤。连着交给同一件事，等于只有一个。"
+  },
+  {
+   "id": "g13",
+   "t": "general",
+   "d": 1,
+   "s": "你注意到自己已经攒了 6 枚 <sk>命运硬币</sk>，再一个终结技就能触发幸运币。你手上只有 3 个连击点。",
+   "a": "该怎么做？",
+   "o": [
+    "立刻放一个 3 点终结技凑够硬币",
+    "按正常节奏打，硬币会自己来",
+    "换个技能快速凑点",
+    "等硬币过期再重新攒"
+   ],
+   "r": 1,
+   "e": [
+    "为了凑硬币放低连击点的终结技，是把确定的伤害损失换一个不确定的增益。<b>亏。</b>",
+    "正解。<b>命运之缚（Fatebound）全自动，不干扰循环，也不需要你规划。</b>它写在这里就是为了让你别去管它——有人会为了凑硬币改变终结技节奏，那是纯亏。",
+    "同上，为硬币改节奏都是亏的。",
+    "硬币不会因为你不管它就浪费，正常打就会攒到。"
+   ],
+   "k": "被动机制不进入你的判断。改变节奏去迁就一个自动进行的东西，一定是亏的。"
+  },
+  {
+   "id": "g14",
+   "t": "general",
+   "d": 3,
+   "s": "一局中段，你的 <sk>正中眉心</sk> 增益断了，骰面也快过期了，但<em>对面击杀目标正好落单</em>，治疗看不到他。",
+   "a": "现在做什么？",
+   "o": [
+    "立刻扑上去，落单机会难得",
+    "先花一两个 GCD 把底座补回来，再压",
+    "重骰求一个伤害面再上",
+    "叫队友先上，你补完状态再跟"
+   ],
+   "r": 1,
+   "e": [
+    "底座断线的狂徒<b>伤害会明显打折</b>。扑上去打不出压制力，反而暴露自己的位置、白白浪费掉这个落单机会。",
+    "正解。<b>机会窗口和你的状态要同时成立才算数。</b>补 <sk>正中眉心</sk> 只需要一个满连击点的终结技，成本很低——<b>用一两个 GCD 换回 40% 的伤害，是这局最划算的交易</b>。落单通常能持续几秒，够你补完。",
+    "重骰是不确定的，而且比补眉心慢。<b>先做确定能做到的事。</b>",
+    "让队友先上会暴露机会、给治疗反应时间。而且你的底座该补还是要补。"
+   ],
+   "k": "机会不等于该立刻扑上去。先花最小的代价把自己修好，再进场——狂徒的补状态成本很低。"
+  },
+  {
+   "id": "g15",
+   "t": "general",
+   "d": 2,
+   "s": "你复位（脱战/防御结束）成功，血量回稳。对面正在重整。",
+   "a": "第一件事该做什么？",
+   "o": [
+    "立刻重新压上去，不给对面喘息",
+    "先看三件事：治疗控制、目标道具、我的底座",
+    "立刻重骰",
+    "先补血"
+   ],
+   "r": 1,
+   "e": [
+    "\"不给喘息\"听起来积极，但你刚复位时状态大概率是残缺的——底座可能断了、骰面可能过期了。<b>这时候压上去是重复刚才导致你复位的那个错误。</b>",
+    "正解。<b>复位结束不要立刻乱开。</b>先回到那三个问题：治疗控制怎么样、目标的解控道具在不在、我的底座还在不在。<b>这就是骨架页那四条件。</b>",
+    "重骰可能需要，但它是\"检查完之后\"的动作，不是第一件事。",
+    "补血是治疗的事，你要判断的是能不能重新建立压制。"
+   ],
+   "k": "每次复位后都重跑一遍四条件。跳过检查直接压，是同一个错误的循环。"
+  },
+  {
+   "id": "warrior",
+   "t": "warrior",
+   "d": 2,
+   "s": "你在打战士，他血量 <em>25%</em>，你手上满连击点准备收尾。他按下 <sk>剑在人在</sk>（免疫物理伤害）。你的 <sk>卸除武装</sk> 是好的。",
+   "a": "现在做什么？",
+   "o": [
+    "继续打，25% 血打穿一点就死",
+    "停手或转火，你几乎全是物理",
+    "用 <sk>卸除武装</sk> 缴他",
+    "控住他等免疫结束"
+   ],
+   "r": 1,
+   "e": [
+    "<b>\"免物理\"对狂徒几乎等于\"全免疫\"。</b>25% 血看起来近在咫尺，正是这种时候最容易把满连击点和爆发一起喂进去。",
+    "正解。你的伤害绝大部分是物理，<sk>剑在人在</sk> 期间打进去接近于零。<b>有转火对象就转火，没有就拉开等它结束再回来收。</b>",
+    "缴械是防他的输出，不解除他的免疫。<b>但如果是在他按下之前用，就能阻止他开这个技能——那才是缴械在这个对局的正确时机。</b>",
+    "控住不产生伤害，还浪费递减。"
+   ],
+   "k": "缴械要在他按防御之前用，不是之后。看到对手准备开关键技能就掐，别等他开出来。"
+  },
+  {
+   "id": "warrior2",
+   "t": "warrior",
+   "d": 2,
+   "s": "你在打战士，他刚冲锋进来准备开爆发。你的 <sk>卸除武装</sk>、<sk>闪避</sk>、<sk>佯攻</sk> 都可用。",
+   "a": "这一轮该怎么分配？",
+   "o": [
+    "三个一起交，稳稳扛过这波",
+    "<sk>卸除武装</sk> 掐爆发起点，<sk>佯攻</sk> 吃常规压力，<sk>闪避</sk> 留给他真正的大爆发",
+    "只开 <sk>闪避</sk>，够了",
+    "先看他打多少再决定"
+   ],
+   "r": 1,
+   "e": [
+    "三个一起交是把三轮的资源压在一轮上。战士的压力是持续的，<b>这一波扛过去了，下一波你就裸了。</b>",
+    "正解。<b>防御要分层覆盖不同性质的伤害。</b>缴械掐掉爆发的起点（预防），<sk>佯攻</sk> 吃日常伤害（廉价），<sk>闪避</sk> 留给真正躲不掉的那一段（关键）。这样你能覆盖三轮而不是一轮。",
+    "只开闪避扛不住战士的完整压力，而且缴械白白浪费了掐爆发起点的机会。",
+    "\"先看他打多少\"就是让前半段伤害吃满。<b>缴械是预防不是补救。</b>"
+   ],
+   "k": "防御分层不是叠加。每个技能覆盖一段不同性质的伤害，才能撑满整局。"
+  },
+  {
+   "id": "paladin",
+   "t": "paladin",
+   "d": 3,
+   "s": "你在打圣骑士队伍。这一轮你逼出了 <sk>圣盾术</sk>。下一轮你逼出了 <sk>保护祝福</sk>（他的治疗给他放的）。",
+   "a": "第三轮该怎么想？",
+   "o": [
+    "再逼一轮，把技能全逼完再杀",
+    "注意第二张是治疗给的——说明治疗也花了资源，可以考虑压治疗",
+    "直接全交，他应该没牌了",
+    "换目标"
+   ],
+   "r": 1,
+   "e": [
+    "\"全逼完再杀\"听起来周全，但圣骑的外部技能太多，你逼不完——而且每逼一轮你自己的冷却也在消耗。",
+    "正解。<b>要分清\"他自己交的\"和\"队友给他的\"。</b><sk>保护祝福</sk> 是治疗放的，意味着治疗也花了一张牌、也承受了压力。<b>这时候压治疗，比继续在目标身上撞剩余的牌更有收益。</b>",
+    "圣骑通常还有 <sk>自由祝福</sk>、<sk>破咒祝福</sk> 等，\"应该没牌了\"是危险的假设。",
+    "换目标方向对，但要有理由——理由就是选项 2 说的那个。"
+   ],
+   "k": "逼技能时记账要分两本：他自己的牌，和队友替他花的牌。后者是压治疗的信号。"
+  },
+  {
+   "id": "hunter",
+   "t": "hunter",
+   "d": 2,
+   "s": "你在追一个射击猎，他往一个<em>你没看清的方向</em>跑。你的 <sk>抓钩</sk> 可以直接跳到他身边。",
+   "a": "跳不跳？",
+   "o": [
+    "跳，抓钩就是干这个的",
+    "先确认那个位置有没有陷阱——跳进陷阱区等于交掉位移还被控住",
+    "跳，同时开 <sk>闪避</sk>",
+    "用 <sk>疾跑</sk> 追更安全"
+   ],
+   "r": 1,
+   "e": [
+    "猎人往一个方向跑，很可能是在把你往陷阱上引。<b>抓钩跳过去正好落进去。</b>",
+    "正解。<b>不要沿直线追进陷阱区</b>——这是本版狂徒最贵的错误：<b>交掉一个位移，还中了控制</b>。而本版你的位移就是你的命（消失不再快速转好）。",
+    "<sk>闪避</sk> 挡不了陷阱的控制效果。",
+    "疾跑同样会跑进陷阱区，而且更慢，问题没解决。"
+   ],
+   "k": "追人之前先看落点。位移交出去还中控，是双重损失。"
+  },
+  {
+   "id": "rogue",
+   "t": "rogue",
+   "d": 3,
+   "s": "镜像对局，你打的是<em>敏锐贼</em>。他开了爆发窗口冲你来，你血量健康。",
+   "a": "这几秒的目标是什么？",
+   "o": [
+    "跟他对拼，比谁伤害高",
+    "活过他的窗口就行——敏锐打不死你就得走",
+    "立刻 <sk>消失</sk> 躲开",
+    "开全部防御硬扛"
+   ],
+   "r": 1,
+   "e": [
+    "敏锐的爆发窗口伤害极高。<b>正面对拼是拿你的持续输出去撞他的爆发峰值，兑换比很差。</b>",
+    "正解。<b>敏锐没有持续压力——他打不死你，就必须脱战重开。</b>你只要用 <sk>佯攻</sk>、<sk>闪避</sk>、拉开距离撑过那几秒，他的窗口一结束你就重新占优。<b>你是能长期待在场上的那个，时间站在你这边。</b>",
+    "<sk>消失</sk> 是最后一张，本版不再快速转好。第一轮就交，后面没退路。",
+    "把防御一次交完，等于把后面几轮的资源提前烧掉。"
+   ],
+   "k": "对爆发型对手，赢的方式是熬过他的窗口，不是在窗口里比伤害。"
+  },
+  {
+   "id": "priest",
+   "t": "priest",
+   "d": 2,
+   "s": "你要对戒律牧起一段控制链：<sk>致盲</sk> 接 <sk>凿击</sk>。你的 <sk>剑刃乱舞</sk> 开着，队友的持续伤害挂在牧师身上。",
+   "a": "这个计划有几个问题？",
+   "o": [
+    "没问题，两个控制不同类别",
+    "两个：剑刃乱舞的溅射会破控，队友的持续伤害也会破控",
+    "一个：只有剑刃乱舞的问题",
+    "一个：只有队友持续伤害的问题"
+   ],
+   "r": 1,
+   "e": [
+    "类别不同确实避开了递减，但<b>失能类和致残类都是受伤即破</b>——这个计划的问题不在递减。",
+    "正解。<b>两个都会破掉控制。</b><sk>致盲</sk> 和 <sk>凿击</sk> 都受伤即破：<sk>剑刃乱舞</sk> 的溅射会打断，队友挂在牧师身上的持续伤害也会打断。<b>控之前要同时处理这两件事</b>——关掉乱舞，并让队友停掉/避开持续伤害。",
+    "漏了队友的持续伤害。",
+    "漏了剑刃乱舞。"
+   ],
+   "k": "失能类控制的成败在\"控之前的清理\"。自己的溅射和队友的持续伤害都要算进去。"
+  },
+  {
+   "id": "dk",
+   "t": "dk",
+   "d": 2,
+   "s": "你在打 DK，被死亡之握拽回去，身上有减速。你的 <sk>暗影斗篷</sk>、<sk>疾跑</sk>、<sk>消失</sk> 都好。",
+   "a": "怎么处理？",
+   "o": [
+    "<sk>疾跑</sk> 跑开",
+    "<sk>暗影斗篷</sk> 解掉减速再走",
+    "<sk>消失</sk>，跑不掉的",
+    "站着打，他拽不了几次"
+   ],
+   "r": 1,
+   "e": [
+    "减速还在身上，<sk>疾跑</sk> 的效果被大幅抵消，而且他能再拽你一次。<b>白花一个技能。</b>",
+    "正解。<b>DK 的减速和大量控制是魔法系，<sk>暗影斗篷</sk> 能一次抹掉。</b>解掉之后你才能正常用位移。<b>这也是斗篷在 DK 对局价值极高的原因</b>——他的伤害和控制大量是魔法。把 <sk>消失</sk> 省给真正的危急时刻。",
+    "<sk>消失</sk> 本版不再快速转好，用在能被斗篷解决的问题上太亏。",
+    "\"拽不了几次\"是被动等死。DK 的压力是持续的。"
+   ],
+   "k": "脱离先找最便宜的解。斗篷能解掉的东西，不要用消失去解。"
+  },
+  {
+   "id": "mage",
+   "t": "mage",
+   "d": 3,
+   "s": "你把法师打到 <em>25%</em>，他按了 <sk>寒冰屏障</sk>。屏障结束后他血量显示 <em>25%</em>，你准备接上去杀。",
+   "a": "这里有什么陷阱？",
+   "o": [
+    "没陷阱，25% 血就该收",
+    "他在屏障里回过蓝、解掉了所有减益，这个 25% 不是你以为的那个残血",
+    "屏障结束他会立刻传送走",
+    "应该先重骰"
+   ],
+   "r": 1,
+   "e": [
+    "血条上是 25%，但<b>他的状态跟屏障之前完全不同了</b>。",
+    "正解。<b><sk>寒冰屏障</sk> 期间法师能回蓝、解掉身上所有效果。</b>出来的他蓝量充足、没有减益、随时能起一整套连招。<b>不要追着屏障结束后的\"假血线\"打</b>——你以为在收人，实际是走进他的窗口。要收就得带着完整的控制和爆发一起上。",
+    "寒冰屏障本身不提供传送。",
+    "重骰跟这个陷阱无关。"
+   ],
+   "k": "血条不等于状态。有些免疫技能会同时重置对手的资源，出来的人比进去时更强。"
+  },
+  {
+   "id": "druid",
+   "t": "druid",
+   "d": 3,
+   "s": "对面恢复德满血，你被指派去压他。你的 <sk>剑刃乱舞</sk> 开着（在打群体压力），现在想用 <sk>致盲</sk> 控住他让队友转火。",
+   "a": "正确顺序是什么？",
+   "o": [
+    "直接致盲，然后关剑刃乱舞",
+    "先关 <sk>剑刃乱舞</sk>，确认他身上没有持续伤害，再致盲",
+    "致盲后立刻让队友停手",
+    "先打掉 <sk>树皮术</sk>"
+   ],
+   "r": 1,
+   "e": [
+    "<b>顺序反了。</b>致盲按下去的瞬间，还开着的剑刃乱舞就把它破了——你连\"然后\"都没有。",
+    "正解。<b>失能类控制的准备工作必须在按之前完成。</b>关掉自己的溅射、确认目标身上干净，然后才是控。<b>对恢复德真正的技术点是\"让致盲之后还能接上控制\"</b>，不是把致盲按出去就完事。",
+    "队友停手也是要在控之前沟通的，而且没解决你自己的剑刃乱舞。",
+    "<sk>树皮术</sk> 是减伤，不影响控制生效。"
+   ],
+   "k": "控制不是一个按键，是一套准备工作。准备没做完，按下去的那一刻就已经废了。"
+  },
+  {
+   "id": "monk",
+   "t": "monk",
+   "d": 1,
+   "s": "你正在全力输出风行武僧，他按下 <sk>业报之触</sk>。",
+   "a": "继续打会怎样？",
+   "o": [
+    "伤害被化解一部分，还是能打进去",
+    "伤害被化解并<b>反弹到你身上</b>，等于你在打自己",
+    "没影响，业报只是减伤",
+    "会延长他的技能时间"
+   ],
+   "r": 1,
+   "e": [
+    "化解只是一半，另一半更严重。",
+    "正解。<b><sk>业报之触</sk> 化解伤害并反弹给你。</b>硬打不只是白打，是<b>帮他打你自己</b>。这是狂徒最常见的送分点——因为你的输出是持续的，一不注意就倒了一大截进去。<b>亮起就停手、换目标或控制。</b>",
+    "它不是普通减伤。",
+    "跟技能时长无关。"
+   ],
+   "k": "反弹类技能比免疫更危险——免疫只是白打，反弹是自伤。看到就立刻停。"
+  },
+  {
+   "id": "dh",
+   "t": "dh",
+   "d": 2,
+   "s": "你在打浩劫 DH，他机动性极强一直在拉扯。你已经用了 <sk>疾跑</sk> 追他，现在 <sk>抓钩</sk> 还剩最后一个位移。",
+   "a": "该用抓钩追吗？",
+   "o": [
+    "追，不追就打不到他",
+    "不追——把抓钩留着，等他交完位移再接近",
+    "追，同时开爆发",
+    "放弃这个目标"
+   ],
+   "r": 1,
+   "e": [
+    "<b>DH 的机动性比你强。</b>用最后一个位移去追一个跑得比你快的人，追到了你也没有回来的路。",
+    "正解。<b>先诱导他交位移，再用你的接近手段回接。</b>DH 的位移虽多但也有冷却，等他用完那几秒才是你能稳定贴身的窗口。<b>本版你的位移就是你的命，不能为了追人清空。</b>",
+    "爆发倒在一个你贴不住的目标身上是双重浪费。",
+    "放弃太早——等他交完位移你就有机会了。"
+   ],
+   "k": "对机动性比你强的对手，不要比追。等他先花，你后花。"
+  },
+  {
+   "id": "shaman",
+   "t": "shaman",
+   "d": 3,
+   "s": "你准备对目标下 <sk>烟雾弹</sk> 收尾。恢复萨在不远处，地上有几个图腾，其中一个你<em>不认识</em>。",
+   "a": "下不下弹？",
+   "o": [
+    "下，机会不等人",
+    "先看清那个图腾——破控类图腾会让整套控制和弹白扔",
+    "让队友先打图腾",
+    "下弹同时控住萨满"
+   ],
+   "r": 1,
+   "e": [
+    "<b>不认识的图腾就是不确定的变量。</b>在最贵的一张牌上赌一个你没看清的东西，是最差的决策。",
+    "正解。<b>萨满对局的\"目标\"经常不是玩家，而是一个正在改变规则的图腾。</b>破控类图腾能直接废掉你精心设计的击杀窗口。<b>图腾血极低，认出来了顺手打掉就行</b>——这点成本远低于赌错的代价。",
+    "推给队友不解决问题，而且你的弹还是可能被同一个图腾废掉。",
+    "控住萨满不影响已经落地的图腾继续生效。"
+   ],
+   "k": "用你最贵的牌之前，先排除场上你没看懂的变量。"
+  },
+  {
+   "id": "warlock",
+   "t": "warlock",
+   "d": 2,
+   "s": "你在一片空地上跟术士对峙，他在自由读条，你在挨持续伤害。你的位移都好。",
+   "a": "第一件事做什么？",
+   "o": [
+    "冲上去贴脸打断",
+    "去柱子后面，逼他移动",
+    "开 <sk>暗影斗篷</sk> 硬顶着打",
+    "用 <sk>手枪射击</sk> 对射"
+   ],
+   "r": 1,
+   "e": [
+    "方向对，但空地上他有传送门、<sk>恐惧</sk>、减速——你贴上去待不住，冲的路上还一直在挨伤害。",
+    "正解。<b>别在空地上跟术士比木桩，他的伤害模型就是赢这个。</b>用柱子逼他移动——<b>他移动就不能读条，不读条就没有伤害</b>。然后你再接近，才有真正的杀窗。",
+    "斗篷只解决一小段时间，之后你还是在空地上被自由施法。<b>把资源花在错误的问题上。</b>",
+    "<sk>手枪射击</sk> 撑不起对射，而且这不解决场地问题。"
+   ],
+   "k": "打远程职业先解决\"场地\"，再解决\"距离\"。柱子比你的位移便宜得多。"
+  },
+  {
+   "id": "evoker",
+   "t": "evoker",
+   "d": 2,
+   "s": "你在打唤魔师，他开始蓄力一个技能。你的 <sk>脚踢</sk> 和 <sk>凿击</sk> 都好。",
+   "a": "用哪个？",
+   "o": [
+    "<sk>脚踢</sk>，最直接",
+    "<sk>凿击</sk>——同样能中断，把脚踢留给关键的那一个",
+    "都不用",
+    "<sk>肾击</sk>"
+   ],
+   "r": 1,
+   "e": [
+    "能断，但浪费。<b>唤魔师的蓄力技能会反复出现</b>，每次都用脚踢，关键时刻你手上就没牌了。",
+    "正解。<b><sk>凿击</sk>、眩晕、<sk>致盲</sk> 都能中断施法且不占脚踢冷却。</b>用便宜的手段处理高频出现的蓄力。<b>但注意：凿击受伤即破，用之前确认 <sk>剑刃乱舞</sk> 关着。</b>",
+    "唤魔师是打断价值最高的对局之一，蓄力被断损失极大。",
+    "<sk>肾击</sk> 是眩晕类，会吃掉眩晕递减预算——那份预算该留给击杀窗口。"
+   ],
+   "k": "中断有很多种，脚踢只是最贵的一种。能用凿击解决的别用脚踢。"
+  },
+  {
+   "id": "evoker2",
+   "t": "evoker",
+   "d": 3,
+   "s": "你的条件都不错，准备压唤魔师。你注意到他的 <sk>悬空</sk> <em>刚刚用过</em>，但你自己的 <sk>抓钩</sk> 也<em>在冷却</em>。",
+   "a": "压不压？",
+   "o": [
+    "压，他跑不掉了",
+    "压，但知道自己也没有二次接近的手段——一旦他拉开就该止损",
+    "不压，等抓钩好了再说",
+    "先重骰"
+   ],
+   "r": 1,
+   "e": [
+    "\"他跑不掉\"只成立了一半——<b>他还有其他位移和救援，而你没有二次接近的能力。</b>",
+    "正解。<b>他的位移冷却和你的位移冷却要一起算。</b>他刚用完 <sk>悬空</sk> 确实是好时机，但你没有抓钩意味着<b>只有一次机会，跟丢了就接不回来</b>。压可以压，但要预设\"他一拉开我就停\"，而不是把资源全倒进去追。",
+    "完全不压太保守——他的 <sk>悬空</sk> 窗口不会等你的抓钩。",
+    "重骰不解决\"我追不回来\"这个问题。"
+   ],
+   "k": "算位移冷却要算双方的。只算对手的，会让你压进一个自己接不住的局面。"
+  },
+  {
+   "id": "paladin2",
+   "t": "paladin",
+   "d": 2,
+   "s": "你在打惩戒骑，他开了翅膀（爆发窗口）冲你来。你血量健康，<sk>闪避</sk>、<sk>暗影斗篷</sk>、<sk>佯攻</sk> 都好。",
+   "a": "这几秒怎么过？",
+   "o": [
+    "跟他对拼，比谁先倒",
+    "用柱子和 <sk>凿击</sk> 拆开他的节奏，让制裁和爆发错开",
+    "三个防御一起交，硬扛",
+    "<sk>消失</sk> 躲开"
+   ],
+   "r": 1,
+   "e": [
+    "惩戒的翅膀期间伤害峰值很高，正面对拼兑换比很差。",
+    "正解。<b>开翅膀不等于你必须对拼。</b>用柱子、<sk>凿击</sk>、把 <sk>闪避</sk>（物理段）和 <sk>暗影斗篷</sk>（制裁类魔法控制）拆开用——<b>目标是让他的控制和爆发错开，而不是同时命中你</b>。他的窗口一过就轮到你了。",
+    "三个一起交是把三轮资源压成一轮。",
+    "<sk>消失</sk> 本版稀缺，血量健康时不该交。"
+   ],
+   "k": "对爆发型对手，把他的控制和伤害拆开，比硬扛整套便宜得多。"
+  },
+  {
+   "id": "hunter2",
+   "t": "hunter",
+   "d": 1,
+   "s": "你在打猎人，压得很顺。他突然 <sk>假死</sk>，你掉了目标也脱战了。",
+   "a": "第一反应是什么？",
+   "o": [
+    "原地放范围技能把他打出来",
+    "立刻重新选中并跟上——他人还在原地",
+    "退回 <sk>潜行</sk> 重来",
+    "先打他的宠物"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>假死</sk> 不是潜行，他人还站在那。范围技能是多余动作。",
+    "正解。<b><sk>假死</sk> 让你掉目标并脱战，但他没消失。</b>最快的处理就是立刻重新选中继续压。<b>犹豫那两秒他就跑出你的距离了</b>——而本版你的位移很宝贵，不该浪费在追回一个本来不用追的人身上。",
+    "退回潜行等于放他走，白丢已经建立的压力。",
+    "伤害源不是宠物。"
+   ],
+   "k": "假死掉目标不等于人跑了。反应速度决定你要不要额外花一个位移。"
+  },
+  {
+   "id": "rogue2",
+   "t": "rogue",
+   "d": 2,
+   "s": "狂徒对狂徒的镜像。双方都在贴身消耗，你的 <sk>卸除武装</sk> 好了。",
+   "a": "什么时候用最值？",
+   "o": [
+    "现在就用，越早削弱他越好",
+    "等他开 <sk>冲动</sk> 那一刻，掐掉他的爆发起点",
+    "留到他残血时",
+    "等他先缴械你"
+   ],
+   "r": 1,
+   "e": [
+    "随手交掉，等他真正开爆发时你手上就没这张牌了。",
+    "正解。<b>缴械的最大价值是掐掉爆发窗口的起点。</b>镜像里双方伤害模型一样，谁的爆发被废掉谁就输了这一轮。<b>缴械是预防不是补救——等他打了一半再缴，前半段伤害你已经吃满了。</b>",
+    "残血时他可能已经打完爆发了，那时缴械的价值大打折扣。",
+    "等对方先动是把主动权交出去。"
+   ],
+   "k": "缴械看的是\"他什么时候起爆发\"，不是\"他现在多少血\"。"
+  },
+  {
+   "id": "priest2",
+   "t": "priest",
+   "d": 3,
+   "s": "对面是戒律牧 + 一个 DPS。你压了两轮，两次都在目标 <em>30%</em> 被拉回去。你的条件（底座、骰面）都是好的。",
+   "a": "第三轮该改什么？",
+   "o": [
+    "再压狠一点，多打几轮总能穿",
+    "改成先处理治疗——控住他或用 <sk>烟雾弹</sk> 隔开，再压目标",
+    "换目标打牧师",
+    "重骰求更好的面"
+   ],
+   "r": 1,
+   "e": [
+    "<b>条件都好还是卡在 30%，说明伤害不是瓶颈。</b>同样的打法打三次得到同样的结果。",
+    "正解。你的底座和骰面都没问题，反复卡在同一血线<b>说明缺的是控制不是伤害</b>。这一轮的重点该从\"打得更狠\"转成\"让治疗在这几秒里不存在\"。<b>控之前记得关掉 <sk>剑刃乱舞</sk>。</b>",
+    "直接杀满血戒律牧比杀目标更难。",
+    "骰面已经是好面了，重骰不解决核心矛盾。"
+   ],
+   "k": "条件齐全还打不穿，缺的一定是控制。改打法结构，不是加输出。"
+  },
+  {
+   "id": "dk2",
+   "t": "dk",
+   "d": 3,
+   "s": "你把 DK 打到低血，准备收尾。你的 <sk>卸除武装</sk> 和满连击点都在手上。",
+   "a": "先用哪个？",
+   "o": [
+    "直接满连击点终结技，抢在他自救之前",
+    "先 <sk>卸除武装</sk>，再上满连击点",
+    "先控住他",
+    "先补 <sk>正中眉心</sk> 的增益"
+   ],
+   "r": 1,
+   "e": [
+    "DK 的自救（灵界打击类）会在你收尾的过程中把血拉回去，抢速度赢不过他的机制。",
+    "正解。<b><sk>卸除武装</sk> 可以阻止灵界打击</b>——这是它在 DK 对局里的进攻价值。<b>目标低血时先缴械再上伤害，能明显减少他自救的机会。</b>顺序反了就等于给他留了一次翻盘。",
+    "控住不阻止他的自救机制。",
+    "低血收尾阶段补底座太慢，这题的关键是阻断他的自救。"
+   ],
+   "k": "收尾前先想\"他靠什么活下来\"，把那个先掐掉，再倒伤害。"
+  },
+  {
+   "id": "mage2",
+   "t": "mage",
+   "d": 2,
+   "s": "法师给你套了减速，正在拉开距离。你的 <sk>暗影斗篷</sk>、<sk>抓钩</sk>、<sk>疾跑</sk> 都好。",
+   "a": "怎么接近？",
+   "o": [
+    "<sk>抓钩</sk> 直接跳过去",
+    "先 <sk>暗影斗篷</sk> 解掉减速，再用位移",
+    "<sk>疾跑</sk> 追",
+    "三个一起用"
+   ],
+   "r": 1,
+   "e": [
+    "带着减速跳过去，落地后你依然是慢的——<b>他一个位移就又拉开了，你的抓钩白花</b>。",
+    "正解。<b><sk>暗影斗篷</sk> 解掉魔法减益（包括减速），也让你能穿过他的控制。</b>解完再用位移，接近才有意义。<b>而且斗篷期间你可以完成一次带满连击点的有效接近</b>——这是这个对局最好的进攻窗口。",
+    "带减速跑同样追不上。",
+    "一起用是浪费，而且没解决\"顺序错了\"这个核心问题。"
+   ],
+   "k": "带着减速用位移等于打折。先解减益，再花位移。"
+  },
+  {
+   "id": "druid2",
+   "t": "druid",
+   "d": 2,
+   "s": "你在打野德，他给你挂了几层流血。你想 <sk>消失</sk> 脱离重整。",
+   "a": "这个计划的问题是什么？",
+   "o": [
+    "没问题，消失能清掉流血",
+    "流血会立刻把你打出潜行，而本版消失不会很快转好",
+    "应该先开 <sk>闪避</sk>",
+    "德鲁伊会追上来"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>消失</sk> 不清持续伤害。",
+    "正解。<b>野德的流血会破坏你的 <sk>消失</sk> 复位</b>——你刚进潜行就被打出来，等于白白浪费了这张牌。<b>而本版消失不再快速转好，这一次浪费可能让你后面很长时间没有退路。</b>正确做法是提前减伤、用 <sk>闪避</sk> 和控制创造真正的脱离时间。",
+    "闪避方向对，但这题问的是消失这个计划的问题。",
+    "追不追是次要的，核心是消失本身会失效。"
+   ],
+   "k": "消失之前先看身上有没有持续伤害。本版它太贵，浪费不起。"
+  },
+  {
+   "id": "monk2",
+   "t": "monk",
+   "d": 2,
+   "s": "你在打踏风武僧，他正要起手扫堂腿（眩晕）。你的 <sk>佯攻</sk> 可用，你带了先发制人。",
+   "a": "什么时候按佯攻？",
+   "o": [
+    "被晕住之后按",
+    "扫堂腿命中之前按",
+    "不用按，佯攻减伤有限",
+    "等血量掉到一半再按"
+   ],
+   "r": 1,
+   "e": [
+    "被晕住之后你可能<b>根本按不出来</b>，或者已经吃了大半伤害。",
+    "正解。<b>晕前减伤，比晕后发现按不了值钱得多。</b>带了先发制人后，<sk>佯攻</sk> 在被眩晕期间的减伤更强、能量更省——但前提是<b>你得在晕之前按下去让它生效</b>。这是本版最廉价的续命动作，代价几乎为零。",
+    "带了先发制人之后佯攻的减伤相当可观，尤其在眩晕期间。",
+    "等掉血再按就晚了，眩晕期间的伤害是集中落下的。"
+   ],
+   "k": "预判性减伤要在控制命中之前按。被控住之后再想按，通常已经没机会了。"
+  },
+  {
+   "id": "dh2",
+   "t": "dh",
+   "d": 1,
+   "s": "你在打浩劫 DH，他血量 <em>50%</em>。他按下 <sk>虚空行走</sk>（全免疫且可移动）。",
+   "a": "现在做什么？",
+   "o": [
+    "守在原地等免疫结束",
+    "停手，同时跟住他的位置——他在免疫期间还能移动",
+    "控住他，用控制吃掉免疫时长",
+    "继续打，它只是减伤"
+   ],
+   "r": 1,
+   "e": [
+    "<b>法师的 <sk>寒冰屏障</sk> 期间不能移动，所以你能守在原地等；<sk>虚空行走</sk> 可以移动。</b>用同一套处理会被甩开。",
+    "正解。全免疫期间输出是零收益，但<b>他还在动</b>——他会趁这几秒重新定位、脱离、或绕到你队友身上。<b>这几秒你的任务是跟住他，不是站着等时间。</b>",
+    "<sk>虚空行走</sk> 同时免疫控制，浪费递减。",
+    "它是完全免疫。"
+   ],
+   "k": "\"可移动的免疫\"和\"不可移动的免疫\"要分开处理。前者你在跟位置，后者你在等时间。"
+  },
+  {
+   "id": "shaman2",
+   "t": "shaman",
+   "d": 2,
+   "s": "你在打恢复萨，输出打不动，他血量 <em>60%</em>。地上有一个明显的群体治疗图腾。",
+   "a": "该做什么？",
+   "o": [
+    "继续压萨满",
+    "打掉那个图腾——血极低，一两下就碎",
+    "控住萨满",
+    "换目标"
+   ],
+   "r": 1,
+   "e": [
+    "无视图腾等于同时跟萨满和一个额外的治疗对拼。",
+    "正解。<b>图腾是萨满的第二条命，而且血量极低。</b>投入产出比远高于继续打一个满血恢复萨。<b>狂徒有 <sk>剑刃乱舞</sk> 的溅射，处理图腾比敏锐更快</b>——但注意如果场上有你方的失能类控制，溅射会把它破掉。",
+    "控住萨满不影响图腾继续治疗。",
+    "群疗图腾还在，换谁都会被治回去。"
+   ],
+   "k": "打萨满时正确的目标经常不是人。狂徒清图腾比别人快，但要留意溅射会破控。"
+  },
+  {
+   "id": "warlock2",
+   "t": "warlock",
+   "d": 3,
+   "s": "你贴着术士打，身上挂满他的持续伤害。你的 <sk>暗影斗篷</sk> 好了，同时他正在读一个大伤害技能，你的 <sk>脚踢</sk> 也好了。",
+   "a": "先做哪个？",
+   "o": [
+    "先踢断读条，斗篷留着",
+    "先开斗篷，一次抹掉全部持续伤害",
+    "两个一起，最大化收益",
+    "先撤离"
+   ],
+   "r": 1,
+   "e": [
+    "踢断一个技能只解决一次伤害，<b>你身上那一整套持续伤害还在稳定掉血</b>——这是当下更大的威胁。",
+    "正解。<b>斗篷在术士对局最值钱的用法就是一次性抹掉一整套持续伤害</b>，而不是留着躲单发。术士的伤害是叠加式复利，挂满一身时按斗篷的收益远大于任何单次打断。<b>而且斗篷还能让你穿过他的恐惧继续压。</b><sk>脚踢</sk> 可以在斗篷生效后继续用。",
+    "两个可以先后用，但顺序有优劣——这题问的就是顺序。",
+    "你正在贴身输出且斗篷可用，撤离是浪费优势。"
+   ],
+   "k": "面对持续叠加型伤害，先解掉存量，再处理增量。顺序反了会一直在还债。"
+  },
+  {
+   "id": "x1",
+   "t": "general",
+   "d": 2,
+   "s": "你的 <sk>正中眉心</sk> 增益<em>还剩 3 秒</em>，骰面是 Jackpot（好面），目标 <em>55%</em> 且治疗被队友控住。你手上有满连击点，<sk>冲动</sk> 也好了。",
+   "a": "这一下按什么？",
+   "o": [
+    "<sk>冲动</sk> 起爆发，然后倒伤害",
+    "满连击点 <sk>正中眉心</sk> 续上增益",
+    "满连击点 <sk>斩击</sk> 倒伤害",
+    "<sk>命运骨骰</sk> 重骰求更好的面"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>冲动</sk> 是好的，<b>但如果 3 秒后眉心增益掉了，你整个爆发的伤害都在打折</b>——先把底座续上，爆发才有意义。",
+    "正解。<b>底座优先于爆发。</b><sk>正中眉心</sk> 提供最高 40% 的伤害增益，<b>它掉线的那一刻你所有输出同时打折</b>。3 秒内续上，然后再开 <sk>冲动</sk>，整段爆发都能吃到加成。<b>顺序反了，你的爆发有一半落在没有增益的时间里。</b>",
+    "<sk>斩击</sk> 这一发的伤害，换不回接下来整段时间失去的 40% 加成。",
+    "Jackpot 已经是最好的面，重骰是纯亏。"
+   ],
+   "k": "底座（眉心增益）优先于爆发。快掉时先续，再开爆发——顺序反了整段爆发都在打折。"
+  },
+  {
+   "id": "x2",
+   "t": "general",
+   "d": 3,
+   "s": "你正开着 <sk>剑刃乱舞</sk> 打群体压力。队友（治疗）喊：\"我要控他们治疗了。\" 对面治疗<em>站在你当前目标旁边约 5 码</em>。",
+   "a": "现在做什么？",
+   "o": [
+    "继续打，控制生效前来得及",
+    "立刻关掉 <sk>剑刃乱舞</sk>，然后回复\"可以了\"",
+    "换个远一点的目标继续打",
+    "让队友换个控制手段"
+   ],
+   "r": 1,
+   "e": [
+    "<b>溅射是持续的，不存在\"来得及\"</b>——控制一落地就会被下一次溅射打破。",
+    "正解。<b><sk>剑刃乱舞</sk> 会把伤害溅射到附近敌人，包括刚被控住的那个。</b>5 码内必定溅射到。<b>关掉之后要明确回复</b>——队友需要知道什么时候可以控，不然他会在你还开着的时候按下去。",
+    "换目标能减少概率但不可靠，<b>而且你无法精确控制溅射范围</b>。",
+    "让队友换手段是本末倒置——问题在你这边。"
+   ],
+   "k": "剑刃乱舞和失能类控制不能共存。关掉之后要明确回复队友，让他知道窗口开了。"
+  },
+  {
+   "id": "x3",
+   "t": "general",
+   "d": 2,
+   "s": "你被两个近战咬住，血量 <em>45%</em>。<sk>抓钩</sk>、<sk>疾跑</sk>、<sk>消失</sk> 都可用，身上<em>没有减速</em>。",
+   "a": "先用哪个脱离？",
+   "o": [
+    "<sk>消失</sk>，最彻底",
+    "<sk>抓钩</sk> 跳出去",
+    "<sk>疾跑</sk> 跑开",
+    "原地开 <sk>闪避</sk> 硬扛"
+   ],
+   "r": 1,
+   "e": [
+    "<b>本版 <sk>消失</sk> 不再快速转好</b>（12.0 拿掉了不安之刃缩减它的冷却）。45% 血、没减速、还有两个位移可用——这时候交消失是把最后一张牌用在能用便宜牌解决的问题上。",
+    "正解。<b><sk>抓钩</sk> 是跳跃式位移，能直接把你带出两个近战的包夹</b>，而且它不是稀缺资源。<b>本版狂徒的命挂在机动性上，不挂在消失上</b>——把消失留给真正没有其他选择的时刻。",
+    "<sk>疾跑</sk> 是直线加速，近战跟着你跑，脱离效果远不如跳跃位移。",
+    "两个近战咬着还硬扛，是把选择权交给对面。"
+   ],
+   "k": "脱离先找最便宜的解。本版消失是稀缺牌，抓钩这类位移才是日常退路。"
+  },
+  {
+   "id": "x4",
+   "t": "general",
+   "d": 3,
+   "s": "你重骰后拿到 <em>Double Trouble</em>（偏资源/节奏的面），目标满血、治疗自由。<sk>时运继延</sk> 可用。",
+   "a": "该怎么处理这个骰面？",
+   "o": [
+    "用 <sk>时运继延</sk> 把这个面拉长",
+    "不用继延，按这个面架伤害、逼技能，等下一次重骰",
+    "立刻再重骰求伤害面",
+    "放弃这一轮，脱战"
+   ],
+   "r": 1,
+   "e": [
+    "<b><sk>时运继延</sk> 应该用来拉长\"好面\"，不是拉长将就的面。</b>把它花在资源面上，等你骰到 Jackpot 时就没有延长手段了。",
+    "正解。<b>骰面决定这一轮的性质，不是决定要不要打。</b>资源/节奏面适合<b>继续架伤害、逼对面交技能、把眉心增益和切割续好</b>——目标是为下一个窗口做准备，而不是赌这一轮击杀。<b><sk>时运继延</sk> 留给真正值得拉长的面。</b>",
+    "为追完美骰面反复重骰会拖掉整个节奏，而且重骰有冷却。",
+    "资源面不是不能打，只是不能赌击杀。"
+   ],
+   "k": "时运继延是用来拉长好面的，不是用来将就差面的。留给值得延长的那一次。"
+  },
+  {
+   "id": "x5",
+   "t": "general",
+   "d": 2,
+   "s": "目标是战士，<em>28% 血</em>，你准备收尾。他<em>还没有</em>按 <sk>剑在人在</sk>。你的 <sk>卸除武装</sk> 和满连击点都在。",
+   "a": "先按哪个？",
+   "o": [
+    "满连击点终结技，抢在他反应之前",
+    "<sk>卸除武装</sk>，再上终结技",
+    "等他先按剑在人在再缴械",
+    "<sk>凿击</sk> 打断他"
+   ],
+   "r": 1,
+   "e": [
+    "抢速度赢不过一个瞬发免疫——<b>他看到自己残血会立刻按</b>，你的终结技会打在免疫上。",
+    "正解。<b>缴械是预防不是补救。</b>先 <sk>卸除武装</sk>，<b>他就开不出 <sk>剑在人在</sk></b>（缴械期间无法使用武器技能），然后你的物理伤害畅通无阻。<b>收尾前先想\"他靠什么活下来\"，把那个先掐掉。</b>",
+    "等他按出来就晚了——免疫一旦生效，缴械也解不掉。",
+    "<sk>凿击</sk> 不阻止他按防御技能。"
+   ],
+   "k": "收尾前先掐掉他的活命手段，再倒伤害。缴械是预防，等他按出来就没用了。"
+  },
+  {
+   "id": "x6",
+   "t": "general",
+   "d": 1,
+   "s": "你注意到自己攒了 <em>6 枚</em> <sk>命运硬币</sk>，再一个终结技就触发幸运币。此刻你只有 <em>2 个连击点</em>。",
+   "a": "该怎么做？",
+   "o": [
+    "放一个 2 点终结技凑够硬币",
+    "按正常节奏补满连击点再放",
+    "换技能快速凑点",
+    "等硬币自然过期"
+   ],
+   "r": 1,
+   "e": [
+    "<b>为凑硬币放低连击点终结技，是拿确定的伤害损失换一个不确定的增益。</b>",
+    "正解。<b>命运之缚全自动，不需要你迁就它。</b>按正常节奏补满点再放终结技——硬币照样会攒到，而且你不损失伤害。<b>改变节奏去迁就一个自动进行的被动，一定是亏的。</b>",
+    "同样是为硬币改节奏。",
+    "硬币不会因为你不管就浪费。"
+   ],
+   "k": "被动机制不进入你的判断。为它改变输出节奏一定是亏的。"
+  },
+  {
+   "id": "x7",
+   "t": "general",
+   "d": 3,
+   "s": "你条件很好（眉心在、骰面好、治疗被控），但你的 <sk>抓钩</sk>、<sk>疾跑</sk>、<sk>消失</sk> <em>全在冷却</em>。目标 60% 血。",
+   "a": "压不压？",
+   "o": [
+    "压，三个条件都满足",
+    "压，但预设\"对面一反打就停\"，不把资源倒完",
+    "不压，等位移转好",
+    "先撤，重整之后再来"
+   ],
+   "r": 1,
+   "e": [
+    "三个条件满足很好，<b>但缺的那一条恰好是\"我能不能回来\"</b>——目标 60% 意味着这一轮很可能杀不掉，而杀不掉之后你没有任何脱离手段。",
+    "正解。<b>缺哪一条，就决定你能压多远。</b>缺退路时可以压，但必须<b>压得能随时停</b>：不要把 <sk>冲动</sk> 和剩余资源一次性倒完，保留随时止损的余地。<b>本版狂徒尤其如此，消失不会很快转好。</b>",
+    "完全不压太保守——三个条件同时成立的窗口不常有。",
+    "主动撤退浪费了当前的好条件。"
+   ],
+   "k": "条件不齐时，缺的那一项决定你能走多远。缺退路时压，就得压得能随时停。"
+  },
+  {
+   "id": "x8",
+   "t": "general",
+   "d": 2,
+   "s": "你在打恢复德，他满血、<sk>树皮术</sk> 在、形态随时能切。你已经磨了两轮没打动。你的队友是一个 DPS。",
+   "a": "该改什么？",
+   "o": [
+    "继续磨，狂徒有持续压力",
+    "改成控住恢复德，让队友去杀别人",
+    "换成爆发一波打",
+    "打他的图腾"
+   ],
+   "r": 1,
+   "e": [
+    "<b>满状态恢复德是全游戏最难单杀的目标之一</b>，持续压力也磨不动他的自愈+形态切换。",
+    "正解。<b>你的价值是\"让他不存在\"，不是\"让他死\"。</b>用控制把他从战斗里摘出去几秒，<b>让队友去杀对面另一个人</b>。杀掉一个 DPS 同样能赢，而且容易得多。",
+    "爆发一波同样打不穿他的防御池。",
+    "德鲁伊没有图腾（那是萨满）。"
+   ],
+   "k": "难杀的治疗不是拿来杀的，是拿来控的。判断\"该杀他还是该让他消失\"是分目标的第一问。"
+  },
+  {
+   "id": "x9",
+   "t": "general",
+   "d": 2,
+   "s": "你追一个法师，他给你上了减速正在拉开。你的 <sk>抓钩</sk> 可用，<em>身上的减速还在</em>。",
+   "a": "直接抓钩追吗？",
+   "o": [
+    "直接抓，位移不受减速影响",
+    "先想办法解掉减速再用位移",
+    "用 <sk>疾跑</sk> 覆盖减速",
+    "放弃追击"
+   ],
+   "r": 1,
+   "e": [
+    "<b>抓钩能把你带过去，但落地后你依然是慢的</b>——法师一个瞬发位移就又拉开了，你的抓钩白花。",
+    "正解。<b>带着减速用位移等于打折。</b>贼没有主动解减速的手段（斗篷解魔法减益，包括法师的减速——这正是这个对局该用它的时候）。<b>先解减益，再花位移，接近才有意义。</b>",
+    "<sk>疾跑</sk> 能部分抵消，但对强减速效果有限，而且浪费了一个技能。",
+    "放弃太早，你有解法。"
+   ],
+   "k": "带着减速用位移是打折的。先解减益再花接近手段。"
+  },
+  {
+   "id": "x10",
+   "t": "general",
+   "d": 3,
+   "s": "一局打到消耗后期，你和对面治疗都还活着。你的伤害越来越难打穿，但你注意到<em>对面治疗的蓝比你队友的少</em>。",
+   "a": "这一阶段该怎么打？",
+   "o": [
+    "爆发一波赌击杀",
+    "保持中等持续压力，逼他不断施法",
+    "完全防守，等他蓝干",
+    "换目标打对面 DPS"
+   ],
+   "r": 1,
+   "e": [
+    "高消耗阶段伤害被大幅削减，<b>一次性爆发被顶住之后对面反而能停下来回蓝</b>。",
+    "正解。<b>蓝的优势要用\"逼对面花\"来扩大，不是等他自己干。</b>持续的中等压力会逼治疗不断施法——<b>而狂徒的持续压力恰好是最适合做这件事的</b>。你不需要打死人，你需要让他一直在治疗。",
+    "纯防守让对面自由回蓝，你的蓝差优势会消失。",
+    "换目标不改变\"要逼他花蓝\"这个核心思路，而且分散压力更让他好过。"
+   ],
+   "k": "法力优势要靠逼对面花来扩大。持续压力比一次性爆发更能榨干对面治疗。"
+  }
+ ]
+};

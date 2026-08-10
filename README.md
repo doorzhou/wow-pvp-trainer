@@ -1,43 +1,79 @@
 # 魔兽世界 PvP 判断训练器
 
-> **攻略告诉你「按什么」，这里训练你「什么时候按」。**
+**<https://doorzhou.github.io/wow-pvp-trainer/>**
 
-**🔗 [打开网站 →](https://doorzhou.github.io/wow-pvp-trainer/)**
+对应补丁 **12.0.7（Midnight 赛季一）**。
 
-魔兽世界正式服 **Patch 12.0.7 · Midnight 赛季一** 竞技场判断训练。四个专精、两个组合，**300 道情境判断题**——每道题给一个具体的战场瞬间，你选下一步，然后看每个选项各自为什么对、为什么错。
+这不是连招表。练的是开火之前的那一个判断——该不该开、打谁、他手上还剩几张牌。
+每个训练器都有情境选择题：给一个具体局面（血量、什么牌还在、你的冷却状态），你选技能和目标，选完告诉你为什么。
 
-## 内容
+---
 
-| 训练器 | 题数 | 这版本的核心 |
+## 现有内容
+
+| 训练器 | 题量 | 内容 |
 |---|---|---|
-| [敏锐贼](https://doorzhou.github.io/wow-pvp-trainer/subtlety-rogue.html) | 56 | 移除割裂伤后没有持续压力了——攒一个窗口、一次结账 |
-| [狂徒贼](https://doorzhou.github.io/wow-pvp-trainer/outlaw-rogue.html) | 51 | 强度是骰出来的，不问「什么时候开」问「我现在有多强」 |
-| [冰法](https://doorzhou.github.io/wow-pvp-trainer/frost-mage.html) | 51 | 伤害不是打出来的，是「冻」出来的 |
-| [戒律牧](https://doorzhou.github.io/wow-pvp-trainer/discipline-priest.html) | 51 | 不是血掉了之后治，是血掉之前把救赎铺好 |
-| [贼牧 2v2](https://doorzhou.github.io/wow-pvp-trainer/rogue-priest-2v2.html) | 40 | 双视角切换 · 2v2 赢在两个人的伤害叠在一起 |
-| [Thug Cleave 3v3](https://doorzhou.github.io/wow-pvp-trainer/thug-cleave-3v3.html) | 51 | 三视角切换 · 3v3 赢在三个人的控制接成一条链 |
+| [敏锐贼](https://doorzhou.github.io/wow-pvp-trainer/subtlety-rogue.html) | 56 | 骨架 · 手法 · 13 职业对阵 · 天赋 · 训练 · 速查 |
+| [狂徒贼](https://doorzhou.github.io/wow-pvp-trainer/outlaw-rogue.html) | 51 | 同上 |
+| [冰法](https://doorzhou.github.io/wow-pvp-trainer/frost-mage.html) | 51 | 同上 |
+| [戒律牧](https://doorzhou.github.io/wow-pvp-trainer/discipline-priest.html) | 51 | 同上 |
+| [贼 + 戒律牧 2v2](https://doorzhou.github.io/wow-pvp-trainer/rogue-priest-2v2.html) | 40 | 双视角 · 击杀链 · 防守链 · 分对局 |
+| [Thug Cleave 3v3](https://doorzhou.github.io/wow-pvp-trainer/thug-cleave-3v3.html) | 51 | 三视角 · 角色分配器 · 控制链 · 递减表 |
 
-每个训练器包含：骨架页（本版怎么赢）、通用手法、13 职业对局分析、判断训练、赛前速查。组合训练器额外有多视角对照和角色分配器。
+合计 **300 道情境判断题**。
 
-## 数据来源
+**目标是 13 职业 40 专精全覆盖**，每个都带天赋与装备属性建议。
+首页的职业矩阵里，灰色的是还没开工的——框架已就位，内容在往里填。
+每张卡下面的六个小格是完成度：骨架 / 手法 / 对阵 / 天赋 / 装备 / 训练。
 
-- **技能名称与描述**：Wowhead 官方数据接口（简体中文），163 个技能逐个取得，未经改写
-- **天赋使用率**：Murlok.io 各专精 top50 实测
-- **打法与组合定位**：Icy Veins、Method 的 12.0.7 攻略
-- **判断框架与题目**：编者按上述机制推导，**非官方攻略内容**
+---
 
-站内对「实测数据」和「编者推导」做了区分标注，推导部分把推理过程也写了出来，欢迎检验和指正。
+## 哪些是实测，哪些是编者推导
 
-## 反馈
+这条线必须划在明处。**混在一起讲，等于让读者替作者承担猜测。**
 
-发现内容错误、机制描述有误、或有更好的判断方式，欢迎开 [Issue](https://github.com/doorzhou/wow-pvp-trainer/issues)。
+**有出处的**
+- 技能中文名、图标、技能说明 —— Wowhead 官方数据接口，逐个核过
+- 天赋使用率 —— Murlok.io 的 top50 实测分布
+- 版本改动 —— 官方补丁说明
+- 梯队排名 —— Icy Veins 12.0.7 PvP 梯队表
+- 装备机制（货币、催化器、PvP 装等缩放）—— Icy Veins 配装指南
 
-## 免责声明
+**编者推导**
+- 各种判断框架（开火四条件、对局四问、三个时钟）
+- 组合训练器里的控制链结构与角色模型——公开攻略几乎没有组合层面的战术展开，这部分基本是推的
+- 情境题的设计与解释
+- 转火 / 撤退 / 留牌这类取舍
 
-本站是**非官方的粉丝内容（Fan Content）**，与暴雪娱乐没有任何隶属或背书关系。
+**刻意不写具体秒数和装等数字。** 数值每次平衡都在动，写死了下个补丁就是错的，写的是相对关系。
 
-技能图标与职业图标为暴雪娱乐（Blizzard Entertainment）的美术资产，用于识别对应的游戏内容。《魔兽世界》及相关标识、图像、素材的著作权归暴雪娱乐所有。
+---
 
-本站不收费、不含广告、不销售任何商品或服务，仅供玩家学习交流。如权利方认为存在不当使用，请通过 [Issues](https://github.com/doorzhou/wow-pvp-trainer/issues) 联系，我会立即移除相关素材。
+## 技术
 
-训练记录仅保存在使用者浏览器本地，不上传任何服务器。
+纯静态站，无后端、无埋点、无 Cookie 追踪。训练记录只写在浏览器 localStorage。
+
+- **正文在 HTML 里**，不靠 JS 注入——百度对 JS 渲染支持很差，而站点的目的之一是被搜到
+- **题库按需加载**，点开「判断训练」才下那 50KB
+- **样式与引擎全站共享**，缓存一次管所有页
+
+改内容不要直接改 `*.html` 和 `data/`，那些是构建产物。
+源文件在 `_build/`，跑 `cd _build && node all.js`。
+
+- [架构说明](_build/架构说明.md) —— 为什么是现在这个形态
+- [新增专精](_build/新增专精.md) —— 加第 7 个专精的完整步骤
+
+---
+
+## 纠错与贡献
+
+内容有错、有补充、或者想认领某个专精的整理，到 [Issues](https://github.com/doorzhou/wow-pvp-trainer/issues) 提。
+**指出硬错误（技能机制写错、数据引用错）优先处理。**
+
+---
+
+## 免责
+
+非官方粉丝内容，与 Blizzard Entertainment 无隶属关系，未经其认可或赞助。
+《魔兽世界》及相关标识、技能图标为暴雪娱乐的商标或注册商标，按《粉丝内容使用条款》在非商业前提下使用。
+若权利方认为存在不当使用，请通过 Issues 告知，会立即移除。

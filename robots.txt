@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://doorzhou.github.io/wow-pvp-trainer/sitemap.xml

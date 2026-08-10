@@ -1,0 +1,1760 @@
+/* 内容模块 · discipline-priest
+   由 freeze.js 从旧版单体页固化而来（2026-08-10）
+   这是构建期输入，不会发给浏览器。改内容改这里，然后跑 node build.js
+   题目 51 道 · 对阵 13 条 · 技能 68 个 */
+module.exports = {
+ "meta": {
+  "title": "戒律牧 PvP 判断训练器 · 魔兽世界 12.0.7 Midnight 赛季一",
+  "desc": "魔兽世界正式服 12.0.7 戒律牧师 PvP 竞技场判断训练。唯一",
+  "keywords": "戒律牧,牧师,治疗,PVP,竞技场,魔兽世界,12.0.7,救赎,discipline priest,arena",
+  "h1": "<span class=\"sp\">戒律牧</span> PvP 判断训练器",
+  "footer": "Patch 12.0.7 · Midnight 赛季一。图标与中文技能名来自 <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口（逐个实测）。\n  打法来源 <a href=\"https://www.icy-veins.com/wow/discipline-priest-pvp-guide\" target=\"_blank\">Icy Veins</a> ·\n  <a href=\"https://murlok.io/priest/discipline/3v3\" target=\"_blank\">Murlok.io（top50 实测）</a>。训练记录只存在这台浏览器里。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
+  "jsonld": null
+ },
+ "nav": [
+  {
+   "s": "s1",
+   "label": "骨架"
+  },
+  {
+   "s": "s2",
+   "label": "通用手法"
+  },
+  {
+   "s": "s3",
+   "label": "分职业"
+  },
+  {
+   "s": "s4",
+   "label": "判断训练"
+  },
+  {
+   "s": "s5",
+   "label": "赛前速查"
+  }
+ ],
+ "sections": {
+  "s1": "<div class=\"wrap\">\n\n<div class=\"thesis\">\n  <div class=\"lbl\">这版本唯一要记住的一句</div>\n  <div class=\"big\">戒律牧不是在血掉了之后治，<br>是在血掉<span style=\"color:var(--ac2)\">之前</span>就把救赎铺好。</div>\n</div>\n\n<div class=\"rows\">\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">你是唯一一个\"必须打输出才能治疗\"的治疗</span>\n    <span class=\"sub\">救赎把伤害的 60% 变成治疗</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p><sk>救赎</sk> 的机制：给队友挂上之后，<strong>你造成的伤害会以 60% 的比例转化成对所有挂着救赎的人的治疗。</strong></p>\n      <p style=\"margin-top:8px\">这导致一件很反直觉的事：<strong>队友血线告急时，新手的本能是去按治疗键，而正确做法往往是去打伤害。</strong></p>\n      <p style=\"margin-top:8px\">但\"去打伤害\"有个前提——<b>救赎必须已经挂上了</b>。没挂上的话，你只能用直接治疗，<b>而直接治疗是戒律牧最弱的一环</b>。</p>\n      <p style=\"margin-top:8px\"><strong>所以你的治疗量，取决于一件在伤害发生之前就该完成的事。</strong></p>\n    </div></div>\n\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">Midnight 拿掉了你的后期底牌</span>\n    <span class=\"sub\">虚空转换 / 神圣之星 / 光晕 / 恢复 全没了</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p><b>移除：</b>虚空转换（Void Shift）、神圣之星、光晕、恢复、真言术：生、Luminous Barrier、Shadow Covenant。</p>\n      <p style=\"margin-top:8px\"><strong>虚空转换的消失影响最大</strong>——那是你在消耗阶段（dampening）救一个残血队友的最后手段。现在没有了。</p>\n      <p style=\"margin-top:8px\"><b>新增：</b><sk>暗影愈合</sk> 和 Shadow Tap 提供额外的输出手段。</p>\n      <p style=\"margin-top:8px\"><strong>结果：你更依赖\"提前铺\"和\"精准的单体保命\"，而不是\"出事之后补救\"。</strong> 后期尤其如此——那时候你的容错窗口比以前小得多。</p>\n    </div></div>\n\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">戒律牧的强和弱，都很极端</span>\n    <span class=\"sub\">极难被杀，但只有一个控制</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <div class=\"g2\" style=\"margin-top:6px\">\n        <div class=\"mini-card\"><h4 style=\"color:var(--ok)\">✓ 强在哪</h4>\n          <p><b>爆发恢复极强</b>——<sk>真言术：盾</sk> + <sk>苦修</sk> 能从别的治疗救不回来的血线拉回来。</p>\n          <p><b>极难被杀</b>——<sk>渐隐术</sk>、<sk>痛苦压制</sk>（<b>被眩晕时也能用</b>）、<sk>绝望祷言</sk>。</p>\n          <p><b>输出即治疗</b>——你能在治疗的同时帮队友压对面。</p></div>\n        <div class=\"mini-card\"><h4 style=\"color:var(--no)\">✕ 弱在哪</h4>\n          <p><b>控制只有一个</b>——<sk>心灵尖啸</sk>。对面治疗站远了你就够不到。</p>\n          <p><b>没有位移</b>——被贴脸只能靠控制和队友。</p>\n          <p><b>分散伤害吃力</b>——单体治疗为主，多人同时掉血很难顾全。</p>\n          <p><b>后期变弱</b>——失去虚空转换后，消耗阶段的容错更小。</p></div>\n      </div>\n    </div></div>\n</div>\n\n<h2>他会不会死？勾一下就知道</h2>\n<p class=\"lead\">前四个专精的决策器问的都是\"我该不该出手\"。<strong>治疗的决策器问的是另一件事：这个人现在会不会死，我该花多贵的东西去救。</strong></p>\n<div class=\"gobox\">\n  <div class=\"gh\">救援判断器</div>\n  <div class=\"gt\">队友正被集火。现在的局面满足哪几条？</div>\n  <div class=\"checks\" id=\"checks\"></div>\n  <div class=\"verdict\" id=\"verdict\"></div>\n</div>\n\n<h2>三个时钟</h2>\n<p class=\"lead\">其中一个是所有 DPS 都不用读的——那是治疗真正的血条。</p>\n<div class=\"rows\" id=\"clocks\"></div>\n\n<h2>本版定盘（top50 三对三实测）</h2>\n<div class=\"rows\" id=\"setup\"></div>\n\n<div class=\"note\" style=\"margin-top:18px\"><b>关于数据的诚实交代。</b> 技能名与图标取自 Wowhead 官方数据（简体中文），逐个核过；<strong>核不到中文名的 PvP 天赋直接用英文原名，不编</strong>。Midnight 移除的技能（虚空转换、光晕等）已从全站剔除。刻意不写具体冷却秒数和数值——除非官方明确改动过（如救赎 60%）。</div>\n\n</div>",
+  "s2": "<div class=\"wrap\">\n  <p class=\"lead\">按一轮完整交战的时间顺序排。<strong>点标题看细节，点里面的小圆点看理由。</strong></p>\n  <div class=\"rows\" id=\"general\"></div>\n</div>",
+  "s3": "<div class=\"wrap\">\n  <p class=\"lead\">治疗看敌人的角度跟 DPS 完全不同。<strong>第二问是治疗独有的：他怎么让我治不了。</strong>那通常比他的伤害更致命。</p>\n  <div class=\"split\">\n    <div class=\"sidecol\">\n      <div class=\"cls-grid\" id=\"clsGrid\"></div>\n      <div class=\"modebar\" id=\"modebar\">\n        <button class=\"on\" data-m=\"arena\">竞技场</button>\n        <button data-m=\"duel\">他打我时</button>\n      </div>\n    </div>\n    <div id=\"clsDetail\"></div>\n  </div>\n</div>",
+  "s4": "<div class=\"wrap\">\n  <div class=\"statbar\">\n    <div class=\"stat\"><span class=\"k\">累计答题</span><span class=\"v\" id=\"stPlayed\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">总正确率</span><span class=\"v\" id=\"stAcc\">—</span></div>\n    <div class=\"stat\"><span class=\"k\">最长连对</span><span class=\"v\" id=\"stBest\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">错题库</span><span class=\"v\" id=\"stWrong\">0</span></div>\n  </div>\n  <div class=\"qtop\">\n    <select id=\"fCat\"><option value=\"all\">全部范围</option></select>\n    <select id=\"fDiff\">\n      <option value=\"all\">全部难度</option>\n      <option value=\"1\">基础 · 机制</option>\n      <option value=\"2\">进阶 · 时机</option>\n      <option value=\"3\">高阶 · 权衡</option>\n    </select>\n    <button class=\"btn\" onclick=\"startQuiz(false)\">开始一轮（10 题）</button>\n    <button class=\"btn ghost\" onclick=\"startQuiz(true)\">只练错题</button>\n    <button class=\"btn ghost\" onclick=\"resetStats()\">清空记录</button>\n  </div>\n  <div id=\"quizArea\"></div>\n</div>",
+  "s5": "<div class=\"wrap\">\n  <p class=\"lead\">上场前扫一眼就够。<strong>这页只放能在 30 秒内看完的东西。</strong></p>\n  <div class=\"sheet\" id=\"sheet\"></div>\n</div>"
+ },
+ "fragments": {
+  "clocks": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"救赎\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_priest_atonement.jpg\" alt=\"救赎\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"真言术：盾\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_powerwordshield.jpg\" alt=\"真言术：盾\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"真言术：耀\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_priest_power-word.jpg\" alt=\"真言术：耀\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">救赎时钟</span><span class=\"sub\">你的治疗引擎</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>谁身上有 <sk>救赎</sk>、还剩多久。<strong>这是你唯一真正重要的资源。</strong></p><p style=\"margin-top:7px\">挂救赎的手段：<sk>真言术：盾</sk>（单体，顺手）、<sk>真言术：耀</sk>（群体，铺场用）。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>铺救赎是\"伤害到来之前\"的动作</span><span class=\"ar\">▸</span></div><div class=\"mb\">看到对面开始起手、或者你预判到下一波集火——<b>那时候铺，不是血掉了才铺</b>。血掉了才铺，你已经慢了一整个循环。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>救赎掉线的时候你在裸奔</span><span class=\"ar\">▸</span></div><div class=\"mb\">没有救赎的戒律牧，只剩下 <sk>快速治疗</sk> 和 <sk>暗影愈合</sk> 这类直接治疗——<b>又贵又慢，是你最弱的形态</b>。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"全神贯注\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_rapture.jpg\" alt=\"全神贯注\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">法力时钟</span><span class=\"sub\">DPS 不用读，这是治疗真正的血条</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>竞技场里赢的经常不是\"谁血多\"，是\"谁的蓝先见底\"。</strong></p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>为什么打伤害比按治疗省蓝</span><span class=\"ar\">▸</span></div><div class=\"mb\">救赎让你的输出技能同时产生治疗，<b>而输出技能的蓝耗远低于直接治疗</b>。这就是\"能打伤害就别按治疗\"的真正原因——不只是伤害收益，是法力效率。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>消耗阶段（dampening）要提前算账</span><span class=\"ar\">▸</span></div><div class=\"mb\">后期治疗量被大幅削减，<b>而你已经失去了虚空转换这张后期底牌</b>。所以中期就要开始算：我还剩多少蓝、还能撑几波。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>交牌也是在花蓝</span><span class=\"ar\">▸</span></div><div class=\"mb\">每一次紧急抢救都在透支后面的续航。<b>能用便宜手段解决的，别用最贵的。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"痛苦压制\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"痛苦压制\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"真言术：障\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_powerwordbarrier.jpg\" alt=\"真言术：障\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"渐隐术\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_magic_lesserinvisibilty.jpg\" alt=\"渐隐术\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"绝望祷言\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_testoffaith.jpg\" alt=\"绝望祷言\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">保命牌时钟</span><span class=\"sub\">你的和队友的，一起算</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>痛苦压制</sk>（<b>被眩晕时也能用</b>）、<sk>真言术：障</sk>、<sk>渐隐术</sk>、<sk>绝望祷言</sk>，加上队友自己的减伤和解控道具。</p><p style=\"margin-top:7px\"><strong>治疗的记账本要记两套：对面还剩几张爆发牌，我方还剩几张保命牌。</strong>这个差额决定你能不能撑到最后。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">痛苦压制</sk> 被眩晕时可以按</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>这是戒律牧最被低估的一点。</b>你被控住不代表你不能救人——很多戒律牧被晕住之后就放弃操作了。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>本版你少了一张牌</span><span class=\"ar\">▸</span></div><div class=\"mb\">虚空转换（Void Shift）被移除。<b>过去那个\"血线互换\"的翻盘手段没有了</b>——所以现在必须更早介入，不能等到临界再想办法。</div></div></div></div></div>",
+  "setup": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"救赎\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_priest_atonement.jpg\" alt=\"救赎\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">英雄天赋：先知 Oracle</span><span class=\"sub\">top50 三对三 45/50（90%）</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><b>Oracle</b> 45/50，<b>Voidweaver</b> 5/50。竞技场主流是 Oracle。</p><div class=\"note\"><b>这里我不展开 Oracle 的机制细节。</b>Midnight 移除了一批戒律技能（包括原本 Oracle 线的部分内容），<strong>我没有核到本版 Oracle 关键技能的确切中文名和效果，所以不写</strong>——编一个会比不写更糟。使用率数据是实测的，可以信。</div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"真言术：耀\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_priest_power-word.jpg\" alt=\"真言术：耀\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"渐隐术\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_magic_lesserinvisibilty.jpg\" alt=\"渐隐术\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">PvP 天赋：两个近乎必带</span><span class=\"sub\">Ultimate Radiance 49 · Phase Shift 48</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><b>top50 三对三实测：</b><br><b>Ultimate Radiance</b> <strong>49/50</strong>（强化 <sk>真言术：耀</sk> 一系，是你铺救赎和群体回复的核心）<br><b>Phase Shift</b> <strong>48/50</strong>（<sk>渐隐术</sk> 相关的短距瞬移，<b>补上了戒律牧最缺的机动性</b>）<br><b>Inner Light</b> 33/50<br><b>Purification</b> 6/50</p><div class=\"note\"><b>这四个 PvP 天赋的官方简体中文名我没核到</b>（本版新增/改名），所以直接写英文原名。游戏里按效果对号入座即可。</div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"苦修\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_penance.jpg\" alt=\"苦修\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"真言术：盾\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_powerwordshield.jpg\" alt=\"真言术：盾\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">Apex 天赋：Master the Darkness</span><span class=\"sub\">苦修有几率把护盾升级成三人盾</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>Midnight 的 Apex 天赋给戒律的是 <b>Master the Darkness</b>：<strong><sk>苦修</sk> 有很高几率把 <sk>真言术：盾</sk> 升级成虚空护盾，一次护住 3 个盟友。</strong></p><p style=\"margin-top:8px\"><strong>对判断的影响：这让 <sk>苦修</sk> 从\"单纯的输出/治疗技\"变成了\"群体护盾的触发器\"。</strong>面对分散伤害时，它的价值比数字上看起来更高——而分散伤害恰好是戒律牧最吃力的场景。</p></div></div>",
+  "general": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"救赎\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_priest_atonement.jpg\" alt=\"救赎\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"真言术：盾\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_powerwordshield.jpg\" alt=\"真言术：盾\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"痛苦压制\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"痛苦压制\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">01 · 一轮交战的完整流程</span><span class=\"sub\">八步，点着走一遍</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"stepper\" id=\"stepBody\"></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"救赎\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_priest_atonement.jpg\" alt=\"救赎\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"惩击\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_holysmite.jpg\" alt=\"惩击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"快速治疗\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_flashheal.jpg\" alt=\"快速治疗\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">02 · \"能打伤害就别按治疗\"到底什么意思</span><span class=\"sub\">这句话有前提，说漏了会害人</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>这是戒律牧最常被引用、也最常被误解的一句话。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>正确的完整版</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>「救赎已经铺好的情况下」，能打伤害就别按治疗。</b><br>因为救赎让你的输出转化成治疗，<b>而且输出技能的蓝耗远低于直接治疗</b>——这是治疗量和法力效率的双赢。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>漏掉前提会怎样</span><span class=\"ar\">▸</span></div><div class=\"mb\">救赎没铺，你打伤害＝<b>纯粹的伤害，一点治疗都没有</b>。这时候队友正在掉血而你在输出，是最典型的送人头方式。<b>先看救赎在不在，再决定按什么。</b></div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>什么时候必须用直接治疗</span><span class=\"ar\">▸</span></div><div class=\"mb\">① 救赎来不及铺、血线已经临界<br>② 单个人受到远超救赎回复速度的爆发<br>③ 你被控住/被打断，输出循环断了<br><b>这三种情况下 <sk>快速治疗</sk> <sk>暗影愈合</sk> 是对的选择</b>——它们贵，但贵不是不用的理由，用错时机才是。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"真言术：盾\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_powerwordshield.jpg\" alt=\"真言术：盾\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"真言术：耀\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_priest_power-word.jpg\" alt=\"真言术：耀\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">03 · 铺救赎的时机：预判 vs 反应</span><span class=\"sub\">戒律牧的核心分水岭</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>新手戒律牧是反应型的：血掉了 → 铺救赎 → 打伤害 → 治疗生效。这条链走完，人已经死了。</strong></p><p style=\"margin-top:7px\">高手是预判型的：<strong>救赎在伤害到来之前就铺好了，集火开始的那一刻你的治疗已经在流动。</strong></p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>什么信号说明该铺了</span><span class=\"ar\">▸</span></div><div class=\"mb\">对面的爆发标志亮起（翅膀、爆发姿态、进入潜行、开始起手控制链）<br>对面开始往你的队友身上聚集<br>你们的队友交了一个位移或控制去接近对面（大概率要挨反打）<br><b>这些都是\"下一波要来了\"，不是\"已经来了\"。</b></div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>铺给谁</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>被集火的目标优先</b>，但如果对面伤害是分散的，用 <sk>真言术：耀</sk> 群体铺。<b>本版 Ultimate Radiance 强化的就是这一条线</b>，实测 49/50 使用率。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>不要无脑全铺</span><span class=\"ar\">▸</span></div><div class=\"mb\">铺救赎花蓝、花 GCD。<b>无差别全铺会让你在真正需要的时候没有资源。</b>按\"下一波打谁\"来铺。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"痛苦压制\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"痛苦压制\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"渐隐术\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_magic_lesserinvisibilty.jpg\" alt=\"渐隐术\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"心灵尖啸\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_psychicscream.jpg\" alt=\"心灵尖啸\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">04 · 被打断和被控：治疗最致命的问题</span><span class=\"sub\">比伤害更致命</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>对面杀你队友的方式，通常不是打得比你治得快，而是让你几秒钟治不了。</strong></p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>假读条：你也要会</span><span class=\"ar\">▸</span></div><div class=\"mb\">起一个 <sk>快速治疗</sk> 但在读完前主动打断自己，骗掉对面的打断——<b>然后那几秒你可以自由施法</b>。跟法师是同一套技巧，治疗尤其需要。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">痛苦压制</sk> 被眩晕时可以按</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>这是戒律牧最被低估的一点。</b>被控住不等于你不能救人。很多戒律牧被晕住就放弃操作了——<b>那几秒你其实还能救回一个人。</b></div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>瞬发技能是你被控时的全部</span><span class=\"ar\">▸</span></div><div class=\"mb\">被锁学派或被打断时，<b>清点一下你手上还有什么瞬发</b>：护盾、痛苦压制、真言术：障、解控道具。这些不受读条限制。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>不要在被贴脸时硬读条</span><span class=\"ar\">▸</span></div><div class=\"mb\">近战贴着你的时候读长条治疗，几乎必定被打断。<b>先处理位置（<sk>心灵尖啸</sk>、<sk>渐隐术</sk>、绕柱、Phase Shift），再谈治疗。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"纯净术\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_dispelmagic.jpg\" alt=\"纯净术\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"驱散魔法\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_nature_nullifydisease.jpg\" alt=\"驱散魔法\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"群体驱散\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_arcane_massdispel.jpg\" alt=\"群体驱散\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">05 · 驱散：戒律牧被低估的第二个输出位</span><span class=\"sub\">一次正确的驱散胜过三个治疗</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_holy_dispelmagic.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">纯净术</sk>：解自己人身上的关键减益</span><span class=\"ar\">▸</span></div><div class=\"mb\">很多致命的不是伤害，是那个减益本身——<b>减疗、持续伤害、控制</b>。解掉它比治疗它便宜得多。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_nature_nullifydisease.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">驱散魔法</sk>：解对面身上的增益</span><span class=\"ar\">▸</span></div><div class=\"mb\">对面的爆发增益、护盾、加速——<b>驱散掉一个关键增益，等于给你的队友白送一段输出窗口。</b>戒律牧经常忘了自己有这个进攻能力。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_arcane_massdispel.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">群体驱散</sk> 是战术级技能</span><span class=\"ar\">▸</span></div><div class=\"mb\">它能解掉一整片区域的魔法效果，包括某些通常无法驱散的东西。<b>用在对面的群体控制或关键增益上，价值极高。</b></div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>但驱散会被骗</span><span class=\"ar\">▸</span></div><div class=\"mb\">好的对手会故意上一个廉价的减益骗你的驱散，然后接真正致命的那个。<b>驱散之前先想：这是不是诱饵。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"心灵尖啸\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_psychicscream.jpg\" alt=\"心灵尖啸\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"渐隐术\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_magic_lesserinvisibilty.jpg\" alt=\"渐隐术\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"绝望祷言\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_testoffaith.jpg\" alt=\"绝望祷言\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">06 · 保护自己：治疗死了全队就完了</span><span class=\"sub\">救自己优先于救队友</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>戒律牧<b>没有位移</b>（除了 PvP 天赋 Phase Shift 提供的短距），<b>只有一个控制</b>（<sk>心灵尖啸</sk>）。这是你最大的短板。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>位置比技能重要</span><span class=\"ar\">▸</span></div><div class=\"mb\">柱子、掩体、跟队友的相对位置——<b>这些不花任何冷却，但决定你会不会被抓死。</b>治疗的走位是主动技能，不是背景动作。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_psychicscream.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">心灵尖啸</sk> 的双重用途</span><span class=\"ar\">▸</span></div><div class=\"mb\">它既能救自己（把贴脸的人吓开），也能打断对面的击杀链。<b>但你只有这一个控制，用掉之后就裸了——按之前先确认没有更便宜的解法。</b></div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>队友的保护要主动要</span><span class=\"ar\">▸</span></div><div class=\"mb\">你没有位移，<b>所以摆脱近战很大程度上依赖队友帮你剥离</b>。这不是被动等待，是要主动沟通的战术。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"痛苦压制\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_painsupression.jpg\" alt=\"痛苦压制\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"真言术：障\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_holy_powerwordbarrier.jpg\" alt=\"真言术：障\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">07 · 什么时候放弃一个人</span><span class=\"sub\">治疗最难、也最少被教的判断</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>所有教程都在教你怎么救人，很少有人教你什么时候不救。</strong></p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>放弃的判据</span><span class=\"ar\">▸</span></div><div class=\"mb\">① <b>救他要花掉你最后一张牌，而对面还有完整的第二波</b><br>② 他已经在必死的控制链里，你的治疗量追不上<br>③ <b>救他会让你自己进入必死位置</b><br>满足任意一条，就该考虑保存资源。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>为什么这条在本版更重要</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>你失去了虚空转换。</b>过去那张\"血线互换\"的牌能把必死局面翻回来，现在没有了——<b>所以必须更早判断\"这个人还救不救得回来\"</b>，而不是等到把所有牌都交光才发现救不了。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>放弃不等于摆烂</span><span class=\"ar\">▸</span></div><div class=\"mb\">放弃救一个人，是为了<b>把资源留给还能赢的局面</b>。判断完之后你要立刻转向：保住剩下的人、稳住自己、等对面的爆发过去。</div></div></div></div></div>",
+  "sheet": "<div class=\"sc wide\"><h4>三条铁律</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">救赎在伤害之前铺，不是之后</div><div class=\"dd\">看到爆发标志/对手进潜行就铺。铺→输出→治疗生效是一条有延迟的链，反应型操作永远慢一拍。</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">\"能打伤害就别按治疗\"有前提</div><div class=\"dd\">前提是救赎已经铺好。没铺就打伤害＝纯伤害零治疗，队友会在你输出时死掉。</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\"><sk>痛苦压制</sk> 被眩晕时能按</div><div class=\"dd\">被控住不等于你不能救人。这是戒律牧最被低估的一张牌。</div></div></div></div></div><div class=\"sc\"><h4>他会不会死 · 四条件</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">救赎已经铺在被打的人身上</div><div class=\"dd\">铺上了，你的输出就是治疗；没铺，你只能用直接治疗——那是戒律最弱的一环</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">我能自由施法</div><div class=\"dd\">没被控、学派没被锁、近战没贴我脸。治疗最先被剥夺的就是这个</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">他身上有一层减伤或护盾</div><div class=\"dd\">真言术：盾、痛苦压制，或队友给的外部减伤。裸血挨爆发是撑不住的</div></div></div><div class=\"b3\"><div class=\"n\">4</div><div><div class=\"tt\">我的爆发恢复还在手上</div><div class=\"dd\">全神贯注 / 真言术：障 / 痛苦压制 至少还有一张没交</div></div></div></div></div><div class=\"sc\"><h4>本版你少了什么</h4><div class=\"line\"><b>移除：</b>虚空转换 · 神圣之星 · 光晕 · 恢复 · 真言术：生<br><b>影响最大的是虚空转换</b>——后期救残血队友的那张牌没了<br><span style=\"color:var(--tx3);font-size:13px\">结果：更依赖提前铺和精准的单体保命，容错更小。消耗阶段要更早开始算蓝。</span></div></div><div class=\"sc wide\"><h4>让你治不了的东西 · 比伤害更致命</h4><div class=\"imm\"><div class=\"immc\"><img class=\"ic\" data-sk=\"烟雾弹\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_rogue_smoke.jpg\" alt=\"烟雾弹\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">烟雾弹</div><div class=\"w\">潜行者 · 烟外选不中烟内</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"变形术\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_nature_polymorph.jpg\" alt=\"变形术\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">变形术</div><div class=\"w\">法师 · 你几秒不存在</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"法术反制\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_frost_iceshock.jpg\" alt=\"法术反制\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">法术反制</div><div class=\"w\">法师 · 打断+锁学派</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"破胆怒吼\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_golemthunderclap.jpg\" alt=\"破胆怒吼\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">破胆怒吼</div><div class=\"w\">战士 · 范围恐惧</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"恐惧\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_shadow_possession.jpg\" alt=\"恐惧\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">恐惧</div><div class=\"w\">术士 · 恐惧链</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"业报之触\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_monk_touchofkarma.jpg\" alt=\"业报之触\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">业报之触</div><div class=\"w\">武僧 · 反弹，别打</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"反魔法领域\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_deathknight_antimagiczone.jpg\" alt=\"反魔法领域\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">反魔法领域</div><div class=\"w\">死骑 · 你的治疗打折</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"灵龟守护\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_hunter_pet_turtle.jpg\" alt=\"灵龟守护\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">灵龟守护</div><div class=\"w\">猎人 · 免伤不免控</div></div></div></div></div><div class=\"sc\"><h4>三个高频误判</h4><div class=\"line\">● 救赎没铺就打伤害 —— 零治疗，队友白死<br>● 站在 <sk>烟雾弹</sk> 外读条 —— 选不中，读完是空的<br>● 无脑驱散 —— 被廉价减益骗掉，真正致命的那个上来时没得解</div></div><div class=\"sc\"><h4>天赋定盘</h4><div class=\"line\">英雄天赋：<b>Oracle 先知</b>（45/50，90%）<br>PvP 近乎必带：<b>Ultimate Radiance</b> 49/50 + <b>Phase Shift</b> 48/50<br>情境：<b>Inner Light</b> 33/50<br><span style=\"color:var(--tx3);font-size:13px\">这几个 PvP 天赋的官方中文名没核到，用英文原名。</span></div></div>"
+ },
+ "sk": {
+  "救赎": "ability_priest_atonement",
+  "真言术：盾": "spell_holy_powerwordshield",
+  "苦修": "spell_holy_penance",
+  "暗影愈合": "spell_shadow_shadowmend",
+  "真言术：耀": "spell_priest_power-word",
+  "痛苦压制": "spell_holy_painsupression",
+  "全神贯注": "spell_holy_rapture",
+  "灵魂护壳": "ability_shaman_astralshift",
+  "摧心魔": "spell_shadow_soulleech_3",
+  "能量灌注": "spell_holy_powerinfusion",
+  "惩击": "spell_holy_holysmite",
+  "心灵震爆": "spell_shadow_unholyfrenzy",
+  "暗言术：痛": "spell_shadow_shadowwordpain",
+  "净化邪恶": "ability_mage_firestarter",
+  "群体驱散": "spell_arcane_massdispel",
+  "驱散魔法": "spell_nature_nullifydisease",
+  "纯净术": "spell_holy_dispelmagic",
+  "渐隐术": "spell_magic_lesserinvisibilty",
+  "绝望祷言": "spell_holy_testoffaith",
+  "信仰飞跃": "priest_spell_leapoffaith_a",
+  "心灵尖啸": "spell_shadow_psychicscream",
+  "精神控制": "spell_shadow_shadowworddominate",
+  "天堂之羽": "ability_priest_angelicfeather",
+  "终极苦修": "ability_priest_ascendance",
+  "真言术：障": "spell_holy_powerwordbarrier",
+  "愈合祷言": "spell_holy_prayerofmendingtga",
+  "快速治疗": "spell_holy_flashheal",
+  "治疗祷言": "spell_holy_prayerofhealing02",
+  "圣盾术": "spell_holy_divineshield",
+  "保护祝福": "spell_holy_sealofprotection",
+  "自由祝福": "spell_holy_sealofvalor",
+  "破咒祝福": "spell_holy_blessingofprotection",
+  "寒冰屏障": "spell_frost_frost",
+  "变形术": "spell_nature_polymorph",
+  "法术反制": "spell_frost_iceshock",
+  "虚空行走": "spell_warlock_demonsoul",
+  "疾影": "ability_demonhunter_blur",
+  "恶魔变形": "ability_demonhunter_metamorphasistank",
+  "灵龟守护": "ability_hunter_pet_turtle",
+  "假死": "ability_rogue_feigndeath",
+  "反魔法护罩": "spell_shadow_antimagicshell",
+  "反魔法领域": "spell_deathknight_antimagiczone",
+  "冰封之韧": "spell_deathknight_iceboundfortitude",
+  "消散": "spell_shadow_dispersion",
+  "树皮术": "spell_nature_stoneclawtotem",
+  "旅行形态": "ability_druid_travelform",
+  "业报之触": "ability_monk_touchofkarma",
+  "气定神闲": "spell_nature_enchantarmor",
+  "玄牛下凡": "spell_monk_brewmaster_spec",
+  "剑在人在": "ability_warrior_challange",
+  "盾墙": "ability_warrior_shieldwall",
+  "破胆怒吼": "ability_golemthunderclap",
+  "集结呐喊": "ability_warrior_rallyingcry",
+  "不灭决心": "spell_shadow_demonictactics",
+  "恐惧": "spell_shadow_possession",
+  "星界转移": "ability_shaman_astralshift",
+  "黑曜鳞片": "inv_artifact_dragonscales",
+  "新生光焰": "ability_evoker_masterylifebinder_red",
+  "悬空": "ability_evoker_hover",
+  "暗影斗篷": "spell_shadow_nethercloak",
+  "闪避": "spell_shadow_shadowward",
+  "消失": "ability_vanish",
+  "烟雾弹": "ability_rogue_smoke",
+  "卸除武装": "ability_rogue_dismantle",
+  "致盲": "spell_shadow_mindsteal",
+  "闷棍": "ability_sap",
+  "脚踢": "ability_kick",
+  "肾击": "ability_rogue_kidneyshot"
+ },
+ "enemy": [
+  "圣盾术",
+  "保护祝福",
+  "自由祝福",
+  "破咒祝福",
+  "寒冰屏障",
+  "变形术",
+  "法术反制",
+  "虚空行走",
+  "疾影",
+  "恶魔变形",
+  "灵龟守护",
+  "假死",
+  "反魔法护罩",
+  "反魔法领域",
+  "冰封之韧",
+  "消散",
+  "树皮术",
+  "旅行形态",
+  "业报之触",
+  "气定神闲",
+  "玄牛下凡",
+  "剑在人在",
+  "盾墙",
+  "破胆怒吼",
+  "集结呐喊",
+  "不灭决心",
+  "恐惧",
+  "星界转移",
+  "黑曜鳞片",
+  "新生光焰",
+  "悬空",
+  "暗影斗篷",
+  "闪避",
+  "消失",
+  "烟雾弹",
+  "卸除武装",
+  "致盲",
+  "闷棍",
+  "脚踢",
+  "肾击"
+ ],
+ "own": null,
+ "cond": [
+  {
+   "k": "aton",
+   "t": "救赎已经铺在被打的人身上",
+   "d": "铺上了，你的输出就是治疗；没铺，你只能用直接治疗——那是戒律最弱的一环"
+  },
+  {
+   "k": "free",
+   "t": "我能自由施法",
+   "d": "没被控、学派没被锁、近战没贴我脸。治疗最先被剥夺的就是这个"
+  },
+  {
+   "k": "layer",
+   "t": "他身上有一层减伤或护盾",
+   "d": "真言术：盾、痛苦压制，或队友给的外部减伤。裸血挨爆发是撑不住的"
+  },
+  {
+   "k": "cd",
+   "t": "我的爆发恢复还在手上",
+   "d": "全神贯注 / 真言术：障 / 痛苦压制 至少还有一张没交"
+  }
+ ],
+ "verdicts": [
+  {
+   "cls": "bad",
+   "html": "<div class=\"vi\">◇</div><div><h3>他要死了。交最贵的牌，或者认掉这个人</h3><p>条件差太多，常规手段来不及。<b>要么立刻交 <sk>痛苦压制</sk> / <sk>真言术：障</sk> 买时间，要么承认这个人救不回来</b>——把资源留给还能救的局面。<b>治疗最难的判断是\"什么时候放弃\"。</b></p><!--MISSING--></div>"
+  },
+  {
+   "cls": "bad",
+   "html": "<div class=\"vi\">◇</div><div><h3>他要死了。交最贵的牌，或者认掉这个人</h3><p>条件差太多，常规手段来不及。<b>要么立刻交 <sk>痛苦压制</sk> / <sk>真言术：障</sk> 买时间，要么承认这个人救不回来</b>——把资源留给还能救的局面。<b>治疗最难的判断是\"什么时候放弃\"。</b></p><!--MISSING--></div>"
+  },
+  {
+   "cls": "warn",
+   "html": "<div class=\"vi\">△</div><div><h3>能撑，但你会被榨干</h3><p>撑得住这一波，代价是把牌花光。<b>先交一张最便宜的换时间</b>（护盾、外部减伤），同时想办法把缺的那两条补上——尤其是\"救赎铺没铺\"。<b>如果一直靠交牌撑，你会先于对面破产。</b></p><!--MISSING--></div>"
+  },
+  {
+   "cls": "warn",
+   "html": "<div class=\"vi\">◐</div><div><h3>稳，按常规循环走</h3><p><b>去打伤害，不要按治疗键。</b>救赎铺着的时候你的 <sk>惩击</sk>/<sk>心灵震爆</sk>/<sk>苦修</sk> 就是治疗，而且比直接治疗省蓝得多。<b>缺的那一条决定你要不要留一张牌兜底。</b></p><!--MISSING--></div>"
+  },
+  {
+   "cls": "good",
+   "html": "<div class=\"vi\">◆</div><div><h3>这时候你该反过来打对面</h3><p><b>戒律牧独有的一档。</b>四条件齐了意味着治疗压力被你完全接住了——这时你的输出既在治疗自己人，也在给对面治疗施加压力。<b>用 <sk>能量灌注</sk> 配合队友的爆发，把局面从\"防守\"翻成\"进攻\"。</b></p><!--MISSING--></div>"
+  }
+ ],
+ "steps": [
+  [
+   "开局先看对面的杀窗长什么样",
+   "数对面有几个爆发型职业、他们的爆发标志是什么。<b>你整局都在为\"下一次集火\"做准备</b>，不知道它长什么样就没法准备。",
+   "救赎"
+  ],
+  [
+   "提前铺救赎，别等血掉",
+   "用 <sk>真言术：盾</sk> 单点铺、<sk>真言术：耀</sk> 群体铺。<b>看到对面起手就铺，不是看到血条掉才铺。</b>",
+   "真言术：耀"
+  ],
+  [
+   "常态阶段：打伤害，不按治疗",
+   "救赎铺着的时候，<sk>惩击</sk> <sk>心灵震爆</sk> <sk>暗言术：痛</sk> 就是你的治疗，<b>而且比直接治疗省蓝得多</b>。",
+   "惩击"
+  ],
+  [
+   "集火来了：先加一层，再继续输出",
+   "给被打的人补 <sk>真言术：盾</sk>。<b>护盾同时是减伤和救赎来源，一个动作两件事。</b>",
+   "真言术：盾"
+  ],
+  [
+   "撑不住了才用苦修抢",
+   "<sk>苦修</sk> 是你的爆发恢复，而且本版有几率触发三人护盾。<b>但它有冷却，别当常规循环用。</b>",
+   "苦修"
+  ],
+  [
+   "血线临界：交外部减伤",
+   "<sk>痛苦压制</sk>（<b>被眩晕时也能按</b>）或 <sk>真言术：障</sk>。<b>这是买时间，不是解决问题</b>——买到的时间要用来把局面扳回去。",
+   "痛苦压制"
+  ],
+  [
+   "自己被贴脸：先解决自己",
+   "<sk>心灵尖啸</sk> 是你唯一的控制。<sk>渐隐术</sk> 降低仇恨。<b>治疗死了全队就完了，救自己优先于救队友。</b>",
+   "心灵尖啸"
+  ],
+  [
+   "局面稳住之后：反过来压对面",
+   "条件齐了就参与进攻。<b>戒律的输出既治自己人也压对面的治疗</b>——这是你把防守翻成进攻的方式。",
+   "能量灌注"
+  ]
+ ],
+ "match": {
+  "qlbl": [
+   "1 · 他怎么杀掉你的队友",
+   "2 · 他怎么让你治不了",
+   "3 · 你必须预判的那张牌",
+   "4 · 你怎么接住这一波"
+  ],
+  "list": [
+   {
+    "id": "warrior",
+    "n": "战士",
+    "ic": "classicon_warrior",
+    "c": "#C69B6D",
+    "diff": "难",
+    "cards": [
+     "破胆怒吼",
+     "剑在人在",
+     "盾墙"
+    ],
+    "one": "他不一定杀你的队友，他可能整局就是来让你治不了的。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "爆发窗口 + 斩杀阶段。伤害集中且短促，<b>而且他能把目标拖离你的视线</b>。"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b>这才是重点。</b>震荡波、拳击（打断）、<sk>破胆怒吼</sk>（范围恐惧），还有各种减速让你走不掉。<b>战士打治疗的效率往往高于打 DPS。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "爆发姿态亮起的那一刻。<b>那之前你就该把 <sk>救赎</sk> 和一层护盾铺好</b>，之后再铺就来不及了。"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>先解决\"我能不能施法\"</b>。柱子、Phase Shift、<sk>心灵尖啸</sk>。<b>被贴脸时不要硬读条</b>——用瞬发的护盾和 <sk>痛苦压制</sk> 撑过去，等他的爆发窗口走完。"
+     ]
+    ],
+    "arena": "战士会一直咬着你。<b>主动要求队友帮你剥离</b>，你没有位移，这不是可选项。",
+    "duel": "他打你的时候：绕柱子、保持 <sk>救赎</sk> 挂在自己身上（你的输出也能治自己）、把 <sk>心灵尖啸</sk> 留到他真正起爆发的那一刻。"
+   },
+   {
+    "id": "paladin",
+    "n": "圣骑士",
+    "ic": "classicon_paladin",
+    "c": "#F48CBA",
+    "diff": "中等",
+    "cards": [
+     "圣盾术",
+     "保护祝福",
+     "自由祝福",
+     "破咒祝福"
+    ],
+    "one": "惩戒骑的爆发窗口非常明确——你能提前看到，就能提前铺好。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "惩戒骑的翅膀窗口伤害极高且集中。<b>但它的视觉标志非常明显</b>，这对治疗是好消息。"
+     ],
+     [
+      "他怎么让你治不了",
+      "制裁之锤（眩晕）、致盲之光类控制。<b>圣骑的打断和控制不算多，相比战士好过一些。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>翅膀亮起 = 立刻进入准备状态。</b>这个信号足够明显，<b>没提前铺救赎和护盾就是你的失误，不是他打得好</b>。"
+     ],
+     [
+      "你怎么接住这一波",
+      "翅膀期间给目标叠满层：<sk>真言术：盾</sk> + 外部减伤。<b>惩戒的爆发是有时限的</b>——撑过那几秒，后面是他的真空期，那时你能回一大口。"
+     ]
+    ],
+    "arena": "圣骑队伍里治疗骑的外部技能很多。<b>你要记住他给谁用了什么，那决定你下一波要多花多少。</b>",
+    "duel": "他打你的时候：翅膀期间用最厚的一层撑，翅膀结束后你能靠输出把血磨回来。"
+   },
+   {
+    "id": "hunter",
+    "n": "猎人",
+    "ic": "classicon_hunter",
+    "c": "#AAD372",
+    "diff": "中等偏难",
+    "cards": [
+     "灵龟守护",
+     "假死"
+    ],
+    "one": "他的陷阱专门为治疗设计——一次踩中你就几秒不存在。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "射击猎远程爆发极高，而且不需要接近。<b>他能在你视线之外完成击杀准备。</b>"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b>冰冻陷阱是治疗的噩梦</b>——命中你就是几秒完全无法行动。还有各种减速、沉默射击、宠物骚扰。<b>猎人打治疗的手段是全游戏最丰富的之一。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>陷阱的位置。</b>看到他往你脚下扔或者你要经过的路径上扔，<b>那就是他准备起手了</b>。"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>走位是第一位的</b>——不要沿可预测的路径移动。你的 <sk>纯净术</sk> 能解掉部分减益。<b>被控住时记住 <sk>痛苦压制</sk> 依然能按。</b>"
+     ]
+    ],
+    "arena": "猎人会优先控你而不是打你。<b>你的解控道具要留给他的关键控制，不是随便一个减速。</b>",
+    "duel": "他打你的时候：拉近距离比拉远有用（很多猎人技能有最小距离限制），用柱子破坏他的射线。"
+   },
+   {
+    "id": "rogue",
+    "n": "潜行者",
+    "ic": "classicon_rogue",
+    "c": "#FFF468",
+    "diff": "高",
+    "cards": [
+     "烟雾弹",
+     "消失",
+     "暗影斗篷",
+     "肾击"
+    ],
+    "one": "烟雾弹会切断你和队友的连接——那几秒你的治疗根本发不出去。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "爆发窗口极短极猛。<b>敏锐贼能在你反应过来之前完成大部分伤害。</b>"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b><sk>烟雾弹</sk> 是核心威胁</b>——烟外的你无法选中烟内的队友，<b>那几秒你的治疗完全发不出去</b>。加上完整的控制链（<sk>肾击</sk>、<sk>致盲</sk>、<sk>闷棍</sk>）和 <sk>脚踢</sk>。"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>他消失或进入潜行的那一刻。</b>那意味着下一波要来了——<b>趁他在潜行里，把救赎和护盾铺好</b>，这是你唯一的准备时间。"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>看到 <sk>烟雾弹</sk> 立刻走进去或走到能看见的位置</b>——不要站在外面干着急。<b>提前铺的护盾和救赎在这时候是救命的</b>，因为烟里你按不了新的治疗。"
+     ]
+    ],
+    "arena": "贼的控制链能让你几秒钟不存在。<b>解控道具的时机是这个对局最关键的判断。</b>",
+    "duel": "他打你的时候：<sk>心灵尖啸</sk> 打断他的连招、<sk>痛苦压制</sk> 在被控时也能按。<b>你其实很难被单杀，撑住就行。</b>"
+   },
+   {
+    "id": "priest",
+    "n": "牧师",
+    "ic": "classicon_priest",
+    "c": "#FFFFFF",
+    "diff": "中等",
+    "cards": [
+     "消散",
+     "痛苦压制",
+     "绝望祷言"
+    ],
+    "one": "镜像对局拼的是谁的蓝先见底，以及谁的驱散更准。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "暗牧的爆发窗口和持续魔法压力。<b>戒律对戒律则是纯消耗战。</b>"
+     ],
+     [
+      "他怎么让你治不了",
+      "沉默、心灵尖啸、精神控制。<b>而且他能驱散你给队友上的增益。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "对面戒律的 <sk>痛苦压制</sk> 和爆发恢复。<b>算清楚他还剩什么，才知道你的队友该什么时候打。</b>"
+     ],
+     [
+      "你怎么接住这一波",
+      "镜像对局<b>驱散战是核心</b>——你解他的增益，他解你的。<b>谁的驱散更准，谁就多出一整轮的优势。</b>法力管理同样是胜负手。"
+     ]
+    ],
+    "arena": "镜像里赢的经常不是治疗量，是<b>法力效率和驱散命中率</b>。",
+    "duel": "暗牧开 <sk>消散</sk> 时你打他没意义，趁那几秒回蓝和重整。"
+   },
+   {
+    "id": "dk",
+    "n": "死亡骑士",
+    "ic": "classicon_deathknight",
+    "c": "#C41E3A",
+    "diff": "难",
+    "cards": [
+     "反魔法护罩",
+     "冰封之韧",
+     "反魔法领域"
+    ],
+    "one": "窒息是你最怕的东西——沉默期间你的一切都发不出去。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "冰霜/邪恶的爆发很硬，而且<b>他能用死亡之握把目标拽出你的治疗范围</b>。"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b>窒息（沉默）是核心威胁</b>——沉默期间你什么都放不出来。加上死亡之握把你拽走、冰锁定身。<b>DK 打治疗的能力极强。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>他的窒息冷却。</b>知道它什么时候好，你才知道什么时候可以放心读条。"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b><sk>反魔法领域</sk> 会让你的治疗打折</b>（对盟友的魔法治疗也受影响）——看到它铺下去，把队友从里面拉出来或者换手段。<b>被沉默时清点你的瞬发。</b>"
+     ]
+    ],
+    "arena": "DK 会把你和队友分开。<b>站位要考虑\"他能不能一握把我拽到他队友堆里\"。</b>",
+    "duel": "他打你的时候：<sk>心灵尖啸</sk> 打断他的节奏，注意他的窒息会让你的尖啸也放不出来——<b>要在被沉默之前用。</b>"
+   },
+   {
+    "id": "shaman",
+    "n": "萨满祭司",
+    "ic": "classicon_shaman",
+    "c": "#0C69FF",
+    "diff": "中等偏难",
+    "cards": [
+     "星界转移"
+    ],
+    "one": "他的图腾会解掉你的控制，他的净化会拆掉你给队友的增益。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "增强萨的近战爆发很高，元素萨是远程持续压力。"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b>风剪（打断）冷却短</b>，是治疗最讨厌的打断之一。加上击退打断你的读条、图腾提供群体效果。<b>而且他能净化你给队友上的东西。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>地上的图腾。</b>某些图腾能解控、能群疗、能改变整个交战规则。<b>它们血量极低，值得让队友顺手打掉。</b>"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>他的打断冷却短，所以假读条在这个对局特别重要</b>——骗掉风剪之后你才有安全的读条窗口。他的击退也会打断你，注意站位。"
+     ]
+    ],
+    "arena": "萨满的净化是你增益的敌人。<b>关键的外部减伤要挑他净化在冷却时给。</b>",
+    "duel": "他打你的时候：注意击退会把你推到不利位置，靠墙站能减少被推的距离。"
+   },
+   {
+    "id": "mage",
+    "n": "法师",
+    "ic": "classicon_mage",
+    "c": "#3FC7EB",
+    "diff": "高",
+    "cards": [
+     "寒冰屏障",
+     "变形术",
+     "法术反制"
+    ],
+    "one": "他能把你变成羊几秒钟，那几秒你的队友就是裸的。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "控制 + 碎冰爆发的连招能在几秒内秒人。<b>而且他的爆发是瞬发居多，你很难提前看到。</b>"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b><sk>变形术</sk> 是核心威胁</b>——你被变形几秒，队友完全没有治疗。加上 <sk>法术反制</sk>（打断+锁学派）、冰霜新星、深度冻结类控制。<b>法师打治疗的手段是全游戏最完整的。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>他的 <sk>法术反制</sk> 什么时候好。</b>知道它在冷却，你才能放心读大治疗。<b>假读条在这个对局是必修课。</b>"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>被变形之前先把该铺的铺好</b>——你可能有几秒钟完全无法操作。<b><sk>纯净术</sk> 能解变形</b>（如果你还能动的话），队友也能帮你打破。"
+     ]
+    ],
+    "arena": "法师会用变形术把你摘出去，然后队友集火。<b>这是标准的击杀链，你要提前预铺。</b>",
+    "duel": "他打你的时候：假读条骗掉 <sk>法术反制</sk>，然后你可以自由治疗自己。<b>戒律牧很难被法师单杀。</b>"
+   },
+   {
+    "id": "warlock",
+    "n": "术士",
+    "ic": "classicon_warlock",
+    "c": "#8788EE",
+    "diff": "中等偏难",
+    "cards": [
+     "不灭决心",
+     "恐惧"
+    ],
+    "one": "他的恐惧和持续伤害会同时消耗你的驱散和法力。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "叠加式的持续伤害 + 爆发。<b>他的伤害是复利，慢慢把你的法力耗干。</b>"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b><sk>恐惧</sk> 和恐惧链</b>——你被恐惧几秒，队友就掉一大截。恶魔守卫的沉默同样致命。<b>而且他能上一堆减益逼你不停驱散。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>他的恐惧冷却。</b>另外他会用廉价减益骗你的 <sk>纯净术</sk>，然后接真正致命的那个——<b>驱散之前先想这是不是诱饵。</b>"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>这是法力消耗战。</b>他的持续伤害是复利，你要判断哪些必须驱散、哪些可以硬吃。<b>全解等于把蓝耗光，那正是他想要的。</b>"
+     ]
+    ],
+    "arena": "术士打的是消耗战。<b>你的法力时钟在这个对局比什么都重要。</b>",
+    "duel": "他打你的时候：<sk>心灵尖啸</sk> 打断他的读条，用柱子逼他移动。"
+   },
+   {
+    "id": "monk",
+    "n": "武僧",
+    "ic": "classicon_monk",
+    "c": "#00FF98",
+    "diff": "中等偏难",
+    "cards": [
+     "业报之触",
+     "气定神闲",
+     "玄牛下凡"
+    ],
+    "one": "他的机动性让你几乎摆脱不了，而你没有位移。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "踏风的扫堂腿窗口和爆发很高，<b>而且他能瞬间接近任何人</b>。"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b>扫堂腿（眩晕）+ 极高的机动性</b>——他能一直贴着你。加上打断和拉扯技能。<b>对没有位移的戒律牧，这是最难受的对局之一。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>他的传送/位移冷却。</b>那决定他能不能瞬间回到你身上。"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>扫堂腿之前按 <sk>痛苦压制</sk> 或护盾</b>——晕前减伤比晕后发现按不了值钱。<b>被晕住时痛苦压制依然能按，这是你的最后手段。</b>"
+     ]
+    ],
+    "arena": "武僧会缠住你不放。<b>Phase Shift（PvP 天赋）在这个对局价值极高</b>——那是你少数能拉开的手段。",
+    "duel": "他打你的时候：<sk>心灵尖啸</sk> 争取一点空间，但他很快会回来。<b>做好长期被缠的准备。</b>"
+   },
+   {
+    "id": "druid",
+    "n": "德鲁伊",
+    "ic": "classicon_druid",
+    "c": "#FF7C0A",
+    "diff": "高",
+    "cards": [
+     "树皮术",
+     "旅行形态"
+    ],
+    "one": "野德的控制链能把你完全锁死，而他从潜行里起手你看不到。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "野德的猫形态爆发 + 完整控制链能秒人。平衡德是远程叠加。<b>恢复德不杀人但让你的输出全白费。</b>"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b>野德的控制链是全游戏最完整的之一</b>——从潜行起手、旋风、缠绕、恐慌尖叫，一环扣一环。<b>你可能十几秒钟做不了任何事。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>他进入潜行的那一刻。</b>野德从潜行起手意味着完整控制链要来了——<b>那时候你就该把护盾和救赎铺好，并把解控道具准备好。</b>"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>解控道具的时机是这个对局的胜负手</b>——交早了他还有后续控制，交晚了队友已经死了。<b><sk>痛苦压制</sk> 在被控时能按，这是你被锁死时唯一的输出。</b>"
+     ]
+    ],
+    "arena": "对恢复德，你的队友很难打穿。<b>这时候你的价值转向：帮队友驱散、控制、以及自己活着耗过去。</b>",
+    "duel": "野德打你的时候：控制链里你能做的有限，<b>提前铺的东西决定你能不能活过来。</b>"
+   },
+   {
+    "id": "dh",
+    "n": "恶魔猎手",
+    "ic": "classicon_demonhunter",
+    "c": "#A330C9",
+    "diff": "难",
+    "cards": [
+     "虚空行走",
+     "疾影",
+     "恶魔变形"
+    ],
+    "one": "他会整局黏在你身上，而你没有任何甩掉他的手段。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "浩劫的范围爆发很高。<b>但他更常见的打法是缠住你，让队友去杀人。</b>"
+     ],
+     [
+      "他怎么让你治不了",
+      "<b>眩晕 + 沉默 + 极高机动性</b>——他能一直贴着你且打断你的一切。<b>对没有位移的戒律牧，DH 是最难受的对局。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "他的眩晕和沉默冷却。<b><sk>虚空行走</sk> 期间你打他没用（如果你在输出的话），但他还在动。</b>"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>接受\"我会一直被贴着\"这个现实，然后围绕它规划</b>：多用瞬发、提前铺、<sk>痛苦压制</sk> 留到被控时用。<b>主动要求队友帮你剥离，这不是可选项。</b>"
+     ]
+    ],
+    "arena": "DH 的目标通常就是你。<b>你的队友能不能把他从你身上剥开，往往决定这局胜负。</b>",
+    "duel": "他打你的时候：你很难甩掉他。<b>目标不是摆脱，是活着——戒律牧的生存能力本身就是你的优势。</b>"
+   },
+   {
+    "id": "evoker",
+    "n": "唤魔师",
+    "ic": "classicon_evoker",
+    "c": "#33937F",
+    "diff": "中等",
+    "cards": [
+     "黑曜鳞片",
+     "悬空",
+     "新生光焰"
+    ],
+    "one": "他的蓄力技能是明确信号——你能看到伤害什么时候落地。",
+    "q": [
+     [
+      "他怎么杀掉你的队友",
+      "蓄力打满的爆发很高，<b>但蓄力过程本身就是给你的预警</b>。"
+     ],
+     [
+      "他怎么让你治不了",
+      "击退、眩晕、以及部分控制。<b>相比法师和 DK，唤魔师干扰治疗的手段不算特别丰富。</b>"
+     ],
+     [
+      "他那张你必须预判的牌",
+      "<b>蓄力条。</b>这是全游戏对治疗最友好的信号之一——<b>你能清楚看到伤害什么时候落地，提前铺就行。</b>"
+     ],
+     [
+      "你怎么接住这一波",
+      "<b>看到蓄力就铺护盾</b>，伤害落地时正好接住。<b>让队友去打断他的蓄力，收益极高</b>——蓄力被断他损失极大。"
+     ]
+    ],
+    "arena": "唤魔师的救援能把你的击杀目标带走，<b>反过来他也能救自己的队友</b>——你要算进去。",
+    "duel": "他打你的时候：蓄力期间他不能做别的事，<b>那是你回血和重整的窗口。</b>"
+   }
+  ]
+ },
+ "roles": null,
+ "memb": null,
+ "play": null,
+ "quiz": [
+  {
+   "id": "g1",
+   "t": "general",
+   "d": 1,
+   "s": "你的队友血量掉到 <em>50%</em> 并且还在掉。他身上<em>已经挂着 <sk>救赎</sk></em>，你能自由施法。",
+   "a": "现在按什么？",
+   "o": [
+    "<sk>快速治疗</sk>，直接把血补上",
+    "打伤害（<sk>惩击</sk>/<sk>心灵震爆</sk>/<sk>苦修</sk>）",
+    "<sk>暗影愈合</sk>",
+    "先补一个 <sk>真言术：盾</sk> 再说"
+   ],
+   "r": 1,
+   "e": [
+    "直接治疗又贵又慢，<b>而且你手上有更好的选择</b>——救赎已经铺好了。",
+    "正解。<b><sk>救赎</sk> 铺着的时候，你的伤害会以 60% 转化成治疗</b>，而且输出技能的蓝耗远低于直接治疗。<b>这是治疗量和法力效率的双赢。</b>",
+    "同样是直接治疗，问题一样。",
+    "护盾不是错的（它同时是减伤和救赎来源），但<b>救赎已经在了</b>，这时候打伤害的收益更高。"
+   ],
+   "k": "救赎铺好的情况下，能打伤害就别按治疗。这不只是治疗量，更是法力效率。"
+  },
+  {
+   "id": "g2",
+   "t": "general",
+   "d": 2,
+   "s": "队友血量掉到 <em>50%</em>，但他身上<em>没有 <sk>救赎</sk></em>。对面正在集火他。",
+   "a": "现在按什么？",
+   "o": [
+    "打伤害，戒律牧就是靠输出治疗的",
+    "先用 <sk>真言术：盾</sk> ——它同时是减伤和救赎来源",
+    "<sk>快速治疗</sk>",
+    "<sk>心灵尖啸</sk> 打断集火"
+   ],
+   "r": 1,
+   "e": [
+    "<b>这是\"能打伤害就别按治疗\"最危险的误用。</b>救赎没铺，你打伤害就是纯粹的伤害，<b>一点治疗都没有</b>——队友会在你输出的时候死掉。",
+    "正解。<b><sk>真言术：盾</sk> 一个动作办两件事</b>：立刻给一层吸收（争取时间），同时挂上 <sk>救赎</sk>（让你后续的输出开始转化成治疗）。<b>在救赎缺失时，它永远是第一选择。</b>",
+    "直接治疗能救急，但没解决\"救赎缺失\"这个根本问题——下一秒你还是在裸奔。",
+    "打断集火有价值，但你只有一个控制，而且没解决治疗链路的问题。"
+   ],
+   "k": "\"能打伤害就别按治疗\"的前提是救赎已经铺好。前提不成立时，先补前提。"
+  },
+  {
+   "id": "g3",
+   "t": "general",
+   "d": 3,
+   "s": "对面惩戒骑的<em>翅膀刚刚亮起</em>，还没开始输出。你的队友满血，你能自由施法。",
+   "a": "现在做什么？",
+   "o": [
+    "继续打伤害，等他真的开始打再反应",
+    "立刻给预定目标铺 <sk>救赎</sk> 和一层护盾",
+    "交 <sk>痛苦压制</sk> 预防",
+    "什么都不用做，满血不需要治疗"
+   ],
+   "r": 1,
+   "e": [
+    "<b>这就是反应型治疗和预判型治疗的分水岭。</b>等他开始打你再铺救赎，那条链（铺→输出→治疗生效）走完，人已经掉了一大截。",
+    "正解。<b>翅膀亮起是最明确的预警信号之一。</b>在伤害到来之前把 <sk>救赎</sk> 和护盾铺好，<b>集火开始的那一刻你的治疗已经在流动了</b>。这是戒律牧最核心的技术。",
+    "<sk>痛苦压制</sk> 太贵了，而且现在还没有人在危险中——<b>把最贵的牌用在预防上，真正危险时你就没有了</b>。",
+    "\"满血不需要治疗\"是最典型的新手思维。<b>你要准备的不是现在的血量，是三秒后的血量。</b>"
+   ],
+   "k": "看到爆发标志就铺，不是看到血条掉才铺。戒律牧是预判型治疗。"
+  },
+  {
+   "id": "g4",
+   "t": "general",
+   "d": 2,
+   "s": "你被眩晕住了，队友血量正在快速下降。",
+   "a": "你能做什么？",
+   "o": [
+    "什么都做不了，只能等眩晕结束",
+    "按 <sk>痛苦压制</sk> ——它在被眩晕时依然可以使用",
+    "按解控道具",
+    "按 <sk>真言术：盾</sk>"
+   ],
+   "r": 1,
+   "e": [
+    "<b>这是戒律牧最被低估的一点。</b>很多戒律牧被晕住就放弃操作了——那几秒其实还能救回一个人。",
+    "正解。<b><sk>痛苦压制</sk> 在被眩晕时依然能按。</b>这是戒律牧独有的一张牌——<b>被控住不等于你不能救人</b>。",
+    "解控道具是宝贵的一次性资源。<b>如果痛苦压制就能解决问题，不该动用它</b>——留给你必须自由行动的时刻。",
+    "大部分技能在眩晕中按不出来。"
+   ],
+   "k": "痛苦压制被眩晕时能按。被控住不等于你不能救人——这是戒律牧独有的能力。"
+  },
+  {
+   "id": "g5",
+   "t": "general",
+   "d": 3,
+   "s": "队友已经掉到 <em>15%</em>，对面完整的第二波爆发还没交。救他需要你交掉<em>最后一张外部减伤</em>。",
+   "a": "救不救？",
+   "o": [
+    "救，队友的命最重要",
+    "先判断：救了他之后我还剩什么，对面还剩什么",
+    "救，然后靠输出把血磨回来",
+    "立刻交所有牌"
+   ],
+   "r": 1,
+   "e": [
+    "\"命最重要\"听起来对，但<b>如果救了他之后对面第二波来了你什么都没有，那就是两个人一起死</b>。",
+    "正解。<b>这是治疗最难、也最少被教的判断。</b>判据是：救他要花掉最后一张牌吗？对面还有完整的第二波吗？<b>本版你还失去了虚空转换（那张能翻盘的牌）</b>，所以必须更早算账。<b>放弃不等于摆烂——是把资源留给还能赢的局面。</b>",
+    "15% 血的人在爆发下撑不到你磨回来。",
+    "把所有牌一次交完，是把整局的资源压在一个人身上。"
+   ],
+   "k": "治疗最难的判断是什么时候放弃。判据是\"救他之后我还剩什么，对面还剩什么\"。"
+  },
+  {
+   "id": "g6",
+   "t": "general",
+   "d": 2,
+   "s": "一个近战贴在你脸上，你的队友需要一个大治疗。你开始读 <sk>快速治疗</sk>。",
+   "a": "这个操作有什么问题？",
+   "o": [
+    "没问题，快速治疗读条很短",
+    "贴脸读条几乎必定被打断——先处理位置再谈治疗",
+    "应该读更大的治疗",
+    "应该先打伤害"
+   ],
+   "r": 1,
+   "e": [
+    "再短的读条，在近战贴脸时也大概率被打断。<b>而且打断通常会锁学派，让你接下来几秒什么都放不出来。</b>",
+    "正解。<b>治疗最致命的问题不是治疗量不够，是几秒钟治不了。</b>被贴脸时先处理位置——<sk>心灵尖啸</sk>、<sk>渐隐术</sk>、绕柱子、Phase Shift。<b>或者用瞬发手段（护盾、痛苦压制）先撑住。</b>",
+    "更大的治疗读条更长，被打断的概率更高。",
+    "打伤害同样要读条或被打断，没解决问题。"
+   ],
+   "k": "被贴脸时不要硬读条。先解决\"我能不能施法\"，那比治疗量重要。"
+  },
+  {
+   "id": "g7",
+   "t": "general",
+   "d": 2,
+   "s": "对面给你的队友上了一个<em>看起来不太致命的减益</em>。你的 <sk>纯净术</sk> 是好的。",
+   "a": "解不解？",
+   "o": [
+    "解，任何减益都该解掉",
+    "先想想这是不是诱饵——好的对手会用廉价减益骗你的驱散",
+    "不解，等致命的再说",
+    "让队友自己处理"
+   ],
+   "r": 1,
+   "e": [
+    "无脑解会让你的驱散永远在冷却，<b>然后真正致命的那个上来时你没得解</b>。",
+    "正解。<b>好的对手会故意上一个廉价减益骗你的驱散，然后接真正致命的那个。</b>驱散之前先想：这是不是诱饵、对面接下来能上什么、我的驱散冷却值不值这一下。",
+    "\"等致命的\"方向对，但过于被动——有些减益（减疗、强力持续伤害）确实该立刻解。<b>关键是判断，不是一律不解。</b>",
+    "大部分职业没有自我驱散能力。"
+   ],
+   "k": "驱散会被骗。按之前先想这是不是诱饵，而不是看到减益就按。"
+  },
+  {
+   "id": "g8",
+   "t": "general",
+   "d": 1,
+   "s": "对面法师正在读 <sk>变形术</sk>，目标是<em>你</em>。",
+   "a": "最要紧的是什么？",
+   "o": [
+    "继续治疗，被变形也就几秒",
+    "在被变形之前把该铺的铺好——那几秒队友完全没有治疗",
+    "立刻交解控道具",
+    "躲到柱子后面"
+   ],
+   "r": 1,
+   "e": [
+    "\"也就几秒\"——<b>几秒钟没有治疗，在集火下足够死一个人。</b>",
+    "正解。<b>你被控住的那几秒，队友是完全裸的。</b>所以最要紧的是：在失去控制权之前，<b>把 <sk>救赎</sk> 和护盾铺好</b>，让治疗在你无法操作时依然在流动。<b>这正是\"预判型治疗\"的价值所在。</b>",
+    "解控道具是宝贵资源，而且变形还没生效就交是浪费。",
+    "躲柱子可以躲掉这次变形，但如果来不及，你依然要先铺好。"
+   ],
+   "k": "预判到自己会被控住时，先把该铺的铺好。你不能操作的那几秒，铺好的东西还在工作。"
+  },
+  {
+   "id": "g9",
+   "t": "general",
+   "d": 3,
+   "s": "比赛进入消耗阶段（dampening），治疗量被大幅削减。你的法力剩 <em>40%</em>，队友血线还健康。",
+   "a": "现在的重点是什么？",
+   "o": [
+    "继续按常规循环，血健康就没事",
+    "切换到最省蓝的模式——尽量用输出转治疗，减少直接治疗",
+    "开始疯狂治疗，趁还有蓝",
+    "让队友主动打对面"
+   ],
+   "r": 1,
+   "e": [
+    "消耗阶段的问题不是当下的血量，<b>是\"我还能撑几波\"</b>。按常规循环你会先破产。",
+    "正解。<b>消耗阶段赢的是\"谁的蓝先见底\"，不是\"谁血多\"。</b>救赎让你的输出同时产生治疗，<b>而输出技能的蓝耗远低于直接治疗</b>——这时候最大化输出转治疗的比例，是唯一正确的模式。<b>而且本版你还失去了虚空转换那张后期底牌，容错更小。</b>",
+    "疯狂治疗会让你更快见底。",
+    "让队友打是对的方向，但这题问的是<b>你</b>的重点。"
+   ],
+   "k": "消耗阶段的胜负是法力效率。输出转治疗的比例越高，你撑得越久。"
+  },
+  {
+   "id": "g10",
+   "t": "general",
+   "d": 2,
+   "s": "对面正在给一个队友上强力增益（爆发类）。你的 <sk>驱散魔法</sk> 是好的。",
+   "a": "该怎么看这个机会？",
+   "o": [
+    "不用管，专心治疗就行",
+    "驱散掉它——等于给你的队友白送一段输出窗口",
+    "等他开始打了再驱散",
+    "让队友去处理"
+   ],
+   "r": 1,
+   "e": [
+    "<b>戒律牧经常忘了自己有进攻能力。</b>专心治疗是把自己的一半价值放弃了。",
+    "正解。<b><sk>驱散魔法</sk> 能解掉对面身上的增益</b>——爆发增益、护盾、加速。<b>驱散掉一个关键增益，等于让对面的一整个爆发窗口打折，同时给你的队友送了一段免费的优势。</b>这是戒律牧被低估的第二个输出位。",
+    "增益生效之后再驱散，前面的伤害你已经吃了。<b>驱散和治疗一样，越早越值钱。</b>",
+    "大部分 DPS 没有驱散增益的能力。"
+   ],
+   "k": "驱散对面的增益是进攻动作。戒律牧的价值不只有治疗量。"
+  },
+  {
+   "id": "g11",
+   "t": "general",
+   "d": 2,
+   "s": "对面有一个远程和一个近战。近战一直贴着你，你几乎没有安稳读条的时间。",
+   "a": "你该主动做什么？",
+   "o": [
+    "自己想办法解决，治疗不该麻烦队友",
+    "主动要求队友帮你剥离——你没有位移，这不是可选项",
+    "一直用瞬发技能",
+    "换个位置站"
+   ],
+   "r": 1,
+   "e": [
+    "<b>戒律牧没有位移</b>（除了 PvP 天赋 Phase Shift 的短距）。硬扛是把自己置于必输的位置。",
+    "正解。<b>你没有摆脱近战的手段，所以剥离必须靠队友。</b>这不是\"麻烦别人\"，是战术分工——<b>治疗被咬死，全队就完了</b>。要主动、明确地沟通，不是被动等待。",
+    "瞬发能撑一阵但治疗量有限，而且解决不了根本问题。",
+    "换位置有帮助，但近战会跟着你。"
+   ],
+   "k": "戒律牧没有位移，剥离近战必须靠队友。主动要求不是软弱，是战术分工。"
+  },
+  {
+   "id": "g12",
+   "t": "general",
+   "d": 3,
+   "s": "四条件全部满足：救赎铺好、你能自由施法、队友身上有护盾、你的爆发恢复还没交。队友血线稳定。",
+   "a": "现在做什么？",
+   "o": [
+    "继续维持，保持稳定",
+    "参与进攻——用输出和 <sk>能量灌注</sk> 帮队友压对面",
+    "存着资源，等下一波",
+    "铺更多救赎"
+   ],
+   "r": 1,
+   "e": [
+    "\"维持稳定\"在四条件都满足时是浪费。<b>你已经完全接住了治疗压力，多出来的容量应该转化成进攻。</b>",
+    "正解。<b>这是戒律牧独有的一档。</b>其他专精四条件齐了是\"全交杀人\"，戒律牧四条件齐了是\"你可以开始进攻了\"——<b>你的输出既在治疗自己人，也在给对面的治疗施加压力</b>。用 <sk>能量灌注</sk> 配合队友的爆发窗口，把局面从防守翻成进攻。",
+    "一直存资源不用，等于永远不赢。",
+    "救赎已经铺好了，继续铺是浪费 GCD 和法力。"
+   ],
+   "k": "治疗接住压力之后，多出来的容量要转化成进攻。戒律牧是唯一能这么做的治疗。"
+  },
+  {
+   "id": "g13",
+   "t": "general",
+   "d": 1,
+   "s": "你想给三个队友都挂上 <sk>救赎</sk>，准备用 <sk>真言术：耀</sk>。但对面的伤害<em>集中在一个人身上</em>。",
+   "a": "这个选择对吗？",
+   "o": [
+    "对，多铺总没错",
+    "不太对——集中伤害用单体铺更省，群铺是给分散伤害用的",
+    "对，群体铺更快",
+    "不对，应该直接治疗"
+   ],
+   "r": 1,
+   "e": [
+    "<b>铺救赎花蓝也花 GCD。</b>无差别全铺会让你在真正需要的时候没有资源——尤其在消耗阶段。",
+    "正解。<b>铺救赎要按\"下一波打谁\"来铺。</b>集中伤害用 <sk>真言术：盾</sk> 单点铺（同时给一层吸收），分散伤害才用 <sk>真言术：耀</sk> 群铺。<b>本版 Ultimate Radiance 强化的就是群铺这条线，49/50 使用率——但那是给分散伤害用的。</b>",
+    "快不等于对，代价是法力和 GCD。",
+    "救赎没铺的时候直接治疗更贵。"
+   ],
+   "k": "铺救赎按\"下一波打谁\"来铺。集中伤害单点铺，分散伤害才群铺。"
+  },
+  {
+   "id": "g14",
+   "t": "general",
+   "d": 2,
+   "s": "对面治疗正在读一个大治疗。你的队友正在打他们的目标，你自己能自由施法。",
+   "a": "你该做什么？",
+   "o": [
+    "专心治疗自己人",
+    "去打断/干扰对面治疗——你的输出既治自己人也压对面",
+    "什么都不做，保存法力",
+    "铺更多救赎"
+   ],
+   "r": 1,
+   "e": [
+    "只治疗是把戒律牧的一半价值放弃了。",
+    "正解。<b>你能自由施法且自己人不危险时，你的输出应该同时服务两件事：通过救赎治疗自己人，以及给对面的治疗施加压力。</b>打断他的大治疗、驱散他的增益、用输出逼他花蓝——<b>这些都不影响你的治疗，因为救赎让两件事同时发生。</b>",
+    "保存法力在安全时段是对的，但完全不作为浪费了窗口。",
+    "救赎该铺的已经铺了，无脑加铺是浪费。"
+   ],
+   "k": "安全时段是你唯一能进攻的时段。戒律牧的输出永远是双向的。"
+  },
+  {
+   "id": "g15",
+   "t": "general",
+   "d": 3,
+   "s": "队友被一整套控制链锁住，你预计他<em>还要几秒才能动</em>，而对面正在他身上倾泻伤害。",
+   "a": "优先做什么？",
+   "o": [
+    "立刻交 <sk>痛苦压制</sk>",
+    "先算这套控制链还有多久——决定你要一次性交牌还是分批撑",
+    "用直接治疗顶住",
+    "让他交解控道具"
+   ],
+   "r": 1,
+   "e": [
+    "立刻交是本能反应，<b>但如果控制链还很长，一张牌撑不到底</b>——牌交完了人还在被控，那才是最糟的。",
+    "正解。<b>控制链的长度决定你的救援策略。</b>短链：一张牌撑过去。长链：分批交，每张牌买一段时间，中间穿插治疗。<b>而且要算对面的伤害节奏——不是每一秒都同样危险。</b>这是治疗最需要计算的场景。",
+    "直接治疗在集中爆发下追不上，而且很贵。",
+    "让他交解控是对的建议，<b>但你不能假设他会交/能交</b>——你的判断要基于\"他被锁死\"这个最坏情况。"
+   ],
+   "k": "救被控住的人要先算控制链长度。短链一次性交，长链分批买时间。"
+  },
+  {
+   "id": "warrior",
+   "t": "warrior",
+   "d": 2,
+   "s": "战士开了爆发姿态冲向你的队友。你现在才开始给他铺 <sk>救赎</sk> 和护盾。",
+   "a": "问题在哪？",
+   "o": [
+    "没问题，反应及时",
+    "已经晚了——铺→输出→治疗生效这条链走完，伤害已经打完了",
+    "应该先打断他",
+    "应该用直接治疗"
+   ],
+   "r": 1,
+   "e": [
+    "\"反应及时\"是新手对治疗的理解。<b>戒律牧的治疗有延迟链条，反应型操作天然慢一拍。</b>",
+    "正解。<b>爆发姿态亮起时才开始铺，你已经慢了一整个循环。</b>战士的爆发窗口短促且集中，<b>等你铺完救赎、打出伤害、治疗生效，那几秒的伤害已经落地了</b>。正确的时机是在他起手之前。",
+    "战士读条极少，打断价值有限。",
+    "直接治疗能救急，但没解决\"你总是慢一拍\"这个结构问题。"
+   ],
+   "k": "戒律牧的治疗有延迟链条。看到爆发标志才动作，永远慢一拍。"
+  },
+  {
+   "id": "warrior2",
+   "t": "warrior",
+   "d": 3,
+   "s": "战士整局都在打你，不打你的队友。你的队友血线一直健康。",
+   "a": "该怎么理解这个局面？",
+   "o": [
+    "很好，队友安全就行",
+    "他在让你治不了——你被压住的每一秒，他的队友都在自由输出",
+    "他打错人了，是他的失误",
+    "应该反过来打他"
+   ],
+   "r": 1,
+   "e": [
+    "队友现在安全，<b>是因为对面的输出还没开始。战士在做的是\"拆掉治疗\"这个前置工作。</b>",
+    "正解。<b>治疗最致命的问题不是治疗量不够，是几秒钟治不了。</b>战士缠住你，是为了让他的队友能在没有治疗干扰的情况下完成击杀。<b>所以你要立刻处理这件事</b>——要求剥离、用柱子、Phase Shift，而不是等到队友开始掉血才反应。",
+    "这不是失误，是标准且有效的战术。",
+    "你打不死战士，而且这会让你更没法治疗。"
+   ],
+   "k": "对面压治疗不是打错人，是在拆你的治疗链路。要立刻处理，不能等队友掉血。"
+  },
+  {
+   "id": "rogue",
+   "t": "rogue",
+   "d": 2,
+   "s": "贼在你的队友身上放了 <sk>烟雾弹</sk>，你站在烟外。",
+   "a": "现在做什么？",
+   "o": [
+    "原地读一个大治疗，等他出来",
+    "立刻走进烟里或走到能选中他的位置",
+    "切换目标治疗别人",
+    "用群体治疗，范围技能不受影响"
+   ],
+   "r": 1,
+   "e": [
+    "<b>烟外的你无法选中烟内的队友</b>——治疗根本发不出去，读完也是空的。",
+    "正解。<b><sk>烟雾弹</sk> 切断的是\"选中\"。</b>你必须进到烟里（或走到烟不阻隔的位置）才能治疗他。<b>站在外面干着急是最常见的错误。</b>另外：这也是为什么\"提前铺护盾和救赎\"在贼的对局特别重要——<b>烟里那几秒，提前铺的东西是唯一还在工作的</b>。",
+    "切换目标等于放弃被集火的人。",
+    "需要选中的治疗都发不出去。"
+   ],
+   "k": "烟雾弹切断选中。看到烟立刻调整位置，别站在外面读空条。"
+  },
+  {
+   "id": "rogue2",
+   "t": "rogue",
+   "d": 3,
+   "s": "你看到敌方敏锐贼<em>进入了潜行</em>。场上暂时平静。",
+   "a": "这几秒该做什么？",
+   "o": [
+    "放松，趁机回蓝",
+    "把 <sk>救赎</sk> 和护盾铺好——他潜行意味着下一波要来了",
+    "追着找他",
+    "切换到进攻模式"
+   ],
+   "r": 1,
+   "e": [
+    "回蓝是对的<b>次要目标</b>，但把这几秒纯粹当休息，会让你在他出手时毫无准备。",
+    "正解。<b>贼进入潜行 = 明确的预警信号。</b>他在准备下一次开场，而这几秒是你<b>唯一的准备时间</b>。铺好救赎和护盾，因为他出手之后会用控制链和 <sk>烟雾弹</sk> 让你几秒钟做不了事——<b>那时候提前铺的东西是唯一还在工作的。</b>",
+    "你找不到潜行的贼，而且这会浪费准备时间。",
+    "进攻在对面即将起手时是危险的选择。"
+   ],
+   "k": "对手消失/进潜行不是平静，是倒计时。那几秒是你唯一的准备窗口。"
+  },
+  {
+   "id": "mage",
+   "t": "mage",
+   "d": 2,
+   "s": "你在打法师队伍。对面法师的 <sk>法术反制</sk> <em>刚刚用掉了</em>。",
+   "a": "这个信息怎么用？",
+   "o": [
+    "没什么用",
+    "现在是你安全读大治疗的窗口",
+    "应该立刻进攻",
+    "应该躲起来"
+   ],
+   "r": 1,
+   "e": [
+    "对手打断技能的冷却是治疗最有价值的情报之一。",
+    "正解。<b><sk>法术反制</sk> 在冷却，意味着这段时间你可以放心读长条治疗</b>，不用担心被打断锁学派。<b>治疗要主动记录对面所有打断的冷却</b>——那决定了你什么时候能安全施法、什么时候必须用瞬发。",
+    "进攻不是这个信息的最佳用途，你的核心工作还是治疗。",
+    "躲起来浪费了这个安全窗口。"
+   ],
+   "k": "记录对面每个打断的冷却。那决定你什么时候能读条，什么时候只能用瞬发。"
+  },
+  {
+   "id": "mage2",
+   "t": "mage",
+   "d": 3,
+   "s": "法师队伍的标准击杀链是：变形你 → 集火你的队友。你预判到 <sk>变形术</sk> 要来了。",
+   "a": "最优准备是什么？",
+   "o": [
+    "准备好解控道具，被变形立刻解",
+    "在被变形之前把救赎和护盾铺好，同时留好解控道具",
+    "躲到柱子后面避免被变形",
+    "让队友帮你打断"
+   ],
+   "r": 1,
+   "e": [
+    "立刻解是一种选择，<b>但如果队友身上什么都没铺，你解开之后还要重新走一遍治疗链条</b>——那时候人可能已经没了。",
+    "正解。<b>两件事要同时做。</b>① 铺好救赎和护盾，<b>让治疗在你无法操作时依然流动</b>；② 留好解控道具应对最坏情况。<b>只做第二件事的人，解开之后还要从零开始建立治疗链条。</b>",
+    "躲柱子可能躲掉这次，但击杀链会重来，而你依然没有准备。",
+    "队友帮忙是好事，但你不能把自己的准备建立在别人身上。"
+   ],
+   "k": "预判到自己会被控住时，铺好的东西比解控道具更重要——它在你不能操作时仍在工作。"
+  },
+  {
+   "id": "dk",
+   "t": "dk",
+   "d": 2,
+   "s": "DK 在你的队友脚下铺了 <sk>反魔法领域</sk>，你的队友站在里面。",
+   "a": "该怎么处理？",
+   "o": [
+    "正常治疗，没影响",
+    "把队友从里面拉出来或调整手段——你的魔法治疗会打折",
+    "换成物理治疗",
+    "等它自己消失"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>反魔法领域</sk> 会影响进入区域的魔法效果，<b>包括你对盟友的魔法治疗</b>。",
+    "正解。<b>看到 <sk>反魔法领域</sk> 铺下去，第一反应是\"我的治疗会打折\"。</b>用 <sk>信仰飞跃</sk> 把队友拉出来，或者提醒他移动。<b>站在里面硬治是在浪费法力。</b>",
+    "牧师没有物理治疗。",
+    "等它消失期间你的队友可能已经死了。"
+   ],
+   "k": "看到影响魔法效果的区域，先想\"我的治疗还有效吗\"，而不是加大治疗力度。"
+  },
+  {
+   "id": "dk2",
+   "t": "dk",
+   "d": 3,
+   "s": "你被 DK 的窒息<em>沉默了</em>，队友正在掉血。",
+   "a": "现在做什么？",
+   "o": [
+    "等沉默结束",
+    "清点你手上的瞬发和不受沉默影响的手段",
+    "立刻交解控道具",
+    "跑到队友身边"
+   ],
+   "r": 1,
+   "e": [
+    "被动等待是最糟的选择——那几秒队友可能就没了。",
+    "正解。<b>沉默期间你不能施法，但不是什么都做不了。</b>清点：解控道具、某些不受沉默影响的技能、走位调整。<b>而且这正是\"提前铺\"的价值兑现时刻</b>——你之前铺的救赎和护盾在沉默期间依然在工作。",
+    "解控道具是选项之一，但<b>要先判断值不值</b>——如果沉默快结束了，或者提前铺的东西还能撑住，就不该交。清点先于决定。",
+    "走近不解决\"我放不出技能\"这个问题。"
+   ],
+   "k": "被沉默时先清点手上还有什么，再决定交不交道具。提前铺的东西这时候在替你工作。"
+  },
+  {
+   "id": "druid",
+   "t": "druid",
+   "d": 3,
+   "s": "你看到敌方野德<em>进入了潜行</em>。你的队友血线健康。",
+   "a": "最该做什么？",
+   "o": [
+    "正常打，等他出来再说",
+    "铺好护盾和救赎，并把解控道具准备好——完整控制链要来了",
+    "让队友分散站位",
+    "进攻他的队友"
+   ],
+   "r": 1,
+   "e": [
+    "野德从潜行起手意味着<b>全游戏最完整的控制链之一</b>要来了，你可能十几秒做不了事。",
+    "正解。<b>野德进潜行 = 完整控制链的倒计时。</b>他起手之后你可能被连续控制很久——<b>那段时间你唯一还在工作的，就是现在铺好的东西</b>。同时准备好解控道具，因为这个对局解控的时机是胜负手（交早了他还有后续，交晚了队友已经死了）。",
+    "分散站位有帮助，但没解决\"我会被锁死\"这个核心问题。",
+    "进攻在对面即将起手时是危险的。"
+   ],
+   "k": "面对长控制链的对手，提前铺的东西是你被锁死期间唯一的治疗来源。"
+  },
+  {
+   "id": "druid2",
+   "t": "druid",
+   "d": 2,
+   "s": "对面是恢复德，你的队友一直打不穿他。比赛拖进消耗阶段。",
+   "a": "你的重点该转向什么？",
+   "o": [
+    "继续帮队友输出，多打一点是一点",
+    "转向法力效率和自己活着——耗过去",
+    "换目标打别人",
+    "疯狂治疗压制对面"
+   ],
+   "r": 1,
+   "e": [
+    "打不穿的情况下持续输出是在烧自己的蓝，<b>而恢复德的续航比你好</b>。",
+    "正解。<b>打不穿对面治疗时，胜负转移到消耗上。</b>你的重点变成：最大化法力效率、保证队友不被反打死、自己活着。<b>本版你失去了虚空转换，后期容错更小</b>，所以要更早开始省蓝。",
+    "换目标是队友的决策，而且恢复德会治所有人。",
+    "\"治疗压制\"不是一个真实的机制。"
+   ],
+   "k": "打不穿对面治疗时，比赛变成消耗战。重点从输出转向法力效率。"
+  },
+  {
+   "id": "monk",
+   "t": "monk",
+   "d": 2,
+   "s": "踏风武僧即将对你使用扫堂腿（眩晕）。你能看到他的动作。",
+   "a": "该做什么？",
+   "o": [
+    "等被晕了再按 <sk>痛苦压制</sk>",
+    "晕之前先按护盾或减伤——晕前减伤比晕后发现按不了值钱",
+    "立刻交解控道具",
+    "用 <sk>心灵尖啸</sk> 打断"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>痛苦压制</sk> 确实能在眩晕中按（这点很重要），<b>但主动预判永远优于被动补救</b>。",
+    "正解。<b>预判性减伤要在控制命中之前按。</b>晕之前挂好的护盾和减伤，在眩晕期间持续生效——<b>而你晕住之后能做的事非常有限</b>。这跟\"提前铺救赎\"是同一个思路。",
+    "解控道具在眩晕命中前按是浪费。",
+    "<sk>心灵尖啸</sk> 是你唯一的控制，用来打断一个眩晕太奢侈了——<b>而且它可能来不及</b>。"
+   ],
+   "k": "预判性减伤要在控制命中之前按。晕住之后你的选项会大幅减少。"
+  },
+  {
+   "id": "monk2",
+   "t": "monk",
+   "d": 3,
+   "s": "武僧整局缠着你，你几乎没有安稳施法的时间。你带了 Phase Shift 这个 PvP 天赋。",
+   "a": "该怎么用它？",
+   "o": [
+    "留着救命，血少了再用",
+    "用它创造施法窗口——不只是逃命工具",
+    "不用，省下来",
+    "用它追击对面"
+   ],
+   "r": 1,
+   "e": [
+    "<b>把它纯当救命技会浪费它的大部分价值。</b>你的问题不是血少，是没有施法窗口。",
+    "正解。<b>Phase Shift 补上的是戒律牧最缺的机动性（48/50 使用率）。</b>面对缠身型近战，它的核心价值是<b>创造几秒的施法空间</b>——拉开一点距离，读完一个关键治疗，而不是等到血危险了才用来逃命。<b>你的问题是\"治不了\"，它解决的正是这个。</b>",
+    "不用等于浪费一个 48/50 使用率的天赋。",
+    "你不需要追击任何人。"
+   ],
+   "k": "治疗的机动性技能主要用来创造施法窗口，不只是逃命。分清你的问题是\"血少\"还是\"治不了\"。"
+  },
+  {
+   "id": "paladin",
+   "t": "paladin",
+   "d": 1,
+   "s": "惩戒骑的翅膀亮起，冲向你的队友。",
+   "a": "这个信号对你意味着什么？",
+   "o": [
+    "他要开始输出了，准备治疗",
+    "这是最明确的预警之一——现在铺护盾和救赎，正好在伤害落地时生效",
+    "应该立刻交 <sk>痛苦压制</sk>",
+    "让队友自己交防御"
+   ],
+   "r": 1,
+   "e": [
+    "\"准备治疗\"太模糊。<b>具体该按什么、什么时候按，才是判断。</b>",
+    "正解。<b>翅膀是全游戏最明显的爆发预警之一，对治疗是好消息。</b>你有明确的提前量——<b>现在铺 <sk>真言术：盾</sk> 和 <sk>救赎</sk>，伤害落地时你的治疗已经在流动了</b>。<b>没提前铺是你的失误，不是他打得好。</b>",
+    "<sk>痛苦压制</sk> 太贵，翅膀刚亮起还没有人在危险中。留给真正临界的时刻。",
+    "队友交防御是他的事，你的准备是你的事。两件事不冲突。"
+   ],
+   "k": "明显的爆发标志是送给治疗的提前量。看到了不用，等于浪费。"
+  },
+  {
+   "id": "hunter",
+   "t": "hunter",
+   "d": 2,
+   "s": "你在移动，猎人往你即将经过的位置<em>扔了一个陷阱</em>。",
+   "a": "最要紧的是什么？",
+   "o": [
+    "继续走，陷阱不一定触发",
+    "改变路径——冰冻陷阱命中你就是几秒完全无法行动",
+    "加速冲过去",
+    "站着不动"
+   ],
+   "r": 1,
+   "e": [
+    "<b>陷阱就是为了你的可预测路径设计的。</b>",
+    "正解。<b>冰冻陷阱是治疗的噩梦</b>——命中就是几秒完全无法行动，而那几秒足够对面完成一次击杀。<b>治疗的走位是主动技能，不是背景动作</b>：不要沿可预测的路径移动，看到陷阱立刻改道。",
+    "加速冲过去还是会触发。",
+    "站着不动会被其他手段打到，而且限制了你的位置选择。"
+   ],
+   "k": "治疗的走位是主动技能。不要沿可预测的路径移动，那是陷阱和控制的最佳落点。"
+  },
+  {
+   "id": "priest",
+   "t": "priest",
+   "d": 3,
+   "s": "戒律牧镜像对局，双方都打不穿。你的法力 <em>50%</em>，对面看起来也差不多。",
+   "a": "胜负会在哪里分出？",
+   "o": [
+    "谁的治疗量更高",
+    "谁的法力效率更高、驱散更准",
+    "谁的队友输出更高",
+    "谁先交完保命牌"
+   ],
+   "r": 1,
+   "e": [
+    "治疗量是结果不是原因，而且在双方都打不穿时它不区分胜负。",
+    "正解。<b>镜像对局赢的是法力效率和驱散命中率。</b>法力效率决定谁先破产；<b>驱散更准的一方能多出一整轮的优势</b>——你解掉他给队友的增益，他解不掉你的。<b>这两件事都不体现在治疗量统计里，但决定胜负。</b>",
+    "队友输出重要，但这题问的是<b>治疗之间</b>的胜负点。",
+    "保命牌是结果，消耗光是因为前面的效率不够。"
+   ],
+   "k": "治疗对治疗的胜负在法力效率和驱散命中率，不在治疗量。"
+  },
+  {
+   "id": "priest2",
+   "t": "priest",
+   "d": 2,
+   "s": "对面暗牧对你用了<em>精神控制</em>，控制了你的一个队友。",
+   "a": "第一反应是什么？",
+   "o": [
+    "打断精神控制的施法（如果还来得及）或打掉被控的队友让他脱离",
+    "继续治疗别人，反正被控的人不掉血",
+    "立刻交防御",
+    "等它自己结束"
+   ],
+   "r": 0,
+   "e": [
+    "正解。<b>精神控制期间，你的队友在替对面打你们。</b>能打断施法就打断；已经生效的话，<b>让队友对他造成伤害通常能提前结束控制</b>。<b>关键是这几秒你实际上是在打 2v3</b>，处理它比治疗任何人都优先。",
+    "\"不掉血\"忽略了更严重的问题——<b>他正在对你们造成伤害</b>，而且你们少了一个人。这是双重损失。",
+    "交防御不解决问题的来源。",
+    "等它结束期间你们是少一个人的状态，而对面是多一个人。"
+   ],
+   "k": "控制类效果要看它改变了什么，不只是看它有没有让人掉血。少一个人比掉一点血严重得多。"
+  },
+  {
+   "id": "warlock",
+   "t": "warlock",
+   "d": 3,
+   "s": "术士在你的队友身上叠了<em>四五个持续伤害</em>。你的驱散有冷却，全解需要好几次。",
+   "a": "该怎么处理？",
+   "o": [
+    "全部解掉，一个不留",
+    "判断哪些必须解、哪些可以硬吃——全解会把蓝和驱散耗光",
+    "完全不解，用治疗顶",
+    "让队友自己走位躲"
+   ],
+   "r": 1,
+   "e": [
+    "<b>全解正是术士想要的。</b>他的减益成本低，你的驱散和法力成本高——这个交换你亏。",
+    "正解。<b>术士打的是消耗战，减益是他的诱饵。</b>你要判断：哪个减益的伤害/效果真的致命（必解），哪个可以用治疗顶过去（硬吃）。<b>无差别全解会让你的法力和驱散在关键时刻都不在。</b>",
+    "完全不解会让持续伤害叠加成真正的威胁。<b>关键是判断，不是一律不解。</b>",
+    "持续伤害不能靠走位躲掉。"
+   ],
+   "k": "面对大量廉价减益，要分类处理。全解是把自己的资源送给对面消耗。"
+  },
+  {
+   "id": "shaman",
+   "t": "shaman",
+   "d": 2,
+   "s": "你在打萨满队伍。萨满的打断（风剪）冷却很短，你几次读条都被断了。",
+   "a": "该怎么调整？",
+   "o": [
+    "改用瞬发技能，放弃读条",
+    "用假读条骗掉他的打断，然后读真的",
+    "读更快的治疗",
+    "让队友帮你打断他"
+   ],
+   "r": 1,
+   "e": [
+    "完全放弃读条会让你的治疗手段大幅缩水，而且萨满的打断冷却短，你躲不完。",
+    "正解。<b>假读条对打断冷却短的对手尤其重要。</b>起一个治疗但在读完前主动打断自己，骗掉风剪——<b>然后那几秒你可以安全地读真正的大治疗</b>。<b>成本只有一个读条时间，收益是一次完整的施法。</b>",
+    "更快的治疗依然会被打断，而且治疗量不够。",
+    "队友有自己的事做，你不能把施法安全建立在别人身上。"
+   ],
+   "k": "对打断冷却短的对手，假读条是必修课。用一个假动作换一次真施法。"
+  },
+  {
+   "id": "dh",
+   "t": "dh",
+   "d": 2,
+   "s": "DH 整局缠着你，你接受了\"我会一直被贴着\"这个现实。",
+   "a": "围绕这个现实该怎么规划？",
+   "o": [
+    "放弃治疗，专心逃跑",
+    "多用瞬发、提前铺、把 <sk>痛苦压制</sk> 留到被控时用",
+    "换个位置站，也许他会走",
+    "疯狂读条，赌他打断在冷却"
+   ],
+   "r": 1,
+   "e": [
+    "放弃治疗等于放弃这局。",
+    "正解。<b>接受现实之后要围绕它重新规划，而不是徒劳地想摆脱。</b>① 多用瞬发（护盾、痛苦压制）；② <b>提前铺，因为你随时会被打断</b>；③ 把 <sk>痛苦压制</sk> 留到被控时用（它那时候还能按）；④ 主动要求队友剥离。<b>戒律牧的生存能力本身就是优势——活着就有价值。</b>",
+    "DH 不会走，他的目标就是你。",
+    "赌打断冷却是把胜负交给运气。"
+   ],
+   "k": "摆脱不了的时候，围绕\"被缠住\"重新规划打法，而不是徒劳地想摆脱。"
+  },
+  {
+   "id": "evoker",
+   "t": "evoker",
+   "d": 1,
+   "s": "唤魔师开始蓄力一个大伤害技能，目标是你的队友。",
+   "a": "这个信号该怎么用？",
+   "o": [
+    "等伤害落地再治疗",
+    "看到蓄力就铺护盾，伤害落地时正好接住",
+    "立刻交 <sk>痛苦压制</sk>",
+    "让队友走开"
+   ],
+   "r": 1,
+   "e": [
+    "等伤害落地再反应，你的治疗链条（铺→输出→生效）会慢一拍。",
+    "正解。<b>蓄力条是全游戏对治疗最友好的信号之一</b>——你能清楚看到伤害什么时候落地。<b>看到蓄力就铺 <sk>真言术：盾</sk></b>，伤害落地时护盾正好在。这是最舒服的预判场景。<b>另外提醒队友去打断他，收益极高。</b>",
+    "<sk>痛苦压制</sk> 对单次蓄力太奢侈，留给真正的连续爆发。",
+    "让队友走开是好建议，但你自己的准备动作是铺护盾。"
+   ],
+   "k": "蓄力类技能是明确的倒计时。看到就铺，伤害落地时正好接住。"
+  },
+  {
+   "id": "evoker2",
+   "t": "evoker",
+   "d": 2,
+   "s": "唤魔师正在蓄力，你的队友有机会打断他。同时你的另一个队友血线偏低。",
+   "a": "该优先提醒哪件事？",
+   "o": [
+    "先治疗血低的队友，打断是队友的事",
+    "提醒打断——蓄力被断他损失极大，等于同时解决了伤害来源",
+    "两件事都不管，专心自己",
+    "让血低的队友自己交防御"
+   ],
+   "r": 1,
+   "e": [
+    "治疗当然要做，但<b>这题问的是\"优先提醒哪件事\"</b>——沟通也是治疗的工作。",
+    "正解。<b>打断唤魔师的蓄力，等于从源头掐掉这一波伤害</b>——比你事后治疗划算得多。<b>而且蓄力期间他不能做别的事，被断损失极大。</b>治疗的视野通常最好，<b>指挥打断是你的职责之一</b>，不只是按治疗键。",
+    "专心自己会浪费你的视野优势。",
+    "让队友交防御是被动方案，打断是主动解决。"
+   ],
+   "k": "治疗的视野最好，指挥打断和呼叫防御也是你的工作。从源头掐掉伤害比事后治疗便宜。"
+  },
+  {
+   "id": "paladin2",
+   "t": "paladin",
+   "d": 3,
+   "s": "对面治疗骑给惩戒骑放了 <sk>保护祝福</sk>，你的队友正在打惩戒骑，打不动了。",
+   "a": "这个信息对你意味着什么？",
+   "o": [
+    "没什么，让队友换目标就行",
+    "对面治疗花掉了一张外部牌——这是你压他的信号",
+    "应该立刻进攻治疗骑",
+    "应该加强防守"
+   ],
+   "r": 1,
+   "e": [
+    "换目标是队友的战术动作，<b>但这个信息里还有一层更值钱的东西。</b>",
+    "正解。<b>要分清\"他自己交的牌\"和\"队友替他交的牌\"。</b><sk>保护祝福</sk> 是治疗骑放的——<b>意味着对面治疗也花了资源、也在承受压力</b>。这时候把压力转向治疗骑（你的输出 + 队友转火）收益最高。<b>治疗的记账本要记两边：谁交了什么，谁替谁交的。</b>",
+    "\"立刻进攻\"方向对但过于绝对——要跟队友配合，而且你的主职责还是治疗。",
+    "这个信号说明对面在承压，不是你该防守的时候。"
+   ],
+   "k": "逼技能时要记两本账：他自己的牌，和队友替他花的牌。后者是压对面治疗的信号。"
+  },
+  {
+   "id": "hunter2",
+   "t": "hunter",
+   "d": 3,
+   "s": "你被冰冻陷阱控住了，队友正在被集火掉血。你的解控道具是好的。",
+   "a": "交不交道具？",
+   "o": [
+    "立刻交，队友要死了",
+    "先看队友还能撑多久、以及对面下一波控制还有没有",
+    "不交，省着用",
+    "交，然后立刻大治疗"
+   ],
+   "r": 1,
+   "e": [
+    "立刻交是本能，<b>但解控道具是整局最贵的一次性资源</b>——交早了，后面真正的击杀链来时你就裸了。",
+    "正解。<b>解控道具的时机是治疗最重要的判断之一。</b>要算三件事：① 队友还能撑几秒（他身上有没有护盾/减伤）；② 对面还有没有后续控制（交了道具马上又被控＝白交）；③ <b>提前铺的救赎和护盾还在不在工作</b>。<b>三个都不利才交。</b>",
+    "\"省着用\"过于被动——道具不用完就输了也是浪费。<b>关键是判断，不是一律不交。</b>",
+    "交完就大治疗方向对，但没回答\"该不该现在交\"。"
+   ],
+   "k": "解控道具是整局最贵的一次性资源。交之前算三件事：他能撑多久、对面还有没有后续控制、我铺的东西还在不在。"
+  },
+  {
+   "id": "shaman2",
+   "t": "shaman",
+   "d": 2,
+   "s": "萨满在地上放了一个图腾，你不确定是什么。你的队友正准备打一波。",
+   "a": "该做什么？",
+   "o": [
+    "不用管，图腾是队友的事",
+    "提醒队友看一眼——某些图腾能解掉你们的控制，会让这一波白打",
+    "立刻自己去打图腾",
+    "照常治疗"
+   ],
+   "r": 1,
+   "e": [
+    "<b>图腾能改变整个交战规则</b>，治疗的视野最好，最该发现它。",
+    "正解。<b>破控类、群疗类图腾能直接让你们精心准备的一波作废。</b>图腾血量极低，队友顺手就能打掉——<b>但前提是有人发现它</b>。治疗通常站得远、视野最好，<b>指出这类关键目标是你的工作之一</b>。",
+    "你去打图腾会中断你的治疗职责，而且队友打更快。",
+    "照常治疗会让这一波白打。"
+   ],
+   "k": "治疗的视野最好，发现\"会改变规则的东西\"（图腾、地面效果、增益）并指出来，是你的职责。"
+  },
+  {
+   "id": "warlock2",
+   "t": "warlock",
+   "d": 2,
+   "s": "你被术士 <sk>恐惧</sk> 了，队友血线正在下降。恐惧还有几秒。",
+   "a": "这几秒你能做什么？",
+   "o": [
+    "什么都做不了",
+    "恐惧期间你在乱跑——注意跑到哪，别跑进对面的包围圈",
+    "立刻交解控道具",
+    "等它结束"
+   ],
+   "r": 1,
+   "e": [
+    "恐惧确实剥夺了你的操作，<b>但它还有一个常被忽略的危险。</b>",
+    "正解。<b>恐惧不只是\"几秒不能操作\"，它还会让你朝随机方向跑。</b>如果起点位置不好，你可能被吓进对面的包围圈——<b>解开之后处境比之前更糟</b>。所以：① 平时站位就要考虑\"被恐惧会跑到哪\"；② 解开后第一件事是看自己在哪，而不是立刻按治疗键。",
+    "解控道具是选项，但要按前面那道题的三条件判断。这题问的是恐惧本身的机制风险。",
+    "被动等待会让你在错误的位置醒来。"
+   ],
+   "k": "位移类控制（恐惧）不只剥夺操作，还会改变你的位置。站位时就要考虑\"被恐惧会跑到哪\"。"
+  },
+  {
+   "id": "dh2",
+   "t": "dh",
+   "d": 3,
+   "s": "DH 缠着你，你几乎没有施法窗口。你的队友在打对面的治疗，血线还稳。",
+   "a": "你现在最该做的是什么？",
+   "o": [
+    "继续想办法治疗，那是你的本职",
+    "用瞬发维持基本盘，同时把\"被缠住\"这件事告诉队友并要求剥离",
+    "放弃治疗，专心跑",
+    "反过来打 DH"
+   ],
+   "r": 1,
+   "e": [
+    "\"想办法治疗\"太模糊——<b>你的问题是没有施法窗口，不是不想治</b>。",
+    "正解。<b>两件事要同时做。</b>① 用瞬发（护盾、<sk>痛苦压制</sk>）维持基本盘，别让自己完全停摆；② <b>明确告诉队友\"我被缠住了\"并要求剥离</b>——你没有位移，这不是可选项而是战术需求。<b>治疗被压住时最大的错误是默默硬扛</b>，队友根本不知道你的处境。",
+    "完全放弃治疗会让队友在下一波直接崩。",
+    "你打不死 DH，而且这让你更没法治疗。"
+   ],
+   "k": "被压住时不要默默硬扛。用瞬发维持基本盘的同时，主动沟通——队友不知道你的处境。"
+  },
+  {
+   "id": "x1",
+   "t": "general",
+   "d": 2,
+   "s": "队友血量 <em>55%</em> 且在掉。他身上<em>已有 <sk>救赎</sk></em>，你能自由施法，法力充足。对面目标（一个布甲 DPS）就在你射程内。",
+   "a": "这一下按什么、对谁？",
+   "o": [
+    "<sk>快速治疗</sk> → 队友",
+    "<sk>惩击</sk> 或 <sk>心灵震爆</sk> → 对面 DPS",
+    "<sk>真言术：盾</sk> → 队友",
+    "<sk>暗影愈合</sk> → 队友"
+   ],
+   "r": 1,
+   "e": [
+    "直接治疗又贵又慢，<b>而救赎已经铺好了——你有更好的选择</b>。",
+    "正解。<b>救赎铺着时，你打在敌人身上的伤害会转化成对队友的治疗</b>，而且<b>输出技能的蓝耗远低于直接治疗</b>。这是治疗量和法力效率的双赢。<b>\"能打伤害就别按治疗\"的前提在这题是成立的。</b>",
+    "护盾不错（吸收+减伤），但救赎已经在了，<b>这时候打伤害的治疗效率更高</b>。",
+    "同样是直接治疗，问题一样。"
+   ],
+   "k": "救赎已铺 + 能自由施法 = 打伤害。这不只是治疗量，更是法力效率。"
+  },
+  {
+   "id": "x2",
+   "t": "general",
+   "d": 2,
+   "s": "同样是队友 <em>55%</em> 在掉血，但他身上<em>没有 <sk>救赎</sk></em>，对面正在集火他。",
+   "a": "这一下按什么、对谁？",
+   "o": [
+    "<sk>惩击</sk> → 对面 DPS",
+    "<sk>真言术：盾</sk> → 队友",
+    "<sk>快速治疗</sk> → 队友",
+    "<sk>心灵尖啸</sk> → 打断集火"
+   ],
+   "r": 1,
+   "e": [
+    "<b>这是\"能打伤害就别按治疗\"最危险的误用。</b>救赎没铺，你打伤害就是纯伤害，<b>一点治疗都没有</b>——队友会在你输出的时候死掉。",
+    "正解。<b><sk>真言术：盾</sk> 一个动作办两件事</b>：立刻给一层吸收争取时间，<b>同时挂上 <sk>救赎</sk></b>，让你后续的输出开始转化成治疗。<b>救赎缺失时它永远是第一选择。</b>",
+    "直接治疗能救急，但没解决\"救赎缺失\"这个根本问题——下一秒你还是在裸奔。",
+    "打断集火有价值，但你只有一个控制，而且治疗链路还是断的。"
+   ],
+   "k": "\"能打伤害就别按治疗\"的前提是救赎已铺。前提不成立时，先补前提。"
+  },
+  {
+   "id": "x3",
+   "t": "general",
+   "d": 3,
+   "s": "对面惩戒骑的<em>翅膀刚亮起</em>，还没开始输出。你的队友（贼）<em>满血</em>。<sk>痛苦压制</sk>、<sk>真言术：盾</sk>、<sk>真言术：障</sk> 都可用。",
+   "a": "现在按什么、对谁？",
+   "o": [
+    "<sk>痛苦压制</sk> → 贼",
+    "<sk>真言术：盾</sk> + <sk>救赎</sk> → 贼",
+    "<sk>真言术：障</sk> 放在贼脚下",
+    "什么都不按，他满血"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>痛苦压制</sk> 是<b>你最贵的外部减伤</b>，翅膀刚亮起还没有人在危险中——<b>交早了真正临界时你就没有了</b>。",
+    "正解。<b>翅膀是最明确的预警，你有完整的提前量。</b>这时候该做的是<b>最便宜且最有价值的准备</b>：铺护盾（吸收+救赎来源）。<b>伤害落地时你的治疗已经在流动了</b>，而昂贵的 <sk>痛苦压制</sk> 留到血线真正危险时再交。",
+    "<sk>真言术：障</sk> 是范围减伤，也是较贵的牌，同样不该在还没挨打时交。",
+    "\"满血不需要治疗\"是最典型的新手思维——<b>你要准备的不是现在的血量，是三秒后的血量。</b>"
+   ],
+   "k": "看到爆发预警先铺最便宜的（护盾+救赎），把贵的外部减伤留到血线危险时。"
+  },
+  {
+   "id": "x4",
+   "t": "general",
+   "d": 2,
+   "s": "你被<em>眩晕</em>住了，队友血量在快速下降。你的解控道具、<sk>痛苦压制</sk> 都可用。",
+   "a": "先做什么？",
+   "o": [
+    "交解控道具解开眩晕",
+    "按 <sk>痛苦压制</sk> → 队友（眩晕中依然可施放）",
+    "什么都做不了，等眩晕结束",
+    "按 <sk>真言术：盾</sk>"
+   ],
+   "r": 1,
+   "e": [
+    "解控道具是整局最贵的一次性资源。<b>如果不解控也能救到人，就不该交。</b>",
+    "正解。<b><sk>痛苦压制</sk> 在昏迷时仍可施放</b>（官方描述里明确写了这一条）。<b>被控住不等于你不能救人</b>——这是戒律牧最被低估的能力。先用它救人，道具留给真正必须自由行动的时刻。",
+    "眩晕不等于完全无法操作，这个误解会让队友白死。",
+    "大部分技能在眩晕中按不出来。"
+   ],
+   "k": "痛苦压制昏迷时可施放。被控住时先想\"我还有什么能按\"，再考虑交道具。"
+  },
+  {
+   "id": "x5",
+   "t": "general",
+   "d": 3,
+   "s": "队友掉到 <em>12%</em>，对面完整的第二波爆发<em>还没交</em>。救他需要你交掉<em>最后一张</em>外部减伤。",
+   "a": "交不交？",
+   "o": [
+    "交，队友的命最重要",
+    "先判断：交完之后对面第二波来了我还剩什么",
+    "交，然后靠输出把血磨回来",
+    "让他自己交道具"
+   ],
+   "r": 1,
+   "e": [
+    "<b>如果交完之后对面第二波来了你什么都没有，那就是两个人一起死。</b>",
+    "正解。<b>这是治疗最难、也最少被教的判断。</b>判据：救他要花掉最后一张牌吗？对面还有完整的第二波吗？<b>本版你还失去了虚空转换（那张能翻盘的牌），所以必须更早算账。</b>放弃不等于摆烂——<b>是把资源留给还能赢的局面。</b>",
+    "12% 的人在爆发下撑不到你磨回来。",
+    "让他交道具是可能的补充，但不能替代你的判断。"
+   ],
+   "k": "治疗最难的判断是什么时候放弃。判据是\"救他之后我还剩什么，对面还剩什么\"。"
+  },
+  {
+   "id": "x6",
+   "t": "general",
+   "d": 2,
+   "s": "对面戒律牧正在读一个<em>小治疗</em>，你的 <sk>心灵尖啸</sk> 和 <sk>心灵震爆</sk> 都可用。你的队友正在打他们的击杀目标。",
+   "a": "要不要打断？",
+   "o": [
+    "<sk>心灵尖啸</sk> → 打断他",
+    "不打断——用输出技能中断，把唯一的控制留着",
+    "<sk>心灵震爆</sk> 打断他",
+    "都不做，专心治疗"
+   ],
+   "r": 1,
+   "e": [
+    "<b><sk>心灵尖啸</sk> 是你唯一的控制</b>，用它去断一个小治疗是极大的浪费——真正需要控他的时候你就没牌了。",
+    "正解。<b>你只有一个控制，它必须留给\"必须控\"的时刻</b>（对面击杀链开始、你自己被贴身、队友即将死亡）。<b>断小治疗用带伤害的技能就行</b>——而且你的输出本来就在通过救赎治疗队友，一举两得。",
+    "<sk>心灵震爆</sk> 方向对（用输出中断），但这题的关键判断是<b>\"该不该用唯一的控制\"</b>，选项 2 表达得更完整。",
+    "完全不作为浪费了打断机会。"
+   ],
+   "k": "唯一的控制要留给必须控的时刻。断施法能用输出解决就别用控制。"
+  },
+  {
+   "id": "x7",
+   "t": "general",
+   "d": 2,
+   "s": "对面给你的队友上了一个<em>看起来不太致命的减益</em>。你的 <sk>纯净术</sk> 是好的，对面是<em>术士</em>。",
+   "a": "解不解？",
+   "o": [
+    "立刻解，任何减益都该解",
+    "先想这是不是诱饵——术士的减益成本低，你的驱散成本高",
+    "不解，等致命的再说",
+    "让队友自己处理"
+   ],
+   "r": 1,
+   "e": [
+    "无脑解会让你的驱散永远在冷却，<b>真正致命的那个上来时你没得解</b>——而这正是术士想要的。",
+    "正解。<b>术士打的是消耗战，廉价减益是他的诱饵。</b>他的减益成本低（一个 GCD），你的驱散有冷却且花蓝——<b>这个交换你亏</b>。要判断：哪个减益的伤害/效果真的致命（必解），哪个可以用治疗顶过去（硬吃）。",
+    "\"等致命的\"方向对但过于被动——有些减益（减疗、强力持续伤害）确实该立刻解。<b>关键是判断，不是一律不解。</b>",
+    "大部分职业没有自我驱散能力。"
+   ],
+   "k": "面对大量廉价减益要分类处理。全解是把自己的资源送给对面消耗。"
+  },
+  {
+   "id": "x8",
+   "t": "general",
+   "d": 3,
+   "s": "比赛进入消耗后期（dampening 很高），你的法力剩 <em>35%</em>。队友血线还稳，对面治疗看起来蓝比你多。",
+   "a": "该怎么打？",
+   "o": [
+    "停止输出，纯省蓝",
+    "最大化\"输出转治疗\"的比例，减少直接治疗",
+    "疯狂治疗，趁还有蓝",
+    "交所有牌搏一把"
+   ],
+   "r": 1,
+   "e": [
+    "<b>完全停止输出反而更费蓝</b>——那意味着队友掉血时你只能用昂贵的直接治疗。",
+    "正解。<b>戒律牧的输出是最省蓝的治疗方式。</b>救赎让你的输出技能同时产生治疗，而输出技能的蓝耗远低于直接治疗——<b>消耗阶段最大化这个比例，是唯一正确的模式</b>。<b>而且本版你失去了虚空转换那张后期底牌，容错更小，更要早算账。</b>",
+    "疯狂治疗会让你更快见底。",
+    "搏一把在没有共识时会变成\"你交了牌但队友没跟\"。"
+   ],
+   "k": "消耗阶段赢的是法力效率。输出转治疗的比例越高，你撑得越久。"
+  },
+  {
+   "id": "x9",
+   "t": "general",
+   "d": 2,
+   "s": "你想 <sk>变形术</sk>… 你是牧师，没有变形术。改问：你想用 <sk>精神控制</sk> 控住对面一个 DPS。此刻你的队友<em>正在对那个 DPS 输出</em>。",
+   "a": "这个计划的问题是什么？",
+   "o": [
+    "没问题，精神控制不受伤害影响",
+    "队友的伤害会打破控制效果",
+    "距离不够",
+    "精神控制不能对玩家使用"
+   ],
+   "r": 1,
+   "e": [
+    "<sk>精神控制</sk> 同样会被伤害打断。",
+    "正解。<b>队友的持续输出会打破控制。</b>跟 <sk>闷棍</sk>/<sk>致盲</sk> 一样，这类控制需要目标不受伤害——<b>用之前必须让队友停手并转移目标</b>。<b>3v3/2v2 里\"我要控了\"必须喊出来，否则队友根本不知道。</b>",
+    "距离是能不能按的问题，不是能不能成立的问题。",
+    "它可以对玩家使用。"
+   ],
+   "k": "受伤即破的控制，按之前必须让队友停手并转目标。喊出来是控制的一部分。"
+  },
+  {
+   "id": "x10",
+   "t": "general",
+   "d": 1,
+   "s": "对面 DK 在你队友脚下铺了 <sk>反魔法领域</sk>，你的队友站在里面正在掉血。",
+   "a": "第一反应是什么？",
+   "o": [
+    "加大治疗力度顶住",
+    "把队友从里面拉出来（<sk>信仰飞跃</sk>）或提醒他移动",
+    "换用瞬发治疗",
+    "先驱散"
+   ],
+   "r": 1,
+   "e": [
+    "<b>你的治疗是魔法效果，在反魔法领域里会打折</b>——加大力度只是更快烧光你的蓝。",
+    "正解。<b>看到影响魔法效果的区域，第一反应是\"我的治疗还有效吗\"</b>，而不是加大治疗。用 <sk>信仰飞跃</sk> 把他拉出来，或者立刻提醒他移动。<b>站在里面硬治是在浪费法力。</b>",
+    "瞬发还是魔法效果，同样受影响。",
+    "你驱散不掉地面区域效果。"
+   ],
+   "k": "看到反魔法类区域，先想\"我的治疗还有效吗\"，把人挪出来而不是加大治疗。"
+  }
+ ]
+};
