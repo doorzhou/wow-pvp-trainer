@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>冰法 PvP 判断训练器 · 魔兽世界 12.0.7 Midnight 赛季一</title>
+<meta name="description" content="魔兽世界正式服 12.0.7 冰霜法师 PvP 竞技场判断训练。核心是碎冰机制——目标没冻住时所有伤害都在打折。含 51 道情境判断题、变形术自伤陷阱、假读条技巧与 13 职业对局。">
+<meta name="keywords" content="冰法,冰霜法师,PVP,竞技场,魔兽世界,12.0.7,碎冰,frost mage,arena">
+<meta name="author" content="WoW PvP 判断训练器">
+<link rel="canonical" href="https://YOUR-DOMAIN/frost-mage.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="冰法 PvP 判断训练器 · 魔兽世界 12.0.7 Midnight 赛季一">
+<meta property="og:description" content="魔兽世界正式服 12.0.7 冰霜法师 PvP 竞技场判断训练。核心是碎冰机制——目标没冻住时所有伤害都在打折。含 51 道情境判断题、变形术自伤陷阱、假读条技巧与 13 职业对局。">
+<meta property="og:url" content="https://YOUR-DOMAIN/frost-mage.html">
+<meta property="og:site_name" content="WoW PvP 判断训练器">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="冰法 PvP 判断训练器 · 魔兽世界 12.0.7 Midnight 赛季一">
+<meta name="twitter:description" content="魔兽世界正式服 12.0.7 冰霜法师 PvP 竞技场判断训练。核心是碎冰机制——目标没冻住时所有伤害都在打折。含 51 道情境判断题、变形术自伤陷阱、假读条技巧与 13 职业对局。">
+<meta name="robots" content="index,follow">
+
+<style>
+:root{
+  --bg:#0b1015; --bg2:#111820; --bg3:#172029; --line:#243240;
+  --tx:#e2edf4; --tx2:#93a6b6; --tx3:#647686;
+  --ac:#3fa8d4; --ac2:#5fc9ef; --ok:#4fbf7f; --no:#e0605e; --wa:#d9a441;
+}
+html[data-theme="light"]{
+  --bg:#f2f6f9; --bg2:#ffffff; --bg3:#e7eef4; --line:#d3dee7;
+  --tx:#111a22; --tx2:#4e6070; --tx3:#7f909e;
+  --ac:#1f7fa8; --ac2:#15678c; --ok:#2e9960; --no:#c93f3d; --wa:#b8862a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.7;font-size:15px;padding-bottom:70px;transition:background .2s,color .2s}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+
+header{border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0;z-index:60}
+.hd{display:flex;align-items:center;gap:10px;padding:11px 0 9px;flex-wrap:wrap}
+.hd h1{font-size:16.5px;font-weight:650;letter-spacing:-.2px}
+.hd h1 .sp{color:var(--ac2)}
+.badge{font-size:11px;padding:3px 9px;border-radius:20px;background:var(--bg3);color:var(--tx2);border:1px solid var(--line);white-space:nowrap}
+.badge.hot{background:rgba(63,168,212,.16);color:var(--ac2);border-color:rgba(63,168,212,.4)}
+.spacer{flex:1}
+.tbtn{background:var(--bg3);border:1px solid var(--line);color:var(--tx2);padding:5px 11px;border-radius:8px;cursor:pointer;font-size:13px;font-family:inherit}
+.tbtn:hover{color:var(--tx);border-color:var(--ac)}
+
+nav{display:flex;gap:1px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{background:none;border:none;color:var(--tx3);padding:8px 14px 10px;cursor:pointer;
+  font-size:13.5px;font-family:inherit;border-bottom:2px solid transparent;white-space:nowrap;margin-bottom:-1px}
+nav button:hover{color:var(--tx2)}
+nav button.on{color:var(--tx);border-bottom-color:var(--ac);font-weight:640}
+
+section{display:none;padding:26px 0 44px}
+section.on{display:block}
+h2{font-size:15.5px;font-weight:650;margin:30px 0 10px;letter-spacing:-.2px;
+   display:flex;align-items:center;gap:9px;color:var(--tx)}
+h2:before{content:"";width:3px;height:14px;border-radius:2px;background:var(--ac);flex-shrink:0}
+h2:first-child{margin-top:0}
+p{color:var(--tx2);margin:6px 0;font-size:14px;max-width:74ch}
+strong,b{color:var(--tx);font-weight:620}
+.lead{font-size:14px;color:var(--tx3);margin-bottom:14px;max-width:74ch}
+
+.ic{width:20px;height:20px;border-radius:4px;vertical-align:-4px;border:1px solid rgba(0,0,0,.5);flex-shrink:0}
+sk{display:inline-flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--line);
+   border-radius:6px;padding:1px 7px 1px 3px;font-size:13px;color:var(--tx);white-space:nowrap;
+   margin:1px;font-weight:560;line-height:1.9}
+sk .ic{width:17px;height:17px;vertical-align:middle}
+sk.e{border-color:rgba(224,96,94,.4);background:rgba(224,96,94,.10)}
+
+.thesis{background:linear-gradient(135deg,rgba(63,168,212,.16),rgba(63,168,212,.03));
+  border:1px solid rgba(63,168,212,.32);border-radius:14px;padding:19px 21px;margin-bottom:20px}
+.thesis .lbl{font-size:10.5px;letter-spacing:1.5px;color:var(--ac2);text-transform:uppercase;margin-bottom:7px}
+.thesis .big{font-size:19px;font-weight:650;line-height:1.55;letter-spacing:-.3px;color:var(--tx)}
+
+.rows{display:flex;flex-direction:column;gap:8px}
+.row{background:var(--bg2);border:1px solid var(--line);border-radius:11px;overflow:hidden}
+.row>.h{display:flex;align-items:center;gap:11px;padding:12px 15px;cursor:pointer;user-select:none;transition:background .13s}
+.row>.h:hover{background:var(--bg3)}
+.row>.h .t{font-size:14.5px;font-weight:620;color:var(--tx);flex-shrink:0}
+.row>.h .sub{font-size:13px;color:var(--tx3);margin-left:auto;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:52%}
+.row>.h .ar{color:var(--tx3);font-size:11px;transition:transform .18s;flex-shrink:0;margin-left:8px}
+.row.open>.h .ar{transform:rotate(90deg)}
+.row.open>.h .sub{display:none}
+.row>.b{display:none;padding:2px 15px 14px;font-size:13.5px;color:var(--tx2);line-height:1.75}
+.row.open>.b{display:block}
+.row .icrow{display:flex;gap:5px;align-items:center;flex-shrink:0}
+.mini{border-top:1px solid var(--line);margin-top:10px}
+.mini .m{border-bottom:1px solid var(--line)}
+.mini .m>.mh{display:flex;align-items:center;gap:9px;padding:9px 0;cursor:pointer;font-size:13.5px;color:var(--tx);font-weight:560}
+.mini .m>.mh:hover{color:var(--ac2)}
+.mini .m>.mh .d{width:6px;height:6px;border-radius:50%;background:var(--ac);opacity:.7;flex-shrink:0}
+.mini .m.no>.mh .d{background:var(--no);opacity:.85}
+.mini .m.ok>.mh .d{background:var(--ok);opacity:.85}
+.mini .m>.mh .ar{margin-left:auto;color:var(--tx3);font-size:10px;transition:transform .18s}
+.mini .m.open>.mh .ar{transform:rotate(90deg)}
+.mini .m>.mb{display:none;padding:0 0 11px 15px;font-size:13px;color:var(--tx2);line-height:1.75}
+.mini .m.open>.mb{display:block}
+
+.note{border-left:2px solid var(--wa);padding:2px 0 2px 13px;margin:13px 0;color:var(--tx2);font-size:13px}
+.note b{color:var(--wa)}
+.seq{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:10px 0}
+.seq i{color:var(--tx3);font-style:normal;font-size:11px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:760px){.g2{grid-template-columns:1fr}}
+.mini-card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.mini-card h4{font-size:13.5px;font-weight:640;margin-bottom:5px}
+.mini-card p{font-size:12.5px;margin:3px 0}
+
+/* 冰冻源表 */
+.dice{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:11px}
+.dc{background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.dc .dn{font-size:13.5px;font-weight:640;color:var(--tx);display:flex;align-items:center;gap:7px}
+.dc .dn img{width:20px;height:20px;border-radius:5px}
+.dc .dd{font-size:12.5px;color:var(--tx3);line-height:1.6;margin-top:3px}
+.dc.good{border-color:rgba(63,168,212,.4)}
+.dc.mid{border-color:rgba(217,164,65,.32)}
+
+/* 决策器 */
+.gobox{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.gobox .gh{font-size:11px;letter-spacing:1.3px;color:var(--ac2);text-transform:uppercase;margin-bottom:4px}
+.gobox .gt{font-size:15px;font-weight:640;margin-bottom:14px;color:var(--tx)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:700px){.checks{grid-template-columns:1fr}}
+.check{background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:11px 13px;cursor:pointer;
+  display:flex;gap:10px;align-items:flex-start;text-align:left;font-family:inherit;transition:.14s;width:100%}
+.check:hover{border-color:var(--tx3)}
+.check .bx{width:17px;height:17px;border-radius:5px;border:1.5px solid var(--tx3);flex-shrink:0;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;transition:.14s}
+.check.on{border-color:var(--ok);background:rgba(79,191,127,.09)}
+.check.on .bx{background:var(--ok);border-color:var(--ok);color:#0b1a12}
+.check .ct{font-size:13.5px;color:var(--tx);font-weight:600;line-height:1.5}
+.check .cd{font-size:12px;color:var(--tx3);line-height:1.55;margin-top:2px}
+.verdict{margin-top:14px;border-radius:12px;padding:15px 18px;border:1px solid var(--line);background:var(--bg3);
+  display:flex;gap:14px;align-items:flex-start}
+.verdict.warn{border-color:rgba(217,164,65,.4);background:rgba(217,164,65,.09)}
+.verdict.good{border-color:rgba(79,191,127,.42);background:rgba(79,191,127,.10)}
+.verdict.bad{border-color:rgba(224,96,94,.38);background:rgba(224,96,94,.08)}
+.verdict .vi{font-size:26px;line-height:1.2;flex-shrink:0}
+.verdict h3{font-size:16px;font-weight:650;margin-bottom:3px}
+.verdict p{font-size:13.5px;margin:0}
+.missing{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.tagm{font-size:11.5px;padding:3px 9px;border-radius:6px;background:rgba(224,96,94,.14);color:#f0908e;border:1px solid rgba(224,96,94,.3)}
+html[data-theme="light"] .tagm{color:#a3302e}
+.tagm.g{background:rgba(79,191,127,.15);color:var(--ok);border-color:rgba(79,191,127,.35)}
+
+/* 分步器 */
+.stepper{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:12px}
+.dots{display:flex;gap:5px;margin-bottom:12px}
+.dots i{height:3px;flex:1;border-radius:2px;background:var(--line);transition:.2s}
+.dots i.done{background:rgba(63,168,212,.45)}
+.dots i.active{background:var(--ac2)}
+.stepper .sn{font-size:10.5px;letter-spacing:1.2px;color:var(--ac2);text-transform:uppercase}
+.stepper .st{font-size:15.5px;font-weight:640;margin:4px 0 6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.stepper .sd{font-size:13.5px;color:var(--tx2);line-height:1.75;min-height:44px}
+.stepper .sf{display:flex;gap:8px;align-items:center;margin-top:12px}
+.stepper .sc{margin-left:auto;font-size:12.5px;color:var(--tx3)}
+
+/* 职业两栏 */
+.split{display:grid;grid-template-columns:186px 1fr;gap:16px;align-items:start}
+@media(max-width:880px){.split{grid-template-columns:1fr;gap:12px}}
+.sidecol{position:sticky;top:96px}
+@media(max-width:880px){.sidecol{position:static}}
+.cls-grid{display:grid;grid-template-columns:1fr;gap:4px;margin-bottom:12px}
+@media(max-width:880px){.cls-grid{grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:6px}}
+.cls-btn{background:none;border:1px solid transparent;border-radius:9px;padding:7px 9px;
+  cursor:pointer;color:var(--tx2);font-size:13.5px;font-family:inherit;text-align:left;
+  display:flex;align-items:center;gap:9px;transition:.13s;width:100%}
+.cls-btn img{width:22px;height:22px;border-radius:5px;flex-shrink:0;opacity:.72;transition:.13s}
+.cls-btn:hover{background:var(--bg2);color:var(--tx)}
+.cls-btn:hover img{opacity:1}
+.cls-btn.on{background:var(--bg3);border-color:var(--line);color:var(--tx);font-weight:640}
+.cls-btn.on img{opacity:1}
+.cdetail{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:19px 21px}
+.cdetail .top{display:flex;align-items:center;gap:11px;margin-bottom:3px;flex-wrap:wrap}
+.cdetail .top img{width:34px;height:34px;border-radius:7px}
+.cdetail .top h3{font-size:19px;margin:0}
+.diff{font-size:11.5px;padding:3px 10px;border-radius:20px;border:1px solid var(--line);background:var(--bg3);color:var(--tx2);margin-left:auto}
+.cdetail .oneline{font-size:14.5px;color:var(--ac2);margin:3px 0 13px;font-weight:560;line-height:1.6}
+.cards-line{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;background:var(--bg3);border-radius:9px;margin-bottom:12px;align-items:center}
+.cards-line .lb{font-size:11px;letter-spacing:.5px;color:var(--tx3);text-transform:uppercase;margin-right:2px}
+.modebar{display:flex;gap:2px;background:var(--bg3);border:1px solid var(--line);border-radius:9px;padding:2px}
+.modebar button{background:none;border:none;color:var(--tx3);padding:6px 10px;border-radius:7px;cursor:pointer;font-size:12.5px;font-family:inherit;flex:1;white-space:nowrap}
+.modebar button.on{background:var(--ac);color:#05161e;font-weight:640}
+.modetip{margin-top:12px;padding:12px 15px;border-radius:10px;background:rgba(63,168,212,.09);border:1px solid rgba(63,168,212,.25);font-size:13.5px;color:var(--tx2);line-height:1.75}
+.modetip b{color:var(--ac2)}
+
+/* 训练 */
+.qtop{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+select{background:var(--bg2);border:1px solid var(--line);color:var(--tx);padding:8px 11px;border-radius:9px;font-size:13.5px;font-family:inherit;cursor:pointer}
+.statbar{display:flex;gap:0;margin-bottom:12px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;overflow:hidden;flex-wrap:wrap}
+.stat{padding:9px 16px;flex:1;min-width:98px;border-right:1px solid var(--line);display:flex;align-items:baseline;gap:7px}
+.stat:last-child{border-right:none}
+.stat .k{font-size:11.5px;color:var(--tx3);letter-spacing:.3px;white-space:nowrap}
+.stat .v{font-size:17px;font-weight:660;color:var(--tx);line-height:1.3;margin-left:auto}
+.qcard{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:21px}
+.qmeta{display:flex;gap:7px;align-items:center;margin-bottom:11px;flex-wrap:wrap}
+.qtag{font-size:11px;padding:3px 9px;border-radius:6px;background:var(--bg3);color:var(--tx3);border:1px solid var(--line);display:inline-flex;align-items:center;gap:5px}
+.qtag img{width:14px;height:14px;border-radius:3px}
+.qtag.d1{color:var(--ok);border-color:rgba(79,191,127,.3)}
+.qtag.d2{color:var(--wa);border-color:rgba(217,164,65,.3)}
+.qtag.d3{color:var(--no);border-color:rgba(224,96,94,.3)}
+.prog{height:3px;background:var(--bg3);border-radius:2px;margin-bottom:15px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--ac);transition:width .25s}
+.qscene{font-size:15px;line-height:1.85;color:var(--tx);margin-bottom:5px}
+.qscene em{font-style:normal;color:var(--ac2);font-weight:640}
+.qask{font-size:14px;color:var(--tx2);margin-bottom:15px}
+.opts{display:grid;gap:8px}
+.opt{background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:12px 15px;
+  cursor:pointer;font-size:14px;color:var(--tx);font-family:inherit;text-align:left;
+  display:flex;gap:11px;align-items:flex-start;transition:.13s;line-height:1.65;width:100%}
+.opt:hover:not(.locked){border-color:var(--ac);background:var(--bg2)}
+.opt .idx{color:var(--tx3);font-weight:660;flex-shrink:0;font-size:12px;padding-top:2px;
+  width:19px;height:19px;border-radius:5px;background:var(--bg2);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;line-height:1}
+.opt.locked{cursor:default}
+.opt.right{border-color:var(--ok);background:rgba(79,191,127,.10)}
+.opt.right .idx{color:var(--ok);border-color:var(--ok)}
+.opt.wrong{border-color:var(--no);background:rgba(224,96,94,.10)}
+.opt.wrong .idx{color:var(--no);border-color:var(--no)}
+.opt.dim{opacity:.45}
+.fb{margin-top:8px;padding:11px 14px;border-radius:9px;font-size:13.5px;line-height:1.75;display:none}
+.fb.show{display:block}
+.fb.g{background:rgba(79,191,127,.10);border:1px solid rgba(79,191,127,.3);color:var(--tx2)}
+.fb.b{background:rgba(224,96,94,.09);border:1px solid rgba(224,96,94,.28);color:var(--tx2)}
+.fb .h{color:var(--tx);font-weight:640;display:block;margin-bottom:3px}
+.rule{margin-top:13px;padding:12px 15px;border-radius:10px;background:rgba(63,168,212,.10);border:1px solid rgba(63,168,212,.28);display:none}
+.rule.show{display:block}
+.rule .h{font-size:10.5px;letter-spacing:1.2px;color:var(--ac2);text-transform:uppercase;margin-bottom:4px}
+.rule .t{font-size:14px;color:var(--tx);line-height:1.65}
+.qfoot{display:flex;gap:10px;margin-top:15px;align-items:center;flex-wrap:wrap}
+.btn{background:var(--ac);border:none;color:#05161e;padding:9px 19px;border-radius:9px;cursor:pointer;font-size:14px;font-family:inherit;font-weight:640}
+.btn:hover{background:var(--ac2)}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--tx2);font-weight:560}
+.btn.ghost:hover{border-color:var(--tx3);color:var(--tx);background:none}
+.btn:disabled{opacity:.4;cursor:default}
+.kbd{font-size:11.5px;color:var(--tx3);padding:1px 5px;border:1px solid var(--line);border-radius:4px;background:var(--bg3);font-family:ui-monospace,Menlo,monospace}
+.done{text-align:center;padding:38px 20px}
+.done .big{font-size:30px;font-weight:680;letter-spacing:-1px}
+.done p{margin:8px auto 16px}
+
+/* 速查 */
+.sheet{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+@media(max-width:820px){.sheet{grid-template-columns:1fr}}
+.sheet .wide{grid-column:1/-1}
+.sc{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:15px 17px}
+.sc h4{font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--ac2);margin-bottom:9px;font-weight:640}
+.sc .line{font-size:14px;color:var(--tx);line-height:1.85}
+.imm{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:7px}
+.immc{display:flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid rgba(224,96,94,.28);border-radius:9px;padding:8px 11px}
+.immc img{width:26px;height:26px;border-radius:6px}
+.immc .n{font-size:13px;font-weight:600;color:var(--tx);line-height:1.3}
+.immc .w{font-size:11.5px;color:var(--tx3)}
+.big3{display:grid;gap:8px}
+.b3{display:flex;gap:11px;align-items:flex-start;background:var(--bg3);border-radius:9px;padding:11px 13px}
+.b3 .n{font-size:18px;font-weight:700;color:var(--ac2);line-height:1.35;flex-shrink:0;width:20px}
+.b3 .tt{font-size:14px;color:var(--tx);font-weight:600;line-height:1.5}
+.b3 .dd{font-size:12.5px;color:var(--tx3);line-height:1.6;margin-top:1px}
+
+
+/* ===== 技能浮窗 ===== */
+sk,[data-sk]{cursor:help}
+#sktip{position:fixed;z-index:9999;max-width:330px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:11px;padding:12px 14px;box-shadow:0 10px 34px rgba(0,0,0,.5);display:none;
+  font-size:13px;line-height:1.7;color:var(--tx2);pointer-events:none}
+html[data-theme="light"] #sktip{box-shadow:0 8px 26px rgba(0,0,0,.16)}
+#sktip.on{display:block}
+#sktip .tn{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:650;color:var(--tx);margin-bottom:3px}
+#sktip .tn img{width:26px;height:26px;border-radius:6px;border:1px solid rgba(0,0,0,.4)}
+#sktip .tm{font-size:11.5px;color:var(--ac2);margin-bottom:6px;letter-spacing:.2px}
+#sktip .td{font-size:12.8px;color:var(--tx2);line-height:1.75}
+#sktip .tf{margin-top:8px;padding-top:7px;border-top:1px solid var(--line);font-size:10.5px;color:var(--tx3)}
+@media(max-width:700px){#sktip{max-width:min(88vw,330px);font-size:13.5px}#sktip .td{font-size:13px}}
+
+
+.homelink{display:inline-flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--line);
+  color:var(--tx2);padding:4px 10px;border-radius:8px;cursor:pointer;font-size:12.5px;text-decoration:none;
+  font-family:inherit;white-space:nowrap;transition:.13s}
+.homelink:hover{color:var(--tx);border-color:var(--ac)}
+@media(max-width:760px){.homelink{padding:4px 8px;font-size:11.5px}}
+
+footer{border-top:1px solid var(--line);margin-top:34px;padding:17px 0;color:var(--tx3);font-size:12.5px}
+footer a{color:var(--tx2)}
+
+/* ==================== 手机适配 ==================== */
+@media(max-width:760px){
+  body{font-size:14.5px;padding-bottom:40px;-webkit-text-size-adjust:100%}
+  .wrap{padding:0 14px}
+  /* 顶栏压扁 */
+  .hd{padding:8px 0 6px;gap:7px}
+  .hd h1{font-size:14.5px;width:100%;margin-bottom:1px}
+  .hd .badge{font-size:10px;padding:2px 7px}
+  .hd .spacer{display:none}
+  .tbtn{padding:4px 9px;font-size:12px;margin-left:auto}
+  .vswitch button{padding:5px 10px;font-size:12px}
+  nav button{padding:7px 11px 9px;font-size:13px}
+  section{padding:18px 0 30px}
+  h2{font-size:15px;margin:22px 0 9px}
+  p,.lead{font-size:13.8px;max-width:none}
+  /* 主论点 */
+  .thesis{padding:15px 16px;border-radius:12px}
+  .thesis .big{font-size:16.5px;line-height:1.5}
+  .quote{font-size:12.8px;padding:10px 12px}
+  /* 折叠行 */
+  .row>.h{padding:11px 13px;gap:8px}
+  .row>.h .t{font-size:14px}
+  .row>.h .sub{max-width:42%;font-size:12px}
+  .row>.b{padding:2px 13px 13px;font-size:13.2px}
+  .mini .m>.mh{font-size:13.2px;padding:10px 0}
+  .mini .m>.mb{font-size:12.8px;padding-left:14px}
+  .row .icrow img{width:17px !important;height:17px !important}
+  /* 双栏 / 三栏：堆叠但保留信息，当前视角加高亮条 */
+  .duo,.trio{border-radius:11px}
+  .duo>div,.trio>div{padding:12px 14px}
+  .duo .cR,.trio .cR,.trio .cP{border-right:none;border-bottom:1px solid var(--line)}
+  html[data-view="rogue"] .duo .cP,html[data-view="priest"] .duo .cR,
+  html[data-view="rogue"] .trio .cP,html[data-view="rogue"] .trio .cH,
+  html[data-view="priest"] .trio .cR,html[data-view="priest"] .trio .cH,
+  html[data-view="hunter"] .trio .cR,html[data-view="hunter"] .trio .cP{opacity:.62}
+  html[data-view="rogue"] .duo .cR,html[data-view="priest"] .duo .cP,
+  html[data-view="rogue"] .trio .cR,html[data-view="priest"] .trio .cP,
+  html[data-view="hunter"] .trio .cH{border-left:3px solid var(--ac);padding-left:11px}
+  .duo .txt,.trio .txt{font-size:13px}
+  .link{padding:10px 14px;font-size:12.6px}
+  .link .lk{font-size:9.5px}
+  /* 决策器 */
+  .gobox,.roles{padding:15px 16px}
+  .check{padding:12px 13px}
+  .check .ct{font-size:13.5px}
+  .check .cd{font-size:12px}
+  .verdict{padding:13px 15px;gap:11px;flex-direction:column}
+  .verdict .vi{font-size:22px}
+  .verdict h3{font-size:15px}
+  .vsplit{grid-template-columns:1fr}
+  .rgrid{grid-template-columns:1fr}
+  .rcol .rd{min-height:0}
+  .rpick{flex-direction:row;flex-wrap:wrap}
+  .rpick button{flex:1;text-align:center;padding:8px 6px;min-height:38px}
+  /* 分步器 */
+  .stepper{padding:14px 15px}
+  .stepper .st{font-size:15px}
+  .stepper .sd{font-size:13.2px;min-height:0}
+  .stepper .sf{flex-wrap:wrap;gap:7px}
+  .stepper .sf .btn{flex:1;min-width:110px;text-align:center;padding:10px 12px}
+  .stepper .sc{width:100%;text-align:center;margin:4px 0 0}
+  /* 对局侧栏 → 横向胶囊条 */
+  .split{grid-template-columns:1fr}
+  .sidecol{position:static}
+  .cls-grid{display:flex;overflow-x:auto;gap:6px;padding-bottom:6px;scrollbar-width:none;
+    grid-template-columns:none;margin-bottom:10px;-webkit-overflow-scrolling:touch}
+  .cls-grid::-webkit-scrollbar{display:none}
+  .cls-btn{flex:0 0 auto;width:auto;white-space:nowrap;background:var(--bg2);border-color:var(--line);
+    padding:8px 12px;min-height:38px}
+  .cls-btn img{width:19px;height:19px}
+  .modebar button{min-height:36px}
+  .cdetail{padding:15px 16px}
+  .cdetail .top h3,.cdetail h3{font-size:16.5px}
+  .cdetail .oneline{font-size:13.5px}
+  .cards-line,.egs{padding:9px 10px}
+  .q4 .item .v,.modetip{font-size:13px}
+  /* 训练 */
+  .statbar{flex-wrap:wrap}
+  .stat{flex:1 1 45%;min-width:0;padding:8px 12px;border-bottom:1px solid var(--line)}
+  .stat:nth-child(2n){border-right:none}
+  .stat:nth-last-child(-n+2){border-bottom:none}
+  .stat .k{font-size:11px}
+  .stat .v{font-size:16px}
+  .qtop{gap:6px}
+  .qtop select{flex:1 1 45%;min-width:0;padding:9px 10px;min-height:40px}
+  .qtop .btn{flex:1 1 100%;min-height:42px;padding:11px 16px}
+  .qtop .btn.ghost{flex:1 1 45%}
+  .qcard{padding:16px 15px;border-radius:12px}
+  .qscene{font-size:14.5px;line-height:1.8}
+  .qask{font-size:13.5px;margin-bottom:13px}
+  .opt{padding:13px 13px;font-size:13.8px;min-height:46px;align-items:center}
+  .opt .idx{width:22px;height:22px;font-size:12.5px}
+  .fb{font-size:13px;padding:11px 12px}
+  .rule .t{font-size:13.5px}
+  .qfoot{gap:8px}
+  .qfoot .btn{flex:1;min-height:44px;text-align:center}
+  .qfoot span#hint{width:100%;text-align:center;font-size:11.5px}
+  .done{padding:28px 14px}
+  .done .big{font-size:26px}
+  /* 速查 */
+  .sheet{grid-template-columns:1fr !important}
+  .sc{padding:13px 15px}
+  .sc .line{font-size:13.2px;line-height:1.95}
+  .b3{padding:10px 12px;gap:9px}
+  .b3 .tt{font-size:13.5px}
+  .b3 .dd{font-size:12.2px}
+  .imm{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  .dice,.drt{grid-template-columns:1fr}
+  .chain{gap:6px}
+  .cn{min-width:0;flex:1 1 100%}
+  .arw{transform:rotate(90deg);justify-content:center;width:100%;height:16px}
+  /* 技能徽章：手机上更好点 */
+  sk{padding:2px 8px 2px 4px;font-size:12.8px;line-height:2}
+  sk .ic{width:16px;height:16px}
+  .g2,.g3{grid-template-columns:1fr}
+  footer{font-size:11.5px;padding:14px 0}
+}
+@media(max-width:400px){
+  .wrap{padding:0 11px}
+  .hd h1{font-size:13.5px}
+  nav button{padding:7px 9px;font-size:12.5px}
+  .opt{font-size:13.4px}
+  .qcard{padding:14px 12px}
+}
+/* 触摸设备：去掉 hover 态残留 */
+@media(hover:none){
+  .row>.h:hover,.cls-btn:hover{background:inherit}
+  .opt:hover:not(.locked){border-color:var(--line);background:var(--bg3)}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <h1><span class="sp">冰法</span> PvP 判断训练器</h1>
+    <span class="badge hot">12.0.7 · Midnight S1</span>
+    <span class="badge" id="pcount">—</span>
+    <div class="spacer"></div>
+    <span class="badge" id="topAcc">正确率 —</span>
+    <a class="homelink" href="index.html">← 全部训练器</a>
+    <button class="tbtn" onclick="toggleTheme()">◐</button>
+  </div>
+  <div class="wrap"><nav>
+    <button class="on" data-s="s1">① 骨架</button>
+    <button data-s="s2">② 通用手法</button>
+    <button data-s="s3">③ 分职业</button>
+    <button data-s="s4">④ 判断训练</button>
+    <button data-s="s5">⑤ 赛前速查</button>
+  </nav></div>
+</header>
+
+<!-- ========== 1 骨架 ========== -->
+<section id="s1" class="on"><div class="wrap">
+
+<div class="thesis">
+  <div class="lbl">这版本唯一要记住的一句</div>
+  <div class="big">冰法的伤害不是打出来的，是<span style="color:var(--ac2)">冻</span>出来的。<br>目标没被冻住，你按什么都是普通伤害。</div>
+</div>
+
+<div class="rows">
+  <div class="row"><div class="h" onclick="tg(this)">
+    <span class="t">碎冰（Shatter）是全部的前提</span>
+    <span class="sub">同样的技能，冻和没冻是两个量级</span><span class="ar">▸</span></div>
+    <div class="b">
+      <p>冰法的整套设计只有一件事：<strong>先让目标进入冰冻状态，然后在那几秒里倾泻伤害。</strong></p>
+      <p style="margin-top:8px">对冰冻目标施法会大幅提高暴击率——这就是碎冰。<strong>所以冰法真正的技术不在按键顺序，在"我怎么保证下一发落在冰冻状态里"。</strong></p>
+      <p style="margin-top:8px">新手和高手的差距通常不是循环，是：<strong>新手看冷却好了就打，高手看目标身上有没有 <sk>深冬之寒</sk>。</strong></p>
+      <div class="dice" id="freezeList"></div>
+    </div></div>
+
+  <div class="row"><div class="h" onclick="tg(this)">
+    <span class="t">Midnight 削了爆发，加了常态</span>
+    <span class="sub">从"一波秒人"变成"持续压制 + 一波收"</span><span class="ar">▸</span></div>
+    <div class="b">
+      <p><b>削弱：</b><sk>冰冷智慧</sk> 对 <sk>冰风暴</sk> 的加成在 PvP 里从 50% 降到 <b>25%</b>；<sk>冰霜射线</sk> 伤害 <b>-20%</b>。</p>
+      <p style="margin-top:8px"><b>加强：</b><sk>寒冰箭</sk> 在 PvP 里伤害 <b>+100%</b>；<sk>冰风暴</sk> 本体 <b>+75%</b>。</p>
+      <p style="margin-top:8px"><strong>结果：你不能再指望一个窗口带走一个满血目标了。</strong> 冰法现在的赢法是——用持续伤害和控制把对面的血线和防御一点点压下去，等目标的免疫牌用完、血线够低了，再用一个碎冰窗口收掉。</p>
+      <p style="margin-top:8px">这也意味着 <sk>寒冰箭</sk> 不再是"没事干才按的填充技"。<strong>它现在是你常态伤害的主力。</strong></p>
+    </div></div>
+
+  <div class="row"><div class="h" onclick="tg(this)">
+    <span class="t">法术之刃（Spellslinger）：冰霜裂片</span>
+    <span class="sub">top50 三对三 50/50 全用</span><span class="ar">▸</span></div>
+    <div class="b">
+      <p>英雄天赋 <b>Spellslinger</b> 在竞技场是 <strong>50/50 全用</strong>，Frostfire 是 0。核心是 <sk>冰霜裂片</sk>：你的技能会召唤裂片，攒够之后打出一次集中伤害。</p>
+      <p style="margin-top:8px"><b>其中 <sk>寒冰宝珠</sk> 是主要的裂片来源</b>——它每次造成伤害都会生成裂片（最多 4 个），且宝珠自身伤害提升 40%。</p>
+      <p style="margin-top:8px"><strong>对判断的影响只有一条：<sk>寒冰宝珠</sk> 从一个"减速工具"升级成了"你的伤害引擎"。</strong> 别再把它当成随手扔的减速技能。</p>
+    </div></div>
+</div>
+
+<h2>该收还是该磨？勾一下就知道</h2>
+<p class="lead">冰法的四条件跟贼完全不同。贼数的是对面的牌和自己的资源，<strong>冰法要先问一件贼不用问的事：我现在站得住吗。</strong></p>
+<div class="gobox">
+  <div class="gh">开火判断器</div>
+  <div class="gt">现在的局面满足哪几条？</div>
+  <div class="checks" id="checks"></div>
+  <div class="verdict" id="verdict"></div>
+</div>
+
+<h2>三个时钟</h2>
+<p class="lead">冰法读的三个钟里，有一个是所有近战职业都不用读的。</p>
+<div class="rows" id="clocks"></div>
+
+<h2>本版定盘（top50 三对三实测）</h2>
+<div class="rows" id="setup"></div>
+
+<div class="note" style="margin-top:18px"><b>关于数据的诚实交代。</b> 技能名与图标取自 Wowhead 官方数据（简体中文），逐个核过；<strong>核不到中文名的 PvP 天赋直接用英文原名，不编</strong>。刻意不写具体冷却秒数——数值每次平衡都在动，写的是相对关系和判断逻辑。</div>
+
+</div></section>
+
+<!-- ========== 2 通用手法 ========== -->
+<section id="s2"><div class="wrap">
+  <p class="lead">按一轮完整交战的时间顺序排。<strong>点标题看细节，点里面的小圆点看理由。</strong></p>
+  <div class="rows" id="general"></div>
+</div></section>
+
+<!-- ========== 3 分职业 ========== -->
+<section id="s3"><div class="wrap">
+  <p class="lead">法师的四问跟贼不一样——<strong>第一问不是"他什么时候能杀人"，是"他怎么贴上来"</strong>。因为法师被贴住就等于废了一半。</p>
+  <div class="split">
+    <div class="sidecol">
+      <div class="cls-grid" id="clsGrid"></div>
+      <div class="modebar" id="modebar">
+        <button class="on" data-m="arena">竞技场</button>
+        <button data-m="duel">单挑</button>
+      </div>
+    </div>
+    <div id="clsDetail"></div>
+  </div>
+</div></section>
+
+<!-- ========== 4 训练 ========== -->
+<section id="s4"><div class="wrap">
+  <div class="statbar">
+    <div class="stat"><span class="k">累计答题</span><span class="v" id="stPlayed">0</span></div>
+    <div class="stat"><span class="k">总正确率</span><span class="v" id="stAcc">—</span></div>
+    <div class="stat"><span class="k">最长连对</span><span class="v" id="stBest">0</span></div>
+    <div class="stat"><span class="k">错题库</span><span class="v" id="stWrong">0</span></div>
+  </div>
+  <div class="qtop">
+    <select id="fCat"><option value="all">全部范围</option></select>
+    <select id="fDiff">
+      <option value="all">全部难度</option>
+      <option value="1">基础 · 机制</option>
+      <option value="2">进阶 · 时机</option>
+      <option value="3">高阶 · 权衡</option>
+    </select>
+    <button class="btn" onclick="startQuiz(false)">开始一轮（10 题）</button>
+    <button class="btn ghost" onclick="startQuiz(true)">只练错题</button>
+    <button class="btn ghost" onclick="resetStats()">清空记录</button>
+  </div>
+  <div id="quizArea"></div>
+</div></section>
+
+<!-- ========== 5 速查 ========== -->
+<section id="s5"><div class="wrap">
+  <p class="lead">上场前扫一眼就够。<strong>这页只放能在 30 秒内看完的东西。</strong></p>
+  <div class="sheet" id="sheet"></div>
+</div></section>
+
+<footer><div class="wrap">
+  Patch 12.0.7 · Midnight 赛季一。图标与中文技能名来自 <a href="https://www.wowhead.com" target="_blank">Wowhead</a> 官方数据接口（逐个实测）。
+  打法来源 <a href="https://www.icy-veins.com/wow/frost-mage-pvp-guide" target="_blank">Icy Veins</a> ·
+  <a href="https://murlok.io/mage/frost/3v3" target="_blank">Murlok.io（top50 实测）</a> ·
+  <a href="https://www.method.gg/guides/frost-mage/talents" target="_blank">Method</a>。训练记录只存在这台浏览器里。<br><a href="index.html">← 返回全部训练器</a> · <a href="index.html#legal">数据来源与免责声明</a>
+</div></footer>
+
+<script src="assets/js/skdb.js"></script>
+<script>
+/* ============ 图标（经 Wowhead 实测 200）============ */
+const CDN='https://wow.zamimg.com/images/wow/icons/large/';
+function IC(f){return 'assets/icons/'+f+'.jpg'}
+
+const SKDB=window.SKDB||{};
+
+/* ===== 技能浮窗 ===== */
+let _tip=null,_pin=null;
+function tipEl(){if(!_tip){_tip=document.createElement('div');_tip.id='sktip';document.body.appendChild(_tip)}return _tip}
+function showTip(el,name){
+  const d=SKDB[name]; if(!d)return;
+  const t=tipEl();
+  t.innerHTML='<div class="tn"><img src="'+IC(d.icon)+'" alt="" onerror="this.style.display=\'none\'">'+name+'</div>'+
+    (d.meta?'<div class="tm">'+d.meta+'</div>':'')+
+    '<div class="td">'+d.desc+'</div>'+
+    '<div class="tf">Wowhead 官方数据 · 简体中文</div>';
+  t.classList.add('on');
+  const r=el.getBoundingClientRect(),tw=t.offsetWidth,th=t.offsetHeight;
+  let x=r.left+r.width/2-tw/2, y=r.bottom+9;
+  if(y+th>innerHeight-8) y=r.top-th-9;
+  if(y<8) y=8;
+  x=Math.max(8,Math.min(x,innerWidth-tw-8));
+  t.style.left=x+'px'; t.style.top=y+'px';
+}
+function hideTip(){if(_tip){_tip.classList.remove('on')}_pin=null}
+function skName(el){return (el.dataset&&el.dataset.sk)||el.textContent.trim()}
+document.addEventListener('mouseover',e=>{
+  if(_pin)return;
+  const el=e.target.closest('sk,[data-sk]'); if(el)showTip(el,skName(el));
+});
+document.addEventListener('mouseout',e=>{
+  if(_pin)return;
+  if(e.target.closest('sk,[data-sk]'))hideTip();
+});
+document.addEventListener('click',e=>{
+  const el=e.target.closest('sk,[data-sk]');
+  if(el){ if(_pin===el){hideTip()}else{_pin=null;showTip(el,skName(el));_pin=el} e.stopPropagation(); }
+  else hideTip();
+},true);
+addEventListener('scroll',hideTip,true);
+addEventListener('resize',hideTip);
+
+
+const SK={
+/* 冰法 */
+'寒冰箭':'spell_frost_frostbolt02','冰枪术':'spell_frost_frostblast','冰风暴':'ability_deathknight_chillstreak',
+'寒冰宝珠':'spell_frost_frozenorb','彗星风暴':'spell_mage_cometstorm2','暴风雪':'spell_frost_icestorm',
+'冰霜射线':'ability_mage_rayoffrost','冰冷血脉':'spell_frost_coldhearted','冰锥术':'spell_frost_glacier',
+'寒冰护体':'spell_ice_lament','寒冰屏障':'spell_frost_frost','冰霜新星':'spell_frost_frostnova',
+'急速冷却':'spell_frost_wizardmark','闪现术':'spell_arcane_blink','闪光术':'spell_arcane_massdispel',
+'操控时间':'spell_mage_altertime','镜像':'spell_magic_lesserinvisibilty','变形术':'spell_nature_polymorph',
+'法术反制':'spell_frost_iceshock','法术吸取':'spell_arcane_arcane02','解除诅咒':'spell_nature_removecurse',
+'强化隐形术':'ability_mage_greaterinvisibility','隐形术':'ability_mage_invisibility',
+'冰霜之环':'spell_frost_ring-of-frost','寒冰新星':'spell_mage_icenova','冰川尖刺':'ability_mage_glacialspike',
+'冰冷智慧':'ability_mage_brainfreeze','寒冰指':'ability_mage_wintersgrasp','变易幻能':'ability_ardenweald_mage',
+'棱光护体':'spell_magearmor','群体屏障':'ability_racial_magicalresistance','深冬之寒':'spell_frost_frostward',
+'冰冻术':'ability_mage_freeze','冰霜裂片':'inv_ability_spellslingermage_splintersblue',
+'冰墙':'ability_mage_icewall','积雪':'spell_fire_blueflamestrike','寒冰形态':'ability_mage_iceform',
+'时光护盾':'spell_mage_temporalshield','棱彩屏障':'spell_arcane_prismaticcloak',
+/* 敌方 */
+'圣盾术':'spell_holy_divineshield','保护祝福':'spell_holy_sealofprotection',
+'自由祝福':'spell_holy_sealofvalor','破咒祝福':'spell_holy_blessingofprotection',
+'虚空行走':'spell_warlock_demonsoul','疾影':'ability_demonhunter_blur',
+'恶魔变形':'ability_demonhunter_metamorphasistank','灵龟守护':'ability_hunter_pet_turtle',
+'假死':'ability_rogue_feigndeath','反魔法护罩':'spell_shadow_antimagicshell',
+'反魔法领域':'spell_deathknight_antimagiczone','冰封之韧':'spell_deathknight_iceboundfortitude',
+'消散':'spell_shadow_dispersion','真言术：盾':'spell_holy_powerwordshield',
+'痛苦压制':'spell_holy_painsupression','绝望祷言':'spell_holy_testoffaith',
+'树皮术':'spell_nature_stoneclawtotem','旅行形态':'ability_druid_travelform',
+'业报之触':'ability_monk_touchofkarma','气定神闲':'spell_nature_enchantarmor',
+'玄牛下凡':'spell_monk_brewmaster_spec','剑在人在':'ability_warrior_challange',
+'盾墙':'ability_warrior_shieldwall','破胆怒吼':'ability_golemthunderclap',
+'集结呐喊':'ability_warrior_rallyingcry','不灭决心':'spell_shadow_demonictactics',
+'恐惧':'spell_shadow_possession','星界转移':'ability_shaman_astralshift',
+'黑曜鳞片':'inv_artifact_dragonscales','新生光焰':'ability_evoker_masterylifebinder_red',
+'悬空':'ability_evoker_hover','暗影斗篷':'spell_shadow_nethercloak','闪避':'spell_shadow_shadowward',
+'消失':'ability_vanish','烟雾弹':'ability_rogue_smoke','卸除武装':'ability_rogue_dismantle',
+'致盲':'spell_shadow_mindsteal','闷棍':'ability_sap'
+};
+const ENEMY=new Set(['圣盾术','保护祝福','自由祝福','破咒祝福','虚空行走','疾影','恶魔变形','灵龟守护','假死','反魔法护罩','反魔法领域','冰封之韧','消散','真言术：盾','痛苦压制','绝望祷言','树皮术','旅行形态','业报之触','气定神闲','玄牛下凡','剑在人在','盾墙','破胆怒吼','集结呐喊','不灭决心','恐惧','星界转移','黑曜鳞片','新生光焰','悬空','暗影斗篷','闪避','消失','烟雾弹','卸除武装','致盲','闷棍']);
+function skHTML(n){const f=SK[n];if(!f)return n;
+  return '<sk class="'+(ENEMY.has(n)?'e':'')+'"><img class="ic" src="'+IC(f)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'+n+'</sk>'}
+function paintSK(root){(root||document).querySelectorAll('sk:not([data-done])').forEach(el=>{
+  const n=el.textContent.trim(),f=SK[n];el.dataset.done='1';
+  if(!f){el.style.background='none';el.style.border='none';el.style.padding='0';return}
+  if(ENEMY.has(n))el.classList.add('e');
+  el.innerHTML='<img class="ic" src="'+IC(f)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'+n})}
+function icoOnly(n,s){const f=SK[n];if(!f)return'';
+  return '<img class="ic" data-sk="'+n+'" style="width:'+(s||20)+'px;height:'+(s||20)+'px" src="'+IC(f)+'" alt="'+n+'" loading="lazy" onerror="this.style.display=\'none\'">'}
+
+function toggleTheme(){const h=document.documentElement;h.dataset.theme=h.dataset.theme==='light'?'':'light'}
+function tg(el){el.parentElement.classList.toggle('open')}
+function tgm(el){el.parentElement.classList.toggle('open')}
+document.querySelectorAll('nav button').forEach(b=>{b.onclick=()=>showView(b.dataset.s)});
+function showView(id){
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x.dataset.s===id));
+  document.querySelectorAll('section').forEach(x=>x.classList.toggle('on',x.id===id));
+  window.scrollTo(0,0);
+}
+function rowHTML(o){
+  const icons=(o.icons||[]).map(n=>icoOnly(n,20)).join('');
+  return '<div class="row"><div class="h" onclick="tg(this)">'+(icons?'<span class="icrow">'+icons+'</span>':'')+
+    '<span class="t">'+o.t+'</span><span class="sub">'+(o.sub||'')+'</span><span class="ar">▸</span></div><div class="b">'+o.b+'</div></div>'}
+function miniHTML(list){return '<div class="mini">'+list.map(m=>
+  '<div class="m '+(m.k||'')+'"><div class="mh" onclick="tgm(this)"><span class="d"></span><span>'+m.t+'</span><span class="ar">▸</span></div><div class="mb">'+m.b+'</div></div>').join('')+'</div>'}
+
+/* ============ 冰冻源 ============ */
+const FREEZE=[
+ ['深冬之寒','好','被 <sk>冰风暴</sk> 打上的减益。<b>它让下一发享受碎冰待遇，但不定身</b>——这是最常用也最容易被忘的一个。'],
+ ['寒冰指','好','让 <sk>冰枪术</sk> 视目标为冰冻。<b>攒着别乱倒</b>，它是你把伤害塞进碎冰窗口的钥匙。'],
+ ['冰霜新星','中','范围定身，同时提供碎冰。<b>但它同时是你的保命技</b>——用来打伤害之前先想清楚近战贴不贴得上来。'],
+ ['寒冰新星','中','单体定身 + 伤害。可以当成一个"能远程按的碎冰起手"。'],
+ ['冰冻术','中','水元素的定身。<b>不吃你自己的冰霜新星递减</b>，是额外一层预算。']
+];
+document.getElementById('freezeList').innerHTML=FREEZE.map(d=>
+ '<div class="dc '+(d[1]==='好'?'good':'mid')+'"><div class="dn">'+icoOnly(d[0],20)+d[0]+
+ '<span style="margin-left:auto;font-size:11px;color:var(--tx3)">'+d[1]+'</span></div><div class="dd">'+d[2]+'</div></div>').join('');
+
+/* ============ 开火判断器 ============ */
+const COND=[
+ {k:'shatter',t:'目标处于冰冻 / 身上有深冬之寒',d:'碎冰前提。不成立的话，你按什么都是普通伤害'},
+ {k:'stand',t:'我站得住（近战被处理了）',d:'被控住、被减速拉开、或者根本够不到我。这是贼不用问、法师必须问的一条'},
+ {k:'heal',t:'治疗被处理了',d:'控住了、被打断锁住了、或者根本不在场'},
+ {k:'cd',t:'我的爆发资源齐了',d:'冰冷血脉 + 寒冰宝珠 + 冰霜射线，加上寒冰指/冰冷智慧的层数'}
+];
+const goState={shatter:false,stand:false,heal:false,cd:false};
+document.getElementById('checks').innerHTML=COND.map(c=>
+ '<button class="check" data-k="'+c.k+'" onclick="toggleCond(this)"><span class="bx">✓</span><span><span class="ct">'+c.t+'</span><span class="cd">'+c.d+'</span></span></button>').join('');
+function toggleCond(b){const k=b.dataset.k;goState[k]=!goState[k];b.classList.toggle('on',goState[k]);renderVerdict()}
+function renderVerdict(){
+  const on=Object.values(goState).filter(Boolean).length;
+  const missing=COND.filter(c=>!goState[c.k]).map(c=>c.t);
+  let ico='◇',cls='bad',title='先活着，别想输出',
+      desc='<b>条件差太多。</b>尤其如果"站得住"这条没勾——你现在的第一要务是拉开距离，不是打伤害。法师被贴住的时候，任何输出企图都是在送。';
+  if(on===2){ico='△';cls='warn';title='磨，不要收';
+    desc='用 <sk>寒冰箭</sk> 和 <sk>寒冰宝珠</sk> 做常态压力，逼对面交防御。<b>本版寒冰箭在 PvP 里伤害翻倍，它不是填充技，是你的主力。</b>把爆发资源留到条件齐的时候。';}
+  if(on===3){ico='◐';cls='warn';title='可以打一波，但知道哪一条会让它作废';
+    desc='压力足够了。<b>缺"站得住"就要预留 <sk>冰霜新星</sk> 或位移；缺"碎冰前提"就先补 <sk>冰风暴</sk> 挂 <sk>深冬之寒</sk> 再倒伤害。</b>别把爆发和保命一起交完。';}
+  if(on===4){ico='◆';cls='good';title='收。这就是你磨了一整局等的那一刻';
+    desc='<sk>冰冷血脉</sk> → <sk>寒冰宝珠</sk> 起裂片 → <sk>冰风暴</sk> 挂 <sk>深冬之寒</sk> → <sk>冰枪术</sk>/<sk>冰川尖刺</sk> 塞进碎冰窗口 → <sk>冰霜射线</sk> 收。<b>注意别让自己的范围伤害打破队友控住的目标。</b>';}
+  document.getElementById('verdict').innerHTML='<div class="vi">'+ico+'</div><div><h3>'+title+'</h3><p>'+desc+'</p>'+
+    '<div class="missing">'+(missing.length?missing.map(x=>'<span class="tagm">缺：'+x+'</span>').join(''):'<span class="tagm g">四项齐备</span>')+'</div></div>';
+  document.getElementById('verdict').className='verdict '+cls;
+  paintSK(document.getElementById('verdict'));
+}
+renderVerdict();
+
+/* ============ 三个时钟 ============ */
+document.getElementById('clocks').innerHTML=[
+ {t:'冰冻时钟',sub:'你伤害的开关',icons:['深冬之寒','寒冰指','冰霜新星'],
+  b:'<p>目标身上的 <sk>深冬之寒</sk> 还剩几层、<sk>寒冰指</sk> 有没有触发、定身还剩多久。</p>'+
+    '<p style="margin-top:7px"><strong>这是冰法唯一真正重要的资源。</strong>冷却好了但目标没冻着，你按下去的是打折的伤害。</p>'+
+    miniHTML([
+     {t:'不要在没有碎冰的时候倒掉 '+skHTML('寒冰指'),k:'no',b:'寒冰指是"把一发伤害变成暴击"的钥匙。<b>没有配套的伤害窗口就按掉，等于把钥匙扔了。</b>'},
+     {t:'先挂 '+skHTML('深冬之寒')+' 再倒伤害',k:'ok',b:'<sk>冰风暴</sk> 打上深冬之寒之后，接下来的几发才有意义。<b>顺序反了，同样的技能少一半收益。</b>'}])},
+
+ {t:'距离时钟',sub:'贼不用读，法师必须读',icons:['冰霜新星','闪现术','急速冷却'],
+  b:'<p>你和近战的距离，以及 <sk>冰霜新星</sk> <sk>闪现术</sk>/<sk>闪光术</sk> <sk>急速冷却</sk> 还剩几个。</p>'+
+    '<p style="margin-top:7px"><strong>法师被贴住就等于废了一半。</strong>你的输出全靠站着读条，而站不站得住由这个钟决定。</p>'+
+    miniHTML([
+     {t:skHTML('冰霜新星')+' 是双重身份',b:'它既是碎冰起手，也是你的保命脱身。<b>用它打伤害之前先算：如果近战马上贴上来，我还有什么？</b>'},
+     {t:'位移不要连着交',k:'no',b:'把两次位移用在同一次拉开上，是法师最常见的死法。<b>一次用来拉开，一次留给他追上来之后。</b>'},
+     {t:skHTML('急速冷却')+' 是重置键',k:'ok',b:'它能把你的冰系控制重置。<b>这是你在被两个近战咬住时唯一的翻盘手段，别当常规技能随手按。</b>'}])},
+
+ {t:'控制时钟',sub:'冰法是控制职业，预算比输出重要',icons:['变形术','冰霜之环','冰霜新星'],
+  b:'<p>同类控制连续命中同一目标，时长按 <strong>100% → 50% → 25% → 免疫</strong> 衰减。</p>'+
+    '<p style="margin-top:7px">冰法手上的控制分几类：<b>变形类</b>（<sk>变形术</sk>）、<b>定身类</b>（<sk>冰霜新星</sk> <sk>寒冰新星</sk> <sk>冰冻术</sk>）、<b>眩晕类</b>（<sk>冰霜之环</sk>）。<strong>它们各自独立计算递减，这就是你的预算表。</strong></p>'}
+].map(rowHTML).join('');
+
+document.getElementById('setup').innerHTML=[
+ {t:'英雄天赋：法术之刃 Spellslinger',sub:'top50 三对三 50/50 全用',icons:['冰霜裂片','寒冰宝珠'],
+  b:'<p><b>Spellslinger</b> 是竞技场唯一解（50/50），Frostfire 是 0。</p>'+
+    '<p style="margin-top:7px">核心是 <sk>冰霜裂片</sk>，而 <sk>寒冰宝珠</sk> 是主要来源（每次伤害生成裂片，最多 4 个，宝珠伤害 +40%）。</p>'+
+    '<p style="margin-top:7px"><strong>对判断的影响只有一条：宝珠从"减速工具"变成了"伤害引擎"，别再随手扔。</strong></p>'},
+
+ {t:'PvP 天赋：两个必带 + 一个情境',sub:'实测数据跟攻略站有分歧，两个都列',icons:['冰墙','积雪'],
+  b:'<p><b>top50 三对三实测：</b><br>'+
+    '<b>Overpowered Barrier</b> <strong>50/50</strong>（屏障吸收 +100%，被打破时对周围造成伤害并减速 70%——<b>这是法师最好的自保兼拉开手段</b>）<br>'+
+    '<b>Improved Mass Invisibility</b> <strong>50/50</strong>（群体隐形冷却缩短且能在战斗中生效）<br>'+
+    '<b>Master Shepherd</b> 36/50（让 <sk>变形术</sk> 不再治疗目标，同时给你属性）<br>'+
+    '<sk>冰墙</sk> 9/50（可以挡视线，用于创造位置）</p>'+
+    miniHTML([
+     {t:'关于 '+skHTML('积雪')+'（Snowdrift）的分歧',b:'Icy Veins 把它列为必带（可施放的暴风雪区域，站够 3 秒会眩晕 4 秒），<b>但 murlok 的 top50 实测里它没进前列</b>。<br><b>这里以实测数据为准</b>，但把分歧摆出来——如果你的打法偏控场，它值得自己试。'},
+     {t:'这三个天赋的中文名我没核到',b:'Overpowered Barrier / Improved Mass Invisibility / Master Shepherd 是本版新增，<b>Wowhead 简体接口里我没查到对应条目，所以直接写英文原名，不编中文。</b>游戏里按效果对号入座就行。'}])}
+].map(rowHTML).join('');
+
+/* ============ 通用手法 ============ */
+const OPENSTEPS=[
+ ['开局先看对面有几个近战','<b>这一条决定你整局怎么站位。</b>两个近战的队伍你几乎不可能站着输出，要提前规划柱子和 <sk>冰墙</sk> 的用法。','冰墙'],
+ ['用寒冰宝珠起裂片，同时拿到减速','<sk>寒冰宝珠</sk> 本版是你的伤害引擎（Spellslinger 的裂片来源）。<b>它不是随手扔的减速技。</b>','寒冰宝珠'],
+ ['寒冰箭做常态压力','本版 <sk>寒冰箭</sk> 在 PvP 里伤害 <b>+100%</b>。<b>它不是填充技，是主力。</b>逼对面交防御靠的就是它。','寒冰箭'],
+ ['把近战控住或拉开','<sk>冰霜新星</sk>、减速、柱子。<b>你能站着的每一秒才是有效输出时间。</b>','冰霜新星'],
+ ['冰风暴挂上深冬之寒','这一步是碎冰窗口的开关。<b>没有它，后面的伤害全部打折。</b>','冰风暴'],
+ ['把伤害塞进碎冰窗口','<sk>冰枪术</sk>（配 <sk>寒冰指</sk>）、<sk>冰川尖刺</sk>。<b>这几发才是你真正的伤害。</b>','冰枪术'],
+ ['需要收尾时开冰冷血脉','<sk>冰冷血脉</sk> 加速你的整个循环。<b>但先确认四条件——尤其是"我站得住"。</b>','冰冷血脉'],
+ ['冰霜射线收','<sk>冰霜射线</sk> 是持续引导，<b>意味着这几秒你完全不能被打断也不能移动</b>。用它之前必须确认没人能碰到你。','冰霜射线']
+];
+let step=0;
+function renderStep(){
+  const s=OPENSTEPS[step];
+  document.getElementById('stepBody').innerHTML=
+   '<div class="dots">'+OPENSTEPS.map((_,i)=>'<i class="'+(i<step?'done':i===step?'active':'')+'"></i>').join('')+'</div>'+
+   '<div class="sn">STEP '+(step+1)+'</div>'+
+   '<div class="st">'+icoOnly(s[2],22)+'<span>'+s[0]+'</span></div>'+
+   '<div class="sd">'+s[1]+'</div>'+
+   '<div class="sf"><button class="btn ghost" onclick="stepGo(-1)" '+(step===0?'disabled':'')+'>← 上一步</button>'+
+   '<button class="btn" onclick="stepGo(1)">'+(step===OPENSTEPS.length-1?'重新开始 ↺':'下一步 →')+'</button>'+
+   '<span class="sc">'+(step+1)+' / '+OPENSTEPS.length+'</span></div>';
+  paintSK(document.getElementById('stepBody'));
+}
+function stepGo(d){step=(d>0&&step===OPENSTEPS.length-1)?0:Math.max(0,step+d);renderStep()}
+
+const GENERAL=[
+{t:'01 · 一轮交战的完整流程',sub:'八步，点着走一遍',icons:['寒冰宝珠','冰风暴','冰霜射线'],
+ b:'<div class="stepper" id="stepBody"></div>'},
+
+{t:'02 · 你自己的伤害会打破你自己的变形术',sub:'法师最经典的自伤陷阱',icons:['变形术','暴风雪','寒冰宝珠'],
+ b:'<p><strong>这是法师最贵、也最常见的错误。</strong> <sk>变形术</sk> 受任何伤害立刻破——而冰法有一大堆范围和持续伤害会误伤到被变形的目标。</p>'+
+   miniHTML([
+    {t:'会打破变形的东西',k:'no',b:skHTML('暴风雪')+' '+skHTML('寒冰宝珠')+'（它会移动并持续造成伤害）'+skHTML('彗星风暴')+' '+skHTML('冰锥术')+'，还有你的水元素、<sk>冰霜裂片</sk>、以及<b>队友的任何范围伤害和持续伤害</b>。'},
+    {t:'变形之前的三件事',k:'ok',b:'① <b>确认目标身上没有持续伤害</b>（你的和队友的）<br>② <b>确认地上没有你的 <sk>暴风雪</sk> / <sk>寒冰宝珠</sk> 正在经过他</b><br>③ <b>告诉队友你要变谁</b>——不然他一个范围技能就把你的控制废了'},
+    {t:'为什么这条比听起来更严重',b:'冰法的 <sk>变形术</sk> 经常是团队里<b>唯一能把治疗摘出去几秒的手段</b>。它被自己人打破一次，往往就等于这一波击杀机会没了。<br><b>很多冰法输在这里，而不是输在输出上。</b>'}])},
+
+{t:'03 · 假读条：法师的核心技巧',sub:'不会骗打断，你的伤害只有一半',icons:['寒冰箭','法术反制'],
+ b:'<p>对面的打断（脚踢、法术反制、震荡波…）会锁住你的学派几秒。<strong>被锁住的法师是没有输出的法师。</strong></p>'+
+   miniHTML([
+    {t:'什么是假读条',b:'起一个 <sk>寒冰箭</sk>，在读条快完成时<b>主动打断自己</b>（移动一下或按停止施法）。对面看到读条会本能地交打断——<b>他的打断就白花了</b>，接下来那几秒你可以自由施法。'},
+    {t:'什么时候必须假一下',k:'ok',b:'<b>你准备开碎冰窗口之前。</b>爆发窗口里被锁学派，损失是整轮。用一次假读条把对面的打断骗走，成本只有一个读条时间。'},
+    {t:'什么时候不用假',b:'对面打断在冷却里（你要记住他什么时候用的）、或者你在放瞬发技能。<b>无脑每次都假会拖慢你的输出节奏。</b>'},
+    {t:'反过来：你的 '+skHTML('法术反制')+' 也会被骗',k:'no',b:'好的治疗会用小治疗骗你的打断。<b>把法术反制留给真正能改变血线的那一个</b>——大治疗、复活、关键控制。'}])},
+
+{t:'04 · 保持距离：法师活着的方式',sub:'你的机动性不是速度，是控制',icons:['冰霜新星','闪现术','冰墙'],
+ b:'<p>法师跑不过大多数近战。<strong>你活着的方式不是跑得快，是让对方走不动。</strong></p>'+
+   miniHTML([
+    {t:'减速是常态，不是技能',k:'ok',b:'<sk>寒冰宝珠</sk>、<sk>冰锥术</sk>、寒冰箭自带的减速——<b>让对面一直处于减速状态是你的默认工作</b>，不是等他贴上来才做的事。'},
+    {t:'柱子比你的位移便宜',k:'ok',b:'绕柱子断视线不花任何冷却。<b>能用地形解决的别用 <sk>闪现术</sk>。</b>'},
+    {t:skHTML('冰墙')+' 用来创造位置',b:'它能挡视线。<b>在对面只有一条路能接近你的时候，一堵墙抵得上两个位移。</b>'},
+    {t:'不要一边跑一边回头打',k:'no',b:'半吊子输出既拉不开也打不疼。<b>要么专心拉开建立距离，要么站住打一套。</b>法师最忌讳夹在中间。'}])},
+
+{t:'05 · 控链与递减',sub:'冰法是控制职业，预算表要背下来',icons:['变形术','冰霜之环','冰霜新星','冰冻术'],
+ b:'<p>同类连续命中同一目标，<strong>100% → 50% → 25% → 免疫</strong>。不同类别互不影响。</p>'+
+   miniHTML([
+    {t:'你的控制分类',b:'<b>变形类</b>：'+skHTML('变形术')+'（受伤即破）<br><b>定身类</b>：'+skHTML('冰霜新星')+' '+skHTML('寒冰新星')+'<br><b>眩晕类</b>：'+skHTML('冰霜之环')+'<br><b>水元素的</b> '+skHTML('冰冻术')+' <b>是独立的一层</b>，不吃你自己冰霜新星的递减'},
+    {t:'控治疗用变形，控目标用定身/眩晕',k:'ok',b:'混用等于自己烧预算。<b>而且变形是你唯一能"把一个人从战斗里摘出去几秒"的手段，浪费在击杀目标身上很亏。</b>'},
+    {t:'控制链要跟队友对好',b:'法师的控制经常是队伍击杀链的第一环。<b>没沟通的双控等于没控</b>——两个人的控制打在同一个递减类别上，第二个只剩一半。'}])},
+
+{t:'06 · 防御与保命',sub:'四层，各管各的',icons:['寒冰护体','寒冰屏障','操控时间','强化隐形术'],
+ b:miniHTML([
+  {t:skHTML('寒冰护体')+' + Overpowered Barrier：你的日常层',k:'ok',b:'带了 Overpowered Barrier 之后吸收翻倍，<b>而且被打破时会对周围造成伤害并大幅减速</b>——它同时是防御和拉开手段。<b>该常态挂着，不是留着救命的。</b>'},
+  {t:skHTML('寒冰屏障')+'：全免疫，但你不能动',b:'期间免疫一切、能回蓝、能解掉身上所有效果。<b>但你完全不能移动也不能输出</b>——它是重置键，不是减伤。<br><b>用它之前先想好：出来之后我要往哪走。</b>没想好的话，出来还是同样的处境。'},
+  {t:skHTML('操控时间')+'：把血量存起来',b:'它会在几秒后把你的血量和位置拉回按下时的状态。<b>正确用法是在血量健康时先按，然后放心去吃一波伤害</b>——而不是等血少了才按（那时候存的就是低血量）。'},
+  {t:skHTML('强化隐形术')+'：清仇恨的脱离',b:'能让你短时间脱离被选中的状态。<b>被集火时它比跑有用得多。</b>'}])},
+
+{t:'07 · 什么时候该磨，什么时候该收',sub:'本版这条比以前重要',icons:['寒冰箭','冰冷血脉'],
+ b:'<p>Midnight 削了冰法的爆发、加强了常态伤害。<strong>结果是你不能再指望一波带走满血目标。</strong></p>'+
+   miniHTML([
+    {t:'磨的阶段在做什么',k:'ok',b:'用 <sk>寒冰箭</sk> 和 <sk>寒冰宝珠</sk> 持续压血线，<b>逼对面把免疫和大减伤一个个交掉</b>。同时保持减速、保持距离、攒好爆发资源。'},
+    {t:'什么时候切换到收',k:'ok',b:'<b>骨架页那四条件同时成立的时候。</b>尤其是目标的免疫牌已经用掉了、血线被磨低了——这时候一个碎冰窗口才真的能带走人。'},
+    {t:'最常见的错误：CD 一好就全交',k:'no',b:'对面满血、免疫全在的时候开 <sk>冰冷血脉</sk>，是把最强的几秒喂给对面的防御池。<b>你的爆发窗口应该落在"他已经没牌了"的时刻。</b>'}])}
+];
+document.getElementById('general').innerHTML=GENERAL.map(rowHTML).join('');
+renderStep();
+
+/* ============ 分职业 ============ */
+const CLASSES=[
+{id:'warrior',n:'战士',ic:'classicon_warrior',c:'#C69B6D',diff:'难',cards:['剑在人在','破胆怒吼','盾墙'],
+ one:'他有一堆接近手段和一个免控。你的减速对他没有想象中那么好使。',
+ q:[['他怎么贴上来','冲锋、英勇跳跃、拦截——<b>接近手段多且都是瞬发</b>。而且 <sk>破胆怒吼</sk> 会免疫你的控制，让你的 <sk>冰霜新星</sk> 白扔。'],
+    ['他那张"你杀不死我"的牌','<sk>剑在人在</sk>（免物理，<b>对你影响不大——你是法伤</b>）、<sk>破胆怒吼</sk>（免控+减伤，<b>这个才是你的麻烦</b>）、<sk>盾墙</sk>。'],
+    ['你的控制好不好使','<b>不太好使。</b>他有免控、有解控道具、还有大量减速免疫。<b>不要指望一个 <sk>冰霜新星</sk> 就能拉开</b>——要用柱子和 <sk>冰墙</sk> 配合。'],
+    ['你的杀窗怎么建','<b>先解决"我站得住"这一条，其他都是后话。</b>把 <sk>寒冰护体</sk>（带 Overpowered Barrier 的减速效果）常态挂着，用柱子拉开，等他的接近手段进冷却——那几秒才是你的输出时间。']],
+ arena:'战士会一直咬着你不放。<b>你的价值不是击杀他，是在他咬你的时候仍然对他的队友保持压力。</b>',
+ duel:'单挑不要试图站着跟他对拼。绕柱子、保持减速、等他的冲锋和 <sk>破胆怒吼</sk> 都进冷却，那时才是你能站住的窗口。'},
+
+{id:'paladin',n:'圣骑士',ic:'classicon_paladin',c:'#F48CBA',diff:'中等偏难',cards:['圣盾术','保护祝福','自由祝福','破咒祝福'],
+ one:'他的净化和免控会把你的控制一件件拆掉。',
+ q:[['他怎么贴上来','圣骑的接近手段不如战士多，但 <b><sk>自由祝福</sk> 能直接免疫你的减速和定身</b>，那几秒他会直接走到你脸上。'],
+    ['他那张"你杀不死我"的牌','<sk>圣盾术</sk>（全免疫）、<sk>破咒祝福</sk>（免疫魔法伤害，<b>对你几乎等于全免疫</b>）、<sk>保护祝福</sk>、<sk>自由祝福</sk>。'],
+    ['你的控制好不好使','<b>很不好使。</b>他能净化队友身上的减速和变形，<sk>自由祝福</sk> 还能免疫。<b>你的 <sk>变形术</sk> 落在治疗身上经常撑不到两秒。</b>'],
+    ['你的杀窗怎么建','<b>这个对局是算账。</b>他的牌太多，你一轮撕不完——每一轮逼掉一到两张，记住他还剩什么。<b><sk>破咒祝福</sk> 亮起时你打他等于零，立刻转火。</b>']],
+ arena:'圣骑的净化是你控制链的头号敌人。<b>想清楚哪个控制是"用来消耗他净化"的，哪个是"真的要生效"的。</b>',
+ duel:'惩戒骑贴上来之后你很难摆脱。<b>先逼出 <sk>自由祝福</sk>，之后你的减速才有意义。</b>'},
+
+{id:'hunter',n:'猎人',ic:'classicon_hunter',c:'#AAD372',diff:'中等',cards:['灵龟守护','假死'],
+ one:'远程对远程。他有反制你的手段，但你的控制比他强。',
+ q:[['他怎么打到你','<b>他不用贴上来。</b>远程输出 + 陷阱 + 宠物骚扰。射击猎的爆发在远距离一样能秒人，你不能靠拉开解决他。'],
+    ['他那张"你杀不死我"的牌','<sk>灵龟守护</sk>（<b>免疫伤害但不免疫控制</b>——这个区别是胜负手）、<sk>假死</sk>（脱战，让你掉目标）。'],
+    ['你的控制好不好使','<b>好使。</b>猎人的免控手段有限。<b><sk>灵龟守护</sk> 亮起时直接 <sk>变形术</sk> 或 <sk>冰霜之环</sk></b>——用控制把免疫时长吃掉，出来时他免疫没了。'],
+    ['你的杀窗怎么建','<b>先处理陷阱和视野。</b>猎人擅长控你的治疗，你要同时盯着自己队友的状态。<b>他的宠物是持续压力来源，必要时用范围减速处理——但注意别打破你自己的变形。</b>']],
+ arena:'猎人很擅长控你的治疗。<b>你的 <sk>解除诅咒</sk> 和队友的解控要提前分工。</b>',
+ duel:'不要试图靠拉开赢猎人——他射程跟你一样。用柱子断视线，逼他移动。'},
+
+{id:'rogue',n:'潜行者',ic:'classicon_rogue',c:'#FFF468',diff:'难',cards:['暗影斗篷','闪避','消失','烟雾弹'],
+ one:'他的斗篷能穿过你的一切。你要么在他斗篷冷却时杀他，要么杀不掉。',
+ q:[['他怎么贴上来','<b>从潜行里直接出现在你背后。</b>而且 <sk>暗影斗篷</sk> 期间他免疫你所有的魔法伤害和控制——你的 <sk>冰霜新星</sk> 完全拦不住。'],
+    ['他那张"你杀不死我"的牌','<sk>暗影斗篷</sk>（<b>免疫魔法，对你等于全免疫</b>）、<sk>消失</sk>、<sk>闪避</sk>（挡物理，对你无所谓）、<sk>烟雾弹</sk>（切断选中）。'],
+    ['你的控制好不好使','<b>斗篷期间完全不好使。</b>其他时候还行。<b>关键是记住他的斗篷什么时候用的</b>——那个冷却窗口就是你唯一能控住他、杀掉他的时间。'],
+    ['你的杀窗怎么建','<b>他开 <sk>暗影斗篷</sk> 时停手</b>（你的伤害和控制全废）。<b>他 <sk>消失</sk> 之后不要乱按范围技能找人</b>——猜他从哪个方向回来，把 <sk>冰霜新星</sk> 留给他现身的那一刻。<b>敏锐贼打不死你就得走，你只要活过他的窗口就赢一半。</b>']],
+ arena:'贼会用 <sk>烟雾弹</sk> 切断你和治疗的连接。<b>看到烟立刻走出去，不要站在里面输出。</b>',
+ duel:'单挑对贼，核心是<b>他的 <sk>暗影斗篷</sk> 在不在</b>。在，你什么都做不了；不在，他其实很脆。'},
+
+{id:'priest',n:'牧师',ic:'classicon_priest',c:'#FFFFFF',diff:'中等',cards:['消散','真言术：盾','痛苦压制','绝望祷言'],
+ one:'护盾会先吃掉你的伤害，反控会把你的控制还回来。',
+ q:[['他怎么打到你','暗牧是远程魔法压力，还有心灵尖啸这类范围恐惧。<b>治疗牧不打你，他只是让你杀不掉人。</b>'],
+    ['他那张"你杀不死我"的牌','<sk>消散</sk>、<sk>痛苦压制</sk>、<sk>绝望祷言</sk>，以及 <sk>真言术：盾</sk>——<b>护盾会先吃掉你的碎冰窗口伤害</b>，这是最容易被忽略的一层。'],
+    ['你的控制好不好使','<b>要小心他的反控和免疫恐惧类效果。</b>而且他能给队友上护盾防止控制。<b><sk>变形术</sk> 对牧师依然是好用的，但要挑他没有反制手段的时机。</b>'],
+    ['你的杀窗怎么建','<b>开窗口之前先看目标身上有没有护盾。</b>有护盾时你的碎冰伤害会先被吸掉一大截——先用常态输出磨掉护盾，再开。他按 <sk>消散</sk> 时停手。']],
+ arena:'<sk>法术反制</sk> 留给真正能改变血线的那个治疗。<b>牧师会用小治疗骗你的打断。</b>',
+ duel:'暗牧开 <sk>消散</sk> 就重整资源，不要追着减伤打。'},
+
+{id:'dk',n:'死亡骑士',ic:'classicon_deathknight',c:'#C41E3A',diff:'难',cards:['反魔法护罩','冰封之韧','反魔法领域'],
+ one:'反魔法护罩让你的伤害和控制同时归零，死亡之握让你的位移失效。',
+ q:[['他怎么贴上来','<b>死亡之握直接把你拽过去</b>——你的位移和减速都拦不住。而且他有冰锁、窒息（沉默）等一整套让你动不了、说不出话的手段。'],
+    ['他那张"你杀不死我"的牌','<sk>反魔法护罩</sk>（<b>免疫魔法伤害和魔法减益——你是纯法伤，这对你等于全免疫，而且你的控制也进不去</b>）、<sk>冰封之韧</sk>、<sk>反魔法领域</sk>（给全队的）。'],
+    ['你的控制好不好使','<b>抗魔期间完全不好使。</b>而且他的窒息会沉默你。<b>这是全游戏对冰法最不友好的对局之一。</b>'],
+    ['你的杀窗怎么建','<b><sk>反魔法护罩</sk> 亮起 = 完全停手或转火</b>，你打进去的是零。<b>别指望靠跑摆脱死亡之握</b>——留好 <sk>寒冰屏障</sk> 或 <sk>强化隐形术</sk>。他的抗魔一走，才是你的窗口。']],
+ arena:'DK 会把你拉离队友。<b><sk>冰墙</sk> 在这个对局有额外价值——挡住他的接近路线。</b>',
+ duel:'先记住他抗魔护罩的冷却。<b>那个技能在的时候，你做什么都是白做。</b>'},
+
+{id:'shaman',n:'萨满祭司',ic:'classicon_shaman',c:'#0C69FF',diff:'中等偏难',cards:['星界转移'],
+ one:'图腾会替他解掉你的控制，击退会打断你的读条。',
+ q:[['他怎么打到你','增强萨会贴上来（有位移和击退），元素萨是远程对射。<b>他的击退会打断你的引导（比如 <sk>冰霜射线</sk>）</b>。'],
+    ['他那张"你杀不死我"的牌','<sk>星界转移</sk>（大减伤）、先祖之魂类保命，<b>以及各种图腾——破控图腾能直接把你的控制链废掉</b>。'],
+    ['你的控制好不好使','<b>要先看地上。</b>破控类图腾会让你的 <sk>变形术</sk> 和定身直接失效。<b>图腾血量极低，先打掉再控。</b>'],
+    ['你的杀窗怎么建','<b>开窗口之前先清掉关键图腾。</b>这比多打几下人值钱得多。<b>用 <sk>冰霜射线</sk> 之前确认他的击退在冷却里</b>——不然那几秒引导会被打断。']],
+ arena:'萨满对局的"目标"经常不是玩家，<b>而是一个正在改变规则的图腾</b>。',
+ duel:'注意他的击退。<b>你的引导技能和读条都要挑他击退在冷却时用。</b>'},
+
+{id:'mage',n:'法师',ic:'classicon_mage',c:'#3FC7EB',diff:'高',cards:['寒冰屏障','变形术'],
+ one:'镜像对局拼的是谁先控住谁，以及谁的假读条骗得过谁。',
+ q:[['他怎么打到你','跟你一样——控制 + 碎冰爆发。<b>先手极其重要：谁先控住对方，谁就能自由输出一整个窗口。</b>'],
+    ['他那张"你杀不死我"的牌','<sk>寒冰屏障</sk>（全免疫，<b>期间回蓝解效果但不能移动</b>）、<sk>操控时间</sk>（把血量拉回去）、<sk>强化隐形术</sk>。'],
+    ['你的控制好不好使','<b>他也会 <sk>解除诅咒</sk> 和各种反制。</b>镜像里控制预算的管理比伤害更重要——<b>谁先把对方的解控和免疫逼完，谁赢。</b>'],
+    ['你的杀窗怎么建','<b>假读条在镜像里是决定性的。</b>他的 <sk>法术反制</sk> 骗掉之后你有一个完整的自由施法窗口。<b>他按 <sk>寒冰屏障</sk> 时：他不能移动，所以如果他已经残血，守着等它过期是对的；满血的话就去做别的事。</b>']],
+ arena:'镜像里 <sk>法术反制</sk> 的价值极高。<b>骗掉他的，护住你的。</b>',
+ duel:'先手价值极大。失去先手时目标是活过他的窗口，不是立刻反打。'},
+
+{id:'warlock',n:'术士',ic:'classicon_warlock',c:'#8788EE',diff:'中等偏难',cards:['不灭决心','恐惧'],
+ one:'远程对远程的持久战。他的血比你厚，恐惧比你多。',
+ q:[['他怎么打到你','<b>不用接近。</b>持续伤害铺满 + 爆发。<sk>恐惧</sk> 会打断你的一切，恶魔守卫还能沉默你。'],
+    ['他那张"你杀不死我"的牌','<sk>不灭决心</sk> 类大减伤、灵魂石（自复活）、恶魔传送门（脱离）。<b>他的有效血量比你高得多。</b>'],
+    ['你的控制好不好使','<b>好使，但他的恐惧也好使。</b>这是个互控的对局——<b>关键是谁的控制落得更准、谁先把对方的解控逼完。</b>'],
+    ['你的杀窗怎么建','<b><sk>法术反制</sk> 在这里价值极高</b>——他的核心伤害和吸取生命几乎全是读条。<b>但先判断恐惧和伤害哪个更致命再决定断什么。</b>柱子逼他移动，移动就不能读条。']],
+ arena:'术士自由施法越久越难处理。<b>你的打断要同时服务于"杀人"和"阻止他建立压力"。</b>',
+ duel:'不要在空地上跟他比消耗，他的有效血量更高。用柱子和控制打断他的节奏。'},
+
+{id:'monk',n:'武僧',ic:'classicon_monk',c:'#00FF98',diff:'中等偏难',cards:['业报之触','气定神闲','玄牛下凡'],
+ one:'他的位移多到你的减速形同虚设，业报还会把你的伤害弹回来。',
+ q:[['他怎么贴上来','<b>位移极多</b>——影踪步、传送、各种拉扯。<b>你的减速和定身经常钉不住他。</b>踏风还能把你拉过去。'],
+    ['他那张"你杀不死我"的牌','<sk>业报之触</sk>（<b>化解并反弹伤害——硬打等于自伤</b>）、<sk>气定神闲</sk>、<sk>玄牛下凡</sk>。'],
+    ['你的控制好不好使','<b>一般。</b>他的位移能把控制的效果消解掉，而且部分技能能免控。<b><sk>冰霜之环</sk> 在这个对局比单体定身有用</b>——他必须穿过一片区域才能接近你。'],
+    ['你的杀窗怎么建','<b><sk>业报之触</sk> 亮起立刻停手或转火。</b>织雾的传送能让你的控制布置落空——<b>先确认他的位移在不在冷却，再布 <sk>冰霜之环</sk>。</b>']],
+ arena:'织雾的团队治疗能吃掉你的整个窗口。<b>控制他比打他值钱。</b>',
+ duel:'踏风贴上来之后很难甩掉。<b>把 <sk>冰霜新星</sk> 留到他真正用完位移的时候。</b>'},
+
+{id:'druid',n:'德鲁伊',ic:'classicon_druid',c:'#FF7C0A',diff:'高',cards:['树皮术','旅行形态'],
+ one:'形态切换让他躲掉你的学派锁定，持续治疗让你的常态伤害被抹平。',
+ q:[['他怎么打到你','野德贴身且控制链完整，平衡德是远程叠加伤害。<b>恢复德不打你，但他能让你一整局杀不掉人。</b>'],
+    ['他那张"你杀不死我"的牌','<sk>树皮术</sk>、化身、熊形态（大幅减伤）、<sk>旅行形态</sk>，加上强力自我治疗。'],
+    ['你的控制好不好使','<b>要小心形态切换。</b>德鲁伊能切形态躲掉学派锁定，也能解掉部分控制。<b><sk>变形术</sk> 对恢复德依然是最有价值的手段——但你必须保证控住之后没有任何伤害碰到他。</b>'],
+    ['你的杀窗怎么建','<b>满状态恢复德几乎不可能被单杀。</b>正确做法是用 <sk>变形术</sk> 把他摘出去几秒，让队友去杀别人。<b>你的价值是"让他不存在"，不是"让他死"。</b>']],
+ arena:'对恢复德真正的技术点是<b>"让变形之后还能接上控制"</b>。变之前先确认场上没有任何持续伤害会碰到他——<b>包括你自己的 <sk>暴风雪</sk> 和 <sk>寒冰宝珠</sk></b>。',
+ duel:'野德的持续伤害会让你很难脱身。提前挂 <sk>寒冰护体</sk>，别等血少了才想起来。'},
+
+{id:'dh',n:'恶魔猎手',ic:'classicon_demonhunter',c:'#A330C9',diff:'难',cards:['虚空行走','疾影','恶魔变形'],
+ one:'全游戏最难甩掉的近战之一，而且他有一个可移动的全免疫。',
+ q:[['他怎么贴上来','<b>机动性极强</b>——冲刺、二段跳、拉扯。<b>你的减速和定身经常只能拖住他一两秒。</b>而且他有魔法免疫和反制手段。'],
+    ['他那张"你杀不死我"的牌','<sk>虚空行走</sk>（<b>全免疫且可移动</b>——跟 <sk>寒冰屏障</sk> 不同，他在里面还能追你）、<sk>疾影</sk>、<sk>恶魔变形</sk>，加上极高自愈。'],
+    ['你的控制好不好使','<b>不太好使。</b>他有免控手段和大量位移。<b><sk>冰霜之环</sk> 和 <sk>冰墙</sk> 这类"区域型"手段比单体控制有效</b>——因为他的位移能躲开单点，但躲不开一整片。'],
+    ['你的杀窗怎么建','<b>先解决"我站得住"。</b>他的自愈很高，零散伤害对他无效——<b>必须在一个完整的碎冰窗口里打穿</b>。<sk>虚空行走</sk> 亮起时停手，但要跟住他的位置（他还在动）。']],
+ arena:'DH 的目标通常就是你。<b>你的队友能不能帮你剥离他，往往决定这局胜负。</b>',
+ duel:'单挑 DH 对冰法很难。用地形、把控制留到他位移用完、争取一个完整窗口——磨他没用，他自愈太高。'},
+
+{id:'evoker',n:'唤魔师',ic:'classicon_evoker',c:'#33937F',diff:'中等偏难',cards:['黑曜鳞片','悬空','新生光焰'],
+ one:'中距离对射。他的蓄力是命门，但他的机动性比你好。',
+ q:[['他怎么打到你','<b>中距离蓄力技能 + 高机动。</b>他不需要贴脸，但需要在你的射程内——<b>这意味着你们互相都在对方的窗口里。</b>'],
+    ['他那张"你杀不死我"的牌','<sk>黑曜鳞片</sk>、<sk>新生光焰</sk> 类保命，以及 <b><sk>悬空</sk></b>——他能一瞬间移动到你够不到的位置。'],
+    ['你的控制好不好使','<b>好使，而且价值极高。</b>他大量技能是"蓄力"，<b>被控住或打断损失极大，而且蓄力期间他不能做别的事</b>。'],
+    ['你的杀窗怎么建','<b>盯他的蓄力条。</b><sk>法术反制</sk> 留给关键的那一个，高频蓄力用控制打断就行。<b>窗口要开在 <sk>悬空</sk> 冷却中的时候</b>——不然他一按就飞出你的射程。']],
+ arena:'唤魔师的救援能把你的击杀目标从窗口里带走。<b>先逼或控制他的位移工具。</b>',
+ duel:'这是少数你的射程和他相当的对局。<b>拼的是谁的打断和控制落得更准。</b>'}
+];
+let selCls='warrior',mode='arena';
+const grid=document.getElementById('clsGrid'),detail=document.getElementById('clsDetail');
+grid.innerHTML=CLASSES.map(c=>'<button class="cls-btn'+(c.id===selCls?' on':'')+'" data-c="'+c.id+'">'+
+  '<img src="'+IC(c.ic)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'+c.n+'</button>').join('');
+grid.onclick=e=>{const b=e.target.closest('[data-c]');if(!b)return;selCls=b.dataset.c;
+  grid.querySelectorAll('.cls-btn').forEach(x=>x.classList.toggle('on',x.dataset.c===selCls));showClass()};
+document.getElementById('modebar').onclick=e=>{const b=e.target.closest('[data-m]');if(!b)return;mode=b.dataset.m;
+  document.querySelectorAll('#modebar button').forEach(x=>x.classList.toggle('on',x.dataset.m===mode));showClass()};
+const QLBL=['1 · 他怎么打到你','2 · 他那张"你杀不死我"的牌','3 · 你的控制在他身上好不好使','4 · 你的杀窗怎么建'];
+function showClass(){
+  const c=CLASSES.find(x=>x.id===selCls);
+  detail.innerHTML='<div class="cdetail"><div class="top"><img src="'+IC(c.ic)+'" alt="" onerror="this.style.display=\'none\'">'+
+   '<h3 style="color:'+c.c+'">'+c.n+'</h3><span class="diff">体感：'+c.diff+'</span></div>'+
+   '<div class="oneline">'+c.one+'</div>'+
+   '<div class="cards-line"><span class="lb">他手上的牌</span>'+c.cards.map(n=>skHTML(n)).join('')+'</div>'+
+   '<div class="rows">'+c.q.map((q,i)=>rowHTML({t:QLBL[i],sub:q[0],b:'<p style="margin-top:8px">'+q[1]+'</p>'})).join('')+'</div>'+
+   '<div class="modetip"><b>'+(mode==='arena'?'竞技场判断：':'单挑补充：')+'</b> '+c[mode]+'</div></div>';
+  paintSK(detail);
+}
+showClass();
+
+/* ============ 题库 ============ */
+const Q=[
+{id:'g1',t:'general',d:1,s:'你 <sk>变形术</sk> 控住了对面治疗，转身去打击杀目标。你刚才扔的 <sk>寒冰宝珠</sk> <em>正朝着治疗的方向移动</em>。',a:'会发生什么？',
+ o:['没事，宝珠只打你的当前目标','宝珠的伤害会打破 <sk>变形术</sk>，控制白费','变形术不受伤害影响','变形时间会缩短'],r:1,
+ e:['<sk>寒冰宝珠</sk> 是移动的范围伤害，它会打到路径上的所有敌人。',
+    '正解。<b>这是法师最经典的自伤陷阱。</b><sk>变形术</sk> 受任何伤害立刻破——<sk>寒冰宝珠</sk>、<sk>暴风雪</sk>、<sk>彗星风暴</sk>、水元素、<sk>冰霜裂片</sk>，甚至队友的范围技能都会打破它。<b>变之前先看场上有什么正在飞、正在铺。</b>',
+    '变形术是受伤即破的控制。',
+    '不是缩短，是直接破掉。'],
+ k:'变形之前先清场：自己的范围伤害、队友的持续伤害、地上正在跑的东西，全都会打破它。'},
+
+{id:'g2',t:'general',d:2,s:'你的 <sk>冰冷血脉</sk>、<sk>寒冰宝珠</sk>、<sk>冰霜射线</sk> 全好了。目标是<em>满血且免疫全在</em>的惩戒骑。',a:'开不开爆发？',
+ o:['开，CD 好了就该用，转起来才有输出','不开，先用常态伤害磨，等他的免疫牌用掉再开','开，但只用寒冰宝珠','先重新起手换个目标'],r:1,
+ e:['<b>这是本版最常见的错误。</b>Midnight 削了冰法爆发、加强了常态——你的一个窗口已经带不走一个满血且免疫全在的目标了。全交等于把最强的几秒喂给他的防御池。',
+    '正解。<b>本版冰法的赢法是"持续压制 + 一波收"。</b><sk>寒冰箭</sk> 在 PvP 里伤害 +100%，它不是填充技，是主力。用常态伤害逼他把 <sk>圣盾术</sk> 这些牌一个个交掉，<b>等他没牌了、血线低了，那时的碎冰窗口才真的能杀人。</b>',
+    '把宝珠单独拆出来用会浪费它作为裂片来源的价值，而且没解决"目标满牌"这个核心问题。',
+    '换目标可能对，但这题问的是要不要开爆发——答案跟目标是谁无关，跟他还剩几张牌有关。'],
+ k:'爆发窗口要落在"他已经没牌了"的时刻。CD 好了不是开的理由。'},
+
+{id:'g3',t:'general',d:1,s:'你准备开始一轮输出。目标身上<em>没有任何冰冻效果</em>，你的 <sk>寒冰指</sk> 有一层，<sk>冰风暴</sk> 也好了。',a:'先按哪个？',
+ o:['<sk>冰枪术</sk>，把寒冰指用掉','<sk>冰风暴</sk>，先挂上 <sk>深冬之寒</sk>','<sk>寒冰箭</sk>，稳一点','<sk>冰川尖刺</sk>，伤害最高'],r:1,
+ e:['<sk>寒冰指</sk> 确实让冰枪术视目标为冰冻，但<b>单独用掉它只赚了一发</b>——先挂深冬之寒，后面几发都能吃到碎冰。',
+    '正解。<b><sk>冰风暴</sk> 打上 <sk>深冬之寒</sk> 是碎冰窗口的开关。</b>挂上之后接下来的几发才有意义。<b>顺序反了，同样的技能少一半收益。</b>',
+    '寒冰箭是常态主力没错，但这题的关键是"先把碎冰前提建立起来"。',
+    '<sk>冰川尖刺</sk> 伤害高，但落在没有碎冰的目标身上是浪费。'],
+ k:'冰法的顺序永远是：先建立冰冻前提，再倒伤害。反过来做，每一发都在打折。'},
+
+{id:'g4',t:'general',d:3,s:'一个战士冲到你脸上，血量还健康。你的 <sk>冰霜新星</sk> 好了，同时目标（他的治疗队友）<em>正好处于碎冰状态</em>，你有满层伤害资源。',a:'冰霜新星用来干什么？',
+ o:['打治疗，多一层碎冰伤害','定住战士，换来几秒站着输出的时间','留着不用','定住治疗，防止他跑'],r:1,
+ e:['多一层碎冰只值几发伤害，<b>而你接下来会被战士打断和压死，一发都打不出来。</b>',
+    '正解。<b><sk>冰霜新星</sk> 是双重身份：碎冰起手，也是保命脱身。</b>近战贴脸时它的价值是"换来你能站着的几秒"——<b>而法师能站着的每一秒才是有效输出时间</b>。碎冰窗口在你站得住之后依然存在，站不住就什么都没有。',
+    '留着不用等于在最需要它的时候没用它。',
+    '治疗跑不跑不是当下的主要矛盾——你自己站不住才是。'],
+ k:'冰霜新星的第一身份是保命，第二身份才是碎冰。被贴脸时不要犹豫。'},
+
+{id:'g5',t:'general',d:2,s:'你准备开碎冰窗口。对面近战的<em>打断刚好好了</em>，他正贴着你。',a:'开窗口之前先做什么？',
+ o:['直接开，速度快他来不及断','假读一个 <sk>寒冰箭</sk> 骗掉他的打断','用 <sk>冰霜新星</sk> 定住他','开 <sk>寒冰护体</sk> 防身'],r:1,
+ e:['"来不及断"是赌博。<b>爆发窗口里被锁学派，损失的是整轮。</b>',
+    '正解。<b>假读条是法师的核心技巧。</b>起一个 <sk>寒冰箭</sk>，读条快完成时主动打断自己——对面会本能地交打断，<b>他的打断就白花了</b>，接下来那几秒你可以自由施法。成本只有一个读条时间。',
+    '定住他方向对，但<b>定身不阻止打断</b>（很多打断在定身里照样能按），而且这会浪费你的保命技。',
+    '护体是减伤，不解决"我会被锁学派"这个问题。'],
+ k:'开窗口之前先骗打断。用一个读条换整轮的自由施法，这笔交易永远划算。'},
+
+{id:'g6',t:'general',d:2,s:'你被两个近战咬住，位移都在冷却，血量掉到 <em>40%</em>。你的 <sk>急速冷却</sk> 和 <sk>寒冰屏障</sk> 都好。',a:'先用哪个？',
+ o:['<sk>寒冰屏障</sk>，最安全','<sk>急速冷却</sk>，重置冰系控制，用新的 <sk>冰霜新星</sk> 拉开','两个一起用','<sk>操控时间</sk>'],r:1,
+ e:['<sk>寒冰屏障</sk> 是全免疫没错，<b>但期间你不能移动也不能输出，出来之后还是被两个近战围着</b>——问题一点没解决，只是推迟了。',
+    '正解。<b><sk>急速冷却</sk> 是重置键——它能把你的冰系控制刷新</b>，让你重新拿到 <sk>冰霜新星</sk> 拉开距离。<b>这是你在被咬住时唯一能真正改变处境的手段</b>，而不是推迟处境。',
+    '一起用是把两轮资源压成一轮。',
+    '<sk>操控时间</sk> 应该在血量健康时提前按（存住高血量），现在按存的是 40% 的血。'],
+ k:'保命要分"解决问题"和"推迟问题"。被围住时先找能改变处境的那个。'},
+
+{id:'g7',t:'general',d:3,s:'你血量健康（<em>85%</em>），对面正准备开一波集火你。你的 <sk>操控时间</sk> 是好的。',a:'什么时候按？',
+ o:['现在按，趁血量高','等被打到 40% 左右再按，把血拉回来','等被打到 20% 危险时再按','不按，留给更危险的时候'],r:0,
+ e:['正解。<b><sk>操控时间</sk> 会在几秒后把你的血量和位置拉回按下时的状态</b>——所以它存的是"你按下那一刻的血量"。<b>血量健康时先按，然后放心去吃这一波伤害</b>，几秒后血自动回到 85%。',
+    '<b>等血少了才按，存的就是低血量</b>——几秒后你被拉回 40%，等于什么都没救到。这是操控时间最常见的误用。',
+    '同上，而且 20% 时你可能撑不到它生效。',
+    '"留给更危险的时候"跟这个技能的机制是矛盾的——它越早按（血越高时按）价值越大。'],
+ k:'操控时间存的是按下那一刻的状态。血满时按才有意义，血少了再按等于存了个低血量。'},
+
+{id:'g8',t:'general',d:2,s:'团队战。你和队友都想控住对面治疗。你打算用 <sk>变形术</sk>，队友要用一个眩晕。',a:'该怎么协调？',
+ o:['同时用，双保险','分开用——变形和眩晕是不同递减类别，可以接成长链','让队友先用，你补','都别用，先打伤害'],r:1,
+ e:['同时用会浪费一个——两个控制重叠，第二个的时长全白费。',
+    '正解。<b>变形类和眩晕类是独立的递减类别</b>，所以可以接成一条长链：先眩晕、眩晕结束接变形（或反过来），<b>治疗会被摘出去很长一段时间</b>。<br><b>但要注意：变形受伤即破</b>，所以变形那一段队友必须停手。',
+    '"先用后补"方向对，但没说清楚为什么可以接——理解机制才能推广到别的情况。',
+    '治疗不被处理，你打多少伤害都会被治回去。'],
+ k:'控制类别独立计算递减，所以不同类别可以接成长链。同类别叠加只会互相浪费。'},
+
+{id:'g9',t:'general',d:1,s:'你要用 <sk>冰霜射线</sk> 收掉一个残血目标。对面还有一个近战<em>在场上活动但暂时够不到你</em>。',a:'该注意什么？',
+ o:['没事，射线伤害高，快速收掉','射线是引导技能——这几秒你不能移动也不能被打断，必须先确认没人能碰到你','先开 <sk>寒冰护体</sk>','换成 <sk>冰枪术</sk> 更安全'],r:1,
+ e:['"快速收掉"低估了引导的代价——中途被打断你什么都没得到。',
+    '正解。<b><sk>冰霜射线</sk> 是持续引导，意味着这几秒你完全不能移动、也经不起打断。</b>而且本版它伤害还被削了 20%。<b>用它之前必须确认：那个近战在这几秒里绝对够不到你</b>（被控住、被减速拉远、或者隔着柱子）。',
+    '护体是减伤，不阻止打断和位移限制。',
+    '换技能是一种选择，但这题要你意识到的是"引导技能的代价"这个机制。'],
+ k:'引导技能的成本不是法力，是"这几秒我被钉在原地"。用之前先买好这几秒的安全。'},
+
+{id:'g10',t:'general',d:2,s:'对面治疗正在读一个<em>小治疗</em>。你的 <sk>法术反制</sk> 是好的，你的碎冰窗口再过几秒就能开。',a:'断不断？',
+ o:['断，任何治疗都值得断','不断——用控制去中断，把 <sk>法术反制</sk> 留给窗口期的大治疗','不断，直接开窗口','断，然后立刻开窗口'],r:1,
+ e:['这正是治疗骗打断的手法——<b>用便宜的小治疗把你的反制骗走</b>，然后你的窗口打开时他能自由放大治疗。',
+    '正解。<b><sk>法术反制</sk> 是窗口里的保险，不是常规循环的一部分。</b><sk>冰霜新星</sk>、<sk>变形术</sk>、<sk>寒冰新星</sk> 都能中断施法且不占反制冷却。<b>你的窗口马上就到，那才是你最需要锁住他的时刻。</b>',
+    '不处理治疗直接开窗口，伤害会被治回去。',
+    '断完就开窗口，等于窗口里最需要打断的时候手上没打断。'],
+ k:'法术反制留给真正能改变血线的那一个。便宜的中断手段先用完。'},
+
+{id:'g11',t:'general',d:3,s:'一局中段。你把目标磨到 <em>50%</em>，他交掉了一个大减伤但<em>免疫还在</em>。你的爆发资源刚好齐了，治疗也被队友控住了。',a:'现在开窗口吗？',
+ o:['开，四条件里三条都满足了','不开——他的免疫还在，窗口会被那一张牌废掉','开，但只用一半资源','换目标'],r:1,
+ e:['三条满足听起来够了，但<b>缺的恰好是最致命的那一条</b>：他手上还有一张能让你整个窗口归零的牌。',
+    '正解。<b>免疫牌跟其他条件不是并列关系——它是一票否决。</b>你把爆发倒进去，他一个 <sk>圣盾术</sk>/<sk>反魔法护罩</sk> 就全废了，而你的冷却要等很久。<b>正确做法是继续用常态伤害逼他交掉那张牌，然后再开。</b>',
+    '"用一半资源"听起来稳妥，但碎冰窗口的价值来自资源集中——拆开用两边都不够。',
+    '换目标可能对，但前提是另一个目标的条件更好。这题的核心是理解"免疫是一票否决"。'],
+ k:'四条件里，免疫牌那一条是一票否决，不是四分之一。它在，别的都不算数。'},
+
+{id:'g12',t:'general',d:2,s:'你在被一个近战追。你想一边跑一边输出，于是<em>跑两步、停下来放一发、再跑</em>。',a:'这个打法有什么问题？',
+ o:['没问题，这是标准的风筝','既拉不开距离也打不出伤害，法师最忌讳夹在中间','应该跑得更快一点','应该多用瞬发技能'],r:1,
+ e:['真正的风筝是"用减速和控制让他走不动"，不是"我跑两步他跑两步"。',
+    '正解。<b>停下来的每一次都在让他缩短距离，而零散的一发也打不疼他。</b>法师最忌讳的就是夹在中间——<b>要么专心拉开建立安全距离（用减速、柱子、控制），要么确认他碰不到你之后站住打一整套。</b>',
+    '法师跑不过大多数近战，比速度是输的。',
+    '瞬发技能有用，但没解决"我到底是要跑还是要打"这个决策问题。'],
+ k:'法师只有两种状态：正在建立距离，或者正在利用距离。夹在中间两头都落空。'},
+
+{id:'g13',t:'general',d:1,s:'开局你在看对面阵容。对面是<em>两个近战 + 一个治疗</em>。',a:'这个信息首先改变什么？',
+ o:['改变你的输出目标','改变你整局的站位规划——你几乎不可能站着自由输出','改变你的天赋','不改变什么，照常打'],r:1,
+ e:['目标选择重要，但那是之后的事。',
+    '正解。<b>两个近战的队伍意味着你几乎没有"站着自由输出"的时间。</b>这直接决定你整局怎么用柱子、什么时候用 <sk>冰墙</sk>、位移和 <sk>冰霜新星</sk> 怎么排。<b>这个规划要在开局前做，不是被贴上之后才想。</b>',
+    '天赋可能微调，但核心影响是站位和资源规划。',
+    '两个近战和两个远程，法师的打法完全是两回事。'],
+ k:'开局第一件事是数对面有几个近战。这个数字决定你整局的站位方式。'},
+
+{id:'g14',t:'general',d:3,s:'你有一层 <sk>寒冰指</sk>，还有一发 <sk>冰冷智慧</sk>（让下一发 <sk>冰风暴</sk> 免费且强化）。目标身上<em>没有 <sk>深冬之寒</sk></em>。',a:'最优顺序是什么？',
+ o:['先用 <sk>寒冰指</sk> 打 <sk>冰枪术</sk>，再用冰风暴','先用 <sk>冰风暴</sk> 挂上深冬之寒，再用寒冰指打冰枪术','两个一起用，同一个 GCD','先补一发普通 <sk>寒冰箭</sk>'],r:1,
+ e:['<sk>寒冰指</sk> 让冰枪术视目标为冰冻，所以这一发本身有碎冰。<b>但顺序反了之后，冰风暴挂上的深冬之寒就没有后续伤害去吃它了</b>——白白浪费了几层。',
+    '正解。<b>先挂 <sk>深冬之寒</sk>，再把带 <sk>寒冰指</sk> 的 <sk>冰枪术</sk> 塞进去。</b>这样冰枪术同时吃到寒冰指和深冬之寒，而且深冬之寒还剩的层数可以给后续的伤害用。<b>冰法的顺序原则永远是：先建立前提，再倒伤害。</b>',
+    '不同技能不能在同一个 GCD 里用。',
+    '补一发普通寒冰箭是在浪费你已经攒好的资源。'],
+ k:'资源要按"能不能被后续复用"排序。先放能持续生效的（深冬之寒），再放一次性的。'},
+
+{id:'g15',t:'general',d:2,s:'你被集火，血量掉得很快。你的 <sk>强化隐形术</sk> 和 <sk>闪现术</sk> 都好。',a:'哪个更能解决问题？',
+ o:['<sk>闪现术</sk>，拉开距离','<sk>强化隐形术</sk>，让对面掉目标','两个一起用','原地开屏障硬扛'],r:1,
+ e:['<sk>闪现术</sk> 只移动一小段距离，<b>对面重新选中你继续打，问题没解决</b>。而且你的位移很宝贵。',
+    '正解。<b><sk>强化隐形术</sk> 能让你短时间脱离被选中的状态</b>——对面会掉目标、他们已经飞出去的技能会落空。<b>被集火时"让他们点不到我"比"我跑远一点"有效得多。</b>',
+    '一起用是浪费，而且没解决"我一直被选中"这个核心问题。',
+    '硬扛是把选择权交给对面。'],
+ k:'被集火时先想"怎么让他们点不到我"，而不是"我怎么跑得更远"。'},
+
+{id:'warrior',t:'warrior',d:2,s:'战士冲到你脸上。你用 <sk>冰霜新星</sk> 定住他，正准备拉开。他按下 <sk>破胆怒吼</sk>。',a:'会发生什么？',
+ o:['他还是被定住的，怒吼只是减伤','怒吼会免疫控制——他直接挣脱，而且你还会被恐惧','冰霜新星时间缩短一半','没影响'],r:1,
+ e:['<sk>破胆怒吼</sk> 不只是减伤，它同时提供免控。',
+    '正解。<b><sk>破胆怒吼</sk> 会免疫你的控制，让 <sk>冰霜新星</sk> 白扔</b>，而且它本身是个范围恐惧，你还会被控住。<b>对战士要预留第二套拉开手段</b>——柱子、<sk>冰墙</sk>、位移，不能指望一个新星解决问题。',
+    '不是缩短，是免疫。',
+    '影响很大，这是这个对局最关键的机制之一。'],
+ k:'对有免控技能的职业，控制不能作为唯一的脱身计划。要有第二套。'},
+
+{id:'warrior2',t:'warrior',d:3,s:'对局是<em>战士 + 治疗</em> vs 你 + 治疗。战士全程咬着你不放，你几乎没有输出时间。',a:'你这局的价值在哪？',
+ o:['想办法击杀战士','在他咬你的时候，仍然对他的治疗保持压力和控制','一直跑，让治疗奶你','换目标打战士的治疗，全力输出'],r:1,
+ e:['战士的有效血量比你高，而且你几乎站不住。<b>把他当击杀目标是最难的路。</b>',
+    '正解。<b>被咬住的法师依然有价值——瞬发技能、控制、打断都还能用。</b>你的工作是在生存的同时<b>让对面治疗也不好过</b>：变形他、打断他的大治疗、用范围技能压他。<b>你不需要击杀，你需要让对面的治疗压力大到崩盘。</b>',
+    '纯跑等于把这局变成 1v2，你的治疗撑不住。',
+    '"全力输出"跟"我站不住"是矛盾的——方向对（打治疗）但没考虑现实约束。'],
+ k:'站不住的时候，用瞬发和控制维持存在感。法师的价值不只有伤害。'},
+
+{id:'paladin',t:'paladin',d:2,s:'你 <sk>变形术</sk> 控住了对面的神圣骑，准备让队友转火。惩戒骑<em>立刻抬手</em>。',a:'最可能发生什么？',
+ o:['他打不到你，没事','他会净化掉队友身上的效果或直接解掉变形','他会开 <sk>圣盾术</sk>','没影响'],r:1,
+ e:['他抬手的动作不一定是打你。',
+    '正解。<b>圣骑的净化是你控制链的头号敌人。</b>他能解掉减速、变形这类效果。<b>所以对圣骑队伍要想清楚：哪个控制是"用来消耗他净化"的，哪个是"真的要生效"的。</b>先扔一个廉价的控制骗净化，再上真正的那个。',
+    '圣盾是他自己的保命，跟你控他队友无关。',
+    '净化对法师控制链的影响非常大。'],
+ k:'对有净化的队伍，控制要分两批：先扔诱饵消耗净化，再上真正要生效的那个。'},
+
+{id:'hunter',t:'hunter',d:2,s:'你在打射击猎，他血量 <em>40%</em>。他按下 <sk>灵龟守护</sk>。',a:'最优操作是什么？',
+ o:['停手，等免疫结束','立刻 <sk>变形术</sk> 或 <sk>冰霜之环</sk> 控住他——灵龟免疫伤害但不免疫控制','继续输出，灵龟只是减伤','转火'],r:1,
+ e:['停手会浪费掉这段时间，而且他出来之后还是满状态的免疫窗口收益。',
+    '正解。<b><sk>灵龟守护</sk> 免疫伤害，但不免疫控制。</b>直接控住他，<b>免疫时间在控制里流逝</b>——出来时免疫没了、他还在你手上、血还是 40%。<b>但注意：如果用变形术，要确认场上没有伤害会碰到他。</b>',
+    '灵龟是完全免疫伤害，不是减伤。',
+    '转火可以，但用控制吃掉免疫时长的收益更高。'],
+ k:'看到免疫先分清"免伤害"还是"免一切"。只免伤害的，用控制把时长吃掉。'},
+
+{id:'rogue',t:'rogue',d:2,s:'一个敏锐贼从潜行里偷袭你，接着开了爆发窗口。你血量健康。',a:'这几秒的目标是什么？',
+ o:['反打，用碎冰窗口压死他','活过他的窗口——敏锐打不死你就得走','立刻 <sk>寒冰屏障</sk>','用 <sk>冰霜新星</sk> 定住他反打'],r:1,
+ e:['你正在他的窗口里被控被打，这时候想反打是拿最弱的状态撞他最强的状态。',
+    '正解。<b>敏锐贼没有持续压力——他打不死你，就必须脱战重开。</b>你的目标是用 <sk>寒冰护体</sk>、<sk>操控时间</sk>、位移撑过那几秒。<b>他的窗口一结束，局面就回到你占优的位置。</b>',
+    '<sk>寒冰屏障</sk> 可以用，但它是重置键——<b>出来之后他可能还在等你</b>。先用便宜的手段，屏障留给真正撑不住的时候。',
+    '<sk>冰霜新星</sk> 在他有 <sk>暗影斗篷</sk> 时可能直接被免疫，而且反打的前提是你先活下来。'],
+ k:'对爆发型对手，赢的方式是熬过他的窗口，不是在窗口里比伤害。'},
+
+{id:'rogue2',t:'rogue',d:3,s:'你正在跟贼周旋。他刚才用过 <sk>暗影斗篷</sk>，现在<em>斗篷在冷却里</em>。你的控制和爆发都好了。',a:'这个信息意味着什么？',
+ o:['没什么用，他还有消失','这是你唯一能真正控住他、杀掉他的窗口','应该防守，等他斗篷好','应该换目标'],r:1,
+ e:['<sk>消失</sk> 确实还有，但斗篷和消失解决的是不同的问题——斗篷让你的伤害和控制全部无效，那才是根本性的。',
+    '正解。<b><sk>暗影斗篷</sk> 期间贼免疫你所有的魔法伤害和控制</b>——对纯法伤的冰法来说，那等于全免疫。<b>他的斗篷在冷却里，才是你唯一能对他施加真实压力的窗口。</b>记住他什么时候用的，是这个对局最重要的信息。',
+    '防守等于放过唯一的机会窗口。',
+    '换目标可能对，但这题的重点是理解"斗篷冷却 = 你的窗口"。'],
+ k:'对有魔法免疫的敌人，记住那个技能的冷却，比记住他的血量更重要。'},
+
+{id:'priest',t:'priest',d:2,s:'你准备开碎冰窗口收掉目标。你注意到戒律牧刚给他套了一个大 <sk>真言术：盾</sk>。',a:'现在开吗？',
+ o:['开，碎冰伤害足够高','先用常态伤害磨掉护盾，再开窗口','开，但转火打牧师','控住牧师再开'],r:1,
+ e:['护盾会吃掉你窗口伤害里相当大的一块。<b>你最集中的几秒打在一个吸收盾上，是最亏的兑换。</b>',
+    '正解。<b>护盾是"提前预支的治疗"，你的爆发打进去会先被它吸掉。</b>用 <sk>寒冰箭</sk> 这类常态伤害磨掉护盾（本版寒冰箭伤害翻倍，磨得比以前快），<b>然后同样的窗口落在裸血上，完全是另一个量级。</b>',
+    '转火牧师能压力但通常杀不掉，而且没解决目标身上的护盾。',
+    '控住牧师不会让已经在目标身上的护盾消失。'],
+ k:'窗口要开在"裸"的目标身上。护盾、减伤、免疫，任何一层在都该先处理。'},
+
+{id:'dk',t:'dk',d:1,s:'你在打 DK，他按下 <sk>反魔法护罩</sk>。',a:'该怎么处理？',
+ o:['继续打，物理伤害还能进去','完全停手或转火——你是纯法伤，这对你等于全免疫','只用控制，不用伤害','开爆发抢在结束前打穿'],r:1,
+ e:['<b>冰法没有物理伤害。</b>这个选项对贼成立（贼有物理），对法师完全不成立。',
+    '正解。<b><sk>反魔法护罩</sk> 免疫魔法伤害和魔法减益——冰法是纯法伤，所以这对你等于全免疫，而且你的控制也进不去。</b>完全停手或转火，等它走完。',
+    '控制也是魔法效果，同样进不去。',
+    '在免疫期交爆发是把最贵的资源扔进空气。'],
+ k:'免疫要对照自己的伤害类型看。同一个技能，对贼是"降档"，对冰法是"归零"。'},
+
+{id:'dk2',t:'dk',d:3,s:'DK 用死亡之握把你拽了过去，身上有减速，两个近战都在你身边。你的 <sk>寒冰屏障</sk>、<sk>强化隐形术</sk>、<sk>急速冷却</sk> 都好。',a:'先用哪个？',
+ o:['<sk>寒冰屏障</sk>，全免疫最安全','<sk>强化隐形术</sk>，让他们掉目标，然后走开','<sk>急速冷却</sk>，重置控制','站着输出，反正有屏障兜底'],r:1,
+ e:['<sk>寒冰屏障</sk> 期间你不能移动——<b>出来之后你还站在两个近战中间</b>，处境完全没变。它是重置键，但你得先知道出来要往哪走。',
+    '正解。<b>被两个近战围住的核心问题是"他们能选中我"。</b><sk>强化隐形术</sk> 让他们掉目标，你可以趁这段时间走开、重新建立距离。<b>这是唯一能真正改变位置关系的选项。</b>',
+    '<sk>急速冷却</sk> 重置控制是好牌，但<b>你身上还有减速</b>——定住他们之后你也走不快，效果打折。先脱离选中更直接。',
+    '"有屏障兜底"是把最后一张牌当常规容错，用完就没了。'],
+ k:'被围住时先解决"他们能不能点到我"，再解决"我能不能走"。顺序反了会浪费保命技。'},
+
+{id:'druid',t:'druid',d:3,s:'你想 <sk>变形术</sk> 控住恢复德，让队友去杀别人。场上你的 <sk>暴风雪</sk> <em>还在地上生效</em>，德鲁伊站在边缘。',a:'先做什么？',
+ o:['直接变形，他在边缘应该打不到','等 <sk>暴风雪</sk> 结束或者让他走出范围，再变形','先打掉他的 <sk>树皮术</sk>','让队友先控'],r:1,
+ e:['"应该打不到"是赌博。<b>范围技能的边缘判定经常比你以为的大，而变形术是受伤即破。</b>',
+    '正解。<b>你自己的 <sk>暴风雪</sk> 会打破你自己的 <sk>变形术</sk>。</b>这是法师最贵的自伤陷阱——<b>而且对恢复德来说，变形术往往是团队唯一能把他摘出去的手段，废一次就等于这波击杀机会没了。</b>变之前先清场。',
+    '<sk>树皮术</sk> 是减伤，不影响控制生效。',
+    '让队友先控不解决"我的暴风雪还在地上"这个问题。'],
+ k:'变形之前先清场。自己的范围技能是最容易被忘掉的那个破控源。'},
+
+{id:'druid2',t:'druid',d:2,s:'你在打恢复德，他满血、<sk>树皮术</sk> 和各种形态都在。队友让你"压住他"。',a:'"压住"该怎么理解？',
+ o:['全力输出把他打死','用 <sk>变形术</sk> 把他摘出去几秒，让队友杀别人','一直贴着他输出，逼他不能治疗','打断他的每一个治疗'],r:1,
+ e:['<b>满状态恢复德几乎不可能被单杀。</b>你花整局也打不死他。',
+    '正解。<b>你的价值是"让他不存在"，不是"让他死"。</b><sk>变形术</sk> 能把他从战斗里摘出去几秒，那几秒队友可以自由输出别人。<b>这是冰法在团队里最独特的价值。</b>',
+    '法师不"贴着"任何人，而且持续输出打不穿他的自愈。',
+    '打断有价值，但德鲁伊很多治疗是瞬发或可以切形态规避，光靠打断压不住。'],
+ k:'难杀的治疗不是拿来杀的，是拿来摘出去的。变形术是冰法在团队里最独特的价值。'},
+
+{id:'mage',t:'mage',d:3,s:'镜像对局。你把对面法师打到 <em>25%</em>，他按下 <sk>寒冰屏障</sk>。你的窗口还剩一些。',a:'现在做什么？',
+ o:['守在他身边，屏障一破立刻接上','走开去做别的事','继续输出，能打穿一点','控住他，不让他解除'],r:0,
+ e:['正解。<b><sk>寒冰屏障</sk> 期间法师不能移动、不能威胁你，而且它有固定时长。</b>他只剩 25%，屏障一破就是击杀机会。<b>守在旁边、保持你的碎冰资源和窗口余量，破的那一刻接上。</b>这是少数"该守"的情况——因为目标已经在击杀线上。',
+    '走开是对<b>满血目标</b>的正确做法。25% 的目标走了等于放掉一次已经成型的击杀。',
+    '寒冰屏障是完全免疫，打进去是 0。',
+    '屏障期间他免疫控制。而且他通常会主动提前解除来抢节奏——你该准备接住那一刻。'],
+ k:'免疫牌怎么处理取决于目标在不在击杀线上。满血 → 走；残血 → 守着等它过期。'},
+
+{id:'shaman',t:'shaman',d:2,s:'你准备用 <sk>变形术</sk> 控住恢复萨。地上有几个图腾，其中一个你<em>不认识</em>。',a:'先做什么？',
+ o:['直接变形，机会不等人','先看清那个图腾——破控图腾会让你的变形直接失效','先打掉萨满的护盾','让队友先控'],r:1,
+ e:['<b>不认识的图腾就是不确定的变量。</b>把最重要的控制赌在一个没看清的东西上，是最差的决策。',
+    '正解。<b>破控类图腾能直接把你的 <sk>变形术</sk> 解掉。</b>图腾血量极低，认出来了顺手打掉就行——<b>这点成本远低于浪费一次变形术的代价</b>。萨满对局的"目标"经常不是玩家，而是一个正在改变规则的图腾。',
+    '护盾不影响控制生效。',
+    '让队友先控不解决图腾会破控这个问题。'],
+ k:'用你最重要的控制之前，先排除场上你没看懂的变量。'},
+
+{id:'warlock',t:'warlock',d:2,s:'你在空地上跟术士对射，身上挂满他的持续伤害，血在稳定掉。你的位移和 <sk>法术反制</sk> 都好。',a:'第一件事做什么？',
+ o:['<sk>法术反制</sk> 断他的读条','去柱子后面，逼他移动','开 <sk>寒冰护体</sk> 硬顶着对射','用位移拉开距离'],r:1,
+ e:['断一个技能只解决一次伤害，<b>你身上那一整套持续伤害还在掉血，而且空地上他很快能接着读</b>。',
+    '正解。<b>别在空地上跟术士比消耗——他的有效血量比你高得多，这个模型你赢不了。</b>用柱子逼他移动：<b>他移动就不能读条，不读条就没有伤害</b>。这不花任何冷却，而且能重置整个交战节奏。',
+    '硬顶只是推迟问题，而且对射你是输的一方。',
+    '拉开距离对远程职业没用——他射程跟你一样。<b>问题不是距离，是视线。</b>'],
+ k:'对远程职业先解决"视线"，不是"距离"。柱子比任何冷却都便宜。'},
+
+{id:'monk',t:'monk',d:1,s:'你在全力输出风行武僧，他按下 <sk>业报之触</sk>。',a:'继续打会怎样？',
+ o:['伤害被化解一部分，还能打进去','伤害被化解<b>并反弹到你身上</b>，等于你在打自己','没影响，业报只是减伤','他的技能时间会延长'],r:1,
+ e:['化解只是一半，另一半更严重。',
+    '正解。<b><sk>业报之触</sk> 化解伤害并反弹给你。</b>而法师血薄，反弹的伤害对你尤其疼。<b>亮起就停手、转火或控制</b>——这是最典型的送分点。',
+    '它不是普通减伤。',
+    '跟技能时长无关。'],
+ k:'反弹类技能比免疫更危险——免疫只是白打，反弹是自伤。血薄的职业尤其要立刻停。'},
+
+{id:'dh',t:'dh',d:2,s:'DH 一直贴着你，你的单体定身刚被他的位移躲开或挣脱。你的 <sk>冰霜之环</sk> 和 <sk>冰墙</sk> 都好。',a:'哪个更可能有效？',
+ o:['继续用单体控制，多试几次','用区域型手段（<sk>冰霜之环</sk> / <sk>冰墙</sk>）——他的位移能躲单点，躲不开一整片','开 <sk>寒冰屏障</sk>','跑，用速度甩掉他'],r:1,
+ e:['同样的手段重复用会得到同样的结果，而且还会吃递减。',
+    '正解。<b>DH 的机动性让单体控制经常落空或被立刻挣脱。</b><sk>冰霜之环</sk> 和 <sk>冰墙</sk> 这类<b>区域型手段覆盖的是"他必须经过的空间"</b>——他的位移能躲开一个点，但躲不开一整片区域或一堵墙。',
+    '屏障是重置键，出来他还在。',
+    '法师跑不过 DH。'],
+ k:'对高机动目标，控制"空间"比控制"这个人"更容易生效。'},
+
+{id:'evoker',t:'evoker',d:2,s:'你在打唤魔师，他开始蓄力一个技能。你的 <sk>法术反制</sk> 和 <sk>冰霜新星</sk> 都好。',a:'用哪个中断？',
+ o:['<sk>法术反制</sk>，最直接','<sk>冰霜新星</sk> 或其他控制——同样能中断，把反制留给关键的那一个','都不用','等他放完再说'],r:1,
+ e:['能断，但浪费。<b>唤魔师的蓄力技能反复出现</b>，每次都用反制，关键时刻你手上就没牌了。',
+    '正解。<b>控制类技能同样能中断施法，且不占 <sk>法术反制</sk> 的冷却。</b>用便宜的手段处理高频蓄力，把反制省给真正必须断的那一个（关键治疗、大爆发）。',
+    '<b>唤魔师是打断价值最高的对局之一</b>——蓄力被断损失极大，而且蓄力期间他不能做别的事。',
+    '让他放完是最差的选择。'],
+ k:'中断有很多种，法术反制只是最贵的一种。能用控制解决的别用反制。'},
+
+{id:'paladin2',t:'paladin',d:3,s:'你正在打惩戒骑，他血量 <em>35%</em>，你的碎冰窗口还剩一半。他按下 <sk>破咒祝福</sk>（免疫魔法伤害）。',a:'现在做什么？',
+ o:['继续打，35% 血打穿一点就死','立刻转火或停手——你是纯法伤，这对你等于全免疫','控住他等免疫结束','用物理攻击补伤害'],r:1,
+ e:['<b>"免魔法"对冰法等于"全免疫"。</b>35% 看起来近在咫尺，正是这种时候最容易把整个窗口喂进去。',
+    '正解。冰法的伤害全是魔法，<sk>破咒祝福</sk> 期间你打进去接近于零。<b>窗口还在燃烧 → 有转火对象就转火；没有就停手保存资源，等它结束再收。</b>',
+    '控制也是魔法效果，多半进不去。',
+    '法师没有有意义的物理输出。'],
+ k:'看免疫要对照自己的伤害类型。对纯法伤职业，"免魔法"和"全免疫"没有区别。'},
+
+{id:'hunter2',t:'hunter',d:1,s:'你在打猎人，他突然 <sk>假死</sk>，你掉了目标也脱战了。',a:'第一反应是什么？',
+ o:['原地放范围技能把他打出来','立刻重新选中并继续——他人还在原地','退回去重整','先打他的宠物'],r:1,
+ e:['<sk>假死</sk> 不是隐身，他人还站在那。范围技能是多余动作。',
+    '正解。<b><sk>假死</sk> 让你掉目标并脱战，但他没有消失。</b>立刻重新选中继续压。<b>犹豫的那两秒他就重新拉开距离了</b>，而猎人一旦拉开你很难再建立压力。',
+    '退回去等于放他重整。',
+    '伤害源不是宠物。'],
+ k:'假死掉目标不等于人跑了。反应速度决定你保不保得住这一轮的压力。'},
+
+{id:'monk2',t:'monk',d:3,s:'你想用 <sk>冰霜之环</sk> 挡住织雾武僧接近你的路线。他的传送<em>是好的</em>。',a:'这个布置有什么问题？',
+ o:['没问题，冰霜之环覆盖面够大','他的传送能直接跳过整片区域，布置会落空','冰霜之环对武僧无效','应该用单体控制'],r:1,
+ e:['覆盖面大解决不了"他根本不经过这片区域"的问题。',
+    '正解。<b>区域型控制的前提是"他必须经过这片空间"。</b>武僧的传送能直接跳过去——<b>先确认他的位移在不在冷却，再布置</b>。这跟"用烟雾弹前要看对面有没有瞬移"是同一类判断。',
+    '冰霜之环对武僧有效，问题在他能绕过去。',
+    '单体控制对高机动目标同样容易落空——问题不在类型，在时机。'],
+ k:'区域型手段的前提是对方必须经过那片空间。先确认他的位移在冷却，再布置。'},
+
+{id:'dh2',t:'dh',d:3,s:'你在打浩劫 DH，他血量 <em>50%</em>。他按下 <sk>虚空行走</sk>（全免疫且可移动）。',a:'跟法师的 <sk>寒冰屏障</sk> 有什么区别？',
+ o:['没区别，都是全免疫','寒冰屏障期间不能移动，虚空行走可以——所以你不能站在原地等','虚空行走时间更短','虚空行走不免疫控制'],r:1,
+ e:['都是全免疫没错，但<b>处理方式完全不同</b>。',
+    '正解。<b><sk>寒冰屏障</sk> 期间法师不能移动，所以你可以守在原地等它过期；<sk>虚空行走</sk> 可以移动</b>——DH 会趁这几秒重新定位、绕到你队友身上、或者直接贴死你。<b>这几秒你要做的是跟住他的位置、预判他去哪，而不是站着数时间。</b>',
+    '时长不是关键区别。',
+    '它同样免疫控制。'],
+ k:'"可移动的免疫"和"不可移动的免疫"要分开处理。前者你在跟位置，后者你在等时间。'},
+
+{id:'shaman2',t:'shaman',d:2,s:'你正在用 <sk>冰霜射线</sk> 引导，输出很顺。增强萨从侧面靠近。',a:'该注意什么？',
+ o:['没事，射线伤害高，继续引导','他的击退会打断你的引导——引导前就该确认他的击退在冷却','应该切换目标打他','开 <sk>寒冰护体</sk>'],r:1,
+ e:['"继续引导"忽略了引导被打断就颗粒无收。',
+    '正解。<b>萨满的击退会中断你的引导</b>，而 <sk>冰霜射线</sk> 是持续引导——被打断就白费。<b>用引导技能之前就该确认：他的击退在不在冷却、他能不能够到我。</b>这跟"引导期间不能移动"是同一个代价问题。',
+    '切换目标浪费了已经引导的部分，而且没解决判断问题。',
+    '护体是减伤，不阻止击退和打断。'],
+ k:'引导技能的成本是"这几秒我被钉住"。用之前先买好这几秒的安全，包括防击退。'},
+
+{id:'priest2',t:'priest',d:3,s:'你和队友想控住戒律牧。你打算 <sk>变形术</sk>，但他<em>身上挂着你队友的一个持续伤害</em>。',a:'这个计划的问题是什么？',
+ o:['没问题，变形术和持续伤害不冲突','持续伤害会立刻打破变形，控制根本不成立','应该先打掉他的护盾','变形术距离不够'],r:1,
+ e:['<sk>变形术</sk> 是受伤即破的控制。',
+    '正解。<b>队友的持续伤害会立刻打破你的 <sk>变形术</sk>。</b>而变形术往往是团队唯一能把治疗摘出去几秒的手段——<b>废一次就等于这波击杀机会没了。</b>正确做法是先跟队友沟通、让持续伤害掉了再变，或者换一个不吃伤害的控制类型。',
+    '护盾不影响控制生效。',
+    '距离是能不能按的问题，不是能不能成立的问题。'],
+ k:'变形之前要清的不只是自己的伤害，还有队友挂在目标身上的。沟通是控制链的一部分。'},
+
+{id:'mage2',t:'mage',d:2,s:'镜像对局。你和对面法师互相对拼，你注意到他<em>每次读 <sk>寒冰箭</sk> 都读满</em>，从不假读。',a:'这个信息怎么用？',
+ o:['没什么用','说明他不会假读——你的 <sk>法术反制</sk> 可以放心地断，不用怕被骗','说明他很自信','应该模仿他'],r:1,
+ e:['对手的施法习惯是重要信息。',
+    '正解。<b>假读条的意义就是骗掉对面的打断。</b>他从不假读，意味着<b>你的 <sk>法术反制</sk> 可以放心用在他的关键读条上，不用担心被骗</b>。反过来，你自己应该继续假读——他会一直上当。<b>镜像对局很大程度上是在读对方的施法习惯。</b>',
+    '"自信"不是可操作的结论。',
+    '模仿一个更差的习惯没有意义。'],
+ k:'观察对手的施法习惯是可操作的情报。他不假读，你的打断就是安全的。'},
+
+{id:'warlock2',t:'warlock',d:3,s:'术士给你上了一个 <sk>恐惧</sk>，你被控住。控制结束后你发现<em>身上挂满了持续伤害</em>，而他正在读一个大伤害技能。',a:'先做什么？',
+ o:['断他的读条','先脱离他的视线，让持续伤害自然消退','用 <sk>法术反制</sk> 断，然后继续对射','开 <sk>寒冰屏障</sk> 解掉所有效果'],r:3,
+ e:['断一个读条解决不了你身上一整套持续伤害的问题，而且你现在血线可能已经很危险。',
+    '脱离视线方向对，<b>但持续伤害不会因为看不见就消退</b>——它会继续掉你的血。这是理解上的错误。',
+    '继续对射就是继续输——你身上挂满持续伤害，他没有。',
+    '正解。<b><sk>寒冰屏障</sk> 期间免疫一切，而且能解掉身上所有效果</b>——包括那一整套持续伤害。<b>这是屏障在术士对局最正确的用法：不是躲一次爆发，是一次性清掉存量。</b>出来之后你是干净的，再去用柱子重新建立节奏。'],
+ k:'寒冰屏障能解掉身上所有效果。面对持续叠加型伤害，用它清存量比用它躲单发值钱。'},
+
+{id:'evoker2',t:'evoker',d:3,s:'你的碎冰窗口和爆发都齐了。唤魔师的 <sk>悬空</sk> <em>刚刚用过</em>，但你的 <sk>冰霜新星</sk> <em>在冷却</em>，而对面还有一个近战在场上。',a:'开不开？',
+ o:['开，他跑不掉了','开，但要预设近战一贴上来就停——你没有拉开的手段','不开，等冰霜新星好','先处理近战'],r:1,
+ e:['"他跑不掉"只算了唤魔师，<b>没算你自己站不站得住</b>。',
+    '正解。<b>唤魔师的 <sk>悬空</sk> 在冷却确实是好窗口，但你缺"我站得住"这一条。</b>四条件里缺哪一条，就决定了这一轮能走多远——<b>开可以开，但要预设"近战一贴上来我就停"，而不是把资源全倒完</b>。这跟"缺退路时压，就得压得能随时停"是同一条。',
+    '完全不开会错过唤魔师位移冷却的窗口，那不常有。',
+    '处理近战方向对，但你没有 <sk>冰霜新星</sk>，处理手段有限，而且会错过窗口。'],
+ k:'算窗口要同时算对手的和自己的。缺哪一条，就决定这一轮能走多远。'},
+{id:'x1',t:'general',d:2,s:'目标身上<em>有 2 层 <sk>深冬之寒</sk></em>，你有 1 层 <sk>寒冰指</sk>，<sk>冰川尖刺</sk> 已就绪，<sk>冰霜新星</sk> 也好。<em>没有近战靠近你</em>。',a:'这一下按什么？',
+ o:['<sk>冰霜新星</sk> 制造更多碎冰','<sk>冰川尖刺</sk>（消耗深冬之寒）','<sk>冰枪术</sk>（消耗寒冰指）','<sk>寒冰箭</sk> 稳一点'],r:1,
+ e:['没有近战靠近时，<sk>冰霜新星</sk> 是浪费——<b>而且它是你的保命技，用来打伤害之前要先算安全</b>。目标身上已经有碎冰前提了。',
+    '正解。<b>深冬之寒是有层数和时限的，要在它掉之前把最大的伤害塞进去。</b><sk>冰川尖刺</sk> 是你单发伤害最高的技能，<b>让它吃到碎冰待遇收益最大</b>。<sk>寒冰指</sk> 是独立的钥匙，可以留给下一发。',
+    '<sk>冰枪术</sk> 单发伤害远低于 <sk>冰川尖刺</sk>，<b>用碎冰窗口去乘一个小数字是浪费</b>。',
+    '<sk>寒冰箭</sk> 是常态主力，但在碎冰窗口里应该放伤害更高的。'],
+ k:'碎冰窗口要乘在最大的那一发上。深冬之寒有时限，优先塞高伤害技能进去。'},
+
+{id:'x2',t:'general',d:3,s:'你 <sk>变形术</sk> 控住了对面治疗。此刻你的 <sk>寒冰宝珠</sk> <em>正沿地面朝那个方向移动</em>，你的水元素也在场上。',a:'最可能发生什么？',
+ o:['宝珠移动路径经过治疗时会打破变形','没事，宝珠只打你的当前目标','变形时间会缩短','水元素会自动停止攻击'],r:1,
+ e:['正解。<b><sk>寒冰宝珠</sk> 是移动的范围伤害，会打到路径上的所有敌人</b>——包括刚被变形的那个。<b>这是法师最经典的自伤陷阱：变形之前要清场，而"场"包括正在飞的宝珠、地上的暴风雪、以及你的水元素。</b>',
+    '宝珠是范围伤害，不是单体。',
+    '不是缩短，是直接破掉。',
+    '水元素会继续攻击它的当前目标，需要你手动处理。'],
+ k:'变形之前要清场：正在飞的宝珠、地上的暴风雪、你的水元素，全是破控源。'},
+
+{id:'x3',t:'general',d:2,s:'一个战士冲到你脸上，<em>他的打断刚刚用掉</em>。你的队友血量健康，目标（对面 DPS）血量 <em>50%</em>。',a:'这几秒最该做什么？',
+ o:['<sk>冰霜新星</sk> 定住战士，拉开距离','趁他打断在冷却，读一发大伤害','开 <sk>寒冰护体</sk> 防身','<sk>寒冰屏障</sk> 重置'],r:1,
+ e:['拉开是对的方向，<b>但你刚拿到一个稀缺的"安全读条窗口"</b>——战士的打断在冷却，这时候他贴着你反而不可怕。',
+    '正解。<b>对面打断的冷却是法师最有价值的情报。</b>他的打断刚用掉，意味着<b>接下来这段时间你可以放心读条</b>——而这种窗口不常有。<b>贴脸不等于不能施法，关键是他有没有打断。</b>',
+    '护体是常态挂着的，不解决"我要不要输出"这个问题。',
+    '<sk>寒冰屏障</sk> 是重置键，血量健康时用是巨大浪费。'],
+ k:'贴脸不可怕，有打断才可怕。记住对面每个打断的冷却，那决定你什么时候能读条。'},
+
+{id:'x4',t:'general',d:2,s:'你被 DK 用死亡之握拽了回去，身上有减速，他正准备开爆发。<sk>暗影斗篷</sk>… 你是法师，没有斗篷。你的 <sk>寒冰屏障</sk>、<sk>急速冷却</sk>、<sk>寒冰护体</sk> 可用。',a:'先按哪个？',
+ o:['<sk>寒冰屏障</sk>，全免疫最安全','<sk>急速冷却</sk>，重置冰系控制拉开距离','<sk>寒冰护体</sk> 硬顶','原地读 <sk>冰霜新星</sk>'],r:1,
+ e:['<sk>寒冰屏障</sk> 期间你<b>不能移动</b>——出来之后 DK 还在你脸上，处境完全没变。它是重置键，但你得先知道出来往哪走。',
+    '正解。<b><sk>急速冷却</sk> 重置你的冰系控制</b>，让你重新拿到 <sk>冰霜新星</sk> 定住他并拉开。<b>这是能真正改变处境的选项，而不是推迟处境。</b>DK 的死亡之握有冷却，拉开之后你有一段安全时间。',
+    '护体扛不住 DK 的完整爆发，而且不解决位置问题。',
+    '<sk>冰霜新星</sk> 是瞬发不用读——但如果它在冷却（这题的前提是你需要急速冷却来重置它），你按不出来。'],
+ k:'保命要分"解决问题"和"推迟问题"。不能移动的免疫解决不了"我被贴着"。'},
+
+{id:'x5',t:'general',d:3,s:'你准备用 <sk>冰霜射线</sk> 收掉一个 <em>20% 血</em>的目标。场上还有一个近战<em>被你的队友控住，控制还剩约 2 秒</em>。',a:'现在开始引导吗？',
+ o:['开，20% 血一发射线就够','不开——控制只剩 2 秒，引导会在他解开后被打断','开，同时准备被打断','换 <sk>冰枪术</sk> 收'],r:1,
+ e:['<sk>冰霜射线</sk> 是<b>持续引导</b>，需要完整的几秒。控制只剩 2 秒意味着<b>引导刚开始他就自由了</b>。',
+    '正解。<b>引导技能的成本是"这几秒我被钉在原地且经不起打断"。</b>用它之前必须买好这段时间的安全——<b>控制剩余时间必须覆盖你的引导时间</b>。2 秒不够，那近战解开后第一件事就是打断你。',
+    '"准备被打断"等于准备白费。',
+    '换瞬发或短读条技能是<b>正确的思路</b>，但这题问的是"要不要开引导"——理解引导的时间成本才是关键。'],
+ k:'引导技能之前先算"安全时间够不够覆盖引导时长"。控制剩余时间不够就别开。'},
+
+{id:'x6',t:'general',d:1,s:'你的 <sk>操控时间</sk> 可用，当前血量 <em>90%</em>，对面还没开始集火你。',a:'什么时候按最好？',
+ o:['现在按','等被打到 50% 再按','等被打到 25% 危险时按','留着不用，防万一'],r:0,
+ e:['正解。<b><sk>操控时间</sk> 会在几秒后把你的血量和位置拉回按下时的状态</b>——所以它<b>存的是"按下那一刻的血量"</b>。90% 时按，然后放心去吃一波伤害，几秒后血自动回到 90%。<b>血越高时按，价值越大。</b>',
+    '50% 时按，几秒后你被拉回 50%——只救回了一半。',
+    '25% 时按存的就是 25%，几乎等于没救，而且你可能撑不到它生效。',
+    '它有冷却，不用就是浪费。'],
+ k:'操控时间存的是按下那一刻的状态。血满时按才有意义，血少了再按等于存了个低血量。'},
+
+{id:'x7',t:'general',d:2,s:'对面是<em>圣骑士 + 治疗</em>。你把惩戒骑打到 <em>33%</em>，他按下 <sk>破咒祝福</sk>（免疫魔法伤害）。你的碎冰窗口还剩一半。',a:'现在做什么？',
+ o:['继续打，33% 血打穿一点就死','立刻转火他的治疗队友','停手等免疫结束','用控制把免疫时长吃掉'],r:1,
+ e:['<b>"免魔法"对冰法等于"全免疫"</b>——你的伤害全是法伤。33% 看起来近，正是这种时候最容易把整个窗口喂进去。',
+    '正解。<b>你的窗口还在燃烧，而目标此刻不可伤害。</b>把这几秒的伤害倒在他的治疗身上——<b>至少能压出对面的自保，或者打断他的治疗节奏</b>。这跟"目标开免疫就转火"是同一条。',
+    '停手等于把剩下半个窗口扔了。',
+    '控制也是魔法效果，<sk>破咒祝福</sk> 期间多半进不去。'],
+ k:'对纯法伤职业，"免魔法"和"全免疫"没有区别。窗口还在就转火，不要停也不要硬打。'},
+
+{id:'x8',t:'general',d:3,s:'你的 <sk>冰冷血脉</sk>、<sk>寒冰宝珠</sk>、<sk>冰霜射线</sk> 全好。目标是<em>满血且免疫全在</em>的猎人，你的队友刚交完一波爆发没打动。',a:'开不开爆发？',
+ o:['开，冷却好了就该用','不开，先用常态伤害逼掉他的 <sk>灵龟守护</sk>','开，但只用宝珠','换目标'],r:1,
+ e:['<b>本版冰法削了爆发、加了常态</b>——一个窗口带不走一个满血且免疫全在的目标。全交等于把最强的几秒喂给他的防御池。',
+    '正解。<b>本版的赢法是"持续压制 + 一波收"。</b><sk>寒冰箭</sk> 在 PvP 里伤害 +100%，用常态伤害逼他交掉 <sk>灵龟守护</sk>，<b>等他没牌了、血线低了，那时的碎冰窗口才真的能杀人</b>。',
+    '拆开用会浪费宝珠作为裂片引擎的价值，也没解决"目标满牌"。',
+    '换目标可能对，但这题的核心是理解"爆发要落在没牌的目标身上"。'],
+ k:'爆发窗口要落在"他已经没牌了"的时刻。CD 好了不是开的理由。'},
+
+{id:'x9',t:'general',d:2,s:'你准备开碎冰窗口。对面有一个法师，他的 <sk>法术反制</sk> <em>是好的</em>，而且他正盯着你。',a:'开窗口之前先做什么？',
+ o:['直接开，速度快他来不及断','假读一个 <sk>寒冰箭</sk> 骗掉他的反制','用 <sk>冰霜新星</sk> 定住他','开 <sk>寒冰护体</sk>'],r:1,
+ e:['"来不及断"是赌博。<b>爆发窗口里被锁学派，损失的是整轮。</b>',
+    '正解。<b>假读条是法师的核心技巧。</b>起一个 <sk>寒冰箭</sk>，读条快完成时主动打断自己——对面会本能地交反制，<b>他的打断就白花了，接下来那几秒你可以自由施法</b>。成本只有一个读条时间，换整轮的自由。',
+    '定身不阻止施法打断（很多打断在定身里照样能按）。',
+    '护体是减伤，不解决"我会被锁学派"。'],
+ k:'开窗口之前先骗打断。一个假读条换整轮自由施法，这笔交易永远划算。'},
+
+{id:'x10',t:'general',d:2,s:'你的队友（近战）正在追一个远程，被拉开了距离。你手上有 <sk>冰霜之环</sk> 和 <sk>冰霜新星</sk>，那个远程在<em>你的射程内但离你队友有一段距离</em>。',a:'用哪个帮队友接上？',
+ o:['<sk>冰霜新星</sk>，直接定住他','<sk>冰霜之环</sk>，布在他的退路上','都不用，让队友自己追','两个都用'],r:1,
+ e:['<sk>冰霜新星</sk> 是<b>以你为中心的范围技能</b>——那个远程离你队友有距离，很可能也不在你的新星范围内。',
+    '正解。<b><sk>冰霜之环</sk> 是可以指定位置放置的区域控制</b>，能布在目标的退路上，<b>覆盖"他必须经过的空间"</b>。这是帮近战队友接上远程目标最有效的手段。',
+    '你的队友追不上，这就是问题。',
+    '同时用是浪费，而且新星大概率够不到。'],
+ k:'冰霜新星是以自己为中心的，冰霜之环是可指定位置的。帮队友接人要用后者。'}
+];
+
+/* ============ 训练逻辑 ============ */
+const NAME={general:'通用手法'},ICO={general:null};
+CLASSES.forEach(c=>{NAME[c.id]=c.n;ICO[c.id]=c.ic});
+const DIFF={1:['基础 · 机制','d1'],2:['进阶 · 时机','d2'],3:['高阶 · 权衡','d3']};
+document.getElementById('pcount').textContent=Q.length+' 道判断题';
+const fCat=document.getElementById('fCat'),fDiff=document.getElementById('fDiff');
+[...new Set(Q.map(q=>q.t))].forEach(t=>{
+  const o=document.createElement('option');o.value=t;
+  o.textContent=NAME[t]+'（'+Q.filter(q=>q.t===t).length+'）';fCat.appendChild(o)});
+
+const STORE='banyeFrostMagePvP1207';
+let stats={played:0,correct:0,best:0,wrong:[]};
+try{stats={...stats,...JSON.parse(localStorage.getItem(STORE)||'{}')}}catch(e){}
+let run=[],qi=0,score=0,streak=0,answered=false,wrongMode=false;
+function save(){try{localStorage.setItem(STORE,JSON.stringify(stats))}catch(e){}updStats()}
+function updStats(){
+  document.getElementById('stPlayed').textContent=stats.played;
+  document.getElementById('stAcc').textContent=stats.played?Math.round(stats.correct/stats.played*100)+'%':'—';
+  document.getElementById('stBest').textContent=stats.best;
+  document.getElementById('stWrong').textContent=stats.wrong.length;
+  document.getElementById('topAcc').textContent='正确率 '+(stats.played?Math.round(stats.correct/stats.played*100)+'%':'—');
+}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function clearFilter(){fCat.value='all';fDiff.value='all';startQuiz(false)}
+function startQuiz(w){
+  wrongMode=!!w;
+  let pool=Q.filter(q=>(fCat.value==='all'||q.t===fCat.value)&&(fDiff.value==='all'||q.d==+fDiff.value));
+  if(wrongMode)pool=pool.filter(q=>stats.wrong.includes(q.id));
+  if(!pool.length){
+    document.getElementById('quizArea').innerHTML='<div class="qcard done"><div class="big">○</div><p>'+
+      (wrongMode?'错题库里没有符合这个筛选的题。先做一轮普通训练，答错的会自动进来。':'这个筛选下没有题目，换一个范围或难度。')+
+      '</p><button class="btn" onclick="clearFilter()">开始混合训练</button></div>';return}
+  run=shuffle(pool).slice(0,10);run.forEach(q=>q._perm=null);qi=0;score=0;streak=0;answered=false;render();
+}
+function render(){
+  const area=document.getElementById('quizArea'),q=run[qi];answered=false;
+  if(!q._perm)q._perm=shuffle(q.o.map((_,i)=>i));
+  const tagIco=ICO[q.t]?'<img src="'+IC(ICO[q.t])+'" alt="" onerror="this.style.display=\'none\'">':'';
+  area.innerHTML='<div class="qcard">'+
+   '<div class="qmeta"><span class="qtag">'+tagIco+NAME[q.t]+'</span>'+
+   '<span class="qtag '+DIFF[q.d][1]+'">'+DIFF[q.d][0]+'</span>'+
+   '<span class="qtag">'+(wrongMode?'错题重练 ':'')+(qi+1)+' / '+run.length+'</span></div>'+
+   '<div class="prog"><i style="width:'+(qi/run.length*100)+'%"></i></div>'+
+   '<div class="qscene">'+q.s+'</div><div class="qask">'+q.a+'</div>'+
+   '<div class="opts">'+q._perm.map((oi,i)=>'<div><button class="opt" data-i="'+i+'" onclick="pick('+i+')">'+
+     '<span class="idx">'+(i+1)+'</span><span>'+q.o[oi]+'</span></button><div class="fb" id="fb'+i+'"></div></div>').join('')+'</div>'+
+   '<div class="rule" id="rule"><div class="h">可迁移的那一条</div><div class="t">'+q.k+'</div></div>'+
+   '<div class="qfoot"><button class="btn" id="next" onclick="next()" disabled>'+(qi===run.length-1?'查看结果':'下一题 →')+'</button>'+
+   '<span style="color:var(--tx3);font-size:12.5px" id="hint">按 <span class="kbd">1</span><span class="kbd">2</span><span class="kbd">3</span><span class="kbd">4</span> 选择，<span class="kbd">Enter</span> 下一题</span></div></div>';
+  paintSK(area);
+}
+function pick(i){
+  if(answered)return;answered=true;
+  const q=run[qi],orig=q._perm[i],ok=orig===q.r;
+  stats.played++;
+  if(ok){stats.correct++;score++;streak++;stats.best=Math.max(stats.best,streak);stats.wrong=stats.wrong.filter(x=>x!==q.id)}
+  else{streak=0;if(!stats.wrong.includes(q.id))stats.wrong.push(q.id)}
+  save();
+  document.querySelectorAll('.opt').forEach(b=>{
+    const bi=+b.dataset.i,bo=q._perm[bi];b.classList.add('locked');
+    if(bo===q.r)b.classList.add('right');else if(bi===i)b.classList.add('wrong');else b.classList.add('dim');
+    if(bo===q.r||bi===i){
+      const fb=document.getElementById('fb'+bi);
+      fb.className='fb show '+(bo===q.r?'g':'b');
+      fb.innerHTML='<span class="h">'+(bo===q.r?'✓ 正解':'✕ 你的选择')+'</span>'+q.e[bo];}});
+  paintSK(document.getElementById('quizArea'));
+  document.getElementById('rule').classList.add('show');
+  document.getElementById('next').disabled=false;
+  document.getElementById('hint').innerHTML=ok?'判断正确 · <span class="kbd">Enter</span> 继续':'想清楚为什么 · <span class="kbd">Enter</span> 继续';
+}
+function next(){
+  if(!answered)return;
+  if(qi<run.length-1){qi++;render();window.scrollTo({top:document.querySelector('nav').offsetTop,behavior:'smooth'})}
+  else{
+    const pct=Math.round(score/run.length*100);
+    const txt=pct>=90?'你已经在看"目标冻没冻着"，不是在背循环。':pct>=70?'基础判断成立，把错题再过一轮。':'先回骨架页把"该收还是该磨"的四条件过一遍。';
+    document.getElementById('quizArea').innerHTML='<div class="qcard done"><div class="big">'+score+' / '+run.length+'</div>'+
+      '<p>'+pct+'% · '+txt+'</p><div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap">'+
+      '<button class="btn" onclick="startQuiz(false)">再来 10 题</button>'+
+      (stats.wrong.length?'<button class="btn ghost" onclick="startQuiz(true)">练错题（'+stats.wrong.length+'）</button>':'')+
+      '<button class="btn ghost" onclick="showView(\'s1\')">回看骨架</button></div></div>';
+  }
+}
+function resetStats(){if(confirm('清空这台浏览器里的训练记录？')){stats={played:0,correct:0,best:0,wrong:[]};save();startQuiz(false)}}
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('s4').classList.contains('on'))return;
+  if(['1','2','3','4'].includes(e.key)&&!answered){const b=document.querySelector('.opt[data-i="'+(+e.key-1)+'"]');if(b)b.click()}
+  if(e.key==='Enter'&&answered){const b=document.getElementById('next');if(b&&!b.disabled)b.click()}
+});
+updStats();startQuiz(false);
+
+/* ============ 速查 ============ */
+const IMM=[['反魔法护罩','死骑 · 免魔法 = 对你全免疫'],['破咒祝福','圣骑士 · 免魔法 = 对你全免疫'],['暗影斗篷','潜行者 · 免魔法 = 对你全免疫'],['圣盾术','圣骑士 · 全免疫'],['虚空行走','恶魔猎手 · 全免疫，可移动'],['业报之触','武僧 · 化解并反弹，你血薄尤其疼'],['灵龟守护','猎人 · 只免伤害，不免控'],['寒冰屏障','法师 · 全免疫，不能移动']];
+document.getElementById('sheet').innerHTML=
+ '<div class="sc wide"><h4>三条铁律</h4><div class="big3">'+
+  [['1','没冻着 = 普通伤害','先用 <sk>冰风暴</sk> 挂 <sk>深冬之寒</sk>，再倒伤害。顺序反了每一发都在打折。'],
+   ['2','你自己的范围伤害会破你自己的变形','<sk>暴风雪</sk>、<sk>寒冰宝珠</sk>、水元素、队友的持续伤害——变之前先清场。'],
+   ['3','站得住才有输出','法师被贴住等于废了一半。<sk>冰霜新星</sk> 的第一身份是保命，第二才是碎冰。']]
+  .map(x=>'<div class="b3"><div class="n">'+x[0]+'</div><div><div class="tt">'+x[1]+'</div><div class="dd">'+x[2]+'</div></div></div>').join('')+'</div></div>'+
+
+ '<div class="sc"><h4>该收还是该磨 · 四条件</h4><div class="big3">'+
+  COND.map((c,i)=>'<div class="b3"><div class="n">'+(i+1)+'</div><div><div class="tt">'+c.t+'</div><div class="dd">'+c.d+'</div></div></div>').join('')+
+  '</div></div>'+
+
+ '<div class="sc"><h4>本版最要紧的两个变化</h4><div class="line">'+
+  '● <b>爆发削了，常态加了</b>：<sk>寒冰箭</sk> PvP 伤害 +100%，<sk>冰风暴</sk> +75%；<sk>冰冷智慧</sk> 加成 50%→25%，<sk>冰霜射线</sk> -20%<br>'+
+  '● <b>打法从"一波秒"变成"磨 + 一波收"</b>：寒冰箭不是填充技，是主力<br>'+
+  '<span style="color:var(--tx3);font-size:13px"><sk>寒冰宝珠</sk> 是 Spellslinger 的裂片引擎，别当减速技随手扔。</span>'+
+  '</div></div>'+
+
+ '<div class="sc wide"><h4>看到这些图标 · 立刻停手或转火</h4><div class="imm">'+
+  IMM.map(x=>'<div class="immc">'+icoOnly(x[0],26)+'<div><div class="n">'+x[0]+'</div><div class="w">'+x[1]+'</div></div></div>').join('')+
+  '</div></div>'+
+
+ '<div class="sc"><h4>三个高频误判</h4><div class="line">'+
+  '● 变形之后自己的 <sk>暴风雪</sk> 还在地上 —— 控制立刻破<br>'+
+  '● <sk>操控时间</sk> 等血少了才按 —— 存的是低血量，白救<br>'+
+  '● 一边跑一边打 —— 既拉不开也打不疼'+
+  '</div></div>'+
+
+ '<div class="sc"><h4>天赋定盘</h4><div class="line">'+
+  '英雄天赋：<b>法术之刃 Spellslinger</b>（50/50 全用）<br>'+
+  'PvP 必带：<b>Overpowered Barrier</b> 50/50 + <b>Improved Mass Invisibility</b> 50/50<br>'+
+  '情境：<b>Master Shepherd</b> 36/50 · <sk>冰墙</sk> 9/50<br>'+
+  '<span style="color:var(--tx3);font-size:13px">这三个新 PvP 天赋的官方中文名没核到，用英文原名。</span>'+
+  '</div></div>';
+paintSK(document);
+</script>
+</body>
+</html>
