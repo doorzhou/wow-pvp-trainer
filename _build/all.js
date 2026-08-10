@@ -42,12 +42,12 @@ console.log('sitemap.xml  ' + urls.length + ' 条 URL · robots.txt 已写');
 /* ---------- 自检 ---------- */
 console.log('\n▸ 自检');
 let bad = 0, checked = 0;
-const refRe = /(?:src|href)="([^":#]+?)"/g;
+const refRe = /(?:src|href)="([^":#]+?)"/g;   // 带 ?v= 指纹的要先去掉查询串
 for (const f of fs.readdirSync(SITE).filter(x => x.endsWith('.html'))) {
   const h = fs.readFileSync(path.join(SITE, f), 'utf8');
   let m;
   while ((m = refRe.exec(h))) {
-    const r = m[1];
+    const r = m[1].split('?')[0];
     if (r.startsWith('http') || r.startsWith('//') || r === '') continue;
     checked++;
     if (!fs.existsSync(path.join(SITE, r))) { console.log('  ✗ ' + f + ' → ' + r); bad++ }

@@ -15,6 +15,7 @@ const NUM = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨'];
 
 /* ---------- 每页配置 ---------- */
 const { PAGES } = require('./pages.js');
+const v = require('./ver.js');
 
 /* ---------- 把静态片段塞进容器（爬虫要看得见，不能靠 JS 注入） ---------- */
 function fill(html, id, content) {
@@ -103,7 +104,7 @@ function dataModule(cfg) {
   // 题目分类字段：专精页用 t（通用手法/各职业），组合页用 w（哪个位置的视角）
   const key = bank.length && bank[0].w !== undefined ? 'w' : 't';
   P.quiz = {
-    src: 'data/quiz/' + cfg.file + '.js', count: bank.length,
+    src: v('data/quiz/' + cfg.file + '.js'), count: bank.length,
     key, filterId: key === 'w' ? 'fWho' : 'fCat',
     v2c: key === 'w' ? (cfg.v2c || null) : null,
     label, icon, tagCls: cfg.tagCls || null,
@@ -214,7 +215,7 @@ function page(cfg) {
 <meta name="twitter:title" content="${m.title}">
 <meta name="twitter:description" content="${m.desc || ''}">
 <meta name="robots" content="index,follow">
-<link rel="stylesheet" href="assets/css/core.css">
+<link rel="stylesheet" href="${v('assets/css/core.css')}">
 ${m.jsonld ? '<script type="application/ld+json">' + m.jsonld + '</script>' : ''}
 </head>
 <body>
@@ -243,10 +244,10 @@ ${body}<div class="wrap" style="margin-top:38px">
   ${m.footer || ''}
 </div></footer>
 
-<script src="assets/js/skdb.js"></script>
-<script src="data/registry.js"></script>
-<script src="data/specs/${cfg.file}.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="${v('assets/js/skdb.js')}"></script>
+<script src="${v('data/registry.js')}"></script>
+<script src="${v('data/specs/'+cfg.file+'.js')}"></script>
+<script src="${v('assets/js/app.js')}"></script>
 </body>
 </html>
 `;

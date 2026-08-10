@@ -5,6 +5,7 @@
 const fs = require('fs'), path = require('path');
 const SITE = path.join(__dirname, '..');
 const { DOMAIN } = require('./config.js');
+const v = require('./ver.js');
 
 // 载入注册表
 const win = { REG: null };
@@ -92,7 +93,7 @@ const html = `<!DOCTYPE html>
 <meta name="twitter:title" content="魔兽世界 PvP 判断训练器 · 12.0.7 Midnight 赛季一">
 <meta name="twitter:description" content="${DESC}">
 <meta name="robots" content="index,follow">
-<link rel="stylesheet" href="assets/css/core.css">
+<link rel="stylesheet" href="${v('assets/css/core.css')}">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -240,9 +241,9 @@ ${comps()}
   非官方粉丝内容，与 Blizzard Entertainment 无关。
 </div></footer>
 
-<script src="assets/js/skdb.js"></script>
-<script src="data/registry.js"></script>
-<script src="assets/js/home.js"></script>
+<script src="${v('assets/js/skdb.js')}"></script>
+<script src="${v('data/registry.js')}"></script>
+<script src="${v('assets/js/home.js')}"></script>
 </body>
 </html>
 `;
