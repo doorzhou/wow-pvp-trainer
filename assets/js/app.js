@@ -128,6 +128,9 @@ if (P.views && $('vsw')) {
     document.documentElement.dataset.view = v;
     $$('#vsw button').forEach(function (b) { b.classList.toggle('on', b.dataset.v === v) });
     try { localStorage.setItem(VKEY, v) } catch (e) {}
+    // 题库筛选设成「跟随当前视角」时，换视角要重开一轮
+    var fw = $('fWho');
+    if (fw && fw.value === 'cur' && window.QUIZ && window.startQuiz) window.startQuiz(false);
   };
   $('vsw').innerHTML = P.views.map(function (x) {
     return '<button data-v="' + x.k + '">' + x.label + '</button>';
@@ -445,12 +448,21 @@ function bootQuiz() {
   var Q = window.QUIZ || [], LBL = P.quiz.label || {}, ICOM = P.quiz.icon || {};
   var DIFF = { 1: ['基础 · 机制', 'd1'], 2: ['进阶 · 时机', 'd2'], 3: ['高阶 · 权衡', 'd3'] };
   var SEC = P.quiz.section || 's4', STORE = P.quiz.store;
-  var fCat = $('fCat'), fDiff = $('fDiff');
-  Array.from(new Set(Q.map(function (q) { return q.t }))).forEach(function (t) {
-    var o = document.createElement('option'); o.value = t;
-    o.textContent = (LBL[t] || t) + '（' + Q.filter(function (q) { return q.t === t }).length + '）';
-    fCat.appendChild(o);
-  });
+  // 两种筛选形态：
+  //   专精页 fCat —— 按题目分类（q.t），选项在这里动态补
+  //   组合页 fWho —— 按视角（q.w，r/p/h/b），选项写死在 HTML 里，还有个「跟随当前视角」
+  var KEY = P.quiz.key || 't';
+  var fSel = $(P.quiz.filterId || 'fCat'), fDiff = $('fDiff');
+  var V2C = P.quiz.v2c || null;
+  if (KEY === 't') {
+    Array.from(new Set(Q.map(function (q) { return q.t }))).forEach(function (t) {
+      var o = document.createElement('option'); o.value = t;
+      o.textContent = (LBL[t] || t) + '（' + Q.filter(function (q) { return q.t === t }).length + '）';
+      fSel.appendChild(o);
+    });
+  }
+  if (fSel) fSel.onchange = function () { startQuiz(false) };
+  if (fDiff) fDiff.onchange = function () { startQuiz(false) };
 
   var stats = { played: 0, correct: 0, best: 0, wrong: [] };
   try { stats = Object.assign(stats, JSON.parse(localStorage.getItem(STORE) || '{}')) } catch (e) {}
@@ -470,11 +482,17 @@ function bootQuiz() {
     for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t }
     return a;
   }
-  window.clearFilter = function () { fCat.value = 'all'; fDiff.value = 'all'; startQuiz(false) };
+  window.clearFilter = function () { fSel.value = 'all'; fDiff.value = 'all'; startQuiz(false) };
   window.startQuiz = function (w) {
     wrongMode = !!w;
+    var v = fSel.value;
+    // 组合页：'cur' 跟随当前视角；'b'（双方/全队）的题在任何视角下都练
+    var wf = (KEY === 'w' && v === 'cur') ? (document.documentElement.dataset.view || 'all') : v;
     var pool = Q.filter(function (q) {
-      return (fCat.value === 'all' || q.t === fCat.value) && (fDiff.value === 'all' || q.d === +fDiff.value);
+      var okKey = KEY === 'w'
+        ? (wf === 'all' || q.w === 'b' || q.w === (V2C ? V2C[wf] : wf))
+        : (v === 'all' || q.t === v);
+      return okKey && (fDiff.value === 'all' || q.d === +fDiff.value);
     });
     if (wrongMode) pool = pool.filter(function (q) { return stats.wrong.indexOf(q.id) >= 0 });
     if (!pool.length) {
@@ -490,9 +508,11 @@ function bootQuiz() {
   function render() {
     var area = $('quizArea'), q = run[qi]; answered = false;
     if (!q._perm) q._perm = shuffle(q.o.map(function (_, i) { return i }));
-    var ico = ICOM[q.t] ? '<img src="' + IC(ICOM[q.t]) + '" alt="" onerror="this.style.display=\'none\'">' : '';
+    var kv = q[KEY];
+    var ico = ICOM[kv] ? '<img src="' + IC(ICOM[kv]) + '" alt="" onerror="this.style.display=\'none\'">' : '';
+    var tcls = (KEY === 'w' ? 'who ' : '') + (P.quiz.tagCls ? (P.quiz.tagCls[kv] || '') : '');
     area.innerHTML = '<div class="qcard">' +
-      '<div class="qmeta"><span class="qtag ' + (P.quiz.tagCls ? (P.quiz.tagCls[q.t] || '') : '') + '">' + ico + (LBL[q.t] || q.t) + '</span>' +
+      '<div class="qmeta"><span class="qtag ' + tcls + '">' + ico + (LBL[kv] || kv) + '</span>' +
       '<span class="qtag ' + DIFF[q.d][1] + '">' + DIFF[q.d][0] + '</span>' +
       '<span class="qtag">' + (wrongMode ? '错题重练 ' : '') + (qi + 1) + ' / ' + run.length + '</span></div>' +
       '<div class="prog"><i style="width:' + (qi / run.length * 100) + '%"></i></div>' +

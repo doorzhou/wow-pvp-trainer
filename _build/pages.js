@@ -79,6 +79,7 @@ const PAGES = [
     icon: 'classicon_rogue', icon2: 'classicon_priest', tier: null, color: '#8b6fd4',
     crumb: ['组合', '2v2 贼牧'], store: 'banyeRoguePriest2v2_1207', quizSec: 's5',
     views: [{ k: 'rogue', label: '🗡 贼' }, { k: 'priest', label: '✚ 牧' }],
+    v2c: { rogue: 'r', priest: 'p' },              // 视角名 → 题目 w 标记
     members: [
       { k: 'r', cls: 'R', label: '贼', icon: 'classicon_rogue' },
       { k: 'p', cls: 'P', label: '牧师', icon: 'classicon_priest' },
@@ -94,6 +95,7 @@ const PAGES = [
     icon: 'classicon_rogue', icon2: 'classicon_priest', icon3: 'classicon_hunter', tier: null, color: '#8b6fd4',
     crumb: ['组合', '3v3 Thug Cleave'], store: 'banyeThugCleave3v3_1207', quizSec: 's6',
     views: [{ k: 'rogue', label: '🗡 贼' }, { k: 'priest', label: '✚ 牧' }, { k: 'hunter', label: '🏹 猎' }],
+    v2c: { rogue: 'r', priest: 'p', hunter: 'h' },  // 视角名 → 题目 w 标记
     members: [
       { k: 'r', cls: 'R', label: '贼', icon: 'classicon_rogue' },
       { k: 'p', cls: 'P', label: '牧师', icon: 'classicon_priest' },

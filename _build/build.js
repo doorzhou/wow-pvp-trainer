@@ -100,8 +100,12 @@ function dataModule(cfg) {
   if (c.match && c.match.qlbl) c.match.list.forEach(x => { label[x.id] = x.n; icon[x.id] = x.ic });
   // 题库单独成文件，点开「判断训练」才加载 —— 首屏不背这 40KB
   const bank = c.quiz;
+  // 题目分类字段：专精页用 t（通用手法/各职业），组合页用 w（哪个位置的视角）
+  const key = bank.length && bank[0].w !== undefined ? 'w' : 't';
   P.quiz = {
     src: 'data/quiz/' + cfg.file + '.js', count: bank.length,
+    key, filterId: key === 'w' ? 'fWho' : 'fCat',
+    v2c: key === 'w' ? (cfg.v2c || null) : null,
     label, icon, tagCls: cfg.tagCls || null,
     store: cfg.store, section: cfg.quizSec, done: cfg.done,
   };
