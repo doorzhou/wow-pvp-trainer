@@ -129,6 +129,14 @@ const PAGES = [
     tagCls: { r: 'r', p: 'p', b: '' },
     done: { hi: '你们已经在轮流当主角，不是各打各的。', mid: '基础配合成立，把错题再过一轮。', lo: '先回骨架页把"谁是这一轮的主角"过一遍。' },
     talent: { rows: [{ lb: '两人的天赋定盘', todo: 1 }] },
+    gear: {
+      referNote: '<b>属性跟着专精走，两个人各自按自己的专精堆。</b>' +
+        '组合层面没有额外取舍——队友是谁不改变副属性的收益。',
+      refer: [
+        { n: '敏锐贼', ic: 'classicon_rogue', page: 'subtlety-rogue.html' },
+        { n: '戒律牧', ic: 'classicon_priest', page: 'discipline-priest.html' },
+      ],
+    },
   },
   {
     file: 'thug-cleave-3v3', kind: 'comp', h1: 'Thug Cleave · 贼 + 牧 + 猎 3v3', short: 'Thug Cleave',
@@ -159,6 +167,15 @@ const PAGES = [
       },
     },
     talent: { rows: [{ lb: '三人的天赋定盘', todo: 1 }] },
+    gear: {
+      referNote: '<b>属性跟着专精走，三个人各自按自己的专精堆。</b>' +
+        '组合层面没有额外取舍——队友是谁不改变副属性的收益。',
+      refer: [
+        { n: '敏锐贼', ic: 'classicon_rogue', page: 'subtlety-rogue.html' },
+        { n: '戒律牧', ic: 'classicon_priest', page: 'discipline-priest.html' },
+        { n: '猎人', ic: 'classicon_hunter' },
+      ],
+    },
   },
 ];
 

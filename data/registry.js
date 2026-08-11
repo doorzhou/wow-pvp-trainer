@@ -139,7 +139,7 @@ window.REG = {
       list: [
         { id: 'thug-cleave-3v3', name: 'Thug Cleave', members: ['rogue', 'hunter', 'priest'],
           make: '敏锐贼 + 猎人 + 戒律牧', one: '控制链接成一条，杀窗里对面治疗做不了事。',
-          page: 'thug-cleave-3v3.html', st: [2, 2, 2, 1, 0, 2] },
+          page: 'thug-cleave-3v3.html', st: [2, 2, 2, 1, 2, 2] },
         { id: 'rmp', name: 'RMP', members: ['rogue', 'mage', 'priest'],
           make: '贼 + 法师 + 神牧 / 戒律牧', one: '竞技场最老牌的 setup 组合。', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'rmd', name: 'RMD', members: ['rogue', 'mage', 'druid'],
@@ -184,7 +184,7 @@ window.REG = {
       list: [
         { id: 'rogue-priest-2v2', name: '贼 + 戒律牧', members: ['rogue', 'priest'], kind: 'heal',
           make: '敏锐贼 + 戒律牧', one: '两个人轮流当主角。',
-          page: 'rogue-priest-2v2.html', st: [2, 2, 2, 1, 0, 2] },
+          page: 'rogue-priest-2v2.html', st: [2, 2, 2, 1, 2, 2] },
         { id: 'rogue-mage-2v2', name: '贼 + 法师', members: ['rogue', 'mage'], kind: 'dd',
           make: '敏锐贼 + 冰法', one: '双输出，靠控制链换人头。', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'rogue-mw-2v2', name: '贼 + 织雾', members: ['rogue', 'monk'], kind: 'heal',

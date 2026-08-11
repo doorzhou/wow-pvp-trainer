@@ -345,6 +345,15 @@ function renderGear() {
     }).join('') + '</div>';
     if (G.statRead) h += '<div class="stread">' + G.statRead + '</div>';
     if (G.statSrc) h += '<div class="stsrc">' + G.statSrc + '</div>';
+  } else if (G && G.refer) {
+    h += '<h2>属性优先级</h2><div class="stread">' + G.referNote + '</div>';
+    h += '<div class="refer">' + G.refer.map(function (m) {
+      var ico = '<img class="ic" src="' + IC(m.ic) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">';
+      var body = ico + '<span class="n">' + m.n + '</span>';
+      return m.page
+        ? '<a class="rfc" href="' + m.page + '">' + body + '<span class="go">看属性 ▸</span></a>'
+        : '<div class="rfc off">' + body + '<span class="go">待补充</span></div>';
+    }).join('') + '</div>';
   } else {
     h += '<h2>属性优先级</h2>' + todoHTML('本专精的副属性排序');
   }
