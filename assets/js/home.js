@@ -60,6 +60,50 @@ function apply() {
 }
 apply();
 
+/* 竞技场组合：点职业图标筛出能打的组合（可多选＝取交集） */
+(function () {
+  var pick = $('cpick'); if (!pick) return;
+  var sel = new Set();
+  var cards = $$('.cmp'), brackets = $$('.bracket');
+
+  function apply() {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var mine = c.dataset.cls.split(' ');
+      var ok = true;
+      sel.forEach(function (x) { if (mine.indexOf(x) < 0) ok = false });
+      c.classList.toggle('hidden', !ok);
+      if (ok) shown++;
+    });
+    brackets.forEach(function (b) {
+      var vis = $$('.cmp:not(.hidden)', b);
+      b.classList.toggle('hidden', vis.length === 0);
+      var bc = b.querySelector('.bc');
+      if (!sel.size) bc.textContent = bc.dataset.total + ' 组 · 已完成 ' + bc.dataset.done;
+      else bc.textContent = '匹配 ' + vis.length + ' / ' + bc.dataset.total + ' 组';
+    });
+    $$('.cb', pick).forEach(function (b) { b.classList.toggle('on', sel.has(b.dataset.c)) });
+    $('cclr').hidden = sel.size === 0;
+    $('cempty').hidden = shown > 0;
+    if (!sel.size) { $('cpc').textContent = '' }
+    else {
+      var names = Array.from(sel).map(function (id) {
+        var c = (window.REG.classes || []).find(function (x) { return x.id === id });
+        return c ? c.n : id;
+      });
+      $('cpc').textContent = names.join(' + ') + ' · ' + shown + ' 组';
+    }
+  }
+  pick.onclick = function (e) {
+    var b = e.target.closest('[data-c]'); if (!b) return;
+    var id = b.dataset.c;
+    if (sel.has(id)) sel.delete(id); else sel.add(id);
+    apply();
+  };
+  $('cclr').onclick = function () { sel.clear(); apply() };
+  apply();
+})();
+
 /* 规划中的专精：点一下说明还没做 */
 $$('.spc.soon').forEach(function (s) {
   s.addEventListener('click', function () {

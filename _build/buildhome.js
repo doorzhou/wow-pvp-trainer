@@ -72,14 +72,16 @@ function comps() {
         '<span class="mk">' + c.make + '</span>' +
         (c.one ? '<span class="one">' + c.one + '</span>' : '') +
         '<span class="foot">' + meta + '</span></span>';
+      const tag = ' data-cls="' + c.members.join(' ') + '" data-live="' + (live ? 1 : 0) + '"';
       return live
-        ? '        <a class="cmp live" href="' + c.page + '">' + inner + '<span class="go">▸</span></a>'
-        : '        <span class="cmp soon">' + inner + '</span>';
+        ? '        <a class="cmp live" href="' + c.page + '"' + tag + '>' + inner + '<span class="go">▸</span></a>'
+        : '        <span class="cmp soon"' + tag + '>' + inner + '</span>';
     }).join('\n');
     return '    <div class="bracket">\n' +
       '      <div class="bhead"><span class="bt">' + B.title + '</span>' +
       '<span class="bd">' + B.note + '</span>' +
-      '<span class="bc">' + B.list.length + ' 组 · 已完成 ' + done + '</span></div>\n' +
+      '<span class="bc" data-total="' + B.list.length + '" data-done="' + done + '">' +
+      B.list.length + ' 组 · 已完成 ' + done + '</span></div>\n' +
       '      <div class="cgrid">\n' + cards + '\n      </div>\n    </div>';
   }).join('\n');
 }
@@ -188,7 +190,19 @@ ${matrix()}
   <h2>竞技场组合</h2>
   <p class="lead">3v3 有公认命名的固定组合，2v2 按「输出 + 治疗」配对。组合名沿用英文原名——中文社区通用的也是这套缩写。
     组合训练器提供<strong>多视角</strong>：同一局面，切换查看每个位置的处置。</p>
+
+  <div class="cpick">
+    <div class="cpl">点职业看能打哪些组合<span class="hint">可多选——选两个就是「我们俩能带谁」</span></div>
+    <div class="cpr" id="cpick">
+${REG.classes.map(c => '      <button class="cb" data-c="' + c.id + '" style="--cc:' + c.c + '" title="' + c.n + '">' +
+  '<img src="' + IC(c.ic) + '" alt="' + c.n + '" loading="lazy"><span>' + c.n + '</span></button>').join('\n')}
+    </div>
+    <button class="cclr" id="cclr" hidden>清除</button>
+    <span class="cpc" id="cpc"></span>
+  </div>
+
 ${comps()}
+  <div class="cempty" id="cempty" hidden>没有同时包含这些职业的组合。<b>3v3 最多三个职业，2v2 最多两个。</b></div>
   <p class="lead" style="margin-top:14px">组合清单来源：Icy Veins 各专精 Best Arena Compositions · wowmeta 组合梯队。</p>
 </div>
 

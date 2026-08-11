@@ -208,6 +208,31 @@ footer a{color:var(--tx2)}
   -webkit-text-fill-color:var(--tx2)}
 .kpi .of{font-size:15px;color:var(--tx3);font-weight:600}
 
+/* 职业选择器：点图标筛出能打的组合 */
+.cpick{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r3);
+  padding:13px 15px;margin-bottom:11px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.cpl{font-size:13px;font-weight:620;color:var(--tx);width:100%;display:flex;
+  align-items:baseline;gap:9px;flex-wrap:wrap}
+.cpl .hint{font-size:12px;font-weight:400;color:var(--tx3)}
+.cpr{display:flex;flex-wrap:wrap;gap:5px;flex:1;min-width:0}
+.cb{background:var(--bg3);border:1px solid var(--line);border-radius:var(--r2);
+  padding:5px 10px 5px 5px;cursor:pointer;font-family:inherit;font-size:12.5px;color:var(--tx2);
+  display:inline-flex;align-items:center;gap:6px;transition:.14s;white-space:nowrap}
+.cb img{width:22px;height:22px;border-radius:5px;opacity:.72;transition:.14s}
+.cb:hover{color:var(--tx);border-color:var(--line2)}
+.cb:hover img{opacity:1}
+.cb.on{color:var(--tx);font-weight:640;background:color-mix(in srgb,var(--cc) 15%,var(--bg3));
+  border-color:color-mix(in srgb,var(--cc) 55%,var(--line));
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--cc) 30%,transparent)}
+.cb.on img{opacity:1}
+.cclr{background:none;border:1px solid var(--line);color:var(--tx3);border-radius:var(--r2);
+  padding:5px 12px;cursor:pointer;font-family:inherit;font-size:12.5px;transition:.14s;white-space:nowrap}
+.cclr:hover{color:var(--tx);border-color:var(--no)}
+.cpc{font-size:12.5px;color:var(--ac2);font-weight:600;white-space:nowrap}
+.cempty{border:1px dashed var(--line2);border-radius:var(--r3);padding:18px 20px;
+  text-align:center;color:var(--tx3);font-size:13.5px;background:var(--bg2)}
+.cmp.hidden,.bracket.hidden{display:none}
+
 /* 竞技场组合：按 2v2 / 3v3 分段 */
 .bracket{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r3);
   overflow:hidden;margin-bottom:11px}
@@ -346,6 +371,15 @@ footer a{color:var(--tx2)}
   .hero h1 .bn{font-size:32px;letter-spacing:-1.2px}
   .hero h1 .tl{font-size:15px;letter-spacing:.2px}
   .cgrid{grid-template-columns:1fr;padding:8px;gap:7px}
+  .cpick{padding:11px 12px;gap:8px}
+  .cpl{font-size:12.5px}
+  .cpl .hint{width:100%}
+  .cpr{gap:4px}
+  .cb{padding:4px 8px 4px 4px;font-size:11.5px;min-height:34px}
+  .cb img{width:20px;height:20px}
+  .cb span{display:none}
+  .cb.on span{display:inline}
+  .cclr,.cpc{font-size:11.5px}
   .bhead{padding:11px 14px;gap:8px}
   .bhead .bd{flex:1 1 100%;order:3}
   .howto{grid-template-columns:1fr}
