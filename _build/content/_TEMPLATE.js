@@ -5,6 +5,12 @@
    ------------------------------------------------------------
    这是【构建期】输入，不会发给浏览器。
    改完跑：node build.js
+   ------------------------------------------------------------
+   文案调性（全站统一，写之前先看这条）
+     · 只写信息，不写编辑方针。没有的内容标「待补充」，不解释为什么没有。
+     · 不写界面说明书（"点标题看细节""这页只放 30 秒能看完的"）——用户会自己点。
+     · 引导语能删就删。一个版块的标题说清楚了，就不要再加一段铺垫。
+     · 陈述句优先，不用第一人称表态（"我推的""我会立即移除"→"编者推导""将立即移除"）。
    ============================================================ */
 module.exports = {
 
@@ -57,11 +63,11 @@ module.exports = {
 <div class="rows" id="setup"></div>
 </div>`,
     s2: `<div class="wrap">
-  <p class="lead">按一轮完整交战的时间顺序排。<strong>点标题看细节。</strong></p>
+  <p class="lead">按一轮交战的时间顺序排。</p>
   <div class="rows" id="general"></div>
 </div>`,
     s3: `<div class="wrap">
-  <p class="lead">每个职业只问四件事——四问对所有敌人是同一套。</p>
+  <p class="lead">四问对所有敌人是同一套。</p>
   <div class="split">
     <div class="sidecol">
       <div class="cls-grid" id="clsGrid"></div>
@@ -95,7 +101,6 @@ module.exports = {
   <div id="quizArea"></div>
 </div>`,
     s5: `<div class="wrap">
-  <p class="lead">上场前扫一眼就够。<strong>只放 30 秒内能看完的东西。</strong></p>
   <div class="sheet" id="sheet"></div>
 </div>`,
   },

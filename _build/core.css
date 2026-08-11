@@ -235,16 +235,14 @@ footer a{color:var(--tx2)}
 /* ============================================================
    专精页新增：天赋 / 装备属性 / 待补
    ============================================================ */
-.todo{border:1px dashed var(--line2);border-radius:var(--r3);padding:20px 22px;background:var(--bg2);
-  text-align:left}
-.todo .tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:1.1px;
-  text-transform:uppercase;color:var(--wa);background:rgba(217,164,65,.11);
-  border:1px solid rgba(217,164,65,.3);padding:3px 10px;border-radius:20px;margin-bottom:10px}
-.todo h4{font-size:15px;font-weight:650;margin-bottom:6px}
-.todo p{font-size:13.5px;margin:4px 0}
-.todo .plan{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);
-  font-size:12.5px;color:var(--tx3)}
-.todo .plan b{color:var(--tx2)}
+/* 待补充：一行，不解释 */
+.todo{display:flex;align-items:center;gap:10px;border:1px dashed var(--line2);
+  border-radius:var(--r2);padding:12px 15px;background:var(--bg2)}
+.todo .tag{font-size:11px;letter-spacing:.6px;color:var(--wa);background:rgba(217,164,65,.11);
+  border:1px solid rgba(217,164,65,.3);padding:3px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.todo .tx{font-size:13.5px;color:var(--tx2)}
+.pend{font-size:12.5px;color:var(--wa);background:rgba(217,164,65,.10);
+  border:1px solid rgba(217,164,65,.28);padding:2px 9px;border-radius:20px}
 
 /* 属性优先级 */
 .stats{display:flex;flex-direction:column;gap:7px}

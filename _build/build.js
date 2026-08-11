@@ -145,8 +145,8 @@ function page(cfg) {
   const order = [];
   Object.keys(secs).sort((a, b) => +a.slice(1) - +b.slice(1)).forEach(k => order.push(k));
   const newSecs = {
-    sTal: '<div class="wrap">\n<p class="lead">天赋这块<strong>只写实测到的定盘项</strong>——哪些格子没有取舍空间、哪些要看对面。没实测过的部分明确标出来，不拿"通常认为"填。</p>\n<div id="talentBox"></div>\n</div>',
-    sGear: '<div class="wrap">\n<p class="lead">装备的判断分两层：<strong>通则</strong>（所有专精一样，讲机制）和<strong>属性排序</strong>（每个专精不同，必须实测）。通则已经写完，排序还欠着。</p>\n<div id="gearBox"></div>\n</div>',
+    sTal: '<div class="wrap">\n<div id="talentBox"></div>\n</div>',
+    sGear: '<div class="wrap">\n<div id="gearBox"></div>\n</div>',
   };
   // 静态内容内联：爬虫要能直接读到，不能等 JS
   const R = CT.fragments, SK = CT.sk;

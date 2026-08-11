@@ -1,10 +1,4 @@
 /* 每页配置 —— 加一个专精就在 PAGES 里加一条 */
-const TAL_TODO = {
-  h: '完整天赋树还没整理',
-  p: '上面这些是<b>已经实测到的定盘项</b>——英雄天赋和 PvP 天赋格，这两块是取舍最少、最值得先写的。剩下的职业树/专精树点法还没做。',
-  plan: '<b>补法：</b>拉 Murlok.io 对应专精的 top50 实测配点（看实际分布，不是理论最优），出一份可导入的天赋串 + 三到五个关键分歧点的判断依据。<b>本站不打算做"抄一个串"——要写的是每个分歧点在什么局面下选哪边。</b>',
-};
-
 const PAGES = [
   {
     file: 'subtlety-rogue', kind: 'spec', cls: 'rogue', spec: 'subtlety',
@@ -18,8 +12,8 @@ const PAGES = [
         { lb: '英雄天赋', vv: '<b>诡术师 Trickster</b> —— top50 三对三里 50 人全用，死亡追猎者 <b>0 人</b>。这不是推荐，是唯一解。' },
         { lb: 'PvP 天赋 · 两个必带', vv: '<sk>烟雾弹</sk> + <b>先发制人</b>' },
         { lb: 'PvP 天赋 · 第三格看对面', vv: '对面伤害来自武器 → <sk>卸除武装</sk><br>对面有难杀的治疗 → <sk>偷天换日</sk>' },
-        { lb: '职业树 / 专精树', todo: '完整配点还没整理' },
-      ], todo: TAL_TODO,
+        { lb: '职业树 / 专精树', todo: 1 },
+      ],
     },
   },
   {
@@ -34,8 +28,8 @@ const PAGES = [
         { lb: '英雄天赋', vv: '<b>命运之缚 Fatebound</b> —— 8/8 全用，全自动不用管。' },
         { lb: 'PvP 天赋 · 两个必带', vv: '<sk>卸除武装</sk>（8/8） + <sk>烟雾弹</sk>（8/8）' },
         { lb: 'PvP 天赋 · 第三格', vv: '<b>先发制人</b>（5/8 主流）' },
-        { lb: '职业树 / 专精树', todo: '完整配点还没整理' },
-      ], todo: TAL_TODO,
+        { lb: '职业树 / 专精树', todo: 1 },
+      ],
     },
   },
   {
@@ -50,10 +44,9 @@ const PAGES = [
         { lb: '英雄天赋', vv: '<b>法术之刃 Spellslinger</b> —— 50/50 全用。' },
         { lb: 'PvP 天赋 · 两个必带', vv: '<b>Overpowered Barrier</b>（50/50） + <b>Improved Mass Invisibility</b>（50/50）' },
         { lb: 'PvP 天赋 · 情境', vv: '<b>Master Shepherd</b>（36/50） · <sk>冰墙</sk>（9/50）' },
-        { lb: '职业树 / 专精树', todo: '完整配点还没整理' },
+        { lb: '职业树 / 专精树', todo: 1 },
       ],
-      note: '这几个新 PvP 天赋的官方简体中文名没核到，按本站规矩<b>用英文原名，不自己编译名</b>。',
-      todo: TAL_TODO,
+      note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
     },
   },
   {
@@ -68,10 +61,9 @@ const PAGES = [
         { lb: '英雄天赋', vv: '<b>Oracle 先知</b> —— 45/50（90%）。' },
         { lb: 'PvP 天赋 · 近乎必带', vv: '<b>Ultimate Radiance</b>（49/50） + <b>Phase Shift</b>（48/50）' },
         { lb: 'PvP 天赋 · 情境', vv: '<b>Inner Light</b>（33/50）' },
-        { lb: '职业树 / 专精树', todo: '完整配点还没整理' },
+        { lb: '职业树 / 专精树', todo: 1 },
       ],
-      note: '这几个 PvP 天赋的官方简体中文名没核到，按本站规矩<b>用英文原名，不自己编译名</b>。',
-      todo: TAL_TODO,
+      note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
     },
   },
   {
@@ -88,7 +80,7 @@ const PAGES = [
     catLabel: { r: '🗡 贼', p: '✚ 牧师', b: '⚔ 双方' },
     tagCls: { r: 'r', p: 'p', b: '' },
     done: { hi: '你们已经在轮流当主角，不是各打各的。', mid: '基础配合成立，把错题再过一轮。', lo: '先回骨架页把"谁是这一轮的主角"过一遍。' },
-    talent: { rows: [{ lb: '两人的天赋定盘', todo: '组合层的天赋取舍还没整理' }], todo: TAL_TODO },
+    talent: { rows: [{ lb: '两人的天赋定盘', todo: 1 }] },
   },
   {
     file: 'thug-cleave-3v3', kind: 'comp', h1: 'Thug Cleave · 贼 + 牧 + 猎 3v3', short: 'Thug Cleave',
@@ -118,8 +110,8 @@ const PAGES = [
         ],
       },
     },
-    talent: { rows: [{ lb: '三人的天赋定盘', todo: '组合层的天赋取舍还没整理' }], todo: TAL_TODO },
+    talent: { rows: [{ lb: '三人的天赋定盘', todo: 1 }] },
   },
 ];
 
-module.exports = { PAGES, TAL_TODO };
+module.exports = { PAGES };

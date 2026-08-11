@@ -324,14 +324,14 @@ if (P.assign && $('rgrid')) {
 /* ---------------- 天赋 / 装备（新版块） ---------------- */
 function renderTalent() {
   var T = P.talent, el = $('talentBox'); if (!el) return;
-  if (!T) { el.innerHTML = todoHTML('天赋', '这个专精的天赋定盘还没整理。'); return }
+  if (!T) { el.innerHTML = todoHTML('天赋定盘'); return }
   var h = '<div class="tal">';
   (T.rows || []).forEach(function (r) {
     h += '<div class="talrow' + (r.todo ? ' locked' : '') + '"><div class="lb">' + r.lb + '</div>' +
-      '<div class="vv">' + (r.todo ? '<span style="color:var(--tx3)">待补 —— ' + r.todo + '</span>' : r.vv) + '</div></div>';
+      '<div class="vv">' + (r.todo ? '<span class="pend">待补充</span>' : r.vv) + '</div></div>';
   });
   h += '</div>';
-  if (T.todo) h += '<div style="margin-top:12px">' + todoHTML(T.todo.h, T.todo.p, T.todo.plan) + '</div>';
+  if (T.note) h += '<div class="note" style="margin-top:12px">' + T.note + '</div>';
   el.innerHTML = h; paintSK(el);
 }
 function renderGear() {
@@ -344,9 +344,7 @@ function renderGear() {
         '<span class="sv">' + (s.v || '待实测') + '</span></div>';
     }).join('') + '</div>';
   } else {
-    h += '<h2>属性优先级</h2>' + todoHTML('这个专精的属性排序还没落地',
-      '副属性的排序每个专精不同，而且会随平衡改动。没实测过就写，等于编。',
-      '补法：查 <b>Murlok.io</b> 的 top50 实测配装（看实际佩戴分布，不看理论模拟），或 <b>Skill Capped</b> 的对应专精 gearing 页。');
+    h += '<h2>属性优先级</h2>' + todoHTML('本专精的副属性排序');
   }
   h += '<h2>四个副属性在 PvP 里各自意味着什么</h2><div class="stwhat">' + GEAR_COMMON.what.map(function (w) {
     return '<div class="stw"><div class="h">' + w.h + '</div><div class="d">' + w.d + '</div></div>';
@@ -355,9 +353,8 @@ function renderGear() {
   if (G && G.extra) h += G.extra;
   el.innerHTML = h; paintSK(el);
 }
-function todoHTML(h, p, plan) {
-  return '<div class="todo"><span class="tag">◷ 资料待补</span><h4>' + h + '</h4><p>' + p + '</p>' +
-    (plan ? '<div class="plan">' + plan + '</div>' : '') + '</div>';
+function todoHTML(what) {
+  return '<div class="todo"><span class="tag">待补充</span><span class="tx">' + what + '</span></div>';
 }
 
 /* PvP 装备通则 —— 全站共用，写机制不写数值 */
@@ -375,8 +372,8 @@ var GEAR_COMMON = {
         '这意味着<b>一件装等更高的 PvE 装，在竞技场里可能反而更弱</b>。</p>' +
         '<p style="margin-top:8px">PvE 装备可以用 <b>PvP 涂层（PvP varnish）</b>获得同样的 PvP 装等缩放，' +
         '花费与直接买 PvP 件相同的征服点。所以想留一件特效好的 PvE 装，是有办法的——但要付代价。</p>' +
-        '<div class="note" style="margin-top:10px"><b>本站不写死装等数字。</b>装等每个补丁都在动（12.0.7 就把 PvP 装整体上调了 9 装等），' +
-        '写死了下个补丁就是错的。要判断的是<b>相对关系</b>：PvP 场景内，带 PvP 缩放的 &gt; 不带的。</div>'
+        '<div class="note" style="margin-top:10px">12.0.7 将各条 PvP 装备线的装等整体上调 9。' +
+        '本站按相对关系描述：<b>PvP 场景内，带 PvP 缩放的一律优于不带的</b>。</div>'
     },
     {
       t: '两种货币，两个阶段', sub: '荣誉起步，征服收尾',
@@ -385,14 +382,14 @@ var GEAR_COMMON = {
         '<p style="margin-top:8px"><b>征服点</b>——毕业装，每周有上限，赛季第一周上限较低、之后逐周累加。' +
         '因为有周上限，<b>先买哪个部位是真的要选</b>。</p>' +
         '<p style="margin-top:8px"><b>血腥代币</b>——每周 PvP 任务给的替代货币，换到的装等与荣誉装同级，用来补位。</p>' +
-        '<div class="note" style="margin-top:10px"><b>判断：先买大件。</b>头/胸/腿这类征服点消耗高的部位，属性收益也最大；' +
-        '手/肩便宜，可以先用荣誉装顶着。<b>周上限逼你排序，别平均分配。</b></div>'
+        '<div class="note" style="margin-top:10px"><b>先买大件。</b>头 / 胸 / 腿征服点消耗高、属性收益也最大；' +
+        '手 / 肩便宜，可先用荣誉装顶着。<b>周上限强制排序，不要平均分配。</b></div>'
     },
     {
       t: '套装是通过催化器转的', sub: '不是刷出来的',
       b: '<p>征服装买回来之后，去<b>催化器（Catalyst）</b>转成套装部位。充能是<b>每两周一次</b>，' +
         '达到一定评级会额外送充能。</p>' +
-        '<p style="margin-top:8px"><b>判断：套装成型有时间表，不要跟它抢。</b>赛季前几周你不可能有 4 件套，' +
+        '<p style="margin-top:8px"><b>套装成型有固定时间表。</b>赛季前几周不可能有 4 件套，' +
         '这段时间的配装目标是<b>把属性和装等拉起来</b>，不是凑套装。</p>'
     },
     {
@@ -401,8 +398,7 @@ var GEAR_COMMON = {
         '但把两个都换掉，等于把"被控住就直接死"写进了自己的配装。</p>' +
         '<p style="margin-top:8px"><b>人类种族的额外解控是被动的</b>——这就是为什么很多 PvP 玩家选人类：' +
         '它相当于白送一个饰品位。</p>' +
-        '<div class="note" style="margin-top:10px"><b>这一条对所有专精都成立，包括治疗。</b>' +
-        '治疗被控住的代价比谁都大。</div>'
+        '<div class="note" style="margin-top:10px">对所有专精成立，治疗尤其——治疗被控住的代价最大。</div>'
     },
     {
       t: '附魔、宝石、合剂', sub: '按属性优先级走，别按 PvE 攻略',
