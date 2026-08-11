@@ -416,9 +416,9 @@ function renderRelated() {
   var R = window.REG;
   var items = (R.flat || []).filter(function (s) { return s.page && s.page !== P.file })
     .map(function (s) { return { n: s.full, en: s.en, page: s.page, ics: [s.ic] } })
-    .concat((R.comps || []).filter(function (c) { return c.page !== P.file }).map(function (c) {
+    .concat((R.compList || []).filter(function (c) { return c.page && c.page !== P.file }).map(function (c) {
       return {
-        n: c.n, en: c.size + ' · ' + c.en, page: c.page,
+        n: c.name, en: c.bracket + ' · ' + c.make, page: c.page,
         ics: c.members.map(function (m) {
           var cl = R.classes.find(function (x) { return x.id === m });
           return cl ? cl.ic : null;

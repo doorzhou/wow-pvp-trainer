@@ -25,7 +25,7 @@ const today = REG.updated;
 
 const urls = [{ loc: DOMAIN + '/', pri: '1.0', freq: 'weekly' }]
   .concat(REG.flat.filter(s => s.page).map(s => ({ loc: DOMAIN + '/' + s.page, pri: '0.9', freq: 'monthly' })))
-  .concat(REG.comps.map(c => ({ loc: DOMAIN + '/' + c.page, pri: '0.8', freq: 'monthly' })));
+  .concat(REG.compList.filter(c => c.page).map(c => ({ loc: DOMAIN + '/' + c.page, pri: '0.8', freq: 'monthly' })));
 
 const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

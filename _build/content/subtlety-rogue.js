@@ -3,1849 +3,1849 @@
    这是构建期输入，不会发给浏览器。改内容改这里，然后跑 node build.js
    题目 56 道 · 对阵 13 条 · 技能 61 个 */
 module.exports = {
- "meta": {
-  "title": "敏锐贼 PvP 判断训练器 · 魔兽世界 12.0.7 Midnight 赛季一",
-  "desc": "魔兽世界正式服 12.0.7 敏锐潜行者 PvP 竞技场判断训练。本版移除割裂伤后打法从",
-  "keywords": "敏锐贼,潜行者,PVP,竞技场,魔兽世界,12.0.7,Midnight,subtlety rogue,arena",
-  "h1": "<span class=\"sp\">敏锐贼</span> PvP 判断训练器",
-  "footer": "Patch 12.0.7 · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。打法参考 <a href=\"https://www.icy-veins.com/wow/subtlety-rogue-pvp-guide\" target=\"_blank\">Icy Veins</a> · <a href=\"https://murlok.io/rogue/subtlety/3v3\" target=\"_blank\">Murlok.io top50</a> · <a href=\"https://www.method.gg/guides/subtlety-rogue/talents\" target=\"_blank\">Method</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
-  "jsonld": null
- },
- "nav": [
-  {
-   "s": "s1",
-   "label": "骨架"
+  "meta": {
+    "title": "敏锐贼 PvP 判断训练 · 12.0.7 Midnight",
+    "desc": "魔兽世界正式服 12.0.7 敏锐潜行者 PvP 竞技场判断训练。本版移除割裂伤后打法从",
+    "keywords": "敏锐贼,潜行者,PVP,竞技场,魔兽世界,12.0.7,Midnight,subtlety rogue,arena",
+    "h1": "<span class=\"sp\">敏锐贼</span> PvP 判断训练器",
+    "footer": "Patch 12.0.7 · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。打法参考 <a href=\"https://www.icy-veins.com/wow/subtlety-rogue-pvp-guide\" target=\"_blank\">Icy Veins</a> · <a href=\"https://murlok.io/rogue/subtlety/3v3\" target=\"_blank\">Murlok.io top50</a> · <a href=\"https://www.method.gg/guides/subtlety-rogue/talents\" target=\"_blank\">Method</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
+    "jsonld": null
   },
-  {
-   "s": "s2",
-   "label": "通用手法"
-  },
-  {
-   "s": "s3",
-   "label": "分职业"
-  },
-  {
-   "s": "s4",
-   "label": "判断训练"
-  },
-  {
-   "s": "s5",
-   "label": "赛前速查"
-  }
- ],
- "sections": {
-  "s1": "<div class=\"wrap\">\n\n<div class=\"thesis\">\n  <div class=\"lbl\">这版本唯一要记住的一句</div>\n  <div class=\"big\">敏锐失去了持续压力。<br>你不再是磨死人，你是攒一个窗口、一次结账。</div>\n</div>\n\n<div class=\"rows\">\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">为什么？12.0 拿掉了三样东西</span>\n    <span class=\"sub\">割裂伤 / 鞭笞 / 死亡标记 全没了</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p>12.0 移除了 <b>割裂伤（Rupture）</b>、<b>鞭笞（Flagellation）</b>、<b>死亡标记（Symbols of Death）</b>，<sk>刺骨</sk> 伤害上调 8% 作为补偿。</p>\n      <p style=\"margin-top:8px\">结果是：敏锐变成<strong>纯爆发型、几乎没有 ramp</strong>。窗口外你打出的伤害基本会被治疗抹平——所以窗口外的全部意义只有一个：<strong>为下一个窗口做准备</strong>。</p>\n    </div></div>\n</div>\n\n<h2>该不该开？勾一下就知道</h2>\n<p class=\"lead\">勾掉几条，就有多少胜算。</p>\n<div class=\"gobox\">\n  <div class=\"gh\">开场决策器</div>\n  <div class=\"gt\">现在的局面满足哪几条？</div>\n  <div class=\"checks\" id=\"checks\"></div>\n  <div class=\"verdict\" id=\"verdict\"></div>\n</div>\n\n<h2>三个时钟</h2>\n<p class=\"lead\">三个独立的倒计时，任何一个错位这一轮就废了。</p>\n<div class=\"rows\" id=\"clocks\"></div>\n\n<h2>本版定盘（top50 三对三实测）</h2>\n<div class=\"rows\" id=\"setup\"></div>\n\n\n\n</div>",
-  "s2": "<div class=\"wrap\">\n  <p class=\"lead\">按一轮交战的时间顺序排。</p>\n  <div class=\"rows\" id=\"general\"></div>\n</div>",
-  "s3": "<div class=\"wrap\">\n  <p class=\"lead\">四问对所有敌人是同一套。</p>\n  <div class=\"split\">\n    <div class=\"sidecol\">\n      <div class=\"cls-grid\" id=\"clsGrid\"></div>\n      <div class=\"modebar\" id=\"modebar\">\n        <button class=\"on\" data-m=\"arena\">竞技场</button>\n        <button data-m=\"duel\">单挑</button>\n      </div>\n    </div>\n    <div id=\"clsDetail\"></div>\n  </div>\n</div>",
-  "s4": "<div class=\"wrap\">\n  <div class=\"statbar\">\n    <div class=\"stat\"><span class=\"k\">累计答题</span><span class=\"v\" id=\"stPlayed\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">总正确率</span><span class=\"v\" id=\"stAcc\">—</span></div>\n    <div class=\"stat\"><span class=\"k\">最长连对</span><span class=\"v\" id=\"stBest\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">错题库</span><span class=\"v\" id=\"stWrong\">0</span></div>\n  </div>\n  <div class=\"qtop\">\n    <select id=\"fCat\"><option value=\"all\">全部范围</option></select>\n    <select id=\"fDiff\">\n      <option value=\"all\">全部难度</option>\n      <option value=\"1\">基础 · 机制</option>\n      <option value=\"2\">进阶 · 时机</option>\n      <option value=\"3\">高阶 · 权衡</option>\n    </select>\n    <button class=\"btn\" onclick=\"startQuiz(false)\">开始一轮（10 题）</button>\n    <button class=\"btn ghost\" onclick=\"startQuiz(true)\">只练错题</button>\n    <button class=\"btn ghost\" onclick=\"resetStats()\">清空记录</button>\n  </div>\n  <div id=\"quizArea\"></div>\n</div>",
-  "s5": "<div class=\"wrap\">\n  <div class=\"sheet\" id=\"sheet\"></div>\n</div>"
- },
- "fragments": {
-  "clocks": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"暗影之舞\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_shadowdance.jpg\" alt=\"暗影之舞\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"暗影之刃\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_knife_1h_grimbatolraid_d_03.jpg\" alt=\"暗影之刃\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"影分身\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_sinistercalling.jpg\" alt=\"影分身\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">爆发时钟</span><span class=\"sub\">你唯一的杀人手段</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>暗影之舞</sk> <sk>暗影之刃</sk> <sk>影分身</sk> 加上诡术师的 <sk>隐秘之刃</sk> 层数。</p><p style=\"margin-top:7px\">转起来了就必须有事做——<strong>空转一轮等于白送对面一分钟</strong>。</p><div class=\"mini\"><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>诡术师层数怎么用</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk>隐秘之刃</sk>：<sk>背刺</sk>/<sk>暗影打击</sk> 叠层，4 层后终结技变 <sk>致命一击</sk>（等同额外 5 连击点的 <sk>刺骨</sk>，5 秒内可再触发一次打 150%）。<b>进窗口之前先攒好</b>——在窗口里花 GCD 叠层是最贵的浪费。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"肾击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"肾击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致盲\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"致盲\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">控制时钟</span><span class=\"sub\">100% → 50% → 25% → 免疫</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>目标身上的递减（DR）按 <strong>100% → 50% → 25% → 免疫</strong> 衰减。</p><p style=\"margin-top:7px\">窗口打开时如果目标已经吃了两个眩晕，你的 <sk>肾击</sk> 只剩一点点时长。<strong>控制不是消耗品，是预算。</strong></p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"暗影斗篷\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_nethercloak.jpg\" alt=\"暗影斗篷\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"闪避\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_shadowward.jpg\" alt=\"闪避\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"佯攻\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_feint.jpg\" alt=\"佯攻\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">生存时钟</span><span class=\"sub\">消失既是逃命也是进攻资源</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>消失</sk> <sk>暗影斗篷</sk> <sk>闪避</sk> <sk>佯攻</sk> <sk>烟雾弹</sk>。</p><p style=\"margin-top:7px\">把 <sk>消失</sk> 纯当逃命用的贼打不出伤害；纯当进攻用的贼活不过第二轮。</p></div></div>",
-  "setup": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"隐秘之刃\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_weapon_shortblade_55.jpg\" alt=\"隐秘之刃\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致命一击\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_ability_tricksterrogue_coupdegrace.jpg\" alt=\"致命一击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">英雄天赋：诡术师</span><span class=\"sub\">top50 里 50 人全用，没有取舍空间</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>诡术师（Trickster）</strong>——top50 三对三里 50 人全用，死亡追猎者是 <strong>0</strong>。这不是\"推荐\"，是唯一解。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"烟雾弹\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_smoke.jpg\" alt=\"烟雾弹\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"卸除武装\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"卸除武装\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"偷天换日\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_tricksofthetrade.jpg\" alt=\"偷天换日\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">PvP 天赋：两必带 + 一个按对面选</span><span class=\"sub\">烟雾弹 · 先发制人 · 第三格看对面</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>烟雾弹</sk> <strong>50/50 必带</strong> · <b>先发制人（Preemptive Maneuver）</b> <strong>45/50 必带</strong>（被眩晕时 <sk>佯攻</sk> 减伤更强、能量更省）</p><p style=\"margin-top:8px\">第三格二选一：</p><div class=\"mini\"><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>对面伤害来自武器 → 带 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">卸除武装</sk></span><span class=\"ar\">▸</span></div><div class=\"mb\">6 秒缴械 / 45 秒冷却。对<b>战士、猎人、贼、死亡骑士</b>极强——没武器就没伤害。<b>注意它不影响施法</b>，对法系几乎无用。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>对面难杀（有强治疗）→ 带 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_tricksofthetrade.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷天换日</sk></span><span class=\"ar\">▸</span></div><div class=\"mb\">给队友加 15% 伤害 6 秒。当核心矛盾是\"打不穿治疗\"时，这一格比缴械值钱。</div></div></div></div></div>",
-  "general": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"潜行\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_stealth.jpg\" alt=\"潜行\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">01 · 一轮交战的完整流程</span><span class=\"sub\">八步，点着走一遍</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"stepper\" id=\"stepBody\"></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">02 · 两种开法</span><span class=\"sub\">取决于目标还剩几张牌</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>判断的那一问：</strong>「如果我现在全交，他还有几张牌能救自己？」</p><p style=\"margin-top:4px;color:var(--tx3)\">≥2 → 消耗开。≤1 → 杀人开。不知道 → 侦察没做完，走消耗开。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>A · 杀人开（目标只剩一张牌）</span><span class=\"ar\">▸</span></div><div class=\"mb\"><div class=\"seq\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷袭</sk><i>→</i><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_shadowstrike.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">暗影打击</sk><i>补点</i><i>→</i><i>爆发全交</i><i>→</i><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">肾击</sk><i>→</i><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_sinistercalling.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">影分身</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_eviscerate.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">刺骨</sk></div>见 01 的分步器。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>B · 消耗开（目标满状态）</span><span class=\"ar\">▸</span></div><div class=\"mb\"><div class=\"seq\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷袭</sk><i>→</i><i>打两下看反应</i><i>→</i><i>他交防御</i><i>→</i><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_vanish.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">消失</sk><i>撤走</i></div>目的不是伤害，是<b>让对面花掉一张牌</b>。花掉了就走。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>队友喊\"开\"你就开，是最常见的错</span><span class=\"ar\">▸</span></div><div class=\"mb\">队友看的是他自己的 CD，看不到目标的防御池。<b>什么时候开是贼说了算。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"刺骨\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_eviscerate.jpg\" alt=\"刺骨\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致命一击\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_ability_tricksterrogue_coupdegrace.jpg\" alt=\"致命一击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"影分身\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_sinistercalling.jpg\" alt=\"影分身\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">03 · 窗口内怎么分配</span><span class=\"sub\">每个 GCD 都在燃烧</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>终结技先于生成技</span><span class=\"ar\">▸</span></div><div class=\"mb\">本版拿掉了所有维持技能，伤害几乎全在终结技上（<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_eviscerate.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">刺骨</sk> 还上调了 8%）。<b>有连击点就倒，别攒。</b></div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_sinistercalling.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">影分身</sk> 不再是\"大招\"</span><span class=\"ar\">▸</span></div><div class=\"mb\">本版改成固定 25 秒冷却、可被急速缩短。<b>它是\"每个窗口都该有的一发\"，攒着不用是纯亏。</b></div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>目标打不动就转火，不要停也不要重置</span><span class=\"ar\">▸</span></div><div class=\"mb\">免疫亮起时目标是不可伤害的，但他的队友不是。<b>窗口在燃烧，把伤害倒在别人身上</b>比停手或 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_vanish.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">消失</sk> 重置都值钱。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>不要在窗口里追人</span><span class=\"ar\">▸</span></div><div class=\"mb\">目标跑了就转火，别花两个 GCD 去够他。窗口不等你。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"肾击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"肾击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致盲\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"致盲\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"凿击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_gouge.jpg\" alt=\"凿击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">04 · 控链与递减</span><span class=\"sub\">贼最容易浪费的资源</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>同类控制连续命中同一目标，时长按 <strong>100% → 50% → 25% → 免疫</strong> 衰减。<strong>不同类别互不影响。</strong></p><div class=\"mini\"><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>你手上的控制分四类</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>眩晕类</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷袭</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">肾击</sk>（共享递减）<br><b>失能类</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">致盲</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_sap.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">闷棍</sk>（共享递减，受伤即破）<br><b>致残类</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_gouge.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">凿击</sk>（单独一类，受伤即破）<br><b>缴械类</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">卸除武装</sk>（不吃眩晕递减，是额外一层预算）</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>控治疗用失能类，控目标用眩晕类</span><span class=\"ar\">▸</span></div><div class=\"mb\">混用等于自己烧预算。<br><b>好的链条：</b><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">致盲</sk> 治疗 → 打目标 → 目标要死 → <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">肾击</sk> 补最后一段。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>最典型的浪费</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷袭</sk> 开场 → 打半天 → <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">肾击</sk>。这时肾击只剩 50%，而且偷袭那几秒也浪费了。<b>中间这个位置最差。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"烟雾弹\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_smoke.jpg\" alt=\"烟雾弹\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">05 · 烟雾弹</span><span class=\"sub\">这版本你最强的一张牌</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>机制：<strong>烟外的敌人无法选中烟内的任何人。</strong></p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>进攻用（最值钱）</span><span class=\"ar\">▸</span></div><div class=\"mb\">你和目标在烟里、治疗在烟外 → <b>治疗看不见他</b>。这几秒目标是没有治疗的。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>防守用：只花一个 GCD</span><span class=\"ar\">▸</span></div><div class=\"mb\">队友要死了，扔在他身上让对面点不到。<b>关键是这不打断你的输出</b>——窗口继续走，队友也活了。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>它挡选中，不挡范围</span><span class=\"ar\">▸</span></div><div class=\"mb\">不挡地面 AOE，也不挡已经飞出去的东西。<b>放烟前先看对面有没有不需要选中的手段。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"脚踢\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_kick.jpg\" alt=\"脚踢\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"凿击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_gouge.jpg\" alt=\"凿击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">06 · 断法与假动作</span><span class=\"sub\">脚踢锁的是学派，不是那一个技能</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"mini\"><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>不要见读条就踢</span><span class=\"ar\">▸</span></div><div class=\"mb\">好的治疗会故意起一个可被打断的小治疗骗你的 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_kick.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">脚踢</sk>，然后你锁不住真正的大治疗。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>能用便宜的就别用脚踢</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_gouge.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">凿击</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">致盲</sk> 眩晕都能中断施法且<b>不占脚踢冷却</b>。把脚踢省给真正必须断的那一个。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>假动作怎么做</span><span class=\"ar\">▸</span></div><div class=\"mb\">冲上去做一个明显的起手动作但<b>不按</b>。对面会本能地假施法或交防御。这一下不花你任何冷却。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"暗影斗篷\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_nethercloak.jpg\" alt=\"暗影斗篷\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"闪避\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_shadowward.jpg\" alt=\"闪避\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">07 · 脱战与防御</span><span class=\"sub\">打不死就走，是唯一正确的循环</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>因为敏锐没有持续压力了，你留在场上磨伤害的每一秒都在给对面攒治疗溢出。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>窗口结束、目标没死 → 立刻脱离</span><span class=\"ar\">▸</span></div><div class=\"mb\">用 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_sprint.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">疾跑</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_shadowstep.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">暗影步</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_vanish.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">消失</sk> 拉开，绕柱子断视野，重新 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_stealth.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">潜行</sk>。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>防御三件套的分工</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_nethercloak.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">暗影斗篷</sk>：抹魔法伤害<b>和身上的魔法减益</b>。<br><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_shadowward.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">闪避</sk>：<b>只挡物理</b>，对法师开是纯浪费。<br><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_feint.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">佯攻</sk>：带了先发制人后，<b>被控住时顺手按</b>——最廉价的续命动作。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>斗篷该留还是该按？看对手的伤害模型</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>一次爆发型</b>（法师）→ 留给他的爆发窗口。<br><b>持续叠加型</b>（术士）→ 挂满一身持续伤害时立刻按，一次抹光收益最大。</div></div></div></div></div>",
-  "sheet": "<div class=\"sc wide\"><h4>三条铁律</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">打不死就走</div><div class=\"dd\">窗口结束、目标没死 → 立刻脱离。本版没有持续压力，磨伤害等于帮对面攒治疗溢出。</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">免疫亮起就转火</div><div class=\"dd\">不要停、不要重置。窗口在燃烧，把这几秒的伤害倒在别人身上。</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">什么时候开是贼说了算</div><div class=\"dd\">队友看的是自己的 CD，看不到目标的防御池。</div></div></div></div></div><div class=\"sc\"><h4>开窗口前的四条件（缺几条就少几成胜算）</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">目标的免疫牌已经没了</div><div class=\"dd\">圣盾术 / 寒冰屏障 / 灵龟守护 / 业报之触——只要还在，你进去就是送</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">治疗被处理了</div><div class=\"dd\">控住了、被烟雾弹隔在外面、或者根本不在场</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">目标身上是\"裸\"的</div><div class=\"dd\">没有护盾、没有大减伤挂着。护盾会先吃掉你窗口伤害的一大块</div></div></div><div class=\"b3\"><div class=\"n\">4</div><div><div class=\"tt\">我的资源齐了</div><div class=\"dd\">暗影之舞 + 暗影之刃 + 影分身 都好，且诡术师层数接近满</div></div></div></div></div><div class=\"sc wide\"><h4>看到这些图标 · 立刻停手或转火</h4><div class=\"imm\"><div class=\"immc\"><img class=\"ic\" data-sk=\"圣盾术\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_holy_divineshield.jpg\" alt=\"圣盾术\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">圣盾术</div><div class=\"w\">圣骑士 · 全免疫</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"寒冰屏障\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_frost_frost.jpg\" alt=\"寒冰屏障\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">寒冰屏障</div><div class=\"w\">法师 · 全免疫，不能移动</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"虚空行走\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_warlock_demonsoul.jpg\" alt=\"虚空行走\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">虚空行走</div><div class=\"w\">恶魔猎手 · 全免疫，可移动</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"灵龟守护\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_hunter_pet_turtle.jpg\" alt=\"灵龟守护\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">灵龟守护</div><div class=\"w\">猎人 · 只免伤害，不免控</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"业报之触\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_monk_touchofkarma.jpg\" alt=\"业报之触\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">业报之触</div><div class=\"w\">武僧 · 化解并反弹</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"剑在人在\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_warrior_challange.jpg\" alt=\"剑在人在\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">剑在人在</div><div class=\"w\">战士 · 免物理≈全免疫</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"保护祝福\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_holy_sealofprotection.jpg\" alt=\"保护祝福\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">保护祝福</div><div class=\"w\">圣骑士 · 免物理</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"反魔法护罩\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_shadow_antimagicshell.jpg\" alt=\"反魔法护罩\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">反魔法护罩</div><div class=\"w\">死骑 · 只免魔法，物理照打</div></div></div></div></div><div class=\"sc\"><h4>三个高频误判</h4><div class=\"line\">● <sk>卸除武装</sk> 只吃武器伤害 —— 对施法者无效<br>● <sk>烟雾弹</sk> 只挡选中 —— 不挡地面 AOE 和范围伤害<br>● <sk>致盲</sk> <sk>闷棍</sk> 受伤即破 —— 按之前先看目标身上干不干净</div></div><div class=\"sc\"><h4>天赋定盘</h4><div class=\"line\">英雄天赋：<b>诡术师</b>（top50 全用，无取舍）<br>PvP 必带：<sk>烟雾弹</sk> + <b>先发制人</b><br>第三格：对面伤害来自武器 → <sk>卸除武装</sk>；对面有难杀治疗 → <sk>偷天换日</sk></div></div>"
- },
- "sk": {
-  "潜行": "ability_stealth",
-  "偷袭": "ability_cheapshot",
-  "肾击": "ability_rogue_kidneyshot",
-  "暗影之舞": "ability_rogue_shadowdance",
-  "暗影之刃": "inv_knife_1h_grimbatolraid_d_03",
-  "影分身": "ability_rogue_sinistercalling",
-  "刺骨": "ability_rogue_eviscerate",
-  "暗影打击": "ability_rogue_shadowstrike",
-  "背刺": "ability_backstab",
-  "消失": "ability_vanish",
-  "暗影斗篷": "spell_shadow_nethercloak",
-  "闪避": "spell_shadow_shadowward",
-  "佯攻": "ability_rogue_feint",
-  "致盲": "spell_shadow_mindsteal",
-  "闷棍": "ability_sap",
-  "凿击": "ability_gouge",
-  "脚踢": "ability_kick",
-  "烟雾弹": "ability_rogue_smoke",
-  "疾跑": "ability_rogue_sprint",
-  "暗影步": "ability_rogue_shadowstep",
-  "卸除武装": "ability_rogue_dismantle",
-  "偷天换日": "ability_rogue_tricksofthetrade",
-  "嫁祸诀窍": "ability_rogue_tricksofthetrade",
-  "袖剑风暴": "ability_rogue_shurikenstorm",
-  "黑火药": "spell_priest_divinestar_shadow",
-  "隐秘之刃": "inv_weapon_shortblade_55",
-  "致命一击": "inv_ability_tricksterrogue_coupdegrace",
-  "天降杀机": "spell_rogue_deathfromabove",
-  "圣盾术": "spell_holy_divineshield",
-  "保护祝福": "spell_holy_sealofprotection",
-  "自由祝福": "spell_holy_sealofvalor",
-  "破咒祝福": "spell_holy_blessingofprotection",
-  "寒冰屏障": "spell_frost_frost",
-  "变形术": "spell_nature_polymorph",
-  "虚空行走": "spell_warlock_demonsoul",
-  "疾影": "ability_demonhunter_blur",
-  "恶魔变形": "ability_demonhunter_metamorphasistank",
-  "灵龟守护": "ability_hunter_pet_turtle",
-  "假死": "ability_rogue_feigndeath",
-  "反魔法护罩": "spell_shadow_antimagicshell",
-  "反魔法领域": "spell_deathknight_antimagiczone",
-  "冰封之韧": "spell_deathknight_iceboundfortitude",
-  "消散": "spell_shadow_dispersion",
-  "真言术：盾": "spell_holy_powerwordshield",
-  "痛苦压制": "spell_holy_painsupression",
-  "绝望祷言": "spell_holy_testoffaith",
-  "树皮术": "spell_nature_stoneclawtotem",
-  "旅行形态": "ability_druid_travelform",
-  "业报之触": "ability_monk_touchofkarma",
-  "气定神闲": "spell_nature_enchantarmor",
-  "玄牛下凡": "spell_monk_brewmaster_spec",
-  "剑在人在": "ability_warrior_challange",
-  "盾墙": "ability_warrior_shieldwall",
-  "破胆怒吼": "ability_golemthunderclap",
-  "集结呐喊": "ability_warrior_rallyingcry",
-  "不灭决心": "spell_shadow_demonictactics",
-  "恐惧": "spell_shadow_possession",
-  "星界转移": "ability_shaman_astralshift",
-  "黑曜鳞片": "inv_artifact_dragonscales",
-  "新生光焰": "ability_evoker_masterylifebinder_red",
-  "悬空": "ability_evoker_hover"
- },
- "enemy": [
-  "圣盾术",
-  "保护祝福",
-  "自由祝福",
-  "破咒祝福",
-  "寒冰屏障",
-  "变形术",
-  "虚空行走",
-  "疾影",
-  "恶魔变形",
-  "灵龟守护",
-  "假死",
-  "反魔法护罩",
-  "反魔法领域",
-  "冰封之韧",
-  "消散",
-  "真言术：盾",
-  "痛苦压制",
-  "绝望祷言",
-  "树皮术",
-  "旅行形态",
-  "业报之触",
-  "气定神闲",
-  "玄牛下凡",
-  "剑在人在",
-  "盾墙",
-  "破胆怒吼",
-  "集结呐喊",
-  "不灭决心",
-  "恐惧",
-  "星界转移",
-  "黑曜鳞片",
-  "新生光焰",
-  "悬空"
- ],
- "own": null,
- "cond": [
-  {
-   "k": "imm",
-   "t": "目标的免疫牌已经没了",
-   "d": "圣盾术 / 寒冰屏障 / 灵龟守护 / 业报之触——只要还在，你进去就是送"
-  },
-  {
-   "k": "heal",
-   "t": "治疗被处理了",
-   "d": "控住了、被烟雾弹隔在外面、或者根本不在场"
-  },
-  {
-   "k": "naked",
-   "t": "目标身上是\"裸\"的",
-   "d": "没有护盾、没有大减伤挂着。护盾会先吃掉你窗口伤害的一大块"
-  },
-  {
-   "k": "self",
-   "t": "我的资源齐了",
-   "d": "暗影之舞 + 暗影之刃 + 影分身 都好，且诡术师层数接近满"
-  }
- ],
- "verdicts": [
-  {
-   "cls": "bad",
-   "html": "<div class=\"vi\">◇</div><div><h3>别开，你现在只是在送冷却</h3><p>条件差太多。这一轮你的整套爆发会撞在对面完整的防御池上，打空之后还得等一分钟。先去拆牌。</p><!--MISSING--></div>"
-  },
-  {
-   "cls": "bad",
-   "html": "<div class=\"vi\">◇</div><div><h3>别开，你现在只是在送冷却</h3><p>条件差太多。这一轮你的整套爆发会撞在对面完整的防御池上，打空之后还得等一分钟。先去拆牌。</p><!--MISSING--></div>"
-  },
-  {
-   "cls": "warn",
-   "html": "<div class=\"vi\">△</div><div><h3>只能消耗开，目标是逼牌不是杀人</h3><p>进场打两下、逼对面花掉一张牌，然后立刻撤。别贪那 5% 的血——贪了通常要用 <sk>消失</sk> 去换。</p><!--MISSING--></div>"
-  },
-  {
-   "cls": "warn",
-   "html": "<div class=\"vi\">◐</div><div><h3>可以开，但知道哪个洞会让这轮失效</h3><p>压力足够，但缺的那一项可能让整轮白打。<b>别把爆发和 <sk>消失</sk> 一起交完</b>，留一张牌给条件破裂的时候。</p><!--MISSING--></div>"
-  },
-  {
-   "cls": "good",
-   "html": "<div class=\"vi\">◆</div><div><h3>全交。这就是你攒了一整局的那一刻</h3><p><sk>偷袭</sk> 上点 → 爆发全交 → <sk>肾击</sk> 卡在伤害落地那一刻 → <sk>致命一击</sk> 落在加成里。<b>这时候不敢开，前面所有消耗都白做了。</b></p><!--MISSING--></div>"
-  }
- ],
- "steps": [
-  [
-   "潜行，先确认目标的牌",
-   "<sk>圣盾术</sk> <sk>寒冰屏障</sk> <sk>灵龟守护</sk> <sk>业报之触</sk>——只要还在，这一轮就该改成消耗开。<b>这是所有其他判断的前提。</b>",
-   "潜行"
+  "nav": [
+    {
+      "s": "s1",
+      "label": "骨架"
+    },
+    {
+      "s": "s2",
+      "label": "通用手法"
+    },
+    {
+      "s": "s3",
+      "label": "分职业"
+    },
+    {
+      "s": "s4",
+      "label": "判断训练"
+    },
+    {
+      "s": "s5",
+      "label": "赛前速查"
+    }
   ],
-  [
-   "读站位，不读血量",
-   "谁跟谁分开了、治疗的视野被什么挡住。血量在你进场前会变，站位不会。",
-   "潜行"
+  "sections": {
+    "s1": "<div class=\"wrap\">\n\n<div class=\"thesis\">\n  <div class=\"lbl\">这版本唯一要记住的一句</div>\n  <div class=\"big\">敏锐失去了持续压力。<br>你不再是磨死人，你是攒一个窗口、一次结账。</div>\n</div>\n\n<div class=\"rows\">\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\">\n    <span class=\"t\">为什么？12.0 拿掉了三样东西</span>\n    <span class=\"sub\">割裂伤 / 鞭笞 / 死亡标记 全没了</span><span class=\"ar\">▸</span></div>\n    <div class=\"b\">\n      <p>12.0 移除了 <b>割裂伤（Rupture）</b>、<b>鞭笞（Flagellation）</b>、<b>死亡标记（Symbols of Death）</b>，<sk>刺骨</sk> 伤害上调 8% 作为补偿。</p>\n      <p style=\"margin-top:8px\">结果是：敏锐变成<strong>纯爆发型、几乎没有 ramp</strong>。窗口外你打出的伤害基本会被治疗抹平——所以窗口外的全部意义只有一个：<strong>为下一个窗口做准备</strong>。</p>\n    </div></div>\n</div>\n\n<h2>该不该开？勾一下就知道</h2>\n<p class=\"lead\">勾掉几条，就有多少胜算。</p>\n<div class=\"gobox\">\n  <div class=\"gh\">开场决策器</div>\n  <div class=\"gt\">现在的局面满足哪几条？</div>\n  <div class=\"checks\" id=\"checks\"></div>\n  <div class=\"verdict\" id=\"verdict\"></div>\n</div>\n\n<h2>三个时钟</h2>\n<p class=\"lead\">三个独立的倒计时，任何一个错位这一轮就废了。</p>\n<div class=\"rows\" id=\"clocks\"></div>\n\n<h2>本版定盘（top50 三对三实测）</h2>\n<div class=\"rows\" id=\"setup\"></div>\n\n\n\n</div>",
+    "s2": "<div class=\"wrap\">\n  <p class=\"lead\">按一轮交战的时间顺序排。</p>\n  <div class=\"rows\" id=\"general\"></div>\n</div>",
+    "s3": "<div class=\"wrap\">\n  <p class=\"lead\">四问对所有敌人是同一套。</p>\n  <div class=\"split\">\n    <div class=\"sidecol\">\n      <div class=\"cls-grid\" id=\"clsGrid\"></div>\n      <div class=\"modebar\" id=\"modebar\">\n        <button class=\"on\" data-m=\"arena\">竞技场</button>\n        <button data-m=\"duel\">单挑</button>\n      </div>\n    </div>\n    <div id=\"clsDetail\"></div>\n  </div>\n</div>",
+    "s4": "<div class=\"wrap\">\n  <div class=\"statbar\">\n    <div class=\"stat\"><span class=\"k\">累计答题</span><span class=\"v\" id=\"stPlayed\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">总正确率</span><span class=\"v\" id=\"stAcc\">—</span></div>\n    <div class=\"stat\"><span class=\"k\">最长连对</span><span class=\"v\" id=\"stBest\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">错题库</span><span class=\"v\" id=\"stWrong\">0</span></div>\n  </div>\n  <div class=\"qtop\">\n    <select id=\"fCat\"><option value=\"all\">全部范围</option></select>\n    <select id=\"fDiff\">\n      <option value=\"all\">全部难度</option>\n      <option value=\"1\">基础 · 机制</option>\n      <option value=\"2\">进阶 · 时机</option>\n      <option value=\"3\">高阶 · 权衡</option>\n    </select>\n    <button class=\"btn\" onclick=\"startQuiz(false)\">开始一轮（10 题）</button>\n    <button class=\"btn ghost\" onclick=\"startQuiz(true)\">只练错题</button>\n    <button class=\"btn ghost\" onclick=\"resetStats()\">清空记录</button>\n  </div>\n  <div id=\"quizArea\"></div>\n</div>",
+    "s5": "<div class=\"wrap\">\n  <div class=\"sheet\" id=\"sheet\"></div>\n</div>"
+  },
+  "fragments": {
+    "clocks": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"暗影之舞\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_shadowdance.jpg\" alt=\"暗影之舞\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"暗影之刃\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_knife_1h_grimbatolraid_d_03.jpg\" alt=\"暗影之刃\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"影分身\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_sinistercalling.jpg\" alt=\"影分身\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">爆发时钟</span><span class=\"sub\">你唯一的杀人手段</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>暗影之舞</sk> <sk>暗影之刃</sk> <sk>影分身</sk> 加上诡术师的 <sk>隐秘之刃</sk> 层数。</p><p style=\"margin-top:7px\">转起来了就必须有事做——<strong>空转一轮等于白送对面一分钟</strong>。</p><div class=\"mini\"><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>诡术师层数怎么用</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk>隐秘之刃</sk>：<sk>背刺</sk>/<sk>暗影打击</sk> 叠层，4 层后终结技变 <sk>致命一击</sk>（等同额外 5 连击点的 <sk>刺骨</sk>，5 秒内可再触发一次打 150%）。<b>进窗口之前先攒好</b>——在窗口里花 GCD 叠层是最贵的浪费。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"肾击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"肾击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致盲\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"致盲\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">控制时钟</span><span class=\"sub\">100% → 50% → 25% → 免疫</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>目标身上的递减（DR）按 <strong>100% → 50% → 25% → 免疫</strong> 衰减。</p><p style=\"margin-top:7px\">窗口打开时如果目标已经吃了两个眩晕，你的 <sk>肾击</sk> 只剩一点点时长。<strong>控制不是消耗品，是预算。</strong></p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"暗影斗篷\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_nethercloak.jpg\" alt=\"暗影斗篷\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"闪避\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_shadowward.jpg\" alt=\"闪避\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"佯攻\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_feint.jpg\" alt=\"佯攻\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">生存时钟</span><span class=\"sub\">消失既是逃命也是进攻资源</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>消失</sk> <sk>暗影斗篷</sk> <sk>闪避</sk> <sk>佯攻</sk> <sk>烟雾弹</sk>。</p><p style=\"margin-top:7px\">把 <sk>消失</sk> 纯当逃命用的贼打不出伤害；纯当进攻用的贼活不过第二轮。</p></div></div>",
+    "setup": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"隐秘之刃\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_weapon_shortblade_55.jpg\" alt=\"隐秘之刃\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致命一击\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_ability_tricksterrogue_coupdegrace.jpg\" alt=\"致命一击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">英雄天赋：诡术师</span><span class=\"sub\">top50 里 50 人全用，没有取舍空间</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>诡术师（Trickster）</strong>——top50 三对三里 50 人全用，死亡追猎者是 <strong>0</strong>。这不是\"推荐\"，是唯一解。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"烟雾弹\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_smoke.jpg\" alt=\"烟雾弹\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"卸除武装\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"卸除武装\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"偷天换日\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_tricksofthetrade.jpg\" alt=\"偷天换日\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">PvP 天赋：两必带 + 一个按对面选</span><span class=\"sub\">烟雾弹 · 先发制人 · 第三格看对面</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>烟雾弹</sk> <strong>50/50 必带</strong> · <b>先发制人（Preemptive Maneuver）</b> <strong>45/50 必带</strong>（被眩晕时 <sk>佯攻</sk> 减伤更强、能量更省）</p><p style=\"margin-top:8px\">第三格二选一：</p><div class=\"mini\"><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>对面伤害来自武器 → 带 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">卸除武装</sk></span><span class=\"ar\">▸</span></div><div class=\"mb\">6 秒缴械 / 45 秒冷却。对<b>战士、猎人、贼、死亡骑士</b>极强——没武器就没伤害。<b>注意它不影响施法</b>，对法系几乎无用。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>对面难杀（有强治疗）→ 带 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_tricksofthetrade.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷天换日</sk></span><span class=\"ar\">▸</span></div><div class=\"mb\">给队友加 15% 伤害 6 秒。当核心矛盾是\"打不穿治疗\"时，这一格比缴械值钱。</div></div></div></div></div>",
+    "general": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"潜行\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_stealth.jpg\" alt=\"潜行\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">01 · 一轮交战的完整流程</span><span class=\"sub\">八步，点着走一遍</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"stepper\" id=\"stepBody\"></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">02 · 两种开法</span><span class=\"sub\">取决于目标还剩几张牌</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><strong>判断的那一问：</strong>「如果我现在全交，他还有几张牌能救自己？」</p><p style=\"margin-top:4px;color:var(--tx3)\">≥2 → 消耗开。≤1 → 杀人开。不知道 → 侦察没做完，走消耗开。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>A · 杀人开（目标只剩一张牌）</span><span class=\"ar\">▸</span></div><div class=\"mb\"><div class=\"seq\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷袭</sk><i>→</i><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_shadowstrike.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">暗影打击</sk><i>补点</i><i>→</i><i>爆发全交</i><i>→</i><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">肾击</sk><i>→</i><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_sinistercalling.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">影分身</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_eviscerate.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">刺骨</sk></div>见 01 的分步器。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>B · 消耗开（目标满状态）</span><span class=\"ar\">▸</span></div><div class=\"mb\"><div class=\"seq\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷袭</sk><i>→</i><i>打两下看反应</i><i>→</i><i>他交防御</i><i>→</i><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_vanish.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">消失</sk><i>撤走</i></div>目的不是伤害，是<b>让对面花掉一张牌</b>。花掉了就走。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>队友喊\"开\"你就开，是最常见的错</span><span class=\"ar\">▸</span></div><div class=\"mb\">队友看的是他自己的 CD，看不到目标的防御池。<b>什么时候开是贼说了算。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"刺骨\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_eviscerate.jpg\" alt=\"刺骨\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致命一击\" style=\"width:20px;height:20px\" src=\"assets/icons/inv_ability_tricksterrogue_coupdegrace.jpg\" alt=\"致命一击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"影分身\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_sinistercalling.jpg\" alt=\"影分身\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">03 · 窗口内怎么分配</span><span class=\"sub\">每个 GCD 都在燃烧</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>终结技先于生成技</span><span class=\"ar\">▸</span></div><div class=\"mb\">本版拿掉了所有维持技能，伤害几乎全在终结技上（<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_eviscerate.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">刺骨</sk> 还上调了 8%）。<b>有连击点就倒，别攒。</b></div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_sinistercalling.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">影分身</sk> 不再是\"大招\"</span><span class=\"ar\">▸</span></div><div class=\"mb\">本版改成固定 25 秒冷却、可被急速缩短。<b>它是\"每个窗口都该有的一发\"，攒着不用是纯亏。</b></div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>目标打不动就转火，不要停也不要重置</span><span class=\"ar\">▸</span></div><div class=\"mb\">免疫亮起时目标是不可伤害的，但他的队友不是。<b>窗口在燃烧，把伤害倒在别人身上</b>比停手或 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_vanish.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">消失</sk> 重置都值钱。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>不要在窗口里追人</span><span class=\"ar\">▸</span></div><div class=\"mb\">目标跑了就转火，别花两个 GCD 去够他。窗口不等你。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"偷袭\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"偷袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"肾击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"肾击\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"致盲\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"致盲\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"凿击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_gouge.jpg\" alt=\"凿击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">04 · 控链与递减</span><span class=\"sub\">贼最容易浪费的资源</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>同类控制连续命中同一目标，时长按 <strong>100% → 50% → 25% → 免疫</strong> 衰减。<strong>不同类别互不影响。</strong></p><div class=\"mini\"><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>你手上的控制分四类</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>眩晕类</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷袭</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">肾击</sk>（共享递减）<br><b>失能类</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">致盲</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_sap.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">闷棍</sk>（共享递减，受伤即破）<br><b>致残类</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_gouge.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">凿击</sk>（单独一类，受伤即破）<br><b>缴械类</b>：<sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_dismantle.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">卸除武装</sk>（不吃眩晕递减，是额外一层预算）</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>控治疗用失能类，控目标用眩晕类</span><span class=\"ar\">▸</span></div><div class=\"mb\">混用等于自己烧预算。<br><b>好的链条：</b><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">致盲</sk> 治疗 → 打目标 → 目标要死 → <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">肾击</sk> 补最后一段。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>最典型的浪费</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_cheapshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">偷袭</sk> 开场 → 打半天 → <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_kidneyshot.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">肾击</sk>。这时肾击只剩 50%，而且偷袭那几秒也浪费了。<b>中间这个位置最差。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"烟雾弹\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_rogue_smoke.jpg\" alt=\"烟雾弹\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">05 · 烟雾弹</span><span class=\"sub\">这版本你最强的一张牌</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>机制：<strong>烟外的敌人无法选中烟内的任何人。</strong></p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>进攻用（最值钱）</span><span class=\"ar\">▸</span></div><div class=\"mb\">你和目标在烟里、治疗在烟外 → <b>治疗看不见他</b>。这几秒目标是没有治疗的。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>防守用：只花一个 GCD</span><span class=\"ar\">▸</span></div><div class=\"mb\">队友要死了，扔在他身上让对面点不到。<b>关键是这不打断你的输出</b>——窗口继续走，队友也活了。</div></div><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>它挡选中，不挡范围</span><span class=\"ar\">▸</span></div><div class=\"mb\">不挡地面 AOE，也不挡已经飞出去的东西。<b>放烟前先看对面有没有不需要选中的手段。</b></div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"脚踢\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_kick.jpg\" alt=\"脚踢\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"凿击\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_gouge.jpg\" alt=\"凿击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">06 · 断法与假动作</span><span class=\"sub\">脚踢锁的是学派，不是那一个技能</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"mini\"><div class=\"m no\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>不要见读条就踢</span><span class=\"ar\">▸</span></div><div class=\"mb\">好的治疗会故意起一个可被打断的小治疗骗你的 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_kick.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">脚踢</sk>，然后你锁不住真正的大治疗。</div></div><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>能用便宜的就别用脚踢</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_gouge.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">凿击</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_mindsteal.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">致盲</sk> 眩晕都能中断施法且<b>不占脚踢冷却</b>。把脚踢省给真正必须断的那一个。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>假动作怎么做</span><span class=\"ar\">▸</span></div><div class=\"mb\">冲上去做一个明显的起手动作但<b>不按</b>。对面会本能地假施法或交防御。这一下不花你任何冷却。</div></div></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"消失\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_vanish.jpg\" alt=\"消失\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"暗影斗篷\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_nethercloak.jpg\" alt=\"暗影斗篷\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"闪避\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_shadowward.jpg\" alt=\"闪避\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">07 · 脱战与防御</span><span class=\"sub\">打不死就走，是唯一正确的循环</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>因为敏锐没有持续压力了，你留在场上磨伤害的每一秒都在给对面攒治疗溢出。</p><div class=\"mini\"><div class=\"m ok\"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>窗口结束、目标没死 → 立刻脱离</span><span class=\"ar\">▸</span></div><div class=\"mb\">用 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_sprint.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">疾跑</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_shadowstep.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">暗影步</sk> <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_vanish.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">消失</sk> 拉开，绕柱子断视野，重新 <sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_stealth.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">潜行</sk>。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>防御三件套的分工</span><span class=\"ar\">▸</span></div><div class=\"mb\"><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_nethercloak.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">暗影斗篷</sk>：抹魔法伤害<b>和身上的魔法减益</b>。<br><sk class=\"\"><img class=\"ic\" src=\"assets/icons/spell_shadow_shadowward.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">闪避</sk>：<b>只挡物理</b>，对法师开是纯浪费。<br><sk class=\"\"><img class=\"ic\" src=\"assets/icons/ability_rogue_feint.jpg\" alt=\"\" loading=\"lazy\" onerror=\"this.style.display='none'\">佯攻</sk>：带了先发制人后，<b>被控住时顺手按</b>——最廉价的续命动作。</div></div><div class=\"m \"><div class=\"mh\" onclick=\"tgm(this)\"><span class=\"d\"></span><span>斗篷该留还是该按？看对手的伤害模型</span><span class=\"ar\">▸</span></div><div class=\"mb\"><b>一次爆发型</b>（法师）→ 留给他的爆发窗口。<br><b>持续叠加型</b>（术士）→ 挂满一身持续伤害时立刻按，一次抹光收益最大。</div></div></div></div></div>",
+    "sheet": "<div class=\"sc wide\"><h4>三条铁律</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">打不死就走</div><div class=\"dd\">窗口结束、目标没死 → 立刻脱离。本版没有持续压力，磨伤害等于帮对面攒治疗溢出。</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">免疫亮起就转火</div><div class=\"dd\">不要停、不要重置。窗口在燃烧，把这几秒的伤害倒在别人身上。</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">什么时候开是贼说了算</div><div class=\"dd\">队友看的是自己的 CD，看不到目标的防御池。</div></div></div></div></div><div class=\"sc\"><h4>开窗口前的四条件（缺几条就少几成胜算）</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">目标的免疫牌已经没了</div><div class=\"dd\">圣盾术 / 寒冰屏障 / 灵龟守护 / 业报之触——只要还在，你进去就是送</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">治疗被处理了</div><div class=\"dd\">控住了、被烟雾弹隔在外面、或者根本不在场</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">目标身上是\"裸\"的</div><div class=\"dd\">没有护盾、没有大减伤挂着。护盾会先吃掉你窗口伤害的一大块</div></div></div><div class=\"b3\"><div class=\"n\">4</div><div><div class=\"tt\">我的资源齐了</div><div class=\"dd\">暗影之舞 + 暗影之刃 + 影分身 都好，且诡术师层数接近满</div></div></div></div></div><div class=\"sc wide\"><h4>看到这些图标 · 立刻停手或转火</h4><div class=\"imm\"><div class=\"immc\"><img class=\"ic\" data-sk=\"圣盾术\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_holy_divineshield.jpg\" alt=\"圣盾术\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">圣盾术</div><div class=\"w\">圣骑士 · 全免疫</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"寒冰屏障\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_frost_frost.jpg\" alt=\"寒冰屏障\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">寒冰屏障</div><div class=\"w\">法师 · 全免疫，不能移动</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"虚空行走\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_warlock_demonsoul.jpg\" alt=\"虚空行走\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">虚空行走</div><div class=\"w\">恶魔猎手 · 全免疫，可移动</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"灵龟守护\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_hunter_pet_turtle.jpg\" alt=\"灵龟守护\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">灵龟守护</div><div class=\"w\">猎人 · 只免伤害，不免控</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"业报之触\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_monk_touchofkarma.jpg\" alt=\"业报之触\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">业报之触</div><div class=\"w\">武僧 · 化解并反弹</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"剑在人在\" style=\"width:26px;height:26px\" src=\"assets/icons/ability_warrior_challange.jpg\" alt=\"剑在人在\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">剑在人在</div><div class=\"w\">战士 · 免物理≈全免疫</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"保护祝福\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_holy_sealofprotection.jpg\" alt=\"保护祝福\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">保护祝福</div><div class=\"w\">圣骑士 · 免物理</div></div></div><div class=\"immc\"><img class=\"ic\" data-sk=\"反魔法护罩\" style=\"width:26px;height:26px\" src=\"assets/icons/spell_shadow_antimagicshell.jpg\" alt=\"反魔法护罩\" loading=\"lazy\" onerror=\"this.style.display='none'\"><div><div class=\"n\">反魔法护罩</div><div class=\"w\">死骑 · 只免魔法，物理照打</div></div></div></div></div><div class=\"sc\"><h4>三个高频误判</h4><div class=\"line\">● <sk>卸除武装</sk> 只吃武器伤害 —— 对施法者无效<br>● <sk>烟雾弹</sk> 只挡选中 —— 不挡地面 AOE 和范围伤害<br>● <sk>致盲</sk> <sk>闷棍</sk> 受伤即破 —— 按之前先看目标身上干不干净</div></div><div class=\"sc\"><h4>天赋定盘</h4><div class=\"line\">英雄天赋：<b>诡术师</b>（top50 全用，无取舍）<br>PvP 必带：<sk>烟雾弹</sk> + <b>先发制人</b><br>第三格：对面伤害来自武器 → <sk>卸除武装</sk>；对面有难杀治疗 → <sk>偷天换日</sk></div></div>"
+  },
+  "sk": {
+    "潜行": "ability_stealth",
+    "偷袭": "ability_cheapshot",
+    "肾击": "ability_rogue_kidneyshot",
+    "暗影之舞": "ability_rogue_shadowdance",
+    "暗影之刃": "inv_knife_1h_grimbatolraid_d_03",
+    "影分身": "ability_rogue_sinistercalling",
+    "刺骨": "ability_rogue_eviscerate",
+    "暗影打击": "ability_rogue_shadowstrike",
+    "背刺": "ability_backstab",
+    "消失": "ability_vanish",
+    "暗影斗篷": "spell_shadow_nethercloak",
+    "闪避": "spell_shadow_shadowward",
+    "佯攻": "ability_rogue_feint",
+    "致盲": "spell_shadow_mindsteal",
+    "闷棍": "ability_sap",
+    "凿击": "ability_gouge",
+    "脚踢": "ability_kick",
+    "烟雾弹": "ability_rogue_smoke",
+    "疾跑": "ability_rogue_sprint",
+    "暗影步": "ability_rogue_shadowstep",
+    "卸除武装": "ability_rogue_dismantle",
+    "偷天换日": "ability_rogue_tricksofthetrade",
+    "嫁祸诀窍": "ability_rogue_tricksofthetrade",
+    "袖剑风暴": "ability_rogue_shurikenstorm",
+    "黑火药": "spell_priest_divinestar_shadow",
+    "隐秘之刃": "inv_weapon_shortblade_55",
+    "致命一击": "inv_ability_tricksterrogue_coupdegrace",
+    "天降杀机": "spell_rogue_deathfromabove",
+    "圣盾术": "spell_holy_divineshield",
+    "保护祝福": "spell_holy_sealofprotection",
+    "自由祝福": "spell_holy_sealofvalor",
+    "破咒祝福": "spell_holy_blessingofprotection",
+    "寒冰屏障": "spell_frost_frost",
+    "变形术": "spell_nature_polymorph",
+    "虚空行走": "spell_warlock_demonsoul",
+    "疾影": "ability_demonhunter_blur",
+    "恶魔变形": "ability_demonhunter_metamorphasistank",
+    "灵龟守护": "ability_hunter_pet_turtle",
+    "假死": "ability_rogue_feigndeath",
+    "反魔法护罩": "spell_shadow_antimagicshell",
+    "反魔法领域": "spell_deathknight_antimagiczone",
+    "冰封之韧": "spell_deathknight_iceboundfortitude",
+    "消散": "spell_shadow_dispersion",
+    "真言术：盾": "spell_holy_powerwordshield",
+    "痛苦压制": "spell_holy_painsupression",
+    "绝望祷言": "spell_holy_testoffaith",
+    "树皮术": "spell_nature_stoneclawtotem",
+    "旅行形态": "ability_druid_travelform",
+    "业报之触": "ability_monk_touchofkarma",
+    "气定神闲": "spell_nature_enchantarmor",
+    "玄牛下凡": "spell_monk_brewmaster_spec",
+    "剑在人在": "ability_warrior_challange",
+    "盾墙": "ability_warrior_shieldwall",
+    "破胆怒吼": "ability_golemthunderclap",
+    "集结呐喊": "ability_warrior_rallyingcry",
+    "不灭决心": "spell_shadow_demonictactics",
+    "恐惧": "spell_shadow_possession",
+    "星界转移": "ability_shaman_astralshift",
+    "黑曜鳞片": "inv_artifact_dragonscales",
+    "新生光焰": "ability_evoker_masterylifebinder_red",
+    "悬空": "ability_evoker_hover"
+  },
+  "enemy": [
+    "圣盾术",
+    "保护祝福",
+    "自由祝福",
+    "破咒祝福",
+    "寒冰屏障",
+    "变形术",
+    "虚空行走",
+    "疾影",
+    "恶魔变形",
+    "灵龟守护",
+    "假死",
+    "反魔法护罩",
+    "反魔法领域",
+    "冰封之韧",
+    "消散",
+    "真言术：盾",
+    "痛苦压制",
+    "绝望祷言",
+    "树皮术",
+    "旅行形态",
+    "业报之触",
+    "气定神闲",
+    "玄牛下凡",
+    "剑在人在",
+    "盾墙",
+    "破胆怒吼",
+    "集结呐喊",
+    "不灭决心",
+    "恐惧",
+    "星界转移",
+    "黑曜鳞片",
+    "新生光焰",
+    "悬空"
   ],
-  [
-   "把诡术师层数攒到接近满",
-   "可以先在非目标身上练层。<b>窗口里花 GCD 叠层是最贵的浪费。</b>",
-   "隐秘之刃"
+  "own": null,
+  "cond": [
+    {
+      "k": "imm",
+      "t": "目标的免疫牌已经没了",
+      "d": "圣盾术 / 寒冰屏障 / 灵龟守护 / 业报之触——只要还在，你进去就是送"
+    },
+    {
+      "k": "heal",
+      "t": "治疗被处理了",
+      "d": "控住了、被烟雾弹隔在外面、或者根本不在场"
+    },
+    {
+      "k": "naked",
+      "t": "目标身上是\"裸\"的",
+      "d": "没有护盾、没有大减伤挂着。护盾会先吃掉你窗口伤害的一大块"
+    },
+    {
+      "k": "self",
+      "t": "我的资源齐了",
+      "d": "暗影之舞 + 暗影之刃 + 影分身 都好，且诡术师层数接近满"
+    }
   ],
-  [
-   "偷袭进场，先上连击点",
-   "<sk>偷袭</sk> 的眩晕是<b>用来上点和建立位置的</b>，不是用来打伤害的。",
-   "偷袭"
+  "verdicts": [
+    {
+      "cls": "bad",
+      "html": "<div class=\"vi\">◇</div><div><h3>别开，你现在只是在送冷却</h3><p>条件差太多。这一轮你的整套爆发会撞在对面完整的防御池上，打空之后还得等一分钟。先去拆牌。</p><!--MISSING--></div>"
+    },
+    {
+      "cls": "bad",
+      "html": "<div class=\"vi\">◇</div><div><h3>别开，你现在只是在送冷却</h3><p>条件差太多。这一轮你的整套爆发会撞在对面完整的防御池上，打空之后还得等一分钟。先去拆牌。</p><!--MISSING--></div>"
+    },
+    {
+      "cls": "warn",
+      "html": "<div class=\"vi\">△</div><div><h3>只能消耗开，目标是逼牌不是杀人</h3><p>进场打两下、逼对面花掉一张牌，然后立刻撤。别贪那 5% 的血——贪了通常要用 <sk>消失</sk> 去换。</p><!--MISSING--></div>"
+    },
+    {
+      "cls": "warn",
+      "html": "<div class=\"vi\">◐</div><div><h3>可以开，但知道哪个洞会让这轮失效</h3><p>压力足够，但缺的那一项可能让整轮白打。<b>别把爆发和 <sk>消失</sk> 一起交完</b>，留一张牌给条件破裂的时候。</p><!--MISSING--></div>"
+    },
+    {
+      "cls": "good",
+      "html": "<div class=\"vi\">◆</div><div><h3>全交。这就是你攒了一整局的那一刻</h3><p><sk>偷袭</sk> 上点 → 爆发全交 → <sk>肾击</sk> 卡在伤害落地那一刻 → <sk>致命一击</sk> 落在加成里。<b>这时候不敢开，前面所有消耗都白做了。</b></p><!--MISSING--></div>"
+    }
   ],
-  [
-   "爆发全交",
-   "<sk>暗影之舞</sk> + <sk>暗影之刃</sk>。注意暗影之刃让生成技的连击点翻倍，<b>别按老节奏留 GCD 给生成技</b>。",
-   "暗影之舞"
+  "steps": [
+    [
+      "潜行，先确认目标的牌",
+      "<sk>圣盾术</sk> <sk>寒冰屏障</sk> <sk>灵龟守护</sk> <sk>业报之触</sk>——只要还在，这一轮就该改成消耗开。<b>这是所有其他判断的前提。</b>",
+      "潜行"
+    ],
+    [
+      "读站位，不读血量",
+      "谁跟谁分开了、治疗的视野被什么挡住。血量在你进场前会变，站位不会。",
+      "潜行"
+    ],
+    [
+      "把诡术师层数攒到接近满",
+      "可以先在非目标身上练层。<b>窗口里花 GCD 叠层是最贵的浪费。</b>",
+      "隐秘之刃"
+    ],
+    [
+      "偷袭进场，先上连击点",
+      "<sk>偷袭</sk> 的眩晕是<b>用来上点和建立位置的</b>，不是用来打伤害的。",
+      "偷袭"
+    ],
+    [
+      "爆发全交",
+      "<sk>暗影之舞</sk> + <sk>暗影之刃</sk>。注意暗影之刃让生成技的连击点翻倍，<b>别按老节奏留 GCD 给生成技</b>。",
+      "暗影之舞"
+    ],
+    [
+      "肾击卡在伤害落地那一刻",
+      "不要提前按——眩晕会在你还没堆够伤害时就走完。<b>偷袭和肾击共享递减</b>，两者要么紧凑连成一个杀窗，要么隔开足够久。",
+      "肾击"
+    ],
+    [
+      "致命一击落在加成里",
+      "4 层满了<b>不要立刻放</b>。等加成同时在，然后 5 秒内接第二次（150%）。",
+      "致命一击"
+    ],
+    [
+      "没死就走，不要恋战",
+      "窗口结束、目标没死 → 立刻脱离。<b>这不是怂，是本版唯一正确的循环。</b>",
+      "消失"
+    ]
   ],
-  [
-   "肾击卡在伤害落地那一刻",
-   "不要提前按——眩晕会在你还没堆够伤害时就走完。<b>偷袭和肾击共享递减</b>，两者要么紧凑连成一个杀窗，要么隔开足够久。",
-   "肾击"
-  ],
-  [
-   "致命一击落在加成里",
-   "4 层满了<b>不要立刻放</b>。等加成同时在，然后 5 秒内接第二次（150%）。",
-   "致命一击"
-  ],
-  [
-   "没死就走，不要恋战",
-   "窗口结束、目标没死 → 立刻脱离。<b>这不是怂，是本版唯一正确的循环。</b>",
-   "消失"
+  "match": {
+    "qlbl": [
+      "1 · 他什么时候能杀人",
+      "2 · 他那张\"你杀不死我\"的牌",
+      "3 · 你必须处理的那一个",
+      "4 · 你的开场怎么打"
+    ],
+    "list": [
+      {
+        "id": "warrior",
+        "n": "战士",
+        "ic": "classicon_warrior",
+        "c": "#C69B6D",
+        "diff": "中等偏难",
+        "cards": [
+          "剑在人在",
+          "破胆怒吼",
+          "盾墙",
+          "集结呐喊"
+        ],
+        "one": "他冲上来的那几秒决定一切，冲不动了他就是个靶子。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "杀窗极短且极猛——爆发/斩杀阶段能在几秒内带走你，窗口过去后输出断崖式下跌。<b>不要在他爆发窗口里对拼，你的血条比他薄。</b>"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "没有全免疫，但 <sk>剑在人在</sk> <b>免疫物理伤害</b>——对你是致命的，你几乎全是物理。另有 <sk>破胆怒吼</sk>（免控+减伤）、<sk>盾墙</sk>。"
+          ],
+          [
+            "你必须处理的那一个",
+            "战士读条极少，<sk>脚踢</sk> 价值低——<b>省下来给他的治疗</b>。要处理的是他的冲锋链。"
+          ],
+          [
+            "你的开场",
+            "<sk>卸除武装</sk> 是核心牌。<b>掐掉他爆发的起点，不要等伤害落地再补救</b>——缴械是预防不是补救。他交 <sk>剑在人在</sk> 立刻停手或转火。"
+          ]
+        ],
+        "arena": "战士擅长把你拖离治疗。你的胜点是错开他的 <sk>剑在人在</sk> 和 <sk>破胆怒吼</sk>，别让两个防御一起生效。",
+        "duel": "单挑先保血量再谈压制。<sk>卸除武装</sk>、<sk>闪避</sk>、<sk>消失</sk> 要覆盖不同轮，不要一起交。"
+      },
+      {
+        "id": "paladin",
+        "n": "圣骑士",
+        "ic": "classicon_paladin",
+        "c": "#F48CBA",
+        "diff": "中等",
+        "cards": [
+          "圣盾术",
+          "保护祝福",
+          "自由祝福",
+          "破咒祝福"
+        ],
+        "one": "圣盾术不解决，你在这个对局里做什么都是白干。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "惩戒骑的爆发窗口非常明确。防护骑不杀人但极难杀，神圣骑靠爆发治疗吃掉你的整个窗口。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>圣盾术</sk> = <b>全游戏最硬的一张牌</b>，全免疫。另有 <sk>保护祝福</sk>（免物理，可给队友）、<sk>自由祝福</sk>（免控）。"
+          ],
+          [
+            "你必须处理的那一个",
+            "神圣骑的大治疗和惩戒骑的自我治疗大多要读条，<sk>脚踢</sk> 价值很高——但他会假读条骗你。"
+          ],
+          [
+            "你的开场",
+            "<b>先用一轮消耗逼出 <sk>圣盾术</sk></b>，亮起立刻脱离。圣盾一走是很长的真空期，<b>那才是你的杀窗</b>。他给队友放 <sk>保护祝福</sk> 时打他同样等于零。"
+          ]
+        ],
+        "arena": "圣骑的外部技能太多，<b>每轮只逼一到两个答案</b>，记清楚下一轮他少了哪一个。",
+        "duel": "圣盾期间不要输出也不要控制（他免疫大部分控制），拿这几秒重新 <sk>潜行</sk>、叠层、等冷却，让圣盾结束那一刻你正好满状态。"
+      },
+      {
+        "id": "hunter",
+        "n": "猎人",
+        "ic": "classicon_hunter",
+        "c": "#AAD372",
+        "diff": "中等",
+        "cards": [
+          "灵龟守护",
+          "假死"
+        ],
+        "one": "他的整套设计就是不让你贴脸。要么解决位移，要么解决灵龟。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "射击猎的爆发极高且是远程，你被风筝的每一秒都在掉血。生存猎能近战对拼且控制很多。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>灵龟守护</sk> = <b>免疫伤害，但不免疫控制</b>——这个区别是本对局的胜负手。<sk>假死</sk> 能直接脱战并让你掉目标。"
+          ],
+          [
+            "你必须处理的那一个",
+            "猎人多为瞬发，<sk>脚踢</sk> 价值有限。<b>要断的是他的\"跑\"而不是他的\"放\"。</b>"
+          ],
+          [
+            "你的开场",
+            "<sk>卸除武装</sk> 极有效。<b><sk>灵龟守护</sk> 亮起时直接 <sk>肾击</sk>/<sk>致盲</sk></b>——用控制把免疫时长吃掉，出来时免疫没了他还在你手上。<b>不要追，他跑得比你快。</b>"
+          ]
+        ],
+        "arena": "猎人很擅长控你的治疗。<b>你不只看自己血量，还要看陷阱有没有命中治疗。</b>",
+        "duel": "别把两次位移连着交给追击。留一次重新接近，另一次留给他 <sk>假死</sk> 之后重新贴上。"
+      },
+      {
+        "id": "rogue",
+        "n": "潜行者",
+        "ic": "classicon_rogue",
+        "c": "#FFF468",
+        "diff": "高",
+        "cards": [
+          "暗影斗篷",
+          "闪避",
+          "消失"
+        ],
+        "one": "先手就是一切。同水平下，赢的是\"对面开防御时先停手\"的那个。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "跟你一样——他的杀窗就是他的爆发窗口。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "没有全免疫。但 <sk>暗影斗篷</sk> 让你所有魔法伤害和毒失效，<sk>闪避</sk> 让你的物理攻击几乎全空，<sk>消失</sk> 直接抹掉你的开场。"
+          ],
+          [
+            "你必须处理的那一个",
+            "贼几乎无读条，<sk>脚踢</sk> 基本无用——<b>当一个额外的接近手段就行</b>。"
+          ],
+          [
+            "你的开场",
+            "<b>带 <sk>卸除武装</sk></b>，这是镜像对局最强的破点。他开 <sk>闪避</sk> 你立刻停手（你全是物理，打进去是零）；他开 <sk>暗影斗篷</sk> 你的毒和魔法伤害全废。他 <sk>消失</sk> 之后别乱按 AOE 找人——去猜他从哪回来，<b>通常是你背后</b>。"
+          ]
+        ],
+        "arena": "镜像里\"谁先交解控道具\"通常比\"谁先打掉 20% 血\"更重要。优先看双方治疗的控制链。",
+        "duel": "先手价值极高。失去先手时目标是<b>用最低成本活过第一轮</b>，不是立刻抢回所有节奏。"
+      },
+      {
+        "id": "priest",
+        "n": "牧师",
+        "ic": "classicon_priest",
+        "c": "#FFFFFF",
+        "diff": "中等",
+        "cards": [
+          "消散",
+          "真言术：盾",
+          "痛苦压制",
+          "绝望祷言"
+        ],
+        "one": "戒律牧的护盾能吃掉你整个窗口。他只要撑过去就赢了。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "暗牧的爆发窗口很明确。<b>戒律牧不杀你，他熬死你</b>——撑过你的窗口就够了。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>消散</sk>（大幅减伤+可脱控）、<sk>痛苦压制</sk>、<sk>绝望祷言</sk>。<b><sk>真言术：盾</sk> 能直接吸掉你一个终结技</b>——最容易被忽略的一层。"
+          ],
+          [
+            "你必须处理的那一个",
+            "<b><sk>脚踢</sk> 价值最高的对局之一。</b>大治疗和复活都要读条。但小心他假读条。"
+          ],
+          [
+            "你的开场",
+            "<b>先看目标身上有没有护盾</b>——有护盾时窗口伤害会先被吸掉一大截，<b>先磨掉护盾再开窗口</b>。<sk>烟雾弹</sk> 价值最高（牧师在烟外点不到人）。控牧师优先用失能类，眩晕留给目标。"
+          ]
+        ],
+        "arena": "队友有眩晕时，可以把 <sk>肾击</sk> 给牧师、让队友晕击杀目标，形成更稳的双控。",
+        "duel": "暗牧开 <sk>消散</sk> 就重整资源，不要追着减伤打。结束后用满连击点重新开始。"
+      },
+      {
+        "id": "dk",
+        "n": "死亡骑士",
+        "ic": "classicon_deathknight",
+        "c": "#C41E3A",
+        "diff": "中等",
+        "cards": [
+          "反魔法护罩",
+          "冰封之韧",
+          "反魔法领域"
+        ],
+        "one": "他的抗魔护罩让你的毒和魔法伤害归零——但物理照样打得进去。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "冰霜/邪恶的爆发窗口很硬。更麻烦的是他的控制链（窒息、冰锁、死亡之握）。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>反魔法护罩</sk>：<b>只免疫魔法</b>——你的毒和暗影伤害归零，<b>纯物理仍然有效</b>。<sk>冰封之韧</sk>：大减伤+免控，这个亮起才是真正的停手信号。"
+          ],
+          [
+            "你必须处理的那一个",
+            "DK 读条极少。<b>要盯的是他的窒息（沉默）</b>——那是你被打断的来源。"
+          ],
+          [
+            "你的开场",
+            "<b><sk>反魔法护罩</sk> 期间不用完全停手（物理还能打），但绝不要在这时交爆发。</b><sk>冰封之韧</sk> 亮起 = 停手。死亡之握会把你拽回去，别指望靠跑脱离，用 <sk>消失</sk>。<br><b>这是 <sk>暗影斗篷</sk> 极有价值的对局</b>——他的伤害和控制大量是魔法系。"
+          ]
+        ],
+        "arena": "DK 会把你拉离治疗、或把目标拉出 <sk>烟雾弹</sk>。<b>下弹前先看双方站位。</b>",
+        "duel": "目标低血时用 <sk>卸除武装</sk> 的进攻价值大于随手减伤——但没形成击杀条件时要留给下一轮。"
+      },
+      {
+        "id": "shaman",
+        "n": "萨满祭司",
+        "ic": "classicon_shaman",
+        "c": "#0C69FF",
+        "diff": "中等偏难",
+        "cards": [
+          "星界转移"
+        ],
+        "one": "图腾是他的第二条命。很多时候你该打的是图腾，不是人。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "增强萨的近战爆发很高，元素萨是远程炮台，恢复萨靠图腾和瞬发治疗续命。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>星界转移</sk>（大减伤）、先祖之魂类保命，以及<b>各种图腾提供的免控和群疗</b>。"
+          ],
+          [
+            "你必须处理的那一个",
+            "<b><sk>脚踢</sk> 价值很高</b>——治疗链、治疗波、元素的核心伤害都要读条。"
+          ],
+          [
+            "你的开场",
+            "<b>开场先看地上有什么图腾。</b>免控类、群疗类图腾打掉的收益<b>远高于打人</b>，而且图腾血量极低，一两下就碎。萨满被杀通常是因为图腾先没了。"
+          ]
+        ],
+        "arena": "萨满对局的\"目标\"经常不是玩家，<b>而是一个正在改变规则的图腾</b>。下 <sk>烟雾弹</sk> 之前先确认破控图腾还在不在。",
+        "duel": "不要只盯血条。先处理能救命或破控的图腾，再用满连击点建立真正的窗口。"
+      },
+      {
+        "id": "mage",
+        "n": "法师",
+        "ic": "classicon_mage",
+        "c": "#3FC7EB",
+        "diff": "高",
+        "cards": [
+          "寒冰屏障",
+          "变形术"
+        ],
+        "one": "寒冰屏障是\"重置键\"。你得逼他按两次。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "法师的连招（控制 → 爆发）能在几秒内秒人。<b>你必须假设他随时能起手一套。</b>"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>寒冰屏障</sk> = 全免疫，<b>且期间他能回蓝、解掉身上所有效果、但不能移动</b>。"
+          ],
+          [
+            "你必须处理的那一个",
+            "<sk>变形术</sk> 和大伤害技能要读条。<b>但法师很多逃脱是瞬发，<sk>脚踢</sk> 拦不住。</b>"
+          ],
+          [
+            "你的开场",
+            "<b><sk>暗影斗篷</sk> 是核心牌</b>——抹掉他整套魔法伤害和控制，留给他的爆发窗口。<br><b>屏障怎么处理取决于目标在不在击杀线上</b>：满血 → 走；残血 → 守着等它过期（他不能移动），破的那一刻接上。<br><b>不要在你自己没有斗篷时进法师的射程。</b>"
+          ]
+        ],
+        "arena": "<sk>脚踢</sk> 不只是断伤害，也是保护治疗免于 <sk>变形术</sk>。<b>看队友状态决定踢什么。</b>",
+        "duel": "别变成无尽追逐。逼位移、守好接近手段，在斗篷期间完成一次带满连击点的有效接近。"
+      },
+      {
+        "id": "warlock",
+        "n": "术士",
+        "ic": "classicon_warlock",
+        "c": "#8788EE",
+        "diff": "中等偏难",
+        "cards": [
+          "不灭决心",
+          "恐惧"
+        ],
+        "one": "他的伤害是复利。你身上挂满持续伤害的时候，斗篷比什么都值。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "术士的爆发是<b>叠加式</b>的。他很少一击秒你，但伤害是复利。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>不灭决心</sk> 类大减伤、灵魂石（自复活）、恶魔传送门（脱离），以及 <sk>恐惧</sk>。"
+          ],
+          [
+            "你必须处理的那一个",
+            "<b><sk>脚踢</sk> 价值极高</b>——核心伤害和吸取生命几乎全是读条。"
+          ],
+          [
+            "你的开场",
+            "<b><sk>暗影斗篷</sk> 的正确用法是\"一次性抹掉一整套持续伤害\"</b>，不是留着躲单发——他是持续叠加型，等他\"开爆发\"时你可能已经掉了一半血。<sk>烟雾弹</sk> 很好用（切断他和治疗的连接）。"
+          ]
+        ],
+        "arena": "术士自由施法越久越难处理。<b>你的控制要同时服务于\"杀人\"和\"停止他建立压力\"。</b>",
+        "duel": "别在空地跟他拼木桩。用柱子逼他移动，再接近，才有真正的杀窗。"
+      },
+      {
+        "id": "monk",
+        "n": "武僧",
+        "ic": "classicon_monk",
+        "c": "#00FF98",
+        "diff": "中等",
+        "cards": [
+          "业报之触",
+          "气定神闲",
+          "玄牛下凡"
+        ],
+        "one": "业报之触是最常见的送分点。它反弹伤害，打进去等于自杀。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "风行的爆发窗口很明确且伤害很高。<b>但他必须贴身才能输出</b>——这是你的机会。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>业报之触</sk>（化解伤害<b>并反弹给你</b>，还能移动）、<sk>气定神闲</sk>、<sk>玄牛下凡</sk>。"
+          ],
+          [
+            "你必须处理的那一个",
+            "织雾的关键治疗要读条，<sk>脚踢</sk> 有价值。风行读条少。"
+          ],
+          [
+            "你的开场",
+            "<b><sk>业报之触</sk> 亮起 = 立刻停手或转火。</b>武僧位移极多，眩晕和减速经常钉不住——用 <sk>卸除武装</sk>，或者干脆等他主动贴上来。"
+          ]
+        ],
+        "arena": "武僧的传送能让 <sk>烟雾弹</sk> 落空。<b>先逼出位移或确认位置，再下弹。</b>",
+        "duel": "<sk>业报之触</sk> 期间停手，拿这段时间重整能量、位置和控制递减。"
+      },
+      {
+        "id": "druid",
+        "n": "德鲁伊",
+        "ic": "classicon_druid",
+        "c": "#FF7C0A",
+        "diff": "高",
+        "cards": [
+          "树皮术",
+          "旅行形态"
+        ],
+        "one": "他能换四种形态，每种解决你一个问题。这个对局赢在控他，不在杀他。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "平衡德的爆发叠加很高，野德的猫形态爆发和控制链能秒人。恢复德不杀人但极难杀。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>树皮术</sk>、化身、熊形态（大幅减伤）、<sk>旅行形态</sk>，再加上强力自我治疗。"
+          ],
+          [
+            "你必须处理的那一个",
+            "<b><sk>脚踢</sk> 价值高</b>。<b>但德鲁伊能切形态躲学派锁定</b>，别指望一次踢就锁死他。"
+          ],
+          [
+            "你的开场",
+            "<b>不要试图单人打死一个满状态恢复德。</b>正确做法是用 <sk>致盲</sk>/<sk>闷棍</sk> 把他控住，<b>让队友去杀别人</b>。你的价值在于\"让他不存在\"，不在于\"让他死\"。"
+          ]
+        ],
+        "arena": "对恢复德真正的技术点是<b>\"让致盲之后还能接上控制\"</b>，不是把 <sk>致盲</sk> 按出去就完事。控之前先看他身上有没有持续伤害。",
+        "duel": "野德的持续伤害让 <sk>消失</sk> 复位不可靠。提前减伤、用 <sk>闪避</sk> 和控制创造真正的脱离时间。"
+      },
+      {
+        "id": "dh",
+        "n": "恶魔猎手",
+        "ic": "classicon_demonhunter",
+        "c": "#A330C9",
+        "diff": "中等偏难",
+        "cards": [
+          "虚空行走",
+          "疾影",
+          "恶魔变形"
+        ],
+        "one": "虚空行走是\"可移动的全免疫\"——处理方式跟寒冰屏障不一样。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "浩劫的爆发很高且是范围。<b>他能持续贴脸而你很难摆脱。</b>"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>虚空行走</sk> = <b>全免疫且可移动</b>。另有 <sk>疾影</sk>（高闪避）、<sk>恶魔变形</sk>，以及极高的自愈。"
+          ],
+          [
+            "你必须处理的那一个",
+            "DH 读条极少，<sk>脚踢</sk> 价值低。要处理的是他的眩晕和拉扯链。"
+          ],
+          [
+            "你的开场",
+            "<b><sk>虚空行走</sk> 亮起 = 停手，但注意他还在动</b>——<sk>寒冰屏障</sk> 不能移动所以你能守在原地等，DH 会趁这几秒重新定位或绕到你队友身上。<b>这几秒你在跟位置，不是在等时间。</b><br>他自愈很高，零散伤害无效——<b>必须一次打穿</b>。"
+          ]
+        ],
+        "arena": "开门先考虑他的幽灵视觉能看破 <sk>潜行</sk>。<b>不要让站位把你逼进唯一的入口。</b>",
+        "duel": "别急着证明你能贴住。先诱导他交位移，再接近；他的防御结束后才花终结资源。"
+      },
+      {
+        "id": "evoker",
+        "n": "唤魔师",
+        "ic": "classicon_evoker",
+        "c": "#33937F",
+        "diff": "中等偏难",
+        "cards": [
+          "黑曜鳞片",
+          "悬空",
+          "新生光焰"
+        ],
+        "one": "蓄力技能是他的命门，也是你打断最值钱的地方。",
+        "q": [
+          [
+            "他什么时候能杀人",
+            "恢复者能瞬间把队伍拉满。增辉/毁灭的爆发在蓄力打满时非常高。"
+          ],
+          [
+            "他那张\"你杀不死我\"的牌",
+            "<sk>黑曜鳞片</sk>、<sk>新生光焰</sk> 类保命，以及 <b><sk>悬空</sk></b>——他能一瞬间飞到你完全够不到的地方。"
+          ],
+          [
+            "你必须处理的那一个",
+            "<b>这是全游戏打断价值最高的对局。</b>他大量技能是\"蓄力\"，被打断损失极大。<br><b>但用 <sk>凿击</sk> 而不是 <sk>脚踢</sk></b>——蓄力出现频率高，用便宜的手段处理。"
+          ],
+          [
+            "你的开场",
+            "盯他的蓄力条。<b>窗口要开在 <sk>悬空</sk> 冷却中的时候</b>——不然他一按你的爆发就落空。他的技能有距离限制，<b>逼他后退往往就等于让他打不出伤害</b>。"
+          ]
+        ],
+        "arena": "唤魔师能把目标救出 <sk>烟雾弹</sk>。<b>先逼或控制他的位移工具，再把弹当收尾。</b>",
+        "duel": "留一个接近手段应对他第一次 <sk>悬空</sk>。第一次拉开只用跑速追，避免后面彻底断档。"
+      }
+    ]
+  },
+  "roles": null,
+  "memb": null,
+  "play": null,
+  "quiz": [
+    {
+      "id": "g1",
+      "t": "general",
+      "d": 3,
+      "s": "你的 <sk>暗影之舞</sk> 和 <sk>暗影之刃</sk> 都刚好，诡术师层数是 <em>1 层</em>。目标是满状态的惩戒骑，<sk>圣盾术</sk> 和 <sk>保护祝福</sk> 都在。队友在喊「开！」。",
+      "a": "现在做什么？",
+      "o": [
+        "按队友要求全交，用爆发压死他",
+        "先 <sk>偷袭</sk> 进场打两下逼他交 <sk>圣盾术</sk>，然后立刻 <sk>消失</sk> 撤走",
+        "保持 <sk>潜行</sk> 不动，等队友先开一波",
+        "<sk>闷棍</sk> 他，去打他们的治疗"
+      ],
+      "r": 1,
+      "e": [
+        "全交会撞在两张牌上，整套冷却打空还得等一分钟。而且层数才 1 层，窗口里还得花 GCD 叠层。",
+        "正解。目标手上有 ≥2 张牌 → 走消耗开。逼掉 <sk>圣盾术</sk> 这一轮就算成功，撤走等冷却重开，那时他只剩一张牌。",
+        "干等不叫准备。潜行期间至少该叠层、读站位。不动就是浪费脱战时间。",
+        "控住治疗但你自己没有可用窗口（层数不够、目标满牌），控住了也杀不掉人。"
+      ],
+      "k": "开场之前先问：如果我现在全交，他还有几张牌能救自己？≥2 就走消耗开。"
+    },
+    {
+      "id": "g2",
+      "t": "general",
+      "d": 2,
+      "s": "你在爆发窗口里，目标血量 <em>35%</em>，诡术师层数刚好满 4 层。目标按下 <sk>圣盾术</sk>。窗口还剩相当长一段。",
+      "a": "现在做什么？",
+      "o": [
+        "继续输出，<sk>致命一击</sk> 伤害高能打穿一部分",
+        "立刻 <sk>消失</sk> 重置，等圣盾结束再回来",
+        "立刻转火他队伍里的另一个人",
+        "<sk>致盲</sk> 他，等圣盾走完再打"
+      ],
+      "r": 2,
+      "e": [
+        "<sk>圣盾术</sk> 是全免疫，打进去是 0，不是\"一部分\"。而且 <sk>致命一击</sk> 这一发就永久浪费了。",
+        "<sk>消失</sk> 是重置没错，但爆发窗口还在走——消失掉等于把整个窗口也扔了，两个资源同时浪费。",
+        "正解。窗口转起来就必须有事做。圣盾期间目标不可伤害，但他的队友可以。",
+        "<sk>致盲</sk> 不影响圣盾的免疫，等于既没伤害又浪费一次失能类递减。"
+      ],
+      "k": "窗口一旦打开就在燃烧。目标打不动 → 换目标，不要停、不要重置。"
+    },
+    {
+      "id": "g3",
+      "t": "general",
+      "d": 2,
+      "s": "你用 <sk>偷袭</sk> 开场，打了五六个 GCD，目标血量降到 <em>50%</em>。你现在想用 <sk>肾击</sk> 接一段控制来完成击杀。",
+      "a": "这个操作有什么问题？",
+      "o": [
+        "没问题，<sk>肾击</sk> 就该留到目标残血再用",
+        "<sk>偷袭</sk> 和 <sk>肾击</sk> 共享眩晕递减，隔了这么久肾击时长已经被砍掉一半",
+        "<sk>肾击</sk> 应该留给打断施法",
+        "连击点不够，应该先补生成技"
+      ],
+      "r": 1,
+      "e": [
+        "\"留到残血\"听起来合理，但没考虑递减。留得太散反而让第二个眩晕变废。",
+        "正解。眩晕递减还没重置，这时的 <sk>肾击</sk> 只有 50% 时长。<b>两者要么紧凑连成一个杀窗，要么隔开足够久让递减刷新</b>——中间这个位置最差。",
+        "<sk>肾击</sk> 当然能打断施法，但这题的问题在时机不在用途。",
+        "连击点是资源问题，不是这个操作的核心毛病。"
+      ],
+      "k": "眩晕是预算不是消耗品。偷袭一开，肾击的价值就开始打折。"
+    },
+    {
+      "id": "g4",
+      "t": "general",
+      "d": 1,
+      "s": "你和目标在你放的 <sk>烟雾弹</sk> 里，对面治疗在烟外。对面法师在烟外朝烟的位置扔了一个<em>大范围地面法术</em>。",
+      "a": "这说明什么？",
+      "o": [
+        "<sk>烟雾弹</sk> 失效了，法师破了它",
+        "烟雾弹挡的是\"选中\"，不挡范围伤害——法师这样打得到你",
+        "法师在浪费技能，范围法术进不了烟里",
+        "需要立刻移动烟雾弹的位置"
+      ],
+      "r": 1,
+      "e": [
+        "烟没失效，它的机制一直如此。",
+        "正解。<b>烟雾弹只切断\"选中\"，不挡地面 AOE。</b>放烟前要判断对面有没有不需要选中的手段——法师、术士、平衡德这类，烟的进攻价值会打折。",
+        "这是最危险的误解：以为烟是无敌罩，然后站在里面被范围技能打死。",
+        "烟雾弹放下就固定了，不能移动。"
+      ],
+      "k": "烟雾弹挡选中，不挡范围。放烟前先看对面有没有不用选中的手段。"
+    },
+    {
+      "id": "g5",
+      "t": "general",
+      "d": 3,
+      "s": "你脱战成功重新 <sk>潜行</sk>。对面治疗和 DPS 已经分开站位，你所有冷却都好了，诡术师层数是 <em>0</em>。",
+      "a": "进场前最后一件事该做什么？",
+      "o": [
+        "直接开，站位难得这么好",
+        "先在非目标身上打几下把诡术师层数攒起来",
+        "先看目标的关键防御技能还在不在",
+        "通知队友准备，同时开"
+      ],
+      "r": 2,
+      "e": [
+        "站位好确实是机会，但目标的免疫牌还在的话，站位再好也杀不掉。",
+        "叠层方向对但顺序不对——一旦露头攻击就会破坏站位优势。<b>而且如果目标关键牌还在，这层白攒。</b>",
+        "正解。<b>确认目标的关键牌在不在，是所有其他判断的前提。</b>牌还在 → 改消耗开；牌没了 → 才轮到叠层和站位。判断顺序错了后面全错。",
+        "沟通是好习惯，但什么时候开是贼说了算——队友看不到目标的防御池。"
+      ],
+      "k": "进场前的判断顺序：目标的牌 → 我的资源 → 站位。牌不清楚，后面都不用想。"
+    },
+    {
+      "id": "g6",
+      "t": "general",
+      "d": 2,
+      "s": "你被一个战士和一个法师同时打，血量掉到 <em>45%</em>，身上挂着法师的减速和几个持续法伤。<sk>暗影斗篷</sk>、<sk>闪避</sk>、<sk>消失</sk> 都好。",
+      "a": "先按哪个？",
+      "o": [
+        "<sk>闪避</sk>，战士是主要伤害来源",
+        "<sk>暗影斗篷</sk>，一次性抹掉法师的所有魔法减益和伤害",
+        "<sk>消失</sk>，直接脱离两个人的攻击",
+        "<sk>佯攻</sk>，最省资源"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>闪避</sk> 只挡物理，法师那一半伤害照进来，身上的减速和法伤也全在。半个解。",
+        "正解。<b>斗篷抹掉魔法伤害 + 身上所有魔法减益</b>——一次解决法伤、减速、和法师接下来的输出。解掉减速你还能跑，把 <sk>消失</sk> 省下来。",
+        "<sk>消失</sk> 是最贵的资源，而且减速还在身上，消失后你跑不掉。用最贵的牌解决便宜牌能解决的问题。",
+        "<sk>佯攻</sk> 是减伤不是解控，在这个血量和被两人集火下不够。"
+      ],
+      "k": "防御三件套各有分工：闪避对物理、斗篷对魔法+减益、消失是最后一张。别用贵的解便宜的问题。"
+    },
+    {
+      "id": "g7",
+      "t": "general",
+      "d": 2,
+      "s": "对面戒律牧正在读一个<em>小治疗</em>，你的 <sk>脚踢</sk> 是好的。目标血量 40%，你的爆发窗口再过几秒就好。",
+      "a": "踢不踢？",
+      "o": [
+        "踢，断掉任何治疗都是赚",
+        "不踢，用 <sk>凿击</sk>/眩晕去中断，把 <sk>脚踢</sk> 留给他真正的大治疗",
+        "不踢，直接冲上去打治疗",
+        "踢，然后立刻开爆发"
+      ],
+      "r": 1,
+      "e": [
+        "这正是治疗骗打断的手法——用便宜的小治疗把你的 <sk>脚踢</sk> 骗走，然后你的窗口打开时他能自由放大治疗。",
+        "正解。<b><sk>凿击</sk>、眩晕、<sk>致盲</sk> 都能中断施法且不占脚踢冷却。</b>你的窗口马上就好，那时才是你最需要锁住他的时刻。",
+        "冲治疗不打目标，会让窗口开在错误的人身上。",
+        "踢完就开爆发，等于窗口里最需要打断的时候手上没打断。"
+      ],
+      "k": "不要见读条就踢。脚踢是窗口里的保险，不是常规循环的一部分。"
+    },
+    {
+      "id": "g8",
+      "t": "general",
+      "d": 1,
+      "s": "你的爆发窗口刚结束，目标从 100% 被打到 <em>55%</em> 但没死。你还剩一部分能量，目标的治疗正在给他补血。",
+      "a": "现在做什么？",
+      "o": [
+        "继续打，把他压在低血线上",
+        "立刻脱战，绕视野重新 <sk>潜行</sk>",
+        "换目标打治疗，逼他自保",
+        "交 <sk>消失</sk> 重新开一个 <sk>偷袭</sk>"
+      ],
+      "r": 1,
+      "e": [
+        "<b>这是本版最常见的错误。</b>12.0 拿掉了所有持续伤害，窗口外的输出基本会被治疗抹平——你留下来磨的每一秒都在帮对面攒治疗溢出。",
+        "正解。<b>窗口结束、目标没死 → 立刻脱离。</b>这不是怂，是本版唯一正确的循环。脱战期间做下一轮的准备。",
+        "打治疗同理——没有窗口时你压不出任何东西，只是在送伤害。",
+        "<sk>消失</sk> 是你最贵的资源。用它开一个没有爆发支撑的偷袭，等于把逃命牌换成几百点伤害。"
+      ],
+      "k": "本版敏锐没有持续压力。打不死就走，不是认输，是唯一正确的循环。"
+    },
+    {
+      "id": "g9",
+      "t": "general",
+      "d": 2,
+      "s": "诡术师层数刚满 4 层，<em>下一个终结技会变成 <sk>致命一击</sk></em>。但你的 <sk>暗影之舞</sk> 和 <sk>暗影之刃</sk> 都还在冷却，还有十几秒。",
+      "a": "这个致命一击怎么处理？",
+      "o": [
+        "立刻放掉，攒着会溢出",
+        "压住不放，等 <sk>暗影之舞</sk>/<sk>暗影之刃</sk> 好了再一起打出来",
+        "放掉，然后重新叠一轮",
+        "换目标放，别浪费"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>致命一击</sk> 不会因为你不放就消失。急着放等于把最大的一发扔在没有任何加成的时候。",
+        "正解。<b>它要落在有伤害加成的那一刻。</b>而且 5 秒内可以再触发一次打 150%，两发都落在加成里，差距是成倍的。",
+        "\"重新叠一轮\"听着合理，但没窗口的时候你本来就不该持续输出。而且白白浪费了当前这一发。",
+        "换目标不解决\"没有加成\"这个核心问题。"
+      ],
+      "k": "致命一击不是\"该放就放\"，是\"该等窗口\"。它是窗口伤害的顶峰，不是循环的一部分。"
+    },
+    {
+      "id": "g10",
+      "t": "general",
+      "d": 1,
+      "s": "你带了 <sk>卸除武装</sk>。当前对局：对面是<em>射击猎 + 恢复萨</em>，你的目标是萨满。",
+      "a": "卸除武装该用在谁身上？",
+      "o": [
+        "萨满，缴械期间他放不出治疗",
+        "猎人，缴械期间他射不出东西",
+        "看谁先起手，谁起手缴谁",
+        "留着不用，等有人开爆发再说"
+      ],
+      "r": 1,
+      "e": [
+        "<b><sk>卸除武装</sk> 只影响武器攻击，不影响施法。</b>萨满被缴械照样能放治疗。这是最常见的机制误解。",
+        "正解。缴械只对\"伤害来自武器\"的职业有效——猎人、战士、贼、DK。射击猎被缴械等于这 6 秒完全没输出。",
+        "\"谁起手缴谁\"看似灵活，但如果起手的是施法者，缴械就白扔了。判断该基于职业类型，不是时机。",
+        "留着不用是纯浪费——冷却不长，该用就用。"
+      ],
+      "k": "缴械看的是\"他的伤害来自武器还是施法\"，不看职业强弱、不看谁先动手。"
+    },
+    {
+      "id": "g11",
+      "t": "general",
+      "d": 1,
+      "s": "你正被对面眩晕住，动不了，血在掉。你带了「先发制人（Preemptive Maneuver）」这个 PvP 天赋。",
+      "a": "眩晕期间你能做什么？",
+      "o": [
+        "什么都做不了，只能等",
+        "按 <sk>佯攻</sk>——先发制人让被眩晕时的佯攻减伤更强、能量更省",
+        "按解控道具解除眩晕",
+        "按 <sk>闪避</sk>，先挡住物理伤害"
+      ],
+      "r": 1,
+      "e": [
+        "眩晕不是完全无法操作。以为\"只能等\"会让你白白多掉一大截血。",
+        "正解。<b>先发制人的整个意义就是让 <sk>佯攻</sk> 在被眩晕时变强。</b>被控住时顺手按一下，几乎没有代价。",
+        "解控道具是宝贵的一次性资源，不该在第一次被眩晕就交。",
+        "<sk>闪避</sk> 在眩晕中按不出来。"
+      ],
+      "k": "带了先发制人就把佯攻当成被控时的反射动作。这是版本给你的免费减伤。"
+    },
+    {
+      "id": "g12",
+      "t": "general",
+      "d": 2,
+      "s": "你和队友准备开一波。目标是对面的 DPS，他们的治疗站在<em>离目标较远</em>的地方，中间有柱子。",
+      "a": "<sk>烟雾弹</sk> 放哪？",
+      "o": [
+        "放在治疗身上，让他被困住",
+        "放在你和目标身上，把治疗隔在烟外",
+        "放在中间，同时影响两边",
+        "不放，留着防守"
+      ],
+      "r": 1,
+      "e": [
+        "烟不困人也不沉默，放在治疗身上只会让他<b>受到保护</b>（你的队友点不到他）。这是完全反向的操作。",
+        "正解。<b>进攻用法：你和目标在烟内、治疗在烟外 → 治疗无法选中目标。</b>这题的站位正是烟雾弹进攻价值最高的场景。",
+        "\"同时影响两边\"没有明确收益，很可能把对面的 DPS 也罩进去保护起来。",
+        "有柱子和距离优势时不放烟，是把这版本最强的一张牌闲置。"
+      ],
+      "k": "烟雾弹放的位置决定它是进攻牌还是防守牌。搞反了等于帮对面。"
+    },
+    {
+      "id": "g13",
+      "t": "general",
+      "d": 3,
+      "s": "一局刚开始，你在 <sk>潜行</sk> 侦察。对面是<em>惩戒骑 + 恢复德</em>，你的队友是一个法师。",
+      "a": "第三个 PvP 天赋格子该选什么？（前两个是烟雾弹 + 先发制人）",
+      "o": [
+        "<sk>卸除武装</sk>——惩戒骑的伤害来自武器",
+        "<sk>偷天换日</sk>——给法师队友加 15% 伤害",
+        "<sk>卸除武装</sk>——对付恢复德的化身",
+        "随便，第三格影响不大"
+      ],
+      "r": 1,
+      "e": [
+        "惩戒骑确实用武器，缴械有效。但对面还有恢复德——<b>这个组合的核心难点是\"打不穿治疗\"，不是\"被骑士打死\"</b>。",
+        "正解。你的核心问题是伤害不够打穿治疗。<sk>偷天换日</sk> 配合法师的爆发一起打，是直接冲着这个矛盾去的。",
+        "缴械对德鲁伊效果有限——他的治疗是施法，不是武器攻击。",
+        "第三格在有难杀治疗的对局里往往是胜负手。"
+      ],
+      "k": "天赋不是按\"对面是什么职业\"选的，是按\"这局我要解决哪个矛盾\"选的。"
+    },
+    {
+      "id": "g14",
+      "t": "general",
+      "d": 3,
+      "s": "你已经打了两轮，两次都在目标 <em>30% 左右</em>被治疗拉回去。你的冷却快好了，准备开第三轮。",
+      "a": "第三轮该改什么？",
+      "o": [
+        "什么都不改，多打几轮总有一次能打穿",
+        "这一轮开始前先处理治疗——控住他或用 <sk>烟雾弹</sk> 切断视野",
+        "换个目标试试",
+        "开窗口前多叠几层诡术师，提高伤害"
+      ],
+      "r": 1,
+      "e": [
+        "同样的打法打三次得到同样的结果。<b>连续两次卡在 30% 是明确信号：窗口伤害本身够了，问题在治疗没被处理。</b>",
+        "正解。伤害不是瓶颈，治疗是。重点该从\"打得更狠\"转成\"让治疗在这几秒里不存在\"。",
+        "换目标是在回避问题。治疗没被处理，换谁都会被拉回去。",
+        "你已经打到 30%，说明伤害不是缺口。多 10% 填不上一个满状态治疗的缺口。"
+      ],
+      "k": "反复卡在同一个血线上，说明缺的不是伤害是控制。改的是打法结构，不是输出细节。"
+    },
+    {
+      "id": "g15",
+      "t": "general",
+      "d": 3,
+      "s": "你正在窗口里输出，血量健康。突然发现<em>队友血量掉到 20%</em>，对面两个人都在打他。",
+      "a": "现在做什么？",
+      "o": [
+        "继续输出，杀掉目标就能解围",
+        "把 <sk>烟雾弹</sk> 扔在队友身上",
+        "立刻停手去救队友",
+        "开 <sk>消失</sk>，绕过去从背后控制对面的输出"
+      ],
+      "r": 1,
+      "e": [
+        "\"杀掉就解围\"在队友只剩 20% 血、正被两人集火时是赌博。赌输了队友死了，窗口也没换来击杀。",
+        "正解。<b>防守用法：罩住队友，烟外的敌人无法选中他。</b>关键在于这<b>几乎不打断你的输出</b>——一个 GCD，队友活了，窗口继续走。其他选项都是二选一。",
+        "停手救人是安全的，但你把整个爆发窗口扔了。有更省的解法就不该用最贵的。",
+        "<sk>消失</sk> 是最贵的资源，绕后还需要时间，队友可能等不到。"
+      ],
+      "k": "先找\"一个动作解决两个问题\"的选项。烟雾弹的防守用法只花一个 GCD。"
+    },
+    {
+      "id": "g16",
+      "t": "general",
+      "d": 3,
+      "s": "你脱战重新 <sk>潜行</sk>。对面治疗<em>刚刚交过一个大保命</em>，目标身上没有任何护盾或减伤。你所有冷却都好，诡术师层数满。",
+      "a": "现在做什么？",
+      "o": [
+        "再等一会儿，确认更多信息",
+        "立刻进场，全交",
+        "先假开一次试探对方反应",
+        "通知队友，等大家一起"
+      ],
+      "r": 1,
+      "e": [
+        "信息已经够了：目标是裸的、治疗的大牌交了、你满状态。<b>再等就是让这些条件一个个失效。</b>",
+        "正解。<b>你花了整局做减法，这就是减法完成的那一刻。</b>这时候不全交，前面所有的消耗都白做了。",
+        "假开是用来\"逼出牌\"的。牌已经没了，再假开只会给对方恢复时间。手段不该跟目的脱节。",
+        "沟通有价值，但这个窗口有时限。等待的成本高于协同的收益。"
+      ],
+      "k": "消耗打法的意义在于等到\"全交\"的那一刻。等到了不敢开，跟从来没消耗过是一样的结果。"
+    },
+    {
+      "id": "g17",
+      "t": "general",
+      "d": 1,
+      "s": "你开了 <sk>暗影之刃</sk>，正在窗口里输出。你按照平时的节奏：两个生成技 → 一个终结技。",
+      "a": "这个节奏有什么问题？",
+      "o": [
+        "没问题，这是标准的连击点循环",
+        "<sk>暗影之刃</sk> 让生成技的连击点翻倍，你在浪费 GCD 攒多余的点",
+        "终结技应该攒到 5 点再放",
+        "应该先补 <sk>影分身</sk> 再走循环"
+      ],
+      "r": 1,
+      "e": [
+        "\"平时的节奏\"在暗影之刃开启时就不成立了。",
+        "正解。<b><sk>暗影之刃</sk> 让生成技的连击点生成翻倍</b>——你产点速度快一倍。按老节奏多按的那个生成技，是在窗口里白烧一个 GCD。",
+        "本版终结技是伤害主体，有点就倒。攒到 5 点是老思路。",
+        "<sk>影分身</sk> 确实该进窗口，但这题的毛病在生成技的节奏。"
+      ],
+      "k": "开了暗影之刃就要改节奏——产点翻倍意味着你该把 GCD 更多分给终结技。"
+    },
+    {
+      "id": "g18",
+      "t": "general",
+      "d": 2,
+      "s": "你在窗口里，目标进入一个<em>大幅减伤</em>（不是全免疫）。他的队友是个满血的布甲 DPS，站在你旁边。",
+      "a": "现在做什么？",
+      "o": [
+        "继续打目标，减伤不是免疫，还能打进去一部分",
+        "转火那个布甲 DPS",
+        "停手等减伤结束",
+        "控住目标，让减伤空转"
+      ],
+      "r": 1,
+      "e": [
+        "\"还能打进去一部分\"在窗口里是最贵的想法——你用最强的几秒去打对方最硬的几秒，这是最差的兑换比。",
+        "正解。<b>窗口的价值取决于它落在谁身上。</b>目标进入减伤时，旁边一个满血布甲是更好的兑换对象。跟\"目标开免疫 → 转火\"是同一条逻辑，减伤只是程度轻一点的版本。",
+        "停手等于把窗口扔了。窗口在燃烧，它不会等减伤结束。",
+        "控住目标不产生伤害，也没解决窗口在流逝的问题。"
+      ],
+      "k": "不只是免疫要转火，大幅减伤同样要。判据是\"这几秒的伤害落在谁身上兑换比最高\"。"
+    },
+    {
+      "id": "g19",
+      "t": "general",
+      "d": 2,
+      "s": "你准备用 <sk>致盲</sk> 控住对面治疗，然后回头打目标。但目标身上<em>挂着你队友的持续伤害</em>，而治疗站在他旁边。",
+      "a": "致盲之前要先想什么？",
+      "o": [
+        "直接致盲，位置够近就行",
+        "先确认治疗身上有没有持续伤害或范围伤害会碰到他——失能类受伤即破",
+        "先打掉治疗的护盾",
+        "先用 <sk>凿击</sk> 试探"
+      ],
+      "r": 1,
+      "e": [
+        "位置只是能不能按的问题，不是能不能成立的问题。",
+        "正解。<b><sk>致盲</sk> 和 <sk>闷棍</sk> 都是失能类，受到任何伤害立刻破。</b>队友的持续伤害、范围技能、甚至一个溅射，都能让你的控制瞬间失效。<b>按之前先看他身上干不干净。</b>",
+        "护盾不影响控制生效。",
+        "<sk>凿击</sk> 同样受伤即破，试探也解决不了这个问题。"
+      ],
+      "k": "失能类控制按之前先看目标身上干不干净。这是控治疗最常见的失效原因。"
+    },
+    {
+      "id": "g20",
+      "t": "general",
+      "d": 3,
+      "s": "一局的最后阶段，你和队友都残血，对面治疗也快空蓝了。你的窗口好了，但<em>你只剩一次 <sk>消失</sk></em>，没有其他保命。",
+      "a": "开还是不开？",
+      "o": [
+        "开，最后阶段就是拼谁先杀掉谁",
+        "不开，先把消失省下来，等对面治疗真的空蓝",
+        "开，但保留消失不用于进攻",
+        "看目标身上还剩几张牌再决定"
+      ],
+      "r": 3,
+      "e": [
+        "\"拼谁先杀掉谁\"在你没有保命的情况下是最差的赌博——一旦打不死，你连撤退的资源都没有。",
+        "\"等对面空蓝\"听起来稳，但你和队友也在残血，时间对你不一定有利。这是把主动权交给运气。",
+        "思路对了一半（保留消失是对的），但<b>没有回答\"这一轮能不能杀掉\"这个前提问题</b>。窗口该不该开，从来不是先看自己剩什么。",
+        "正解。<b>不管局面多紧张，判断顺序不变：先看目标还剩几张牌。</b>牌没了 → 这是你唯一也是最后的机会，开。牌还在 → 你这一轮杀不掉，开了就是把最后的消失也搭进去。<b>压力大的时候人最容易跳过第一问，那正是最需要它的时候。</b>"
+      ],
+      "k": "越紧张的局面越要按顺序判断。先看目标的牌，再看自己的资源——顺序反过来就是赌博。"
+    },
+    {
+      "id": "paladin",
+      "t": "paladin",
+      "d": 2,
+      "s": "你和惩戒骑单挑。你已经用一轮消耗把他的 <sk>圣盾术</sk> <em>逼出来了</em>，圣盾正在生效。",
+      "a": "圣盾期间做什么？",
+      "o": [
+        "继续输出，圣盾快结束了",
+        "脱离并重新 <sk>潜行</sk>，为圣盾结束后的真空期做准备",
+        "控住他，让圣盾在控制里空转",
+        "打他的治疗队友"
+      ],
+      "r": 1,
+      "e": [
+        "站在圣盾里输出是纯浪费，而且他在圣盾期间可以自由输出你——这是你最脆弱的几秒。",
+        "正解。圣盾走完之后是骑士的<b>长真空期</b>，那才是你真正的杀窗。这几秒该拿去重新潜行、叠层、等冷却。",
+        "<sk>圣盾术</sk> 免疫大部分控制，这个操作大概率无效，且浪费递减。",
+        "这题设定是单挑，没有治疗队友。"
+      ],
+      "k": "逼出圣盾就是这一轮的胜利。剩下的事是准备好接住它结束的那一刻。"
+    },
+    {
+      "id": "paladin2",
+      "t": "paladin",
+      "d": 3,
+      "s": "三对三。你正在打惩戒骑，他血量 <em>40%</em>。对面的神圣骑给他放了 <sk>保护祝福</sk>（免疫物理伤害）。你的窗口还剩一半。",
+      "a": "现在做什么？",
+      "o": [
+        "继续打，你还有毒和暗影伤害能进去",
+        "转火那个神圣骑",
+        "用 <sk>致盲</sk> 控住惩戒骑，等祝福结束",
+        "立刻脱战重开"
+      ],
+      "r": 1,
+      "e": [
+        "敏锐的伤害绝大部分是物理，剩下的一小部分撑不起一个窗口。<b>你会用半个窗口换来一点零头。</b>",
+        "正解。<b><sk>保护祝福</sk> 让你打不动这个目标，但窗口还在燃烧。</b>转火那个放祝福的神圣骑——他刚花了一张外部技能，而且治疗被压住时对面整体压力会松动。",
+        "控住一个你本来就打不动的目标，等于同时浪费控制和窗口。",
+        "窗口还剩一半就脱战，等于把这半个窗口扔了。有转火这个更好的选项。"
+      ],
+      "k": "\"免物理\"对敏锐几乎等于\"全免疫\"。判断该不该继续打，要看你的伤害类型跟他的免疫类型对不对得上。"
+    },
+    {
+      "id": "mage",
+      "t": "mage",
+      "d": 3,
+      "s": "你正在打法师，他血量 <em>30%</em>，快死了。他按下 <sk>寒冰屏障</sk>。你的爆发窗口还剩一小段。",
+      "a": "现在做什么？",
+      "o": [
+        "守在他身边，屏障一破立刻接上",
+        "脱离并重新 <sk>潜行</sk>",
+        "继续输出，屏障能被打穿一部分",
+        "控住他，不让他解除屏障"
+      ],
+      "r": 0,
+      "e": [
+        "正解。<b><sk>寒冰屏障</sk> 是全免疫，但有固定时长，且法师在里面不能移动、不能威胁你。</b>他只剩 30% 血，屏障一破就是击杀机会。<b>这是少数\"该守\"而不是\"该走\"的情况——因为目标已经在击杀线上。</b>",
+        "脱离是对<b>满血目标</b>的正确做法。目标只剩 30%，走了等于放掉一次已经成型的击杀。",
+        "寒冰屏障是完全免疫，打进去是 0。",
+        "屏障期间法师免疫控制。他通常会主动提前解除来抢节奏——你该做的是准备接住那一刻。"
+      ],
+      "k": "免疫牌怎么处理，取决于目标在不在击杀线上。满血目标 → 走；残血目标 → 守着等它过期。"
+    },
+    {
+      "id": "mage2",
+      "t": "mage",
+      "d": 2,
+      "s": "你贴上法师正准备开窗口，他起手读一个 <sk>变形术</sk>，目标是<em>你的治疗队友</em>。你的 <sk>脚踢</sk> 是好的，你的爆发也刚好。",
+      "a": "先做什么？",
+      "o": [
+        "开爆发压他，逼他自己中断",
+        "踢掉变形术",
+        "不管，你的治疗自己会处理",
+        "用 <sk>肾击</sk> 打断，顺便接控制"
+      ],
+      "r": 1,
+      "e": [
+        "\"逼他中断\"是赌他会怕。变形术读条很短，你的爆发压力来不及生效他就放完了。",
+        "正解。<b><sk>脚踢</sk> 不只是断伤害，也是保护你的治疗。</b>治疗被变形几秒，你和队友就一起裸奔几秒——这比你少打一轮伤害贵得多。<b>看队友状态决定踢什么。</b>",
+        "把责任推给队友。你手上有最快的解，用它。",
+        "<sk>肾击</sk> 能断，但会烧掉你窗口里的眩晕预算，而这时候你本来就要开窗口了。用便宜的解决。"
+      ],
+      "k": "打断的目标不总是\"减少他的伤害\"。保护治疗往往是更值钱的那一个。"
+    },
+    {
+      "id": "hunter",
+      "t": "hunter",
+      "d": 2,
+      "s": "你追着射击猎打，他血量 <em>40%</em>。他按下 <sk>灵龟守护</sk>。",
+      "a": "最优操作是什么？",
+      "o": [
+        "停手脱离，等免疫结束",
+        "立刻控住他——<sk>灵龟守护</sk> 免疫伤害但不免疫控制",
+        "继续输出，灵龟只减伤不免疫",
+        "<sk>卸除武装</sk> 他"
+      ],
+      "r": 1,
+      "e": [
+        "脱离会让你失去这次已经打到 40% 的机会，而且猎人机动性极强，重新贴上去很难。",
+        "正解。<b><sk>灵龟守护</sk> 免疫伤害，但不免疫控制。</b>直接 <sk>肾击</sk>/<sk>致盲</sk> 把他钉住，免疫时间在控制里流逝——出来时免疫没了、他还在你手上、血还是 40%。",
+        "灵龟是完全免疫伤害，不是减伤。这个误解会让你打空整个窗口。",
+        "缴械思路对但时机差——他在免疫里你有更好的选择，而且缴械是有限资源。"
+      ],
+      "k": "看到免疫先分清是\"免伤害\"还是\"免一切\"。只免伤害的，用控制把时长吃掉。"
+    },
+    {
+      "id": "hunter2",
+      "t": "hunter",
+      "d": 1,
+      "s": "你正在打猎人，输出打得很顺。他突然 <sk>假死</sk>，你的目标掉了、也脱离了战斗。",
+      "a": "第一反应该是什么？",
+      "o": [
+        "原地按 <sk>袖剑风暴</sk> 把他打出来",
+        "立刻重新选中并跟上——假死不会让他消失",
+        "退回 <sk>潜行</sk> 重新开始",
+        "找他的宠物先打"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>假死</sk> 不是潜行，他人还在原地。范围技能是多余动作，浪费的是你的时间。",
+        "正解。<b><sk>假死</sk> 会让你掉目标并脱战，但他还站在那里。</b>最快的处理就是立刻重新选中、继续压。犹豫的那两秒他就跑出你的距离了。",
+        "退回潜行等于放他走，白白把已经建立的压力全丢掉。",
+        "打宠物是最典型的注意力被转移——伤害源不是宠物。"
+      ],
+      "k": "假死掉目标不等于人跑了。反应速度决定你保不保得住这一轮的压力。"
+    },
+    {
+      "id": "druid",
+      "t": "druid",
+      "d": 3,
+      "s": "对面是恢复德 + 一个 DPS。你被指派去压恢复德。德鲁伊满血，<sk>树皮术</sk> 和各种脱离都在。",
+      "a": "\"压他\"该怎么理解？",
+      "o": [
+        "全力输出把他打死",
+        "不追求杀他，用 <sk>致盲</sk>/<sk>闷棍</sk> 把他控住，让队友去杀那个 DPS",
+        "一直贴着他打，逼他不能治疗",
+        "<sk>闷棍</sk> 他然后去打 DPS，两边跑"
+      ],
+      "r": 1,
+      "e": [
+        "<b>满状态的恢复德是全游戏最难单杀的目标之一。</b>你花整局也打不死他，同时队友在打一个没被压制的 DPS。",
+        "正解。这个对局<b>赢在控制他而不是杀他</b>。<b>你的价值在于\"让他不存在\"，不在于\"让他死\"。</b>",
+        "贴脸压制有价值，但德鲁伊瞬发治疗很多，光靠贴脸压不住，而且没有明确的击杀路径。",
+        "两边跑会让两边都做不好，而且 <sk>闷棍</sk> 受伤即破——队友一个 AOE 就打断了。"
+      ],
+      "k": "难杀的治疗职业不是拿来杀的，是拿来控的。判断\"我该杀他还是该让他消失\"是分目标的第一问。"
+    },
+    {
+      "id": "druid2",
+      "t": "druid",
+      "d": 2,
+      "s": "你 <sk>致盲</sk> 了恢复德，准备接 <sk>闷棍</sk> 延长控制。但他身上<em>还挂着你队友的一个持续伤害</em>。",
+      "a": "这个计划的问题在哪？",
+      "o": [
+        "没问题，闷棍不受持续伤害影响",
+        "持续伤害会立刻打破致盲，你的控制链根本接不上",
+        "应该先打掉他的 <sk>树皮术</sk>",
+        "闷棍距离不够"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>闷棍</sk> 和 <sk>致盲</sk> 都是失能类，都受伤即破。",
+        "正解。<b>对恢复德真正的技术点是\"让致盲之后还能接上控制\"</b>，不是把致盲按出去就完事。<b>控之前先确认他身上干不干净</b>——必要时让队友先停掉持续伤害。",
+        "<sk>树皮术</sk> 是减伤，不影响控制生效。",
+        "距离是能不能按的问题，不是能不能成立的问题。"
+      ],
+      "k": "对治疗职业的控制链，成败在\"控之前的清理\"，不在\"控本身按得准不准\"。"
+    },
+    {
+      "id": "rogue",
+      "t": "rogue",
+      "d": 1,
+      "s": "镜像对局，对面也是敏锐贼。你开场先手成功正在输出。他按下 <sk>闪避</sk>。",
+      "a": "现在做什么？",
+      "o": [
+        "继续输出，闪避只是概率闪避",
+        "立刻停手，你几乎全是物理伤害",
+        "开自己的 <sk>闪避</sk> 对拼",
+        "用毒继续压他"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>闪避</sk> 的闪避率极高，你的物理输出几乎全空。",
+        "正解。<b>镜像对局赢在\"谁在对面开防御时先停手\"。</b>停手、拉开、等闪避走完再回来。",
+        "你自己开闪避不解决\"他现在打不到\"这个问题，只是把两个防御同时烧掉。",
+        "毒在你整体输出里占比很小，撑不起一个窗口。而且他还有 <sk>暗影斗篷</sk> 可以直接抹掉毒。"
+      ],
+      "k": "贼打贼的核心不是操作快，是停手快。看到对面的防御立刻停，比多打几下值钱得多。"
+    },
+    {
+      "id": "rogue2",
+      "t": "rogue",
+      "d": 3,
+      "s": "镜像对局，你失去了先手——对面先开，你被 <sk>偷袭</sk> 眩晕住，血掉了三分之一。眩晕刚结束。",
+      "a": "现在的目标是什么？",
+      "o": [
+        "立刻反打，把节奏抢回来",
+        "用最低成本活过这一轮，别急着抢回节奏",
+        "立刻 <sk>消失</sk> 脱战",
+        "开全部防御硬扛"
+      ],
+      "r": 1,
+      "e": [
+        "你正处在他的窗口里、血量落后。这时候反打是拿你最弱的状态去撞他最强的状态。",
+        "正解。<b>失去先手时目标是活过第一轮，不是立刻抢回所有节奏。</b>用 <sk>佯攻</sk>、拉开、绕柱子——把他的窗口耗完。他的窗口一结束，双方就重新平等了，那时候才轮到你。",
+        "<sk>消失</sk> 是最贵的资源，第一轮就交掉，第二轮你就没有退路了。先用便宜的手段。",
+        "把所有防御一次交完，等于把三轮的资源压在一轮上。他的窗口过去后你就裸了。"
+      ],
+      "k": "落后的时候不要急着扳平。先撑过对方的窗口，让局面回到中性，再谈进攻。"
+    },
+    {
+      "id": "dk",
+      "t": "dk",
+      "d": 2,
+      "s": "你在打冰霜 DK，他按下 <sk>反魔法护罩</sk>。",
+      "a": "该怎么处理？",
+      "o": [
+        "完全停手，跟其他免疫一样处理",
+        "继续打但不交爆发——物理伤害仍然有效",
+        "继续全力输出，影响不大",
+        "交爆发抢在护罩结束前打穿"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>反魔法护罩</sk> 不是全免疫。完全停手是过度反应，白白放弃了物理输出时间。",
+        "正解。<b>它只免疫魔法系——你的毒和暗影伤害归零，但纯物理照常进去。</b>不用完全停手，但也不该在这时交爆发（爆发里暗影/毒占比不小）。",
+        "\"影响不大\"是错的——抗魔期间你的输出会明显下降。",
+        "在减伤期交爆发是把最贵的资源用在最差的时机。"
+      ],
+      "k": "免疫要分类型看：全免疫（停手）、免物理（停手）、免魔法（降档但不停）。一刀切会让你要么打空要么白等。"
+    },
+    {
+      "id": "dk2",
+      "t": "dk",
+      "d": 2,
+      "s": "你被 DK 用死亡之握拽了回去，身上有减速，血量健康。他正在准备下一波压力。你的 <sk>疾跑</sk> 和 <sk>消失</sk> 都好。",
+      "a": "怎么脱离？",
+      "o": [
+        "<sk>疾跑</sk> 跑开",
+        "<sk>消失</sk>，因为跑不掉——他能再拽你一次",
+        "站着打，反正血还够",
+        "<sk>暗影斗篷</sk> 解掉减速再跑"
+      ],
+      "r": 3,
+      "e": [
+        "<sk>疾跑</sk> 解决不了减速，而且他还能再用一次死亡之握把你拽回来。你会白花一个技能。",
+        "<sk>消失</sk> 确实是最可靠的，但这是你最贵的资源。<b>在还有更便宜解法的时候不该交它。</b>",
+        "\"血还够\"是被动等死的开始——DK 的压力是持续的，等到血不够时你的选择只会更少。",
+        "正解。<b>DK 的减速和大量控制是魔法系，<sk>暗影斗篷</sk> 能一次抹掉。</b>解掉之后你就能正常跑，把 <sk>消失</sk> 省给真正的危急时刻。<b>这也是斗篷在 DK 对局价值极高的原因</b>——他的伤害和控制大量是魔法。"
+      ],
+      "k": "脱离先找最便宜的解。斗篷能解掉的东西，不要用消失去解。"
+    },
+    {
+      "id": "dh",
+      "t": "dh",
+      "d": 3,
+      "s": "你在打浩劫 DH，他血量 <em>50%</em>。他按下 <sk>虚空行走</sk>（全免疫且可移动）。",
+      "a": "现在做什么？",
+      "o": [
+        "守在他身边等免疫结束，跟 <sk>寒冰屏障</sk> 一样处理",
+        "停手，但注意他在免疫期间可以移动和重新定位",
+        "控住他，用控制吃掉免疫时长",
+        "继续输出，它是减伤不是免疫"
+      ],
+      "r": 1,
+      "e": [
+        "<b><sk>寒冰屏障</sk> 期间法师不能移动</b>，所以你能守在原地等。<sk>虚空行走</sk> 可以移动——他会趁这几秒重新定位、脱离、或绕到你队友身上。",
+        "正解。全免疫期间做什么都是零收益，但关键区别在于<b>他还在动</b>——这几秒你的任务是跟住他的位置、预判他要去哪。",
+        "<sk>虚空行走</sk> 同时免疫控制，会浪费你的控制递减。",
+        "它是完全免疫。"
+      ],
+      "k": "\"可移动的免疫\"和\"不可移动的免疫\"要分开处理。前者你在跟位置，后者你在等时间。"
+    },
+    {
+      "id": "dh2",
+      "t": "dh",
+      "d": 2,
+      "s": "你在打浩劫 DH，用零散输出把他磨到 <em>60%</em>，但每次你脱战回来，他<em>血又满了</em>。",
+      "a": "该改什么？",
+      "o": [
+        "提高输出频率，磨得更快一点",
+        "放弃磨的思路——攒一个完整窗口一次打穿",
+        "换目标",
+        "带 <sk>卸除武装</sk> 减少他的输出"
+      ],
+      "r": 1,
+      "e": [
+        "提高频率还是在磨。他的自愈速度不受你输出频率影响，这条路走不通。",
+        "正解。<b>DH 自愈很高，零散伤害对他等于不存在。</b>这是\"必须一波带走\"最典型的对局——<b>磨他就是给他回血时间</b>。攒满窗口、一次打穿，是唯一的解。",
+        "换目标可能对，但这题问的是\"该改什么\"——如果 DH 是指定目标，你要改的是打法而不是目标。",
+        "缴械对 DH 的自愈没有帮助，也不解决\"零散伤害无效\"这个核心问题。"
+      ],
+      "k": "对高自愈目标，输出的分布比输出的总量重要。分散打等于没打。"
+    },
+    {
+      "id": "shaman",
+      "t": "shaman",
+      "d": 2,
+      "s": "你在打恢复萨，他血量 <em>60%</em>，你输出打不动。地上有几个图腾，其中一个是群体治疗类的。",
+      "a": "该做什么？",
+      "o": [
+        "继续打萨满，图腾是次要的",
+        "打掉那个图腾——图腾血极低，一两下就碎",
+        "控住萨满，让图腾自己过期",
+        "换目标打他的 DPS 队友"
+      ],
+      "r": 1,
+      "e": [
+        "\"图腾是次要的\"是打萨满最贵的误解。无视它等于跟一个额外的治疗对拼。",
+        "正解。<b>图腾是萨满的第二条命，而且血量极低。</b>投入产出比远高于继续打一个满状态恢复萨。",
+        "控住萨满有价值，但没解决图腾还在给全队治疗这个问题。",
+        "换目标不解决核心矛盾，群疗图腾还在，你打谁都会被治回去。"
+      ],
+      "k": "打萨满是全游戏最需要你分心看地面的对局。有些时候正确的目标不是人。"
+    },
+    {
+      "id": "shaman2",
+      "t": "shaman",
+      "d": 3,
+      "s": "三对三。你准备对目标下 <sk>烟雾弹</sk> 完成击杀。但恢复萨在不远处，地上有一个<em>你不认识的图腾</em>正在发光。",
+      "a": "下不下弹？",
+      "o": [
+        "下，烟雾弹是你最强的牌，机会不等人",
+        "先确认那个图腾是什么——某些图腾能破控或提供群体效果，会让你的弹白扔",
+        "让队友先打掉萨满",
+        "下弹的同时控住萨满"
+      ],
+      "r": 1,
+      "e": [
+        "<b>不认识的图腾就是不确定的变量。</b>在最强的一张牌上赌一个你没看清的东西，是最贵的赌博。",
+        "正解。<b>萨满对局的\"目标\"经常不是玩家，而是一个正在改变规则的图腾。</b>破控类、群疗类图腾会让你精心设计的击杀窗口直接作废。<b>下弹之前先确认地上有什么</b>——图腾血极低，认出来了顺手打掉就行。",
+        "把判断推给队友，而且你的弹还是可能被同一个图腾废掉。",
+        "控住萨满不影响已经落地的图腾继续生效。"
+      ],
+      "k": "用你最贵的牌之前，先排除掉场上你没看懂的变量。萨满对局这条尤其致命。"
+    },
+    {
+      "id": "warlock",
+      "t": "warlock",
+      "d": 3,
+      "s": "你在打术士，身上挂着他四五个持续伤害，血在稳定往下掉。<sk>暗影斗篷</sk> 是好的。",
+      "a": "斗篷该什么时候按？",
+      "o": [
+        "现在按，一次性抹掉全部持续伤害",
+        "留着，等他开爆发窗口再按",
+        "留着躲他的 <sk>恐惧</sk>",
+        "不按斗篷，用 <sk>消失</sk> 清掉"
+      ],
+      "r": 0,
+      "e": [
+        "正解。<b>斗篷在术士对局最值钱的用法就是一次性抹掉一整套持续伤害</b>——术士的伤害是叠加式复利，挂满一身时按斗篷的收益远大于用它躲单发。",
+        "\"留着等爆发\"在<b>法师</b>对局是对的（单次爆发），但术士是持续叠加型——等他\"开爆发\"时你可能已经被磨掉一半血。",
+        "躲 <sk>恐惧</sk> 有价值，但你现在正在稳定掉血，先解决正在发生的问题。",
+        "<sk>消失</sk> 不清持续伤害（大多会把你打出潜行），而且比斗篷贵得多。"
+      ],
+      "k": "斗篷该留还是该按，取决于对手的伤害是\"一次爆发\"还是\"持续叠加\"。术士属于后者。"
+    },
+    {
+      "id": "warlock2",
+      "t": "warlock",
+      "d": 2,
+      "s": "你在一片空地上跟术士单挑，他在自由读条，你在挨伤害。你的位移都好。",
+      "a": "第一件事该做什么？",
+      "o": [
+        "冲上去贴脸打断他",
+        "去柱子后面，逼他移动",
+        "开 <sk>暗影斗篷</sk> 硬顶着打",
+        "用远程技能对射"
+      ],
+      "r": 1,
+      "e": [
+        "贴脸方向对，但空地上他有传送门、恐惧、减速——你贴上去也待不住，而且冲的路上一直在挨伤害。",
+        "正解。<b>别在空地上跟术士比木桩，他的伤害模型就是赢这个。</b>用柱子逼他移动——他移动就不能读条，不读条就没有伤害。<b>然后你再接近，才有真正的杀窗。</b>",
+        "斗篷硬顶只解决一小段时间，之后你还是在空地上被自由施法。这是把资源花在错误的问题上。",
+        "你没有能跟术士对射的远程输出。"
+      ],
+      "k": "打远程职业先解决\"场地\"，再解决\"距离\"。柱子比你的位移便宜得多。"
+    },
+    {
+      "id": "monk",
+      "t": "monk",
+      "d": 1,
+      "s": "你正在爆发窗口里打风行武僧，他血量 <em>40%</em>。他按下 <sk>业报之触</sk>。",
+      "a": "现在做什么？",
+      "o": [
+        "继续输出，它有伤害上限，能打穿",
+        "停手转火队友，窗口不能空转",
+        "控住他，让它在控制里走完",
+        "<sk>消失</sk> 重置"
+      ],
+      "r": 1,
+      "e": [
+        "把它当\"有上限的减伤\"来打是最贵的误解之一——<b>而且伤害会反弹到你身上</b>，你在帮他打你自己。",
+        "正解。<b><sk>业报之触</sk> 化解伤害并反弹，而且他还能移动。</b>窗口正在燃烧，最优解是把这几秒的伤害倒到别人身上。",
+        "它不阻止你控他，但控住不解决\"窗口在流逝\"这个问题，也没换来伤害。",
+        "<sk>消失</sk> 掉等于同时扔掉窗口和最贵的资源。"
+      ],
+      "k": "目标进入免疫/化解、而你的窗口还在走 → 转火。这条对所有职业的防御牌通用。"
+    },
+    {
+      "id": "monk2",
+      "t": "monk",
+      "d": 3,
+      "s": "三对三。你控住了织雾武僧，准备对目标下 <sk>烟雾弹</sk> 完成击杀。",
+      "a": "下弹之前要确认什么？",
+      "o": [
+        "确认目标身上没有护盾",
+        "确认武僧的传送/位移是否可用——他能瞬移进来让弹落空",
+        "确认自己的连击点够",
+        "确认队友的输出跟得上"
+      ],
+      "r": 1,
+      "e": [
+        "护盾要看，但这题问的是<b>烟雾弹能不能成立</b>——护盾不影响弹的机制。",
+        "正解。<b>武僧的传送能让 <sk>烟雾弹</sk> 落空</b>——他一瞬移进烟里，你精心设计的\"治疗看不见目标\"就作废了。<b>先逼出他的位移或确认位置，再下弹。</b>",
+        "连击点是输出问题，不影响弹的成败。",
+        "队友配合重要，但这题的关键变量是武僧的位移。"
+      ],
+      "k": "烟雾弹靠\"隔开位置\"生效。任何能瞬间改变位置的技能都是它的天敌——下弹前先排除掉。"
+    },
+    {
+      "id": "warrior",
+      "t": "warrior",
+      "d": 2,
+      "s": "你在打战士，<sk>卸除武装</sk> 是好的。他刚刚冲锋进来，正准备开他的爆发。",
+      "a": "缴械什么时候按？",
+      "o": [
+        "现在按，掐掉他的爆发窗口",
+        "等他爆发打了一半再按",
+        "留着等他斩杀阶段",
+        "不用缴械，用 <sk>凿击</sk> 拉开距离"
+      ],
+      "r": 0,
+      "e": [
+        "正解。<b>缴械的最大价值是掐掉爆发窗口的起点。</b>6 秒无武器 ≈ 6 秒无伤害，等于这一轮爆发废掉。",
+        "等打了一半再按，前半段伤害你已经吃满了。<b>缴械是预防不是补救。</b>",
+        "\"留到斩杀阶段\"听起来更关键，但你可能撑不到那时候。",
+        "<sk>凿击</sk> 拉距离对战士效果有限（他有多种接近手段），也没解决\"这一轮爆发很痛\"。"
+      ],
+      "k": "缴械是掐窗口的技能，不是补救的技能。看到对手起爆发就按，不要等伤害落地。"
+    },
+    {
+      "id": "warrior2",
+      "t": "warrior",
+      "d": 2,
+      "s": "你在打战士，他血量 <em>25%</em>，你的窗口好了准备收尾。他按下 <sk>剑在人在</sk>（免疫物理伤害）。",
+      "a": "现在做什么？",
+      "o": [
+        "继续打，25% 血打穿一点就死了",
+        "立刻停手或转火，你几乎全是物理",
+        "用 <sk>卸除武装</sk> 缴他",
+        "控住他等免疫结束"
+      ],
+      "r": 1,
+      "e": [
+        "<b>\"免物理\"对敏锐几乎等于\"全免疫\"。</b>25% 血看起来近在咫尺，正是这种时候最容易把整个窗口喂进去。",
+        "正解。你的伤害绝大部分是物理，<sk>剑在人在</sk> 期间你打进去的接近于零。<b>窗口在燃烧 → 转火；没有转火对象 → 脱离，等它结束再回来收。</b>",
+        "<sk>卸除武装</sk> 是防他的输出，不影响他的免疫。而且他免疫期间伤害不高，这时缴械是浪费。",
+        "控住他不产生伤害，还浪费递减——而且你窗口在流逝。"
+      ],
+      "k": "看免疫要对照自己的伤害类型。对敏锐来说，\"免物理\"和\"全免疫\"没有实际区别。"
+    },
+    {
+      "id": "priest",
+      "t": "priest",
+      "d": 2,
+      "s": "对面戒律牧给你的目标套了一个大 <sk>真言术：盾</sk>。你的爆发窗口刚好，诡术师层数满 4 层。",
+      "a": "现在开吗？",
+      "o": [
+        "开，护盾撑不住一个满状态窗口",
+        "先把护盾打掉或等它过期，再开窗口",
+        "开，但转火打牧师",
+        "控住牧师，然后开窗口打目标"
+      ],
+      "r": 1,
+      "e": [
+        "护盾会吃掉窗口伤害里相当大的一块，尤其是 <sk>致命一击</sk>——那一发落在护盾上是最亏的。",
+        "正解。<b>护盾是\"提前预支的治疗\"。</b>用常规输出磨掉护盾（或等它过期）再开窗口——同样的爆发，落在裸血上完全是另一个量级。",
+        "转火牧师能压出他的自保，但窗口伤害落在满血治疗身上通常也杀不掉。",
+        "控住牧师听起来周全，但<b>护盾已经在目标身上了</b>——控住牧师不会让护盾消失。"
+      ],
+      "k": "窗口要开在\"裸\"的目标身上。护盾、减伤、免疫，任何一层在，都该先处理掉再开。"
+    },
+    {
+      "id": "priest2",
+      "t": "priest",
+      "d": 3,
+      "s": "三对三，你和队友都有眩晕。对面是<em>戒律牧 + 一个布甲 DPS</em>，你们打算集火那个 DPS。",
+      "a": "你的 <sk>肾击</sk> 该给谁？",
+      "o": [
+        "给击杀目标（那个 DPS），确保他跑不掉",
+        "给牧师，让队友的眩晕去晕击杀目标",
+        "留着不用，等目标残血再补",
+        "给谁都行，先手最重要"
+      ],
+      "r": 1,
+      "e": [
+        "两个人的眩晕都堆在同一个目标上，会立刻触发递减——<b>第二个眩晕只剩一半时长，等于浪费一个。</b>",
+        "正解。<b>你晕牧师、队友晕目标，两个眩晕落在不同的人身上，各自吃满时长。</b>这形成一个更稳的双控：治疗被锁住的同时目标也动不了。这是三对三里眩晕分配的基本功。",
+        "\"留着补\"会让你错过唯一能同时锁住两个人的时机。",
+        "眩晕分配恰恰是最需要计划的——递减规则决定了随便按会浪费一半。"
+      ],
+      "k": "队伍里有多个眩晕时，分给不同的人比堆在同一个人身上多出一倍的控制时间。"
+    },
+    {
+      "id": "evoker",
+      "t": "evoker",
+      "d": 1,
+      "s": "你在打唤魔师，看到他开始<em>蓄力</em>一个技能。你的 <sk>脚踢</sk> 和 <sk>凿击</sk> 都是好的。",
+      "a": "用哪个中断？",
+      "o": [
+        "<sk>脚踢</sk>，最直接",
+        "<sk>凿击</sk>——同样能中断，把脚踢留给更关键的时刻",
+        "都不用，蓄力技能打断收益不大",
+        "<sk>肾击</sk>，顺便接控制链"
+      ],
+      "r": 1,
+      "e": [
+        "能断，但浪费。唤魔师的蓄力技能会反复出现——每次都用 <sk>脚踢</sk>，关键时刻你手上就没牌了。",
+        "正解。<b><sk>凿击</sk>、眩晕、<sk>致盲</sk> 都能中断施法且不占脚踢冷却。</b>用便宜的手段处理高频出现的蓄力。",
+        "恰恰相反——<b>唤魔师是全游戏打断价值最高的对局</b>，蓄力被打断损失极大。",
+        "<sk>肾击</sk> 是眩晕类，会吃掉眩晕递减预算——那份预算该留给击杀窗口。"
+      ],
+      "k": "中断有很多种，脚踢只是最贵的一种。能用凿击解决的别用脚踢。"
+    },
+    {
+      "id": "evoker2",
+      "t": "evoker",
+      "d": 3,
+      "s": "你的窗口刚好，唤魔师血量健康但站位不错。你注意到他的 <sk>悬空</sk> <em>刚刚用过</em>。",
+      "a": "这个信息意味着什么？",
+      "o": [
+        "没什么用，他还有别的逃脱手段",
+        "这就是你的开窗时机——他现在跑不掉",
+        "应该等他把所有位移都用完",
+        "说明他很谨慎，应该换目标"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>悬空</sk> 是他最强的脱离手段，用掉了跟没用是完全两回事。忽略这个信息等于放弃最重要的时机判断。",
+        "正解。<b>窗口要开在 <sk>悬空</sk> 冷却中的时候</b>——不然他一按你的爆发就落空，飞到你完全够不到的地方。<b>盯住对手的关键位移冷却，是决定\"什么时候开\"的核心信息之一。</b>",
+        "等所有位移都用完是不现实的，而且你的窗口也在等待中流逝。<b>逼掉最关键的那一个就够了。</b>",
+        "他用掉位移恰恰说明他现在更脆弱，这时候换目标是反的。"
+      ],
+      "k": "对高机动目标，开窗口的时机不看他的血，看他的位移冷却。"
+    },
+    {
+      "id": "x1",
+      "t": "general",
+      "d": 2,
+      "s": "<b>暗影之舞</b>正开着还剩约一半，目标（惩戒骑）<em>42%</em>，<sk>圣盾术</sk> 上一轮已经用掉。他的戒律牧站在 <em>20 码外</em>正在读大治疗。你满连击点，<sk>肾击</sk>、<sk>脚踢</sk>、<sk>致盲</sk>、<sk>烟雾弹</sk> 全好。",
+      "a": "这一下按什么、对谁？",
+      "o": [
+        "<sk>脚踢</sk> → 戒律牧",
+        "<sk>烟雾弹</sk> → 罩住自己和惩戒骑",
+        "<sk>致盲</sk> → 戒律牧",
+        "<sk>肾击</sk> → 惩戒骑"
+      ],
+      "r": 1,
+      "e": [
+        "脚踢要跑 20 码过去，<b>你会脱离目标、丢掉窗口里最值钱的几秒</b>。而且只断一次施法，他解开就继续奶。",
+        "正解。<b>治疗在 20 码外＝他会在烟外。</b><sk>烟雾弹</sk> 罩住你和目标，<b>治疗在整个持续时间里完全无法选中他</b>——这比断一次施法强一个量级，而且只花一个 GCD、你不用离开目标。<b>治疗离目标远 = 烟雾弹进攻价值最高的场景。</b>",
+        "同样要跑过去，而且 <sk>致盲</sk> 受伤即破——你一回来打目标，溅射/持续伤害就可能破掉它。",
+        "<sk>肾击</sk> 不解决\"治疗在奶\"这个核心问题。目标 42% 且有治疗，光眩晕他打不穿。"
+      ],
+      "k": "治疗离目标远的时候，烟雾弹的进攻价值高于任何单次打断——一个 GCD 换整段无治疗。"
+    },
+    {
+      "id": "x2",
+      "t": "general",
+      "d": 3,
+      "s": "目标是法师，<em>25% 血</em>，刚从 <sk>寒冰屏障</sk> 里出来（蓝已回满）。你的诡术师层数<em>满 4 层</em>，<sk>暗影之舞</sk> <em>只剩约 2 秒</em>，<sk>肾击</sk> 和满连击点都在。",
+      "a": "这 2 秒怎么用？",
+      "o": [
+        "<sk>肾击</sk> 定住他，再打伤害",
+        "直接倒 <sk>致命一击</sk>",
+        "<sk>影分身</sk> 起手再接终结技",
+        "<sk>消失</sk> 重置，等下一轮"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>肾击</sk> 本身不产生多少伤害，<b>在只剩 2 秒的窗口里花一个 GCD 定身，等于把加成最高的那一发挤出窗口外。</b>",
+        "正解。<b>窗口只剩 2 秒，能落地的终结技就一发。</b>25% 血的法师 + 满层 <sk>致命一击</sk>（等同额外 5 连击点的 <sk>刺骨</sk>）足够收掉。<b>加成窗口内每个 GCD 都要产出伤害，任何不打伤害的动作都是把最贵的那发挤出去。</b>",
+        "<sk>影分身</sk> 值得用，但它是额外一发不是替代——<b>先倒最大的那一发</b>，顺序反了可能来不及。",
+        "25% 的目标就在面前，重置等于放掉一次已经成型的击杀。"
+      ],
+      "k": "窗口余量决定动作数量。只剩一个 GCD 时，把它给伤害最高的那一发，不给控制。"
+    },
+    {
+      "id": "x3",
+      "t": "general",
+      "d": 2,
+      "s": "你被<em>战士 + 法师</em>同时打，血量 <em>38%</em>，身上有法师的减速和三层持续法伤，战士刚开了爆发姿态。<sk>暗影斗篷</sk>、<sk>闪避</sk>、<sk>消失</sk>、<sk>佯攻</sk> 都可用。",
+      "a": "第一下按什么？",
+      "o": [
+        "<sk>闪避</sk>（战士刚开爆发）",
+        "<sk>暗影斗篷</sk>",
+        "<sk>消失</sk>",
+        "<sk>佯攻</sk> 然后继续输出"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>闪避</sk> 只挡物理。法师那一半伤害照进、减速还在、持续法伤还在跳——<b>你依然跑不掉也躲不开。</b>",
+        "正解。<b>斗篷一次解决三件事</b>：抹掉法师的魔法伤害、清掉身上所有魔法减益（<b>包括减速和那三层持续法伤</b>）、让接下来几秒法师打不到你。解掉减速之后你才有走位空间。<b>而战士的爆发可以用走位和 <sk>佯攻</sk> 分摊——但减速不解，你什么都做不了。</b>",
+        "<sk>消失</sk> 是最贵的一张，而且<b>身上有持续伤害时它很可能立刻被打出来</b>。",
+        "<sk>佯攻</sk> 是廉价减伤，但它解决不了\"我动不了\"这个根本问题。"
+      ],
+      "k": "同时被物理和法系打时，先看哪个技能能一次解决多个问题。斗篷解减益的价值经常大于它的减伤。"
+    },
+    {
+      "id": "x4",
+      "t": "general",
+      "d": 3,
+      "s": "2v2 或 3v3 都适用：你潜行接近，对面是<em>射击猎 + 恢复萨</em>。萨满脚下有一个 <em>战栗图腾</em>（破控），猎人站在他旁边。你打算开一波。",
+      "a": "第一个动作是什么？",
+      "o": [
+        "<sk>闷棍</sk> → 恢复萨",
+        "打掉战栗图腾",
+        "<sk>偷袭</sk> → 射击猎",
+        "<sk>卸除武装</sk> → 射击猎"
+      ],
+      "r": 1,
+      "e": [
+        "破控图腾在场时，<b>你的 <sk>闷棍</sk> 会被立刻解掉</b>——等于把最干净的一张控制白扔。",
+        "正解。<b>图腾血量极低，一两下就碎，而它在场时你的整套控制链都不成立。</b>先清掉这个\"改变规则的东西\"，再开始你的正常流程。<b>萨满对局的第一个目标经常不是人。</b>",
+        "<sk>偷袭</sk> 会让你脱离潜行、暴露开场意图，而萨满的破控图腾依然在。",
+        "缴械对射击猎确实有效（他的伤害来自武器），<b>但顺序错了</b>——图腾不清掉，你后面所有的控制都会被解。"
+      ],
+      "k": "开场前先清掉场上\"会改变规则\"的东西（破控图腾、地面效果）。它在，你的整套流程都不成立。"
+    },
+    {
+      "id": "x5",
+      "t": "general",
+      "d": 2,
+      "s": "你正准备 <sk>致盲</sk> 对面治疗来打断他的施法。此刻他身上挂着<em>你队友的一个持续伤害</em>，而你自己刚才的 <sk>影分身</sk> <em>还在跳伤害</em>。",
+      "a": "现在致盲会怎样？",
+      "o": [
+        "正常生效，致盲不受持续伤害影响",
+        "两个来源都会打破它——你自己的影分身和队友的持续伤害",
+        "只有队友的持续伤害会破，你自己的不会",
+        "时长会缩短但不会破"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>致盲</sk> 是失能类，<b>受任何来源的任何伤害立刻破</b>。",
+        "正解。<b>破控源包括你自己。</b><sk>影分身</sk> 是延迟伤害，你按完之后它还会继续跳——<b>很多人只记得让队友停手，忘了自己刚才放的延迟伤害</b>。正确做法是等自己的延迟伤害跳完 + 队友的持续伤害掉完，再控。",
+        "任何来源都一样，包括你自己的。",
+        "不是缩短，是直接破掉。"
+      ],
+      "k": "失能类控制的破控源包括你自己的延迟伤害。按之前要清的不只是队友那边。"
+    },
+    {
+      "id": "x6",
+      "t": "general",
+      "d": 2,
+      "s": "目标是死亡骑士，<em>30% 血</em>，他刚开了 <sk>反魔法护罩</sk>。你满连击点，<sk>卸除武装</sk> 和爆发都可用。",
+      "a": "现在做什么？",
+      "o": [
+        "交爆发抢在护罩结束前打穿",
+        "继续常规物理输出，不交爆发",
+        "完全停手等护罩结束",
+        "<sk>卸除武装</sk> → 死亡骑士"
+      ],
+      "r": 1,
+      "e": [
+        "<b>你的爆发里暗影和毒伤占比不小</b>，在抗魔期交等于把最贵的资源打折使用。",
+        "正解。<b><sk>反魔法护罩</sk> 只免疫魔法——你的纯物理伤害照常进去。</b>所以不用完全停手（那会白白放弃输出时间），但也<b>绝不该在这时交爆发</b>。用常规物理输出压着，等护罩走完再开窗口。",
+        "完全停手是过度反应，浪费了物理还能打的这段时间。",
+        "缴械是防他输出的，跟\"我现在能不能打进去\"是两个问题。而且 30% 血的 DK 更该防的是他的自救。"
+      ],
+      "k": "免疫要分类型对照自己的伤害构成。免魔法对贼是\"降档\"不是\"归零\"，处理方式跟全免疫不同。"
+    },
+    {
+      "id": "x7",
+      "t": "general",
+      "d": 3,
+      "s": "你窗口全好、层数满，正要开。此刻你注意到对面治疗<em>刚交完一个大保命且还在生效</em>，而击杀目标身上<em>什么减伤都没有</em>。",
+      "a": "开还是等？",
+      "o": [
+        "开，目标是裸的，机会难得",
+        "等他的保命走完再开",
+        "开，但只用一半资源",
+        "换目标打治疗"
+      ],
+      "r": 1,
+      "e": [
+        "目标裸着是好条件，<b>但治疗的保命在生效意味着你的窗口伤害会被他从容顶掉</b>——你打的是目标，救的人是治疗。",
+        "正解。<b>开窗口要看两边：我们齐不齐，以及对面有没有正在生效的保命。</b>治疗的大保命通常只有几秒，<b>等它走完再开，同样的窗口收益完全不同</b>。这种\"我方满状态\"的时刻不常有，别浪费在对面也满状态的时候。",
+        "拆开用会让控制链和爆发都不完整，两边不讨好。",
+        "打满血治疗通常杀不掉，而且他的保命正生效。"
+      ],
+      "k": "开窗口的条件包含对面的状态。目标裸不等于能杀，还要看治疗手上有没有正在生效的牌。"
+    },
+    {
+      "id": "x8",
+      "t": "general",
+      "d": 1,
+      "s": "你刚 <sk>偷袭</sk> 开场，目标被眩晕住。你手上 2 个连击点，<sk>暗影之舞</sk> 还没开。",
+      "a": "眩晕的这几秒该做什么？",
+      "o": [
+        "立刻开 <sk>暗影之舞</sk> 全交",
+        "用 <sk>暗影打击</sk> 补连击点，把爆发留到眩晕快结束时开",
+        "直接倒终结技",
+        "<sk>肾击</sk> 续控"
+      ],
+      "r": 1,
+      "e": [
+        "2 个连击点就开爆发，<b>窗口的前几秒会浪费在攒点上</b>——而那几秒的加成是最值钱的。",
+        "正解。<b><sk>偷袭</sk> 的眩晕是用来\"上连击点和建立位置\"的，不是用来打伤害的。</b>这几秒把点补满，<b>让爆发窗口一开就能立刻倒终结技</b>。爆发和满连击点要同时到位。",
+        "2 点的终结技伤害很低，浪费了一次终结机会。",
+        "<sk>肾击</sk> 跟 <sk>偷袭</sk> 共享眩晕递减，紧接着用只有一半时长，而且这时候没有伤害需要它保护。"
+      ],
+      "k": "开场眩晕是准备时间不是输出时间。用它把连击点和爆发对齐，让窗口一开就能出伤害。"
+    },
+    {
+      "id": "x9",
+      "t": "general",
+      "d": 3,
+      "s": "你在爆发窗口里，目标 <em>18%</em> 眼看要死。此刻对面另一个 DPS <em>开始集火你的治疗</em>，你的治疗血量还有七成。",
+      "a": "怎么选？",
+      "o": [
+        "立刻放弃窗口回去救治疗",
+        "收掉目标再回防——18% 且窗口正开，这属于\"一击能死\"",
+        "用 <sk>烟雾弹</sk> 罩住治疗，同时继续打",
+        "两边都顾，先打断再回来收"
+      ],
+      "r": 1,
+      "e": [
+        "\"永远优先救治疗\"是把原则背成教条。<b>治疗还有七成血、刚被切，能撑几秒；而目标 18% 且你正在窗口里。</b>",
+        "正解。<b>判据是\"目标一击能死吗\"。</b>18% + 爆发窗口正开 = 能。<b>击杀完成之后局面直接从 2v2 变 2v1（或 3v3 变 3v2），这个收益远大于提前几秒回防。</b>收完立刻回去。",
+        "<sk>烟雾弹</sk> 罩治疗听起来两全，但<b>你和目标此刻多半不在治疗附近</b>——罩了他你就得离开目标，窗口一样断。",
+        "\"两边都顾\"在这个血线上是最差的：目标没收掉，治疗也没真的救到。"
+      ],
+      "k": "\"优先救队友\"是默认值不是铁律。判据是\"目标一击能死吗\"——能，就收完再回。"
+    },
+    {
+      "id": "x10",
+      "t": "general",
+      "d": 2,
+      "s": "对面是<em>戒律牧</em>。你已经把击杀目标打到 <em>45%</em>，但牧师一直在稳定回血。你的 <sk>闷棍</sk> 好了，<sk>致盲</sk> 也好了，窗口还有一段。",
+      "a": "用哪个控牧师？",
+      "o": [
+        "<sk>闷棍</sk> → 戒律牧",
+        "<sk>致盲</sk> → 戒律牧",
+        "两个都用，接成链",
+        "都不用，继续打目标"
+      ],
+      "r": 1,
+      "e": [
+        "<sk>闷棍</sk> 只能对<b>未处于战斗状态</b>的目标使用——牧师正在治疗，你按不出来。<b>这是最容易犯的机制错误。</b>",
+        "正解。<b>战斗中能用的失能类控制是 <sk>致盲</sk>，不是 <sk>闷棍</sk>。</b><sk>闷棍</sk> 只在目标脱战时可用（所以它是开场前的工具）。<b>控完立刻停止对牧师的一切伤害，否则受伤即破。</b>",
+        "<sk>闷棍</sk> 在战斗中根本用不出来，接不成链。",
+        "目标 45% 而治疗自由施法，不处理治疗你打不穿。"
+      ],
+      "k": "闷棍只对脱战目标可用，是开场前的工具；战斗中的失能类控制是致盲。别把两者混用。"
+    }
   ]
- ],
- "match": {
-  "qlbl": [
-   "1 · 他什么时候能杀人",
-   "2 · 他那张\"你杀不死我\"的牌",
-   "3 · 你必须处理的那一个",
-   "4 · 你的开场怎么打"
-  ],
-  "list": [
-   {
-    "id": "warrior",
-    "n": "战士",
-    "ic": "classicon_warrior",
-    "c": "#C69B6D",
-    "diff": "中等偏难",
-    "cards": [
-     "剑在人在",
-     "破胆怒吼",
-     "盾墙",
-     "集结呐喊"
-    ],
-    "one": "他冲上来的那几秒决定一切，冲不动了他就是个靶子。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "杀窗极短且极猛——爆发/斩杀阶段能在几秒内带走你，窗口过去后输出断崖式下跌。<b>不要在他爆发窗口里对拼，你的血条比他薄。</b>"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "没有全免疫，但 <sk>剑在人在</sk> <b>免疫物理伤害</b>——对你是致命的，你几乎全是物理。另有 <sk>破胆怒吼</sk>（免控+减伤）、<sk>盾墙</sk>。"
-     ],
-     [
-      "你必须处理的那一个",
-      "战士读条极少，<sk>脚踢</sk> 价值低——<b>省下来给他的治疗</b>。要处理的是他的冲锋链。"
-     ],
-     [
-      "你的开场",
-      "<sk>卸除武装</sk> 是核心牌。<b>掐掉他爆发的起点，不要等伤害落地再补救</b>——缴械是预防不是补救。他交 <sk>剑在人在</sk> 立刻停手或转火。"
-     ]
-    ],
-    "arena": "战士擅长把你拖离治疗。你的胜点是错开他的 <sk>剑在人在</sk> 和 <sk>破胆怒吼</sk>，别让两个防御一起生效。",
-    "duel": "单挑先保血量再谈压制。<sk>卸除武装</sk>、<sk>闪避</sk>、<sk>消失</sk> 要覆盖不同轮，不要一起交。"
-   },
-   {
-    "id": "paladin",
-    "n": "圣骑士",
-    "ic": "classicon_paladin",
-    "c": "#F48CBA",
-    "diff": "中等",
-    "cards": [
-     "圣盾术",
-     "保护祝福",
-     "自由祝福",
-     "破咒祝福"
-    ],
-    "one": "圣盾术不解决，你在这个对局里做什么都是白干。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "惩戒骑的爆发窗口非常明确。防护骑不杀人但极难杀，神圣骑靠爆发治疗吃掉你的整个窗口。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>圣盾术</sk> = <b>全游戏最硬的一张牌</b>，全免疫。另有 <sk>保护祝福</sk>（免物理，可给队友）、<sk>自由祝福</sk>（免控）。"
-     ],
-     [
-      "你必须处理的那一个",
-      "神圣骑的大治疗和惩戒骑的自我治疗大多要读条，<sk>脚踢</sk> 价值很高——但他会假读条骗你。"
-     ],
-     [
-      "你的开场",
-      "<b>先用一轮消耗逼出 <sk>圣盾术</sk></b>，亮起立刻脱离。圣盾一走是很长的真空期，<b>那才是你的杀窗</b>。他给队友放 <sk>保护祝福</sk> 时打他同样等于零。"
-     ]
-    ],
-    "arena": "圣骑的外部技能太多，<b>每轮只逼一到两个答案</b>，记清楚下一轮他少了哪一个。",
-    "duel": "圣盾期间不要输出也不要控制（他免疫大部分控制），拿这几秒重新 <sk>潜行</sk>、叠层、等冷却，让圣盾结束那一刻你正好满状态。"
-   },
-   {
-    "id": "hunter",
-    "n": "猎人",
-    "ic": "classicon_hunter",
-    "c": "#AAD372",
-    "diff": "中等",
-    "cards": [
-     "灵龟守护",
-     "假死"
-    ],
-    "one": "他的整套设计就是不让你贴脸。要么解决位移，要么解决灵龟。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "射击猎的爆发极高且是远程，你被风筝的每一秒都在掉血。生存猎能近战对拼且控制很多。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>灵龟守护</sk> = <b>免疫伤害，但不免疫控制</b>——这个区别是本对局的胜负手。<sk>假死</sk> 能直接脱战并让你掉目标。"
-     ],
-     [
-      "你必须处理的那一个",
-      "猎人多为瞬发，<sk>脚踢</sk> 价值有限。<b>要断的是他的\"跑\"而不是他的\"放\"。</b>"
-     ],
-     [
-      "你的开场",
-      "<sk>卸除武装</sk> 极有效。<b><sk>灵龟守护</sk> 亮起时直接 <sk>肾击</sk>/<sk>致盲</sk></b>——用控制把免疫时长吃掉，出来时免疫没了他还在你手上。<b>不要追，他跑得比你快。</b>"
-     ]
-    ],
-    "arena": "猎人很擅长控你的治疗。<b>你不只看自己血量，还要看陷阱有没有命中治疗。</b>",
-    "duel": "别把两次位移连着交给追击。留一次重新接近，另一次留给他 <sk>假死</sk> 之后重新贴上。"
-   },
-   {
-    "id": "rogue",
-    "n": "潜行者",
-    "ic": "classicon_rogue",
-    "c": "#FFF468",
-    "diff": "高",
-    "cards": [
-     "暗影斗篷",
-     "闪避",
-     "消失"
-    ],
-    "one": "先手就是一切。同水平下，赢的是\"对面开防御时先停手\"的那个。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "跟你一样——他的杀窗就是他的爆发窗口。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "没有全免疫。但 <sk>暗影斗篷</sk> 让你所有魔法伤害和毒失效，<sk>闪避</sk> 让你的物理攻击几乎全空，<sk>消失</sk> 直接抹掉你的开场。"
-     ],
-     [
-      "你必须处理的那一个",
-      "贼几乎无读条，<sk>脚踢</sk> 基本无用——<b>当一个额外的接近手段就行</b>。"
-     ],
-     [
-      "你的开场",
-      "<b>带 <sk>卸除武装</sk></b>，这是镜像对局最强的破点。他开 <sk>闪避</sk> 你立刻停手（你全是物理，打进去是零）；他开 <sk>暗影斗篷</sk> 你的毒和魔法伤害全废。他 <sk>消失</sk> 之后别乱按 AOE 找人——去猜他从哪回来，<b>通常是你背后</b>。"
-     ]
-    ],
-    "arena": "镜像里\"谁先交解控道具\"通常比\"谁先打掉 20% 血\"更重要。优先看双方治疗的控制链。",
-    "duel": "先手价值极高。失去先手时目标是<b>用最低成本活过第一轮</b>，不是立刻抢回所有节奏。"
-   },
-   {
-    "id": "priest",
-    "n": "牧师",
-    "ic": "classicon_priest",
-    "c": "#FFFFFF",
-    "diff": "中等",
-    "cards": [
-     "消散",
-     "真言术：盾",
-     "痛苦压制",
-     "绝望祷言"
-    ],
-    "one": "戒律牧的护盾能吃掉你整个窗口。他只要撑过去就赢了。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "暗牧的爆发窗口很明确。<b>戒律牧不杀你，他熬死你</b>——撑过你的窗口就够了。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>消散</sk>（大幅减伤+可脱控）、<sk>痛苦压制</sk>、<sk>绝望祷言</sk>。<b><sk>真言术：盾</sk> 能直接吸掉你一个终结技</b>——最容易被忽略的一层。"
-     ],
-     [
-      "你必须处理的那一个",
-      "<b><sk>脚踢</sk> 价值最高的对局之一。</b>大治疗和复活都要读条。但小心他假读条。"
-     ],
-     [
-      "你的开场",
-      "<b>先看目标身上有没有护盾</b>——有护盾时窗口伤害会先被吸掉一大截，<b>先磨掉护盾再开窗口</b>。<sk>烟雾弹</sk> 价值最高（牧师在烟外点不到人）。控牧师优先用失能类，眩晕留给目标。"
-     ]
-    ],
-    "arena": "队友有眩晕时，可以把 <sk>肾击</sk> 给牧师、让队友晕击杀目标，形成更稳的双控。",
-    "duel": "暗牧开 <sk>消散</sk> 就重整资源，不要追着减伤打。结束后用满连击点重新开始。"
-   },
-   {
-    "id": "dk",
-    "n": "死亡骑士",
-    "ic": "classicon_deathknight",
-    "c": "#C41E3A",
-    "diff": "中等",
-    "cards": [
-     "反魔法护罩",
-     "冰封之韧",
-     "反魔法领域"
-    ],
-    "one": "他的抗魔护罩让你的毒和魔法伤害归零——但物理照样打得进去。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "冰霜/邪恶的爆发窗口很硬。更麻烦的是他的控制链（窒息、冰锁、死亡之握）。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>反魔法护罩</sk>：<b>只免疫魔法</b>——你的毒和暗影伤害归零，<b>纯物理仍然有效</b>。<sk>冰封之韧</sk>：大减伤+免控，这个亮起才是真正的停手信号。"
-     ],
-     [
-      "你必须处理的那一个",
-      "DK 读条极少。<b>要盯的是他的窒息（沉默）</b>——那是你被打断的来源。"
-     ],
-     [
-      "你的开场",
-      "<b><sk>反魔法护罩</sk> 期间不用完全停手（物理还能打），但绝不要在这时交爆发。</b><sk>冰封之韧</sk> 亮起 = 停手。死亡之握会把你拽回去，别指望靠跑脱离，用 <sk>消失</sk>。<br><b>这是 <sk>暗影斗篷</sk> 极有价值的对局</b>——他的伤害和控制大量是魔法系。"
-     ]
-    ],
-    "arena": "DK 会把你拉离治疗、或把目标拉出 <sk>烟雾弹</sk>。<b>下弹前先看双方站位。</b>",
-    "duel": "目标低血时用 <sk>卸除武装</sk> 的进攻价值大于随手减伤——但没形成击杀条件时要留给下一轮。"
-   },
-   {
-    "id": "shaman",
-    "n": "萨满祭司",
-    "ic": "classicon_shaman",
-    "c": "#0C69FF",
-    "diff": "中等偏难",
-    "cards": [
-     "星界转移"
-    ],
-    "one": "图腾是他的第二条命。很多时候你该打的是图腾，不是人。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "增强萨的近战爆发很高，元素萨是远程炮台，恢复萨靠图腾和瞬发治疗续命。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>星界转移</sk>（大减伤）、先祖之魂类保命，以及<b>各种图腾提供的免控和群疗</b>。"
-     ],
-     [
-      "你必须处理的那一个",
-      "<b><sk>脚踢</sk> 价值很高</b>——治疗链、治疗波、元素的核心伤害都要读条。"
-     ],
-     [
-      "你的开场",
-      "<b>开场先看地上有什么图腾。</b>免控类、群疗类图腾打掉的收益<b>远高于打人</b>，而且图腾血量极低，一两下就碎。萨满被杀通常是因为图腾先没了。"
-     ]
-    ],
-    "arena": "萨满对局的\"目标\"经常不是玩家，<b>而是一个正在改变规则的图腾</b>。下 <sk>烟雾弹</sk> 之前先确认破控图腾还在不在。",
-    "duel": "不要只盯血条。先处理能救命或破控的图腾，再用满连击点建立真正的窗口。"
-   },
-   {
-    "id": "mage",
-    "n": "法师",
-    "ic": "classicon_mage",
-    "c": "#3FC7EB",
-    "diff": "高",
-    "cards": [
-     "寒冰屏障",
-     "变形术"
-    ],
-    "one": "寒冰屏障是\"重置键\"。你得逼他按两次。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "法师的连招（控制 → 爆发）能在几秒内秒人。<b>你必须假设他随时能起手一套。</b>"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>寒冰屏障</sk> = 全免疫，<b>且期间他能回蓝、解掉身上所有效果、但不能移动</b>。"
-     ],
-     [
-      "你必须处理的那一个",
-      "<sk>变形术</sk> 和大伤害技能要读条。<b>但法师很多逃脱是瞬发，<sk>脚踢</sk> 拦不住。</b>"
-     ],
-     [
-      "你的开场",
-      "<b><sk>暗影斗篷</sk> 是核心牌</b>——抹掉他整套魔法伤害和控制，留给他的爆发窗口。<br><b>屏障怎么处理取决于目标在不在击杀线上</b>：满血 → 走；残血 → 守着等它过期（他不能移动），破的那一刻接上。<br><b>不要在你自己没有斗篷时进法师的射程。</b>"
-     ]
-    ],
-    "arena": "<sk>脚踢</sk> 不只是断伤害，也是保护治疗免于 <sk>变形术</sk>。<b>看队友状态决定踢什么。</b>",
-    "duel": "别变成无尽追逐。逼位移、守好接近手段，在斗篷期间完成一次带满连击点的有效接近。"
-   },
-   {
-    "id": "warlock",
-    "n": "术士",
-    "ic": "classicon_warlock",
-    "c": "#8788EE",
-    "diff": "中等偏难",
-    "cards": [
-     "不灭决心",
-     "恐惧"
-    ],
-    "one": "他的伤害是复利。你身上挂满持续伤害的时候，斗篷比什么都值。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "术士的爆发是<b>叠加式</b>的。他很少一击秒你，但伤害是复利。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>不灭决心</sk> 类大减伤、灵魂石（自复活）、恶魔传送门（脱离），以及 <sk>恐惧</sk>。"
-     ],
-     [
-      "你必须处理的那一个",
-      "<b><sk>脚踢</sk> 价值极高</b>——核心伤害和吸取生命几乎全是读条。"
-     ],
-     [
-      "你的开场",
-      "<b><sk>暗影斗篷</sk> 的正确用法是\"一次性抹掉一整套持续伤害\"</b>，不是留着躲单发——他是持续叠加型，等他\"开爆发\"时你可能已经掉了一半血。<sk>烟雾弹</sk> 很好用（切断他和治疗的连接）。"
-     ]
-    ],
-    "arena": "术士自由施法越久越难处理。<b>你的控制要同时服务于\"杀人\"和\"停止他建立压力\"。</b>",
-    "duel": "别在空地跟他拼木桩。用柱子逼他移动，再接近，才有真正的杀窗。"
-   },
-   {
-    "id": "monk",
-    "n": "武僧",
-    "ic": "classicon_monk",
-    "c": "#00FF98",
-    "diff": "中等",
-    "cards": [
-     "业报之触",
-     "气定神闲",
-     "玄牛下凡"
-    ],
-    "one": "业报之触是最常见的送分点。它反弹伤害，打进去等于自杀。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "风行的爆发窗口很明确且伤害很高。<b>但他必须贴身才能输出</b>——这是你的机会。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>业报之触</sk>（化解伤害<b>并反弹给你</b>，还能移动）、<sk>气定神闲</sk>、<sk>玄牛下凡</sk>。"
-     ],
-     [
-      "你必须处理的那一个",
-      "织雾的关键治疗要读条，<sk>脚踢</sk> 有价值。风行读条少。"
-     ],
-     [
-      "你的开场",
-      "<b><sk>业报之触</sk> 亮起 = 立刻停手或转火。</b>武僧位移极多，眩晕和减速经常钉不住——用 <sk>卸除武装</sk>，或者干脆等他主动贴上来。"
-     ]
-    ],
-    "arena": "武僧的传送能让 <sk>烟雾弹</sk> 落空。<b>先逼出位移或确认位置，再下弹。</b>",
-    "duel": "<sk>业报之触</sk> 期间停手，拿这段时间重整能量、位置和控制递减。"
-   },
-   {
-    "id": "druid",
-    "n": "德鲁伊",
-    "ic": "classicon_druid",
-    "c": "#FF7C0A",
-    "diff": "高",
-    "cards": [
-     "树皮术",
-     "旅行形态"
-    ],
-    "one": "他能换四种形态，每种解决你一个问题。这个对局赢在控他，不在杀他。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "平衡德的爆发叠加很高，野德的猫形态爆发和控制链能秒人。恢复德不杀人但极难杀。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>树皮术</sk>、化身、熊形态（大幅减伤）、<sk>旅行形态</sk>，再加上强力自我治疗。"
-     ],
-     [
-      "你必须处理的那一个",
-      "<b><sk>脚踢</sk> 价值高</b>。<b>但德鲁伊能切形态躲学派锁定</b>，别指望一次踢就锁死他。"
-     ],
-     [
-      "你的开场",
-      "<b>不要试图单人打死一个满状态恢复德。</b>正确做法是用 <sk>致盲</sk>/<sk>闷棍</sk> 把他控住，<b>让队友去杀别人</b>。你的价值在于\"让他不存在\"，不在于\"让他死\"。"
-     ]
-    ],
-    "arena": "对恢复德真正的技术点是<b>\"让致盲之后还能接上控制\"</b>，不是把 <sk>致盲</sk> 按出去就完事。控之前先看他身上有没有持续伤害。",
-    "duel": "野德的持续伤害让 <sk>消失</sk> 复位不可靠。提前减伤、用 <sk>闪避</sk> 和控制创造真正的脱离时间。"
-   },
-   {
-    "id": "dh",
-    "n": "恶魔猎手",
-    "ic": "classicon_demonhunter",
-    "c": "#A330C9",
-    "diff": "中等偏难",
-    "cards": [
-     "虚空行走",
-     "疾影",
-     "恶魔变形"
-    ],
-    "one": "虚空行走是\"可移动的全免疫\"——处理方式跟寒冰屏障不一样。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "浩劫的爆发很高且是范围。<b>他能持续贴脸而你很难摆脱。</b>"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>虚空行走</sk> = <b>全免疫且可移动</b>。另有 <sk>疾影</sk>（高闪避）、<sk>恶魔变形</sk>，以及极高的自愈。"
-     ],
-     [
-      "你必须处理的那一个",
-      "DH 读条极少，<sk>脚踢</sk> 价值低。要处理的是他的眩晕和拉扯链。"
-     ],
-     [
-      "你的开场",
-      "<b><sk>虚空行走</sk> 亮起 = 停手，但注意他还在动</b>——<sk>寒冰屏障</sk> 不能移动所以你能守在原地等，DH 会趁这几秒重新定位或绕到你队友身上。<b>这几秒你在跟位置，不是在等时间。</b><br>他自愈很高，零散伤害无效——<b>必须一次打穿</b>。"
-     ]
-    ],
-    "arena": "开门先考虑他的幽灵视觉能看破 <sk>潜行</sk>。<b>不要让站位把你逼进唯一的入口。</b>",
-    "duel": "别急着证明你能贴住。先诱导他交位移，再接近；他的防御结束后才花终结资源。"
-   },
-   {
-    "id": "evoker",
-    "n": "唤魔师",
-    "ic": "classicon_evoker",
-    "c": "#33937F",
-    "diff": "中等偏难",
-    "cards": [
-     "黑曜鳞片",
-     "悬空",
-     "新生光焰"
-    ],
-    "one": "蓄力技能是他的命门，也是你打断最值钱的地方。",
-    "q": [
-     [
-      "他什么时候能杀人",
-      "恢复者能瞬间把队伍拉满。增辉/毁灭的爆发在蓄力打满时非常高。"
-     ],
-     [
-      "他那张\"你杀不死我\"的牌",
-      "<sk>黑曜鳞片</sk>、<sk>新生光焰</sk> 类保命，以及 <b><sk>悬空</sk></b>——他能一瞬间飞到你完全够不到的地方。"
-     ],
-     [
-      "你必须处理的那一个",
-      "<b>这是全游戏打断价值最高的对局。</b>他大量技能是\"蓄力\"，被打断损失极大。<br><b>但用 <sk>凿击</sk> 而不是 <sk>脚踢</sk></b>——蓄力出现频率高，用便宜的手段处理。"
-     ],
-     [
-      "你的开场",
-      "盯他的蓄力条。<b>窗口要开在 <sk>悬空</sk> 冷却中的时候</b>——不然他一按你的爆发就落空。他的技能有距离限制，<b>逼他后退往往就等于让他打不出伤害</b>。"
-     ]
-    ],
-    "arena": "唤魔师能把目标救出 <sk>烟雾弹</sk>。<b>先逼或控制他的位移工具，再把弹当收尾。</b>",
-    "duel": "留一个接近手段应对他第一次 <sk>悬空</sk>。第一次拉开只用跑速追，避免后面彻底断档。"
-   }
-  ]
- },
- "roles": null,
- "memb": null,
- "play": null,
- "quiz": [
-  {
-   "id": "g1",
-   "t": "general",
-   "d": 3,
-   "s": "你的 <sk>暗影之舞</sk> 和 <sk>暗影之刃</sk> 都刚好，诡术师层数是 <em>1 层</em>。目标是满状态的惩戒骑，<sk>圣盾术</sk> 和 <sk>保护祝福</sk> 都在。队友在喊「开！」。",
-   "a": "现在做什么？",
-   "o": [
-    "按队友要求全交，用爆发压死他",
-    "先 <sk>偷袭</sk> 进场打两下逼他交 <sk>圣盾术</sk>，然后立刻 <sk>消失</sk> 撤走",
-    "保持 <sk>潜行</sk> 不动，等队友先开一波",
-    "<sk>闷棍</sk> 他，去打他们的治疗"
-   ],
-   "r": 1,
-   "e": [
-    "全交会撞在两张牌上，整套冷却打空还得等一分钟。而且层数才 1 层，窗口里还得花 GCD 叠层。",
-    "正解。目标手上有 ≥2 张牌 → 走消耗开。逼掉 <sk>圣盾术</sk> 这一轮就算成功，撤走等冷却重开，那时他只剩一张牌。",
-    "干等不叫准备。潜行期间至少该叠层、读站位。不动就是浪费脱战时间。",
-    "控住治疗但你自己没有可用窗口（层数不够、目标满牌），控住了也杀不掉人。"
-   ],
-   "k": "开场之前先问：如果我现在全交，他还有几张牌能救自己？≥2 就走消耗开。"
-  },
-  {
-   "id": "g2",
-   "t": "general",
-   "d": 2,
-   "s": "你在爆发窗口里，目标血量 <em>35%</em>，诡术师层数刚好满 4 层。目标按下 <sk>圣盾术</sk>。窗口还剩相当长一段。",
-   "a": "现在做什么？",
-   "o": [
-    "继续输出，<sk>致命一击</sk> 伤害高能打穿一部分",
-    "立刻 <sk>消失</sk> 重置，等圣盾结束再回来",
-    "立刻转火他队伍里的另一个人",
-    "<sk>致盲</sk> 他，等圣盾走完再打"
-   ],
-   "r": 2,
-   "e": [
-    "<sk>圣盾术</sk> 是全免疫，打进去是 0，不是\"一部分\"。而且 <sk>致命一击</sk> 这一发就永久浪费了。",
-    "<sk>消失</sk> 是重置没错，但爆发窗口还在走——消失掉等于把整个窗口也扔了，两个资源同时浪费。",
-    "正解。窗口转起来就必须有事做。圣盾期间目标不可伤害，但他的队友可以。",
-    "<sk>致盲</sk> 不影响圣盾的免疫，等于既没伤害又浪费一次失能类递减。"
-   ],
-   "k": "窗口一旦打开就在燃烧。目标打不动 → 换目标，不要停、不要重置。"
-  },
-  {
-   "id": "g3",
-   "t": "general",
-   "d": 2,
-   "s": "你用 <sk>偷袭</sk> 开场，打了五六个 GCD，目标血量降到 <em>50%</em>。你现在想用 <sk>肾击</sk> 接一段控制来完成击杀。",
-   "a": "这个操作有什么问题？",
-   "o": [
-    "没问题，<sk>肾击</sk> 就该留到目标残血再用",
-    "<sk>偷袭</sk> 和 <sk>肾击</sk> 共享眩晕递减，隔了这么久肾击时长已经被砍掉一半",
-    "<sk>肾击</sk> 应该留给打断施法",
-    "连击点不够，应该先补生成技"
-   ],
-   "r": 1,
-   "e": [
-    "\"留到残血\"听起来合理，但没考虑递减。留得太散反而让第二个眩晕变废。",
-    "正解。眩晕递减还没重置，这时的 <sk>肾击</sk> 只有 50% 时长。<b>两者要么紧凑连成一个杀窗，要么隔开足够久让递减刷新</b>——中间这个位置最差。",
-    "<sk>肾击</sk> 当然能打断施法，但这题的问题在时机不在用途。",
-    "连击点是资源问题，不是这个操作的核心毛病。"
-   ],
-   "k": "眩晕是预算不是消耗品。偷袭一开，肾击的价值就开始打折。"
-  },
-  {
-   "id": "g4",
-   "t": "general",
-   "d": 1,
-   "s": "你和目标在你放的 <sk>烟雾弹</sk> 里，对面治疗在烟外。对面法师在烟外朝烟的位置扔了一个<em>大范围地面法术</em>。",
-   "a": "这说明什么？",
-   "o": [
-    "<sk>烟雾弹</sk> 失效了，法师破了它",
-    "烟雾弹挡的是\"选中\"，不挡范围伤害——法师这样打得到你",
-    "法师在浪费技能，范围法术进不了烟里",
-    "需要立刻移动烟雾弹的位置"
-   ],
-   "r": 1,
-   "e": [
-    "烟没失效，它的机制一直如此。",
-    "正解。<b>烟雾弹只切断\"选中\"，不挡地面 AOE。</b>放烟前要判断对面有没有不需要选中的手段——法师、术士、平衡德这类，烟的进攻价值会打折。",
-    "这是最危险的误解：以为烟是无敌罩，然后站在里面被范围技能打死。",
-    "烟雾弹放下就固定了，不能移动。"
-   ],
-   "k": "烟雾弹挡选中，不挡范围。放烟前先看对面有没有不用选中的手段。"
-  },
-  {
-   "id": "g5",
-   "t": "general",
-   "d": 3,
-   "s": "你脱战成功重新 <sk>潜行</sk>。对面治疗和 DPS 已经分开站位，你所有冷却都好了，诡术师层数是 <em>0</em>。",
-   "a": "进场前最后一件事该做什么？",
-   "o": [
-    "直接开，站位难得这么好",
-    "先在非目标身上打几下把诡术师层数攒起来",
-    "先看目标的关键防御技能还在不在",
-    "通知队友准备，同时开"
-   ],
-   "r": 2,
-   "e": [
-    "站位好确实是机会，但目标的免疫牌还在的话，站位再好也杀不掉。",
-    "叠层方向对但顺序不对——一旦露头攻击就会破坏站位优势。<b>而且如果目标关键牌还在，这层白攒。</b>",
-    "正解。<b>确认目标的关键牌在不在，是所有其他判断的前提。</b>牌还在 → 改消耗开；牌没了 → 才轮到叠层和站位。判断顺序错了后面全错。",
-    "沟通是好习惯，但什么时候开是贼说了算——队友看不到目标的防御池。"
-   ],
-   "k": "进场前的判断顺序：目标的牌 → 我的资源 → 站位。牌不清楚，后面都不用想。"
-  },
-  {
-   "id": "g6",
-   "t": "general",
-   "d": 2,
-   "s": "你被一个战士和一个法师同时打，血量掉到 <em>45%</em>，身上挂着法师的减速和几个持续法伤。<sk>暗影斗篷</sk>、<sk>闪避</sk>、<sk>消失</sk> 都好。",
-   "a": "先按哪个？",
-   "o": [
-    "<sk>闪避</sk>，战士是主要伤害来源",
-    "<sk>暗影斗篷</sk>，一次性抹掉法师的所有魔法减益和伤害",
-    "<sk>消失</sk>，直接脱离两个人的攻击",
-    "<sk>佯攻</sk>，最省资源"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>闪避</sk> 只挡物理，法师那一半伤害照进来，身上的减速和法伤也全在。半个解。",
-    "正解。<b>斗篷抹掉魔法伤害 + 身上所有魔法减益</b>——一次解决法伤、减速、和法师接下来的输出。解掉减速你还能跑，把 <sk>消失</sk> 省下来。",
-    "<sk>消失</sk> 是最贵的资源，而且减速还在身上，消失后你跑不掉。用最贵的牌解决便宜牌能解决的问题。",
-    "<sk>佯攻</sk> 是减伤不是解控，在这个血量和被两人集火下不够。"
-   ],
-   "k": "防御三件套各有分工：闪避对物理、斗篷对魔法+减益、消失是最后一张。别用贵的解便宜的问题。"
-  },
-  {
-   "id": "g7",
-   "t": "general",
-   "d": 2,
-   "s": "对面戒律牧正在读一个<em>小治疗</em>，你的 <sk>脚踢</sk> 是好的。目标血量 40%，你的爆发窗口再过几秒就好。",
-   "a": "踢不踢？",
-   "o": [
-    "踢，断掉任何治疗都是赚",
-    "不踢，用 <sk>凿击</sk>/眩晕去中断，把 <sk>脚踢</sk> 留给他真正的大治疗",
-    "不踢，直接冲上去打治疗",
-    "踢，然后立刻开爆发"
-   ],
-   "r": 1,
-   "e": [
-    "这正是治疗骗打断的手法——用便宜的小治疗把你的 <sk>脚踢</sk> 骗走，然后你的窗口打开时他能自由放大治疗。",
-    "正解。<b><sk>凿击</sk>、眩晕、<sk>致盲</sk> 都能中断施法且不占脚踢冷却。</b>你的窗口马上就好，那时才是你最需要锁住他的时刻。",
-    "冲治疗不打目标，会让窗口开在错误的人身上。",
-    "踢完就开爆发，等于窗口里最需要打断的时候手上没打断。"
-   ],
-   "k": "不要见读条就踢。脚踢是窗口里的保险，不是常规循环的一部分。"
-  },
-  {
-   "id": "g8",
-   "t": "general",
-   "d": 1,
-   "s": "你的爆发窗口刚结束，目标从 100% 被打到 <em>55%</em> 但没死。你还剩一部分能量，目标的治疗正在给他补血。",
-   "a": "现在做什么？",
-   "o": [
-    "继续打，把他压在低血线上",
-    "立刻脱战，绕视野重新 <sk>潜行</sk>",
-    "换目标打治疗，逼他自保",
-    "交 <sk>消失</sk> 重新开一个 <sk>偷袭</sk>"
-   ],
-   "r": 1,
-   "e": [
-    "<b>这是本版最常见的错误。</b>12.0 拿掉了所有持续伤害，窗口外的输出基本会被治疗抹平——你留下来磨的每一秒都在帮对面攒治疗溢出。",
-    "正解。<b>窗口结束、目标没死 → 立刻脱离。</b>这不是怂，是本版唯一正确的循环。脱战期间做下一轮的准备。",
-    "打治疗同理——没有窗口时你压不出任何东西，只是在送伤害。",
-    "<sk>消失</sk> 是你最贵的资源。用它开一个没有爆发支撑的偷袭，等于把逃命牌换成几百点伤害。"
-   ],
-   "k": "本版敏锐没有持续压力。打不死就走，不是认输，是唯一正确的循环。"
-  },
-  {
-   "id": "g9",
-   "t": "general",
-   "d": 2,
-   "s": "诡术师层数刚满 4 层，<em>下一个终结技会变成 <sk>致命一击</sk></em>。但你的 <sk>暗影之舞</sk> 和 <sk>暗影之刃</sk> 都还在冷却，还有十几秒。",
-   "a": "这个致命一击怎么处理？",
-   "o": [
-    "立刻放掉，攒着会溢出",
-    "压住不放，等 <sk>暗影之舞</sk>/<sk>暗影之刃</sk> 好了再一起打出来",
-    "放掉，然后重新叠一轮",
-    "换目标放，别浪费"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>致命一击</sk> 不会因为你不放就消失。急着放等于把最大的一发扔在没有任何加成的时候。",
-    "正解。<b>它要落在有伤害加成的那一刻。</b>而且 5 秒内可以再触发一次打 150%，两发都落在加成里，差距是成倍的。",
-    "\"重新叠一轮\"听着合理，但没窗口的时候你本来就不该持续输出。而且白白浪费了当前这一发。",
-    "换目标不解决\"没有加成\"这个核心问题。"
-   ],
-   "k": "致命一击不是\"该放就放\"，是\"该等窗口\"。它是窗口伤害的顶峰，不是循环的一部分。"
-  },
-  {
-   "id": "g10",
-   "t": "general",
-   "d": 1,
-   "s": "你带了 <sk>卸除武装</sk>。当前对局：对面是<em>射击猎 + 恢复萨</em>，你的目标是萨满。",
-   "a": "卸除武装该用在谁身上？",
-   "o": [
-    "萨满，缴械期间他放不出治疗",
-    "猎人，缴械期间他射不出东西",
-    "看谁先起手，谁起手缴谁",
-    "留着不用，等有人开爆发再说"
-   ],
-   "r": 1,
-   "e": [
-    "<b><sk>卸除武装</sk> 只影响武器攻击，不影响施法。</b>萨满被缴械照样能放治疗。这是最常见的机制误解。",
-    "正解。缴械只对\"伤害来自武器\"的职业有效——猎人、战士、贼、DK。射击猎被缴械等于这 6 秒完全没输出。",
-    "\"谁起手缴谁\"看似灵活，但如果起手的是施法者，缴械就白扔了。判断该基于职业类型，不是时机。",
-    "留着不用是纯浪费——冷却不长，该用就用。"
-   ],
-   "k": "缴械看的是\"他的伤害来自武器还是施法\"，不看职业强弱、不看谁先动手。"
-  },
-  {
-   "id": "g11",
-   "t": "general",
-   "d": 1,
-   "s": "你正被对面眩晕住，动不了，血在掉。你带了「先发制人（Preemptive Maneuver）」这个 PvP 天赋。",
-   "a": "眩晕期间你能做什么？",
-   "o": [
-    "什么都做不了，只能等",
-    "按 <sk>佯攻</sk>——先发制人让被眩晕时的佯攻减伤更强、能量更省",
-    "按解控道具解除眩晕",
-    "按 <sk>闪避</sk>，先挡住物理伤害"
-   ],
-   "r": 1,
-   "e": [
-    "眩晕不是完全无法操作。以为\"只能等\"会让你白白多掉一大截血。",
-    "正解。<b>先发制人的整个意义就是让 <sk>佯攻</sk> 在被眩晕时变强。</b>被控住时顺手按一下，几乎没有代价。",
-    "解控道具是宝贵的一次性资源，不该在第一次被眩晕就交。",
-    "<sk>闪避</sk> 在眩晕中按不出来。"
-   ],
-   "k": "带了先发制人就把佯攻当成被控时的反射动作。这是版本给你的免费减伤。"
-  },
-  {
-   "id": "g12",
-   "t": "general",
-   "d": 2,
-   "s": "你和队友准备开一波。目标是对面的 DPS，他们的治疗站在<em>离目标较远</em>的地方，中间有柱子。",
-   "a": "<sk>烟雾弹</sk> 放哪？",
-   "o": [
-    "放在治疗身上，让他被困住",
-    "放在你和目标身上，把治疗隔在烟外",
-    "放在中间，同时影响两边",
-    "不放，留着防守"
-   ],
-   "r": 1,
-   "e": [
-    "烟不困人也不沉默，放在治疗身上只会让他<b>受到保护</b>（你的队友点不到他）。这是完全反向的操作。",
-    "正解。<b>进攻用法：你和目标在烟内、治疗在烟外 → 治疗无法选中目标。</b>这题的站位正是烟雾弹进攻价值最高的场景。",
-    "\"同时影响两边\"没有明确收益，很可能把对面的 DPS 也罩进去保护起来。",
-    "有柱子和距离优势时不放烟，是把这版本最强的一张牌闲置。"
-   ],
-   "k": "烟雾弹放的位置决定它是进攻牌还是防守牌。搞反了等于帮对面。"
-  },
-  {
-   "id": "g13",
-   "t": "general",
-   "d": 3,
-   "s": "一局刚开始，你在 <sk>潜行</sk> 侦察。对面是<em>惩戒骑 + 恢复德</em>，你的队友是一个法师。",
-   "a": "第三个 PvP 天赋格子该选什么？（前两个是烟雾弹 + 先发制人）",
-   "o": [
-    "<sk>卸除武装</sk>——惩戒骑的伤害来自武器",
-    "<sk>偷天换日</sk>——给法师队友加 15% 伤害",
-    "<sk>卸除武装</sk>——对付恢复德的化身",
-    "随便，第三格影响不大"
-   ],
-   "r": 1,
-   "e": [
-    "惩戒骑确实用武器，缴械有效。但对面还有恢复德——<b>这个组合的核心难点是\"打不穿治疗\"，不是\"被骑士打死\"</b>。",
-    "正解。你的核心问题是伤害不够打穿治疗。<sk>偷天换日</sk> 配合法师的爆发一起打，是直接冲着这个矛盾去的。",
-    "缴械对德鲁伊效果有限——他的治疗是施法，不是武器攻击。",
-    "第三格在有难杀治疗的对局里往往是胜负手。"
-   ],
-   "k": "天赋不是按\"对面是什么职业\"选的，是按\"这局我要解决哪个矛盾\"选的。"
-  },
-  {
-   "id": "g14",
-   "t": "general",
-   "d": 3,
-   "s": "你已经打了两轮，两次都在目标 <em>30% 左右</em>被治疗拉回去。你的冷却快好了，准备开第三轮。",
-   "a": "第三轮该改什么？",
-   "o": [
-    "什么都不改，多打几轮总有一次能打穿",
-    "这一轮开始前先处理治疗——控住他或用 <sk>烟雾弹</sk> 切断视野",
-    "换个目标试试",
-    "开窗口前多叠几层诡术师，提高伤害"
-   ],
-   "r": 1,
-   "e": [
-    "同样的打法打三次得到同样的结果。<b>连续两次卡在 30% 是明确信号：窗口伤害本身够了，问题在治疗没被处理。</b>",
-    "正解。伤害不是瓶颈，治疗是。重点该从\"打得更狠\"转成\"让治疗在这几秒里不存在\"。",
-    "换目标是在回避问题。治疗没被处理，换谁都会被拉回去。",
-    "你已经打到 30%，说明伤害不是缺口。多 10% 填不上一个满状态治疗的缺口。"
-   ],
-   "k": "反复卡在同一个血线上，说明缺的不是伤害是控制。改的是打法结构，不是输出细节。"
-  },
-  {
-   "id": "g15",
-   "t": "general",
-   "d": 3,
-   "s": "你正在窗口里输出，血量健康。突然发现<em>队友血量掉到 20%</em>，对面两个人都在打他。",
-   "a": "现在做什么？",
-   "o": [
-    "继续输出，杀掉目标就能解围",
-    "把 <sk>烟雾弹</sk> 扔在队友身上",
-    "立刻停手去救队友",
-    "开 <sk>消失</sk>，绕过去从背后控制对面的输出"
-   ],
-   "r": 1,
-   "e": [
-    "\"杀掉就解围\"在队友只剩 20% 血、正被两人集火时是赌博。赌输了队友死了，窗口也没换来击杀。",
-    "正解。<b>防守用法：罩住队友，烟外的敌人无法选中他。</b>关键在于这<b>几乎不打断你的输出</b>——一个 GCD，队友活了，窗口继续走。其他选项都是二选一。",
-    "停手救人是安全的，但你把整个爆发窗口扔了。有更省的解法就不该用最贵的。",
-    "<sk>消失</sk> 是最贵的资源，绕后还需要时间，队友可能等不到。"
-   ],
-   "k": "先找\"一个动作解决两个问题\"的选项。烟雾弹的防守用法只花一个 GCD。"
-  },
-  {
-   "id": "g16",
-   "t": "general",
-   "d": 3,
-   "s": "你脱战重新 <sk>潜行</sk>。对面治疗<em>刚刚交过一个大保命</em>，目标身上没有任何护盾或减伤。你所有冷却都好，诡术师层数满。",
-   "a": "现在做什么？",
-   "o": [
-    "再等一会儿，确认更多信息",
-    "立刻进场，全交",
-    "先假开一次试探对方反应",
-    "通知队友，等大家一起"
-   ],
-   "r": 1,
-   "e": [
-    "信息已经够了：目标是裸的、治疗的大牌交了、你满状态。<b>再等就是让这些条件一个个失效。</b>",
-    "正解。<b>你花了整局做减法，这就是减法完成的那一刻。</b>这时候不全交，前面所有的消耗都白做了。",
-    "假开是用来\"逼出牌\"的。牌已经没了，再假开只会给对方恢复时间。手段不该跟目的脱节。",
-    "沟通有价值，但这个窗口有时限。等待的成本高于协同的收益。"
-   ],
-   "k": "消耗打法的意义在于等到\"全交\"的那一刻。等到了不敢开，跟从来没消耗过是一样的结果。"
-  },
-  {
-   "id": "g17",
-   "t": "general",
-   "d": 1,
-   "s": "你开了 <sk>暗影之刃</sk>，正在窗口里输出。你按照平时的节奏：两个生成技 → 一个终结技。",
-   "a": "这个节奏有什么问题？",
-   "o": [
-    "没问题，这是标准的连击点循环",
-    "<sk>暗影之刃</sk> 让生成技的连击点翻倍，你在浪费 GCD 攒多余的点",
-    "终结技应该攒到 5 点再放",
-    "应该先补 <sk>影分身</sk> 再走循环"
-   ],
-   "r": 1,
-   "e": [
-    "\"平时的节奏\"在暗影之刃开启时就不成立了。",
-    "正解。<b><sk>暗影之刃</sk> 让生成技的连击点生成翻倍</b>——你产点速度快一倍。按老节奏多按的那个生成技，是在窗口里白烧一个 GCD。",
-    "本版终结技是伤害主体，有点就倒。攒到 5 点是老思路。",
-    "<sk>影分身</sk> 确实该进窗口，但这题的毛病在生成技的节奏。"
-   ],
-   "k": "开了暗影之刃就要改节奏——产点翻倍意味着你该把 GCD 更多分给终结技。"
-  },
-  {
-   "id": "g18",
-   "t": "general",
-   "d": 2,
-   "s": "你在窗口里，目标进入一个<em>大幅减伤</em>（不是全免疫）。他的队友是个满血的布甲 DPS，站在你旁边。",
-   "a": "现在做什么？",
-   "o": [
-    "继续打目标，减伤不是免疫，还能打进去一部分",
-    "转火那个布甲 DPS",
-    "停手等减伤结束",
-    "控住目标，让减伤空转"
-   ],
-   "r": 1,
-   "e": [
-    "\"还能打进去一部分\"在窗口里是最贵的想法——你用最强的几秒去打对方最硬的几秒，这是最差的兑换比。",
-    "正解。<b>窗口的价值取决于它落在谁身上。</b>目标进入减伤时，旁边一个满血布甲是更好的兑换对象。跟\"目标开免疫 → 转火\"是同一条逻辑，减伤只是程度轻一点的版本。",
-    "停手等于把窗口扔了。窗口在燃烧，它不会等减伤结束。",
-    "控住目标不产生伤害，也没解决窗口在流逝的问题。"
-   ],
-   "k": "不只是免疫要转火，大幅减伤同样要。判据是\"这几秒的伤害落在谁身上兑换比最高\"。"
-  },
-  {
-   "id": "g19",
-   "t": "general",
-   "d": 2,
-   "s": "你准备用 <sk>致盲</sk> 控住对面治疗，然后回头打目标。但目标身上<em>挂着你队友的持续伤害</em>，而治疗站在他旁边。",
-   "a": "致盲之前要先想什么？",
-   "o": [
-    "直接致盲，位置够近就行",
-    "先确认治疗身上有没有持续伤害或范围伤害会碰到他——失能类受伤即破",
-    "先打掉治疗的护盾",
-    "先用 <sk>凿击</sk> 试探"
-   ],
-   "r": 1,
-   "e": [
-    "位置只是能不能按的问题，不是能不能成立的问题。",
-    "正解。<b><sk>致盲</sk> 和 <sk>闷棍</sk> 都是失能类，受到任何伤害立刻破。</b>队友的持续伤害、范围技能、甚至一个溅射，都能让你的控制瞬间失效。<b>按之前先看他身上干不干净。</b>",
-    "护盾不影响控制生效。",
-    "<sk>凿击</sk> 同样受伤即破，试探也解决不了这个问题。"
-   ],
-   "k": "失能类控制按之前先看目标身上干不干净。这是控治疗最常见的失效原因。"
-  },
-  {
-   "id": "g20",
-   "t": "general",
-   "d": 3,
-   "s": "一局的最后阶段，你和队友都残血，对面治疗也快空蓝了。你的窗口好了，但<em>你只剩一次 <sk>消失</sk></em>，没有其他保命。",
-   "a": "开还是不开？",
-   "o": [
-    "开，最后阶段就是拼谁先杀掉谁",
-    "不开，先把消失省下来，等对面治疗真的空蓝",
-    "开，但保留消失不用于进攻",
-    "看目标身上还剩几张牌再决定"
-   ],
-   "r": 3,
-   "e": [
-    "\"拼谁先杀掉谁\"在你没有保命的情况下是最差的赌博——一旦打不死，你连撤退的资源都没有。",
-    "\"等对面空蓝\"听起来稳，但你和队友也在残血，时间对你不一定有利。这是把主动权交给运气。",
-    "思路对了一半（保留消失是对的），但<b>没有回答\"这一轮能不能杀掉\"这个前提问题</b>。窗口该不该开，从来不是先看自己剩什么。",
-    "正解。<b>不管局面多紧张，判断顺序不变：先看目标还剩几张牌。</b>牌没了 → 这是你唯一也是最后的机会，开。牌还在 → 你这一轮杀不掉，开了就是把最后的消失也搭进去。<b>压力大的时候人最容易跳过第一问，那正是最需要它的时候。</b>"
-   ],
-   "k": "越紧张的局面越要按顺序判断。先看目标的牌，再看自己的资源——顺序反过来就是赌博。"
-  },
-  {
-   "id": "paladin",
-   "t": "paladin",
-   "d": 2,
-   "s": "你和惩戒骑单挑。你已经用一轮消耗把他的 <sk>圣盾术</sk> <em>逼出来了</em>，圣盾正在生效。",
-   "a": "圣盾期间做什么？",
-   "o": [
-    "继续输出，圣盾快结束了",
-    "脱离并重新 <sk>潜行</sk>，为圣盾结束后的真空期做准备",
-    "控住他，让圣盾在控制里空转",
-    "打他的治疗队友"
-   ],
-   "r": 1,
-   "e": [
-    "站在圣盾里输出是纯浪费，而且他在圣盾期间可以自由输出你——这是你最脆弱的几秒。",
-    "正解。圣盾走完之后是骑士的<b>长真空期</b>，那才是你真正的杀窗。这几秒该拿去重新潜行、叠层、等冷却。",
-    "<sk>圣盾术</sk> 免疫大部分控制，这个操作大概率无效，且浪费递减。",
-    "这题设定是单挑，没有治疗队友。"
-   ],
-   "k": "逼出圣盾就是这一轮的胜利。剩下的事是准备好接住它结束的那一刻。"
-  },
-  {
-   "id": "paladin2",
-   "t": "paladin",
-   "d": 3,
-   "s": "三对三。你正在打惩戒骑，他血量 <em>40%</em>。对面的神圣骑给他放了 <sk>保护祝福</sk>（免疫物理伤害）。你的窗口还剩一半。",
-   "a": "现在做什么？",
-   "o": [
-    "继续打，你还有毒和暗影伤害能进去",
-    "转火那个神圣骑",
-    "用 <sk>致盲</sk> 控住惩戒骑，等祝福结束",
-    "立刻脱战重开"
-   ],
-   "r": 1,
-   "e": [
-    "敏锐的伤害绝大部分是物理，剩下的一小部分撑不起一个窗口。<b>你会用半个窗口换来一点零头。</b>",
-    "正解。<b><sk>保护祝福</sk> 让你打不动这个目标，但窗口还在燃烧。</b>转火那个放祝福的神圣骑——他刚花了一张外部技能，而且治疗被压住时对面整体压力会松动。",
-    "控住一个你本来就打不动的目标，等于同时浪费控制和窗口。",
-    "窗口还剩一半就脱战，等于把这半个窗口扔了。有转火这个更好的选项。"
-   ],
-   "k": "\"免物理\"对敏锐几乎等于\"全免疫\"。判断该不该继续打，要看你的伤害类型跟他的免疫类型对不对得上。"
-  },
-  {
-   "id": "mage",
-   "t": "mage",
-   "d": 3,
-   "s": "你正在打法师，他血量 <em>30%</em>，快死了。他按下 <sk>寒冰屏障</sk>。你的爆发窗口还剩一小段。",
-   "a": "现在做什么？",
-   "o": [
-    "守在他身边，屏障一破立刻接上",
-    "脱离并重新 <sk>潜行</sk>",
-    "继续输出，屏障能被打穿一部分",
-    "控住他，不让他解除屏障"
-   ],
-   "r": 0,
-   "e": [
-    "正解。<b><sk>寒冰屏障</sk> 是全免疫，但有固定时长，且法师在里面不能移动、不能威胁你。</b>他只剩 30% 血，屏障一破就是击杀机会。<b>这是少数\"该守\"而不是\"该走\"的情况——因为目标已经在击杀线上。</b>",
-    "脱离是对<b>满血目标</b>的正确做法。目标只剩 30%，走了等于放掉一次已经成型的击杀。",
-    "寒冰屏障是完全免疫，打进去是 0。",
-    "屏障期间法师免疫控制。他通常会主动提前解除来抢节奏——你该做的是准备接住那一刻。"
-   ],
-   "k": "免疫牌怎么处理，取决于目标在不在击杀线上。满血目标 → 走；残血目标 → 守着等它过期。"
-  },
-  {
-   "id": "mage2",
-   "t": "mage",
-   "d": 2,
-   "s": "你贴上法师正准备开窗口，他起手读一个 <sk>变形术</sk>，目标是<em>你的治疗队友</em>。你的 <sk>脚踢</sk> 是好的，你的爆发也刚好。",
-   "a": "先做什么？",
-   "o": [
-    "开爆发压他，逼他自己中断",
-    "踢掉变形术",
-    "不管，你的治疗自己会处理",
-    "用 <sk>肾击</sk> 打断，顺便接控制"
-   ],
-   "r": 1,
-   "e": [
-    "\"逼他中断\"是赌他会怕。变形术读条很短，你的爆发压力来不及生效他就放完了。",
-    "正解。<b><sk>脚踢</sk> 不只是断伤害，也是保护你的治疗。</b>治疗被变形几秒，你和队友就一起裸奔几秒——这比你少打一轮伤害贵得多。<b>看队友状态决定踢什么。</b>",
-    "把责任推给队友。你手上有最快的解，用它。",
-    "<sk>肾击</sk> 能断，但会烧掉你窗口里的眩晕预算，而这时候你本来就要开窗口了。用便宜的解决。"
-   ],
-   "k": "打断的目标不总是\"减少他的伤害\"。保护治疗往往是更值钱的那一个。"
-  },
-  {
-   "id": "hunter",
-   "t": "hunter",
-   "d": 2,
-   "s": "你追着射击猎打，他血量 <em>40%</em>。他按下 <sk>灵龟守护</sk>。",
-   "a": "最优操作是什么？",
-   "o": [
-    "停手脱离，等免疫结束",
-    "立刻控住他——<sk>灵龟守护</sk> 免疫伤害但不免疫控制",
-    "继续输出，灵龟只减伤不免疫",
-    "<sk>卸除武装</sk> 他"
-   ],
-   "r": 1,
-   "e": [
-    "脱离会让你失去这次已经打到 40% 的机会，而且猎人机动性极强，重新贴上去很难。",
-    "正解。<b><sk>灵龟守护</sk> 免疫伤害，但不免疫控制。</b>直接 <sk>肾击</sk>/<sk>致盲</sk> 把他钉住，免疫时间在控制里流逝——出来时免疫没了、他还在你手上、血还是 40%。",
-    "灵龟是完全免疫伤害，不是减伤。这个误解会让你打空整个窗口。",
-    "缴械思路对但时机差——他在免疫里你有更好的选择，而且缴械是有限资源。"
-   ],
-   "k": "看到免疫先分清是\"免伤害\"还是\"免一切\"。只免伤害的，用控制把时长吃掉。"
-  },
-  {
-   "id": "hunter2",
-   "t": "hunter",
-   "d": 1,
-   "s": "你正在打猎人，输出打得很顺。他突然 <sk>假死</sk>，你的目标掉了、也脱离了战斗。",
-   "a": "第一反应该是什么？",
-   "o": [
-    "原地按 <sk>袖剑风暴</sk> 把他打出来",
-    "立刻重新选中并跟上——假死不会让他消失",
-    "退回 <sk>潜行</sk> 重新开始",
-    "找他的宠物先打"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>假死</sk> 不是潜行，他人还在原地。范围技能是多余动作，浪费的是你的时间。",
-    "正解。<b><sk>假死</sk> 会让你掉目标并脱战，但他还站在那里。</b>最快的处理就是立刻重新选中、继续压。犹豫的那两秒他就跑出你的距离了。",
-    "退回潜行等于放他走，白白把已经建立的压力全丢掉。",
-    "打宠物是最典型的注意力被转移——伤害源不是宠物。"
-   ],
-   "k": "假死掉目标不等于人跑了。反应速度决定你保不保得住这一轮的压力。"
-  },
-  {
-   "id": "druid",
-   "t": "druid",
-   "d": 3,
-   "s": "对面是恢复德 + 一个 DPS。你被指派去压恢复德。德鲁伊满血，<sk>树皮术</sk> 和各种脱离都在。",
-   "a": "\"压他\"该怎么理解？",
-   "o": [
-    "全力输出把他打死",
-    "不追求杀他，用 <sk>致盲</sk>/<sk>闷棍</sk> 把他控住，让队友去杀那个 DPS",
-    "一直贴着他打，逼他不能治疗",
-    "<sk>闷棍</sk> 他然后去打 DPS，两边跑"
-   ],
-   "r": 1,
-   "e": [
-    "<b>满状态的恢复德是全游戏最难单杀的目标之一。</b>你花整局也打不死他，同时队友在打一个没被压制的 DPS。",
-    "正解。这个对局<b>赢在控制他而不是杀他</b>。<b>你的价值在于\"让他不存在\"，不在于\"让他死\"。</b>",
-    "贴脸压制有价值，但德鲁伊瞬发治疗很多，光靠贴脸压不住，而且没有明确的击杀路径。",
-    "两边跑会让两边都做不好，而且 <sk>闷棍</sk> 受伤即破——队友一个 AOE 就打断了。"
-   ],
-   "k": "难杀的治疗职业不是拿来杀的，是拿来控的。判断\"我该杀他还是该让他消失\"是分目标的第一问。"
-  },
-  {
-   "id": "druid2",
-   "t": "druid",
-   "d": 2,
-   "s": "你 <sk>致盲</sk> 了恢复德，准备接 <sk>闷棍</sk> 延长控制。但他身上<em>还挂着你队友的一个持续伤害</em>。",
-   "a": "这个计划的问题在哪？",
-   "o": [
-    "没问题，闷棍不受持续伤害影响",
-    "持续伤害会立刻打破致盲，你的控制链根本接不上",
-    "应该先打掉他的 <sk>树皮术</sk>",
-    "闷棍距离不够"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>闷棍</sk> 和 <sk>致盲</sk> 都是失能类，都受伤即破。",
-    "正解。<b>对恢复德真正的技术点是\"让致盲之后还能接上控制\"</b>，不是把致盲按出去就完事。<b>控之前先确认他身上干不干净</b>——必要时让队友先停掉持续伤害。",
-    "<sk>树皮术</sk> 是减伤，不影响控制生效。",
-    "距离是能不能按的问题，不是能不能成立的问题。"
-   ],
-   "k": "对治疗职业的控制链，成败在\"控之前的清理\"，不在\"控本身按得准不准\"。"
-  },
-  {
-   "id": "rogue",
-   "t": "rogue",
-   "d": 1,
-   "s": "镜像对局，对面也是敏锐贼。你开场先手成功正在输出。他按下 <sk>闪避</sk>。",
-   "a": "现在做什么？",
-   "o": [
-    "继续输出，闪避只是概率闪避",
-    "立刻停手，你几乎全是物理伤害",
-    "开自己的 <sk>闪避</sk> 对拼",
-    "用毒继续压他"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>闪避</sk> 的闪避率极高，你的物理输出几乎全空。",
-    "正解。<b>镜像对局赢在\"谁在对面开防御时先停手\"。</b>停手、拉开、等闪避走完再回来。",
-    "你自己开闪避不解决\"他现在打不到\"这个问题，只是把两个防御同时烧掉。",
-    "毒在你整体输出里占比很小，撑不起一个窗口。而且他还有 <sk>暗影斗篷</sk> 可以直接抹掉毒。"
-   ],
-   "k": "贼打贼的核心不是操作快，是停手快。看到对面的防御立刻停，比多打几下值钱得多。"
-  },
-  {
-   "id": "rogue2",
-   "t": "rogue",
-   "d": 3,
-   "s": "镜像对局，你失去了先手——对面先开，你被 <sk>偷袭</sk> 眩晕住，血掉了三分之一。眩晕刚结束。",
-   "a": "现在的目标是什么？",
-   "o": [
-    "立刻反打，把节奏抢回来",
-    "用最低成本活过这一轮，别急着抢回节奏",
-    "立刻 <sk>消失</sk> 脱战",
-    "开全部防御硬扛"
-   ],
-   "r": 1,
-   "e": [
-    "你正处在他的窗口里、血量落后。这时候反打是拿你最弱的状态去撞他最强的状态。",
-    "正解。<b>失去先手时目标是活过第一轮，不是立刻抢回所有节奏。</b>用 <sk>佯攻</sk>、拉开、绕柱子——把他的窗口耗完。他的窗口一结束，双方就重新平等了，那时候才轮到你。",
-    "<sk>消失</sk> 是最贵的资源，第一轮就交掉，第二轮你就没有退路了。先用便宜的手段。",
-    "把所有防御一次交完，等于把三轮的资源压在一轮上。他的窗口过去后你就裸了。"
-   ],
-   "k": "落后的时候不要急着扳平。先撑过对方的窗口，让局面回到中性，再谈进攻。"
-  },
-  {
-   "id": "dk",
-   "t": "dk",
-   "d": 2,
-   "s": "你在打冰霜 DK，他按下 <sk>反魔法护罩</sk>。",
-   "a": "该怎么处理？",
-   "o": [
-    "完全停手，跟其他免疫一样处理",
-    "继续打但不交爆发——物理伤害仍然有效",
-    "继续全力输出，影响不大",
-    "交爆发抢在护罩结束前打穿"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>反魔法护罩</sk> 不是全免疫。完全停手是过度反应，白白放弃了物理输出时间。",
-    "正解。<b>它只免疫魔法系——你的毒和暗影伤害归零，但纯物理照常进去。</b>不用完全停手，但也不该在这时交爆发（爆发里暗影/毒占比不小）。",
-    "\"影响不大\"是错的——抗魔期间你的输出会明显下降。",
-    "在减伤期交爆发是把最贵的资源用在最差的时机。"
-   ],
-   "k": "免疫要分类型看：全免疫（停手）、免物理（停手）、免魔法（降档但不停）。一刀切会让你要么打空要么白等。"
-  },
-  {
-   "id": "dk2",
-   "t": "dk",
-   "d": 2,
-   "s": "你被 DK 用死亡之握拽了回去，身上有减速，血量健康。他正在准备下一波压力。你的 <sk>疾跑</sk> 和 <sk>消失</sk> 都好。",
-   "a": "怎么脱离？",
-   "o": [
-    "<sk>疾跑</sk> 跑开",
-    "<sk>消失</sk>，因为跑不掉——他能再拽你一次",
-    "站着打，反正血还够",
-    "<sk>暗影斗篷</sk> 解掉减速再跑"
-   ],
-   "r": 3,
-   "e": [
-    "<sk>疾跑</sk> 解决不了减速，而且他还能再用一次死亡之握把你拽回来。你会白花一个技能。",
-    "<sk>消失</sk> 确实是最可靠的，但这是你最贵的资源。<b>在还有更便宜解法的时候不该交它。</b>",
-    "\"血还够\"是被动等死的开始——DK 的压力是持续的，等到血不够时你的选择只会更少。",
-    "正解。<b>DK 的减速和大量控制是魔法系，<sk>暗影斗篷</sk> 能一次抹掉。</b>解掉之后你就能正常跑，把 <sk>消失</sk> 省给真正的危急时刻。<b>这也是斗篷在 DK 对局价值极高的原因</b>——他的伤害和控制大量是魔法。"
-   ],
-   "k": "脱离先找最便宜的解。斗篷能解掉的东西，不要用消失去解。"
-  },
-  {
-   "id": "dh",
-   "t": "dh",
-   "d": 3,
-   "s": "你在打浩劫 DH，他血量 <em>50%</em>。他按下 <sk>虚空行走</sk>（全免疫且可移动）。",
-   "a": "现在做什么？",
-   "o": [
-    "守在他身边等免疫结束，跟 <sk>寒冰屏障</sk> 一样处理",
-    "停手，但注意他在免疫期间可以移动和重新定位",
-    "控住他，用控制吃掉免疫时长",
-    "继续输出，它是减伤不是免疫"
-   ],
-   "r": 1,
-   "e": [
-    "<b><sk>寒冰屏障</sk> 期间法师不能移动</b>，所以你能守在原地等。<sk>虚空行走</sk> 可以移动——他会趁这几秒重新定位、脱离、或绕到你队友身上。",
-    "正解。全免疫期间做什么都是零收益，但关键区别在于<b>他还在动</b>——这几秒你的任务是跟住他的位置、预判他要去哪。",
-    "<sk>虚空行走</sk> 同时免疫控制，会浪费你的控制递减。",
-    "它是完全免疫。"
-   ],
-   "k": "\"可移动的免疫\"和\"不可移动的免疫\"要分开处理。前者你在跟位置，后者你在等时间。"
-  },
-  {
-   "id": "dh2",
-   "t": "dh",
-   "d": 2,
-   "s": "你在打浩劫 DH，用零散输出把他磨到 <em>60%</em>，但每次你脱战回来，他<em>血又满了</em>。",
-   "a": "该改什么？",
-   "o": [
-    "提高输出频率，磨得更快一点",
-    "放弃磨的思路——攒一个完整窗口一次打穿",
-    "换目标",
-    "带 <sk>卸除武装</sk> 减少他的输出"
-   ],
-   "r": 1,
-   "e": [
-    "提高频率还是在磨。他的自愈速度不受你输出频率影响，这条路走不通。",
-    "正解。<b>DH 自愈很高，零散伤害对他等于不存在。</b>这是\"必须一波带走\"最典型的对局——<b>磨他就是给他回血时间</b>。攒满窗口、一次打穿，是唯一的解。",
-    "换目标可能对，但这题问的是\"该改什么\"——如果 DH 是指定目标，你要改的是打法而不是目标。",
-    "缴械对 DH 的自愈没有帮助，也不解决\"零散伤害无效\"这个核心问题。"
-   ],
-   "k": "对高自愈目标，输出的分布比输出的总量重要。分散打等于没打。"
-  },
-  {
-   "id": "shaman",
-   "t": "shaman",
-   "d": 2,
-   "s": "你在打恢复萨，他血量 <em>60%</em>，你输出打不动。地上有几个图腾，其中一个是群体治疗类的。",
-   "a": "该做什么？",
-   "o": [
-    "继续打萨满，图腾是次要的",
-    "打掉那个图腾——图腾血极低，一两下就碎",
-    "控住萨满，让图腾自己过期",
-    "换目标打他的 DPS 队友"
-   ],
-   "r": 1,
-   "e": [
-    "\"图腾是次要的\"是打萨满最贵的误解。无视它等于跟一个额外的治疗对拼。",
-    "正解。<b>图腾是萨满的第二条命，而且血量极低。</b>投入产出比远高于继续打一个满状态恢复萨。",
-    "控住萨满有价值，但没解决图腾还在给全队治疗这个问题。",
-    "换目标不解决核心矛盾，群疗图腾还在，你打谁都会被治回去。"
-   ],
-   "k": "打萨满是全游戏最需要你分心看地面的对局。有些时候正确的目标不是人。"
-  },
-  {
-   "id": "shaman2",
-   "t": "shaman",
-   "d": 3,
-   "s": "三对三。你准备对目标下 <sk>烟雾弹</sk> 完成击杀。但恢复萨在不远处，地上有一个<em>你不认识的图腾</em>正在发光。",
-   "a": "下不下弹？",
-   "o": [
-    "下，烟雾弹是你最强的牌，机会不等人",
-    "先确认那个图腾是什么——某些图腾能破控或提供群体效果，会让你的弹白扔",
-    "让队友先打掉萨满",
-    "下弹的同时控住萨满"
-   ],
-   "r": 1,
-   "e": [
-    "<b>不认识的图腾就是不确定的变量。</b>在最强的一张牌上赌一个你没看清的东西，是最贵的赌博。",
-    "正解。<b>萨满对局的\"目标\"经常不是玩家，而是一个正在改变规则的图腾。</b>破控类、群疗类图腾会让你精心设计的击杀窗口直接作废。<b>下弹之前先确认地上有什么</b>——图腾血极低，认出来了顺手打掉就行。",
-    "把判断推给队友，而且你的弹还是可能被同一个图腾废掉。",
-    "控住萨满不影响已经落地的图腾继续生效。"
-   ],
-   "k": "用你最贵的牌之前，先排除掉场上你没看懂的变量。萨满对局这条尤其致命。"
-  },
-  {
-   "id": "warlock",
-   "t": "warlock",
-   "d": 3,
-   "s": "你在打术士，身上挂着他四五个持续伤害，血在稳定往下掉。<sk>暗影斗篷</sk> 是好的。",
-   "a": "斗篷该什么时候按？",
-   "o": [
-    "现在按，一次性抹掉全部持续伤害",
-    "留着，等他开爆发窗口再按",
-    "留着躲他的 <sk>恐惧</sk>",
-    "不按斗篷，用 <sk>消失</sk> 清掉"
-   ],
-   "r": 0,
-   "e": [
-    "正解。<b>斗篷在术士对局最值钱的用法就是一次性抹掉一整套持续伤害</b>——术士的伤害是叠加式复利，挂满一身时按斗篷的收益远大于用它躲单发。",
-    "\"留着等爆发\"在<b>法师</b>对局是对的（单次爆发），但术士是持续叠加型——等他\"开爆发\"时你可能已经被磨掉一半血。",
-    "躲 <sk>恐惧</sk> 有价值，但你现在正在稳定掉血，先解决正在发生的问题。",
-    "<sk>消失</sk> 不清持续伤害（大多会把你打出潜行），而且比斗篷贵得多。"
-   ],
-   "k": "斗篷该留还是该按，取决于对手的伤害是\"一次爆发\"还是\"持续叠加\"。术士属于后者。"
-  },
-  {
-   "id": "warlock2",
-   "t": "warlock",
-   "d": 2,
-   "s": "你在一片空地上跟术士单挑，他在自由读条，你在挨伤害。你的位移都好。",
-   "a": "第一件事该做什么？",
-   "o": [
-    "冲上去贴脸打断他",
-    "去柱子后面，逼他移动",
-    "开 <sk>暗影斗篷</sk> 硬顶着打",
-    "用远程技能对射"
-   ],
-   "r": 1,
-   "e": [
-    "贴脸方向对，但空地上他有传送门、恐惧、减速——你贴上去也待不住，而且冲的路上一直在挨伤害。",
-    "正解。<b>别在空地上跟术士比木桩，他的伤害模型就是赢这个。</b>用柱子逼他移动——他移动就不能读条，不读条就没有伤害。<b>然后你再接近，才有真正的杀窗。</b>",
-    "斗篷硬顶只解决一小段时间，之后你还是在空地上被自由施法。这是把资源花在错误的问题上。",
-    "你没有能跟术士对射的远程输出。"
-   ],
-   "k": "打远程职业先解决\"场地\"，再解决\"距离\"。柱子比你的位移便宜得多。"
-  },
-  {
-   "id": "monk",
-   "t": "monk",
-   "d": 1,
-   "s": "你正在爆发窗口里打风行武僧，他血量 <em>40%</em>。他按下 <sk>业报之触</sk>。",
-   "a": "现在做什么？",
-   "o": [
-    "继续输出，它有伤害上限，能打穿",
-    "停手转火队友，窗口不能空转",
-    "控住他，让它在控制里走完",
-    "<sk>消失</sk> 重置"
-   ],
-   "r": 1,
-   "e": [
-    "把它当\"有上限的减伤\"来打是最贵的误解之一——<b>而且伤害会反弹到你身上</b>，你在帮他打你自己。",
-    "正解。<b><sk>业报之触</sk> 化解伤害并反弹，而且他还能移动。</b>窗口正在燃烧，最优解是把这几秒的伤害倒到别人身上。",
-    "它不阻止你控他，但控住不解决\"窗口在流逝\"这个问题，也没换来伤害。",
-    "<sk>消失</sk> 掉等于同时扔掉窗口和最贵的资源。"
-   ],
-   "k": "目标进入免疫/化解、而你的窗口还在走 → 转火。这条对所有职业的防御牌通用。"
-  },
-  {
-   "id": "monk2",
-   "t": "monk",
-   "d": 3,
-   "s": "三对三。你控住了织雾武僧，准备对目标下 <sk>烟雾弹</sk> 完成击杀。",
-   "a": "下弹之前要确认什么？",
-   "o": [
-    "确认目标身上没有护盾",
-    "确认武僧的传送/位移是否可用——他能瞬移进来让弹落空",
-    "确认自己的连击点够",
-    "确认队友的输出跟得上"
-   ],
-   "r": 1,
-   "e": [
-    "护盾要看，但这题问的是<b>烟雾弹能不能成立</b>——护盾不影响弹的机制。",
-    "正解。<b>武僧的传送能让 <sk>烟雾弹</sk> 落空</b>——他一瞬移进烟里，你精心设计的\"治疗看不见目标\"就作废了。<b>先逼出他的位移或确认位置，再下弹。</b>",
-    "连击点是输出问题，不影响弹的成败。",
-    "队友配合重要，但这题的关键变量是武僧的位移。"
-   ],
-   "k": "烟雾弹靠\"隔开位置\"生效。任何能瞬间改变位置的技能都是它的天敌——下弹前先排除掉。"
-  },
-  {
-   "id": "warrior",
-   "t": "warrior",
-   "d": 2,
-   "s": "你在打战士，<sk>卸除武装</sk> 是好的。他刚刚冲锋进来，正准备开他的爆发。",
-   "a": "缴械什么时候按？",
-   "o": [
-    "现在按，掐掉他的爆发窗口",
-    "等他爆发打了一半再按",
-    "留着等他斩杀阶段",
-    "不用缴械，用 <sk>凿击</sk> 拉开距离"
-   ],
-   "r": 0,
-   "e": [
-    "正解。<b>缴械的最大价值是掐掉爆发窗口的起点。</b>6 秒无武器 ≈ 6 秒无伤害，等于这一轮爆发废掉。",
-    "等打了一半再按，前半段伤害你已经吃满了。<b>缴械是预防不是补救。</b>",
-    "\"留到斩杀阶段\"听起来更关键，但你可能撑不到那时候。",
-    "<sk>凿击</sk> 拉距离对战士效果有限（他有多种接近手段），也没解决\"这一轮爆发很痛\"。"
-   ],
-   "k": "缴械是掐窗口的技能，不是补救的技能。看到对手起爆发就按，不要等伤害落地。"
-  },
-  {
-   "id": "warrior2",
-   "t": "warrior",
-   "d": 2,
-   "s": "你在打战士，他血量 <em>25%</em>，你的窗口好了准备收尾。他按下 <sk>剑在人在</sk>（免疫物理伤害）。",
-   "a": "现在做什么？",
-   "o": [
-    "继续打，25% 血打穿一点就死了",
-    "立刻停手或转火，你几乎全是物理",
-    "用 <sk>卸除武装</sk> 缴他",
-    "控住他等免疫结束"
-   ],
-   "r": 1,
-   "e": [
-    "<b>\"免物理\"对敏锐几乎等于\"全免疫\"。</b>25% 血看起来近在咫尺，正是这种时候最容易把整个窗口喂进去。",
-    "正解。你的伤害绝大部分是物理，<sk>剑在人在</sk> 期间你打进去的接近于零。<b>窗口在燃烧 → 转火；没有转火对象 → 脱离，等它结束再回来收。</b>",
-    "<sk>卸除武装</sk> 是防他的输出，不影响他的免疫。而且他免疫期间伤害不高，这时缴械是浪费。",
-    "控住他不产生伤害，还浪费递减——而且你窗口在流逝。"
-   ],
-   "k": "看免疫要对照自己的伤害类型。对敏锐来说，\"免物理\"和\"全免疫\"没有实际区别。"
-  },
-  {
-   "id": "priest",
-   "t": "priest",
-   "d": 2,
-   "s": "对面戒律牧给你的目标套了一个大 <sk>真言术：盾</sk>。你的爆发窗口刚好，诡术师层数满 4 层。",
-   "a": "现在开吗？",
-   "o": [
-    "开，护盾撑不住一个满状态窗口",
-    "先把护盾打掉或等它过期，再开窗口",
-    "开，但转火打牧师",
-    "控住牧师，然后开窗口打目标"
-   ],
-   "r": 1,
-   "e": [
-    "护盾会吃掉窗口伤害里相当大的一块，尤其是 <sk>致命一击</sk>——那一发落在护盾上是最亏的。",
-    "正解。<b>护盾是\"提前预支的治疗\"。</b>用常规输出磨掉护盾（或等它过期）再开窗口——同样的爆发，落在裸血上完全是另一个量级。",
-    "转火牧师能压出他的自保，但窗口伤害落在满血治疗身上通常也杀不掉。",
-    "控住牧师听起来周全，但<b>护盾已经在目标身上了</b>——控住牧师不会让护盾消失。"
-   ],
-   "k": "窗口要开在\"裸\"的目标身上。护盾、减伤、免疫，任何一层在，都该先处理掉再开。"
-  },
-  {
-   "id": "priest2",
-   "t": "priest",
-   "d": 3,
-   "s": "三对三，你和队友都有眩晕。对面是<em>戒律牧 + 一个布甲 DPS</em>，你们打算集火那个 DPS。",
-   "a": "你的 <sk>肾击</sk> 该给谁？",
-   "o": [
-    "给击杀目标（那个 DPS），确保他跑不掉",
-    "给牧师，让队友的眩晕去晕击杀目标",
-    "留着不用，等目标残血再补",
-    "给谁都行，先手最重要"
-   ],
-   "r": 1,
-   "e": [
-    "两个人的眩晕都堆在同一个目标上，会立刻触发递减——<b>第二个眩晕只剩一半时长，等于浪费一个。</b>",
-    "正解。<b>你晕牧师、队友晕目标，两个眩晕落在不同的人身上，各自吃满时长。</b>这形成一个更稳的双控：治疗被锁住的同时目标也动不了。这是三对三里眩晕分配的基本功。",
-    "\"留着补\"会让你错过唯一能同时锁住两个人的时机。",
-    "眩晕分配恰恰是最需要计划的——递减规则决定了随便按会浪费一半。"
-   ],
-   "k": "队伍里有多个眩晕时，分给不同的人比堆在同一个人身上多出一倍的控制时间。"
-  },
-  {
-   "id": "evoker",
-   "t": "evoker",
-   "d": 1,
-   "s": "你在打唤魔师，看到他开始<em>蓄力</em>一个技能。你的 <sk>脚踢</sk> 和 <sk>凿击</sk> 都是好的。",
-   "a": "用哪个中断？",
-   "o": [
-    "<sk>脚踢</sk>，最直接",
-    "<sk>凿击</sk>——同样能中断，把脚踢留给更关键的时刻",
-    "都不用，蓄力技能打断收益不大",
-    "<sk>肾击</sk>，顺便接控制链"
-   ],
-   "r": 1,
-   "e": [
-    "能断，但浪费。唤魔师的蓄力技能会反复出现——每次都用 <sk>脚踢</sk>，关键时刻你手上就没牌了。",
-    "正解。<b><sk>凿击</sk>、眩晕、<sk>致盲</sk> 都能中断施法且不占脚踢冷却。</b>用便宜的手段处理高频出现的蓄力。",
-    "恰恰相反——<b>唤魔师是全游戏打断价值最高的对局</b>，蓄力被打断损失极大。",
-    "<sk>肾击</sk> 是眩晕类，会吃掉眩晕递减预算——那份预算该留给击杀窗口。"
-   ],
-   "k": "中断有很多种，脚踢只是最贵的一种。能用凿击解决的别用脚踢。"
-  },
-  {
-   "id": "evoker2",
-   "t": "evoker",
-   "d": 3,
-   "s": "你的窗口刚好，唤魔师血量健康但站位不错。你注意到他的 <sk>悬空</sk> <em>刚刚用过</em>。",
-   "a": "这个信息意味着什么？",
-   "o": [
-    "没什么用，他还有别的逃脱手段",
-    "这就是你的开窗时机——他现在跑不掉",
-    "应该等他把所有位移都用完",
-    "说明他很谨慎，应该换目标"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>悬空</sk> 是他最强的脱离手段，用掉了跟没用是完全两回事。忽略这个信息等于放弃最重要的时机判断。",
-    "正解。<b>窗口要开在 <sk>悬空</sk> 冷却中的时候</b>——不然他一按你的爆发就落空，飞到你完全够不到的地方。<b>盯住对手的关键位移冷却，是决定\"什么时候开\"的核心信息之一。</b>",
-    "等所有位移都用完是不现实的，而且你的窗口也在等待中流逝。<b>逼掉最关键的那一个就够了。</b>",
-    "他用掉位移恰恰说明他现在更脆弱，这时候换目标是反的。"
-   ],
-   "k": "对高机动目标，开窗口的时机不看他的血，看他的位移冷却。"
-  },
-  {
-   "id": "x1",
-   "t": "general",
-   "d": 2,
-   "s": "<b>暗影之舞</b>正开着还剩约一半，目标（惩戒骑）<em>42%</em>，<sk>圣盾术</sk> 上一轮已经用掉。他的戒律牧站在 <em>20 码外</em>正在读大治疗。你满连击点，<sk>肾击</sk>、<sk>脚踢</sk>、<sk>致盲</sk>、<sk>烟雾弹</sk> 全好。",
-   "a": "这一下按什么、对谁？",
-   "o": [
-    "<sk>脚踢</sk> → 戒律牧",
-    "<sk>烟雾弹</sk> → 罩住自己和惩戒骑",
-    "<sk>致盲</sk> → 戒律牧",
-    "<sk>肾击</sk> → 惩戒骑"
-   ],
-   "r": 1,
-   "e": [
-    "脚踢要跑 20 码过去，<b>你会脱离目标、丢掉窗口里最值钱的几秒</b>。而且只断一次施法，他解开就继续奶。",
-    "正解。<b>治疗在 20 码外＝他会在烟外。</b><sk>烟雾弹</sk> 罩住你和目标，<b>治疗在整个持续时间里完全无法选中他</b>——这比断一次施法强一个量级，而且只花一个 GCD、你不用离开目标。<b>治疗离目标远 = 烟雾弹进攻价值最高的场景。</b>",
-    "同样要跑过去，而且 <sk>致盲</sk> 受伤即破——你一回来打目标，溅射/持续伤害就可能破掉它。",
-    "<sk>肾击</sk> 不解决\"治疗在奶\"这个核心问题。目标 42% 且有治疗，光眩晕他打不穿。"
-   ],
-   "k": "治疗离目标远的时候，烟雾弹的进攻价值高于任何单次打断——一个 GCD 换整段无治疗。"
-  },
-  {
-   "id": "x2",
-   "t": "general",
-   "d": 3,
-   "s": "目标是法师，<em>25% 血</em>，刚从 <sk>寒冰屏障</sk> 里出来（蓝已回满）。你的诡术师层数<em>满 4 层</em>，<sk>暗影之舞</sk> <em>只剩约 2 秒</em>，<sk>肾击</sk> 和满连击点都在。",
-   "a": "这 2 秒怎么用？",
-   "o": [
-    "<sk>肾击</sk> 定住他，再打伤害",
-    "直接倒 <sk>致命一击</sk>",
-    "<sk>影分身</sk> 起手再接终结技",
-    "<sk>消失</sk> 重置，等下一轮"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>肾击</sk> 本身不产生多少伤害，<b>在只剩 2 秒的窗口里花一个 GCD 定身，等于把加成最高的那一发挤出窗口外。</b>",
-    "正解。<b>窗口只剩 2 秒，能落地的终结技就一发。</b>25% 血的法师 + 满层 <sk>致命一击</sk>（等同额外 5 连击点的 <sk>刺骨</sk>）足够收掉。<b>加成窗口内每个 GCD 都要产出伤害，任何不打伤害的动作都是把最贵的那发挤出去。</b>",
-    "<sk>影分身</sk> 值得用，但它是额外一发不是替代——<b>先倒最大的那一发</b>，顺序反了可能来不及。",
-    "25% 的目标就在面前，重置等于放掉一次已经成型的击杀。"
-   ],
-   "k": "窗口余量决定动作数量。只剩一个 GCD 时，把它给伤害最高的那一发，不给控制。"
-  },
-  {
-   "id": "x3",
-   "t": "general",
-   "d": 2,
-   "s": "你被<em>战士 + 法师</em>同时打，血量 <em>38%</em>，身上有法师的减速和三层持续法伤，战士刚开了爆发姿态。<sk>暗影斗篷</sk>、<sk>闪避</sk>、<sk>消失</sk>、<sk>佯攻</sk> 都可用。",
-   "a": "第一下按什么？",
-   "o": [
-    "<sk>闪避</sk>（战士刚开爆发）",
-    "<sk>暗影斗篷</sk>",
-    "<sk>消失</sk>",
-    "<sk>佯攻</sk> 然后继续输出"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>闪避</sk> 只挡物理。法师那一半伤害照进、减速还在、持续法伤还在跳——<b>你依然跑不掉也躲不开。</b>",
-    "正解。<b>斗篷一次解决三件事</b>：抹掉法师的魔法伤害、清掉身上所有魔法减益（<b>包括减速和那三层持续法伤</b>）、让接下来几秒法师打不到你。解掉减速之后你才有走位空间。<b>而战士的爆发可以用走位和 <sk>佯攻</sk> 分摊——但减速不解，你什么都做不了。</b>",
-    "<sk>消失</sk> 是最贵的一张，而且<b>身上有持续伤害时它很可能立刻被打出来</b>。",
-    "<sk>佯攻</sk> 是廉价减伤，但它解决不了\"我动不了\"这个根本问题。"
-   ],
-   "k": "同时被物理和法系打时，先看哪个技能能一次解决多个问题。斗篷解减益的价值经常大于它的减伤。"
-  },
-  {
-   "id": "x4",
-   "t": "general",
-   "d": 3,
-   "s": "2v2 或 3v3 都适用：你潜行接近，对面是<em>射击猎 + 恢复萨</em>。萨满脚下有一个 <em>战栗图腾</em>（破控），猎人站在他旁边。你打算开一波。",
-   "a": "第一个动作是什么？",
-   "o": [
-    "<sk>闷棍</sk> → 恢复萨",
-    "打掉战栗图腾",
-    "<sk>偷袭</sk> → 射击猎",
-    "<sk>卸除武装</sk> → 射击猎"
-   ],
-   "r": 1,
-   "e": [
-    "破控图腾在场时，<b>你的 <sk>闷棍</sk> 会被立刻解掉</b>——等于把最干净的一张控制白扔。",
-    "正解。<b>图腾血量极低，一两下就碎，而它在场时你的整套控制链都不成立。</b>先清掉这个\"改变规则的东西\"，再开始你的正常流程。<b>萨满对局的第一个目标经常不是人。</b>",
-    "<sk>偷袭</sk> 会让你脱离潜行、暴露开场意图，而萨满的破控图腾依然在。",
-    "缴械对射击猎确实有效（他的伤害来自武器），<b>但顺序错了</b>——图腾不清掉，你后面所有的控制都会被解。"
-   ],
-   "k": "开场前先清掉场上\"会改变规则\"的东西（破控图腾、地面效果）。它在，你的整套流程都不成立。"
-  },
-  {
-   "id": "x5",
-   "t": "general",
-   "d": 2,
-   "s": "你正准备 <sk>致盲</sk> 对面治疗来打断他的施法。此刻他身上挂着<em>你队友的一个持续伤害</em>，而你自己刚才的 <sk>影分身</sk> <em>还在跳伤害</em>。",
-   "a": "现在致盲会怎样？",
-   "o": [
-    "正常生效，致盲不受持续伤害影响",
-    "两个来源都会打破它——你自己的影分身和队友的持续伤害",
-    "只有队友的持续伤害会破，你自己的不会",
-    "时长会缩短但不会破"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>致盲</sk> 是失能类，<b>受任何来源的任何伤害立刻破</b>。",
-    "正解。<b>破控源包括你自己。</b><sk>影分身</sk> 是延迟伤害，你按完之后它还会继续跳——<b>很多人只记得让队友停手，忘了自己刚才放的延迟伤害</b>。正确做法是等自己的延迟伤害跳完 + 队友的持续伤害掉完，再控。",
-    "任何来源都一样，包括你自己的。",
-    "不是缩短，是直接破掉。"
-   ],
-   "k": "失能类控制的破控源包括你自己的延迟伤害。按之前要清的不只是队友那边。"
-  },
-  {
-   "id": "x6",
-   "t": "general",
-   "d": 2,
-   "s": "目标是死亡骑士，<em>30% 血</em>，他刚开了 <sk>反魔法护罩</sk>。你满连击点，<sk>卸除武装</sk> 和爆发都可用。",
-   "a": "现在做什么？",
-   "o": [
-    "交爆发抢在护罩结束前打穿",
-    "继续常规物理输出，不交爆发",
-    "完全停手等护罩结束",
-    "<sk>卸除武装</sk> → 死亡骑士"
-   ],
-   "r": 1,
-   "e": [
-    "<b>你的爆发里暗影和毒伤占比不小</b>，在抗魔期交等于把最贵的资源打折使用。",
-    "正解。<b><sk>反魔法护罩</sk> 只免疫魔法——你的纯物理伤害照常进去。</b>所以不用完全停手（那会白白放弃输出时间），但也<b>绝不该在这时交爆发</b>。用常规物理输出压着，等护罩走完再开窗口。",
-    "完全停手是过度反应，浪费了物理还能打的这段时间。",
-    "缴械是防他输出的，跟\"我现在能不能打进去\"是两个问题。而且 30% 血的 DK 更该防的是他的自救。"
-   ],
-   "k": "免疫要分类型对照自己的伤害构成。免魔法对贼是\"降档\"不是\"归零\"，处理方式跟全免疫不同。"
-  },
-  {
-   "id": "x7",
-   "t": "general",
-   "d": 3,
-   "s": "你窗口全好、层数满，正要开。此刻你注意到对面治疗<em>刚交完一个大保命且还在生效</em>，而击杀目标身上<em>什么减伤都没有</em>。",
-   "a": "开还是等？",
-   "o": [
-    "开，目标是裸的，机会难得",
-    "等他的保命走完再开",
-    "开，但只用一半资源",
-    "换目标打治疗"
-   ],
-   "r": 1,
-   "e": [
-    "目标裸着是好条件，<b>但治疗的保命在生效意味着你的窗口伤害会被他从容顶掉</b>——你打的是目标，救的人是治疗。",
-    "正解。<b>开窗口要看两边：我们齐不齐，以及对面有没有正在生效的保命。</b>治疗的大保命通常只有几秒，<b>等它走完再开，同样的窗口收益完全不同</b>。这种\"我方满状态\"的时刻不常有，别浪费在对面也满状态的时候。",
-    "拆开用会让控制链和爆发都不完整，两边不讨好。",
-    "打满血治疗通常杀不掉，而且他的保命正生效。"
-   ],
-   "k": "开窗口的条件包含对面的状态。目标裸不等于能杀，还要看治疗手上有没有正在生效的牌。"
-  },
-  {
-   "id": "x8",
-   "t": "general",
-   "d": 1,
-   "s": "你刚 <sk>偷袭</sk> 开场，目标被眩晕住。你手上 2 个连击点，<sk>暗影之舞</sk> 还没开。",
-   "a": "眩晕的这几秒该做什么？",
-   "o": [
-    "立刻开 <sk>暗影之舞</sk> 全交",
-    "用 <sk>暗影打击</sk> 补连击点，把爆发留到眩晕快结束时开",
-    "直接倒终结技",
-    "<sk>肾击</sk> 续控"
-   ],
-   "r": 1,
-   "e": [
-    "2 个连击点就开爆发，<b>窗口的前几秒会浪费在攒点上</b>——而那几秒的加成是最值钱的。",
-    "正解。<b><sk>偷袭</sk> 的眩晕是用来\"上连击点和建立位置\"的，不是用来打伤害的。</b>这几秒把点补满，<b>让爆发窗口一开就能立刻倒终结技</b>。爆发和满连击点要同时到位。",
-    "2 点的终结技伤害很低，浪费了一次终结机会。",
-    "<sk>肾击</sk> 跟 <sk>偷袭</sk> 共享眩晕递减，紧接着用只有一半时长，而且这时候没有伤害需要它保护。"
-   ],
-   "k": "开场眩晕是准备时间不是输出时间。用它把连击点和爆发对齐，让窗口一开就能出伤害。"
-  },
-  {
-   "id": "x9",
-   "t": "general",
-   "d": 3,
-   "s": "你在爆发窗口里，目标 <em>18%</em> 眼看要死。此刻对面另一个 DPS <em>开始集火你的治疗</em>，你的治疗血量还有七成。",
-   "a": "怎么选？",
-   "o": [
-    "立刻放弃窗口回去救治疗",
-    "收掉目标再回防——18% 且窗口正开，这属于\"一击能死\"",
-    "用 <sk>烟雾弹</sk> 罩住治疗，同时继续打",
-    "两边都顾，先打断再回来收"
-   ],
-   "r": 1,
-   "e": [
-    "\"永远优先救治疗\"是把原则背成教条。<b>治疗还有七成血、刚被切，能撑几秒；而目标 18% 且你正在窗口里。</b>",
-    "正解。<b>判据是\"目标一击能死吗\"。</b>18% + 爆发窗口正开 = 能。<b>击杀完成之后局面直接从 2v2 变 2v1（或 3v3 变 3v2），这个收益远大于提前几秒回防。</b>收完立刻回去。",
-    "<sk>烟雾弹</sk> 罩治疗听起来两全，但<b>你和目标此刻多半不在治疗附近</b>——罩了他你就得离开目标，窗口一样断。",
-    "\"两边都顾\"在这个血线上是最差的：目标没收掉，治疗也没真的救到。"
-   ],
-   "k": "\"优先救队友\"是默认值不是铁律。判据是\"目标一击能死吗\"——能，就收完再回。"
-  },
-  {
-   "id": "x10",
-   "t": "general",
-   "d": 2,
-   "s": "对面是<em>戒律牧</em>。你已经把击杀目标打到 <em>45%</em>，但牧师一直在稳定回血。你的 <sk>闷棍</sk> 好了，<sk>致盲</sk> 也好了，窗口还有一段。",
-   "a": "用哪个控牧师？",
-   "o": [
-    "<sk>闷棍</sk> → 戒律牧",
-    "<sk>致盲</sk> → 戒律牧",
-    "两个都用，接成链",
-    "都不用，继续打目标"
-   ],
-   "r": 1,
-   "e": [
-    "<sk>闷棍</sk> 只能对<b>未处于战斗状态</b>的目标使用——牧师正在治疗，你按不出来。<b>这是最容易犯的机制错误。</b>",
-    "正解。<b>战斗中能用的失能类控制是 <sk>致盲</sk>，不是 <sk>闷棍</sk>。</b><sk>闷棍</sk> 只在目标脱战时可用（所以它是开场前的工具）。<b>控完立刻停止对牧师的一切伤害，否则受伤即破。</b>",
-    "<sk>闷棍</sk> 在战斗中根本用不出来，接不成链。",
-    "目标 45% 而治疗自由施法，不处理治疗你打不穿。"
-   ],
-   "k": "闷棍只对脱战目标可用，是开场前的工具；战斗中的失能类控制是致盲。别把两者混用。"
-  }
- ]
 };

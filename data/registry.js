@@ -125,21 +125,95 @@ window.REG = {
     },
   ],
 
-  /* 组合训练器 —— 按人数分组 */
-  comps: [
-    {
-      id: 'rogue-priest-2v2', size: '2v2', n: '贼 + 戒律牧', en: 'Rogue / Discipline Priest',
-      page: 'rogue-priest-2v2.html', members: ['rogue', 'priest'],
-      one: '两个人轮流当主角。输的那局，通常是两个人同时想当主角。',
-      st: [2, 2, 2, 1, 0, 2],
+  /* ============================================================
+     竞技场组合
+     3v3 有公认命名（RMP / Thug Cleave / RLS…），2v2 只是「输出 + 治疗」配对。
+     这不是本站的分法，是社区与攻略站的既有分法。
+     来源：Icy Veins 各专精 Best Arena Compositions · wowmeta 组合梯队
+     组合名沿用英文原名——中文社区通用的也是这套缩写，不另造译名。
+     ============================================================ */
+  comps: {
+    '3v3': {
+      title: '3v3',
+      note: '有公认命名的固定组合。',
+      list: [
+        { id: 'thug-cleave-3v3', name: 'Thug Cleave', members: ['rogue', 'hunter', 'priest'],
+          make: '敏锐贼 + 猎人 + 戒律牧', one: '控制链接成一条，杀窗里对面治疗做不了事。',
+          page: 'thug-cleave-3v3.html', st: [2, 2, 2, 1, 0, 2] },
+        { id: 'rmp', name: 'RMP', members: ['rogue', 'mage', 'priest'],
+          make: '贼 + 法师 + 神牧 / 戒律牧', one: '竞技场最老牌的 setup 组合。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'rmd', name: 'RMD', members: ['rogue', 'mage', 'druid'],
+          make: '贼 + 法师 + 恢复德', one: 'RMP 换成德鲁伊，容错更高、节奏更慢。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'rps', name: 'RPS', members: ['rogue', 'priest', 'shaman'],
+          make: '贼 + 暗牧 + 恢复萨', one: '双爆发叠在一个窗口。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'rls', name: 'RLS', members: ['rogue', 'warlock', 'shaman'],
+          make: '贼 + 术士 + 恢复萨', one: '消耗与爆发两条腿走路。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'jungle', name: 'Jungle', members: ['druid', 'hunter', 'priest'],
+          make: '野性德 + 猎人 + 戒律牧', one: '两个近战持续压制，控制来源多。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'ret-warrior', name: 'Ret / Warrior', members: ['paladin', 'warrior', 'priest'],
+          make: '惩戒骑 + 战士 + 戒律牧', one: '单体爆发上限极高。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'god-comp', name: 'God Comp', members: ['mage', 'priest', 'paladin'],
+          make: '法师 + 暗牧 + 奶骑 / 恢复德', one: '全法术组合，控制密度最高。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'mlp', name: 'MLP', members: ['mage', 'warlock', 'priest'],
+          make: '法师 + 术士 + 奶骑 / 牧师', one: '双施法者，靠控制链开窗。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'mld', name: 'MLD', members: ['mage', 'warlock', 'druid'],
+          make: '法师 + 术士 + 恢复德', one: 'MLP 的德鲁伊版本。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'wmd', name: 'WMD', members: ['mage', 'warrior', 'druid'],
+          make: '法师 + 战士 + 恢复德 / 奶骑 / 牧师', one: '战士贴脸，法师控场。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'fmp', name: 'FMP', members: ['mage', 'druid', 'paladin'],
+          make: '法师 + 野性德 + 奶骑 / 牧师', one: '野德开场，法师收尾。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'frozen-chicken', name: 'Frozen Chicken', members: ['mage', 'druid', 'paladin'],
+          make: '法师 + 平衡德 + 奶骑', one: '双远程法伤，站桩输出。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'phdk', name: 'PHDk', members: ['priest', 'deathknight', 'hunter'],
+          make: '戒律牧 + 邪DK + 猎人', one: '持续压制型，不靠单个爆发窗口。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'cupid', name: 'Cupid', members: ['priest', 'paladin', 'hunter'],
+          make: '戒律牧 + 惩戒骑 + 猎人', one: '惩戒爆发 + 猎人控制。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'dh-boomkin', name: 'DH Boomkin', members: ['demonhunter', 'druid', 'shaman'],
+          make: '浩劫DH + 平衡德 + 恢复萨', one: '机动性极高的爆发组合。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'hero-cleave', name: 'Hero Cleave', members: ['demonhunter', 'deathknight', 'shaman'],
+          make: '浩劫DH + 邪DK + 恢复萨', one: '双近战压制，出场压力极大。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'rogue-devourer', name: 'Rogue / Devourer', members: ['rogue', 'demonhunter', 'evoker'],
+          make: '贼 + Devourer DH + 恩护唤魔师 / 恢复德', one: 'Midnight 新专精带出的组合。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'dwts', name: 'Dancing With The Stars', members: ['rogue', 'druid', 'evoker'],
+          make: '贼 + 平衡德 + 恩护唤魔师', one: '爆发窗口对齐要求高。', page: null, st: [0, 0, 0, 0, 0, 0] },
+      ],
     },
-    {
-      id: 'thug-cleave-3v3', size: '3v3', n: 'Thug Cleave · 贼 + 牧 + 猎', en: 'Thug Cleave',
-      page: 'thug-cleave-3v3.html', members: ['rogue', 'priest', 'hunter'],
-      one: '2v2 赢在伤害叠在一起，3v3 赢在控制接成一条链。',
-      st: [2, 2, 2, 1, 0, 2],
+    '2v2': {
+      title: '2v2',
+      note: '没有公认命名，按「输出 + 治疗」配对；少数双输出配对也成立。',
+      list: [
+        { id: 'rogue-priest-2v2', name: '贼 + 戒律牧', members: ['rogue', 'priest'], kind: 'heal',
+          make: '敏锐贼 + 戒律牧', one: '两个人轮流当主角。',
+          page: 'rogue-priest-2v2.html', st: [2, 2, 2, 1, 0, 2] },
+        { id: 'rogue-mage-2v2', name: '贼 + 法师', members: ['rogue', 'mage'], kind: 'dd',
+          make: '敏锐贼 + 冰法', one: '双输出，靠控制链换人头。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'rogue-mw-2v2', name: '贼 + 织雾', members: ['rogue', 'monk'], kind: 'heal',
+          make: '敏锐贼 + 织雾武僧', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'rogue-rdruid-2v2', name: '贼 + 恢复德', members: ['rogue', 'druid'], kind: 'heal',
+          make: '敏锐贼 + 恢复德', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'rogue-hpal-2v2', name: '贼 + 奶骑', members: ['rogue', 'paladin'], kind: 'heal',
+          make: '敏锐贼 + 神圣骑士', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'rogue-boomy-2v2', name: '贼 + 平衡德', members: ['rogue', 'druid'], kind: 'dd',
+          make: '敏锐贼 + 平衡德', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'mage-mw-2v2', name: '法师 + 织雾', members: ['mage', 'monk'], kind: 'heal',
+          make: '冰法 + 织雾武僧', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'mage-hpal-2v2', name: '法师 + 奶骑', members: ['mage', 'paladin'], kind: 'heal',
+          make: '冰法 + 神圣骑士', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'mage-rdruid-2v2', name: '法师 + 恢复德', members: ['mage', 'druid'], kind: 'heal',
+          make: '冰法 + 恢复德', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'mage-spriest-2v2', name: '法师 + 暗牧', members: ['mage', 'priest'], kind: 'dd',
+          make: '冰法 + 暗影牧师', one: '双输出，法伤叠加。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'warrior-disc-2v2', name: '战士 + 戒律牧', members: ['warrior', 'priest'], kind: 'heal',
+          make: '战士 + 戒律牧', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'feral-disc-2v2', name: '野性德 + 戒律牧', members: ['druid', 'priest'], kind: 'heal',
+          make: '野性德 + 戒律牧', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'hunter-disc-2v2', name: '猎人 + 戒律牧', members: ['hunter', 'priest'], kind: 'heal',
+          make: '猎人 + 戒律牧', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'dh-disc-2v2', name: '浩劫DH + 戒律牧', members: ['demonhunter', 'priest'], kind: 'heal',
+          make: '浩劫恶魔猎手 + 戒律牧', one: '', page: null, st: [0, 0, 0, 0, 0, 0] },
+      ],
     },
-  ],
+  },
 };
 
 /* 派生索引：展平的专精列表，首页与总览页共用 */
@@ -154,3 +228,12 @@ window.REG.stats = (function (f) {
   const done = f.filter(s => s.page).length;
   return { total: f.length, done, pct: Math.round(done / f.length * 100) };
 })(window.REG.flat);
+
+/* 展平的组合列表：页脚「换一个练」与统计用 */
+window.REG.compList = Object.keys(window.REG.comps).flatMap(b =>
+  window.REG.comps[b].list.map(c => Object.assign({}, c, { bracket: b }))
+);
+window.REG.compStats = (function (l) {
+  const done = l.filter(c => c.page).length;
+  return { total: l.length, done, pct: Math.round(done / l.length * 100) };
+})(window.REG.compList);

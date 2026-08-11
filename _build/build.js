@@ -10,7 +10,7 @@ const C = {};
 for (const f of fs.readdirSync(path.join(__dirname, 'content'))) {
   if (f.endsWith('.js') && !f.startsWith('_')) C[f.replace('.js','')] = require('./content/' + f);
 }
-const { DOMAIN } = require('./config.js');
+const { DOMAIN, SITE_NAME, TAGLINE, MARK } = require('./config.js');
 const NUM = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨'];
 
 /* ---------- 每页配置 ---------- */
@@ -200,19 +200,19 @@ function page(cfg) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>${m.title}</title>
+<title>${m.title} | ${SITE_NAME}</title>
 <meta name="description" content="${m.desc || ''}">
 <meta name="keywords" content="${m.keywords || ''}">
-<meta name="author" content="WoW PvP 判断训练器">
+<meta name="author" content="${SITE_NAME}">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="${m.title}">
+<meta property="og:title" content="${m.title} | ${SITE_NAME}">
 <meta property="og:description" content="${m.desc || ''}">
 <meta property="og:url" content="${url}">
-<meta property="og:site_name" content="WoW PvP 判断训练器">
+<meta property="og:site_name" content="${SITE_NAME}">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="${m.title}">
+<meta name="twitter:title" content="${m.title} | ${SITE_NAME}">
 <meta name="twitter:description" content="${m.desc || ''}">
 <meta name="robots" content="index,follow">
 <link rel="stylesheet" href="${v('assets/css/core.css')}">
@@ -222,7 +222,7 @@ ${m.jsonld ? '<script type="application/ld+json">' + m.jsonld + '</script>' : ''
 
 <header>
   <div class="wrap hd">
-    <a class="brand" href="index.html"><span class="mk">判</span>PvP 判断训练器</a>
+    <a class="brand" href="index.html"><span class="mk">${MARK}</span>${SITE_NAME}</a>
     <span class="badge" id="pcount">—</span>
     <div class="spacer"></div>
     ${vsw}<span class="badge" id="topAcc">正确率 —</span>
@@ -233,7 +233,7 @@ ${m.jsonld ? '<script type="application/ld+json">' + m.jsonld + '</script>' : ''
   </nav></div>
 </header>
 
-<div class="wrap"><div class="crumb"><a href="index.html">全部训练器</a><i>/</i><a href="index.html#matrix">${cfg.crumb[0]}</a><i>/</i><span>${cfg.crumb[1]}</span></div></div>
+<div class="wrap"><div class="crumb"><a href="index.html">${SITE_NAME}</a><i>/</i><a href="index.html#matrix">${cfg.crumb[0]}</a><i>/</i><span>${cfg.crumb[1]}</span></div></div>
 
 ${body}<div class="wrap" style="margin-top:38px">
   <h2>换一个练</h2>

@@ -4,7 +4,7 @@
    ============================================================ */
 const fs = require('fs'), path = require('path');
 const SITE = path.join(__dirname, '..');
-const { DOMAIN } = require('./config.js');
+const { DOMAIN, SITE_NAME, TAGLINE, MARK } = require('./config.js');
 const v = require('./ver.js');
 
 // 载入注册表
@@ -50,47 +50,65 @@ function matrix() {
   }).join('\n');
 }
 
-/* ---------- 组合 ---------- */
+/* ---------- 竞技场组合 ----------
+   3v3 有公认命名，2v2 是配对 —— 两种形态分开展示，这是社区既有的分法 */
 function comps() {
-  return REG.comps.map(c => {
-    const ics = c.members.map(m => {
-      const cl = REG.classes.find(x => x.id === m);
-      return '<img src="' + IC(cl.ic) + '" alt="' + cl.n + '">';
-    }).join('');
-    return '    <a class="comp" href="' + c.page + '">' +
-      '<span class="sz">' + c.size + '</span>' +
-      '<span class="ics">' + ics + '</span>' +
-      '<h3>' + c.n + '</h3>' +
-      '<div class="one">' + c.one + '</div>' +
-      '<div style="margin-top:11px;display:flex;align-items:center;gap:8px">' + dots(c.st) +
-      '<span style="font-size:11.5px;color:var(--tx3)">' + (QCOUNT[c.id] || 0) + ' 题</span></div></a>';
+  return Object.keys(REG.comps).map(bk => {
+    const B = REG.comps[bk];
+    const done = B.list.filter(c => c.page).length;
+    const cards = B.list.map(c => {
+      const live = !!c.page;
+      const ics = c.members.map(m => {
+        const cl = REG.classes.find(x => x.id === m);
+        return '<img src="' + IC(cl.ic) + '" alt="' + cl.n + '" loading="lazy" onerror="this.style.display=\'none\'">';
+      }).join('');
+      const kind = c.kind === 'dd' ? '<span class="ckind">双输出</span>' : '';
+      const meta = live
+        ? dots(c.st) + '<span class="cq">' + (QCOUNT[c.id] || 0) + ' 题</span>'
+        : '<span class="csoon">规划中</span>';
+      const inner =
+        '<span class="ics">' + ics + '</span>' +
+        '<span class="t"><span class="n">' + c.name + kind + '</span>' +
+        '<span class="mk">' + c.make + '</span>' +
+        (c.one ? '<span class="one">' + c.one + '</span>' : '') +
+        '<span class="foot">' + meta + '</span></span>';
+      return live
+        ? '        <a class="cmp live" href="' + c.page + '">' + inner + '<span class="go">▸</span></a>'
+        : '        <span class="cmp soon">' + inner + '</span>';
+    }).join('\n');
+    return '    <div class="bracket">\n' +
+      '      <div class="bhead"><span class="bt">' + B.title + '</span>' +
+      '<span class="bd">' + B.note + '</span>' +
+      '<span class="bc">' + B.list.length + ' 组 · 已完成 ' + done + '</span></div>\n' +
+      '      <div class="cgrid">\n' + cards + '\n      </div>\n    </div>';
   }).join('\n');
 }
 
 const liveSpecs = REG.flat.filter(s => s.page);
-const trainerCount = liveSpecs.length + REG.comps.length;
+const trainerCount = liveSpecs.length + REG.compStats.done;
 
-const DESC = '魔兽世界正式服 12.0.7 Midnight 赛季一 PvP 判断训练。不教连招，练的是开火之前那一个判断：该不该开、打谁、用哪张牌。' +
-  '现有 ' + trainerCount + ' 个训练器、' + totalQ + ' 道情境判断题，覆盖敏锐贼/狂徒贼/冰法/戒律牧与贼牧 2v2、Thug Cleave 3v3。';
+const DESC = SITE_NAME + '——' + TAGLINE + '，对应 12.0.7 Midnight 赛季一。' +
+  '覆盖 13 职业 ' + REG.stats.total + ' 个专精与 ' + REG.compStats.total + ' 组竞技场组合，含 ' + totalQ + ' 道情境判断题：' +
+  '给定局面，选技能与目标，选完给出判断依据。现已上线敏锐贼、狂徒贼、冰法、戒律牧与 Thug Cleave 3v3、贼牧 2v2。';
 
 const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>魔兽世界 PvP 判断训练器 · 12.0.7 Midnight 赛季一 · 全职业竞技场攻略与练习</title>
+<title>${SITE_NAME} · ${TAGLINE} | 12.0.7 Midnight 赛季一</title>
 <meta name="description" content="${DESC}">
-<meta name="keywords" content="魔兽世界,WOW,PVP,竞技场,12.0.7,Midnight,午夜,判断训练,敏锐贼,狂徒贼,冰法,戒律牧,2v2,3v3,arena,天赋,配装,属性优先级">
-<meta name="author" content="WoW PvP 判断训练器">
+<meta name="keywords" content="WOW打架营地,魔兽世界,WOW,PVP,竞技场,arena,12.0.7,Midnight,午夜,判断训练,敏锐贼,狂徒贼,冰法,戒律牧,2v2,3v3,RMP,Thug Cleave,天赋,配装,属性优先级">
+<meta name="author" content="${SITE_NAME}">
 <link rel="canonical" href="${DOMAIN}/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="魔兽世界 PvP 判断训练器 · 12.0.7 Midnight 赛季一">
+<meta property="og:title" content="${SITE_NAME} · ${TAGLINE}">
 <meta property="og:description" content="${DESC}">
 <meta property="og:url" content="${DOMAIN}/">
-<meta property="og:site_name" content="WoW PvP 判断训练器">
+<meta property="og:site_name" content="${SITE_NAME}">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="魔兽世界 PvP 判断训练器 · 12.0.7 Midnight 赛季一">
+<meta name="twitter:title" content="${SITE_NAME} · ${TAGLINE}">
 <meta name="twitter:description" content="${DESC}">
 <meta name="robots" content="index,follow">
 <link rel="stylesheet" href="${v('assets/css/core.css')}">
@@ -98,7 +116,8 @@ const html = `<!DOCTYPE html>
 {
   "@context":"https://schema.org",
   "@type":"WebSite",
-  "name":"魔兽世界 PvP 判断训练器",
+  "name":"${SITE_NAME}",
+  "alternateName":"${TAGLINE}",
   "url":"${DOMAIN}/",
   "description":"${DESC}",
   "inLanguage":"zh-CN"
@@ -109,29 +128,31 @@ const html = `<!DOCTYPE html>
 
 <header>
   <div class="wrap hd">
-    <a class="brand" href="index.html"><span class="mk">判</span>PvP 判断训练器</a>
+    <a class="brand" href="index.html"><span class="mk">${MARK}</span>${SITE_NAME}</a>
     <span class="badge hot">12.0.7 · Midnight S1</span>
     <div class="spacer"></div>
-    <a class="homelink" href="#matrix">职业矩阵</a>
+    <a class="homelink" href="#matrix">职业专精</a>
+    <a class="homelink" href="#comps">竞技场组合</a>
     <button class="tbtn" onclick="toggleTheme()" title="切换深浅色">◐</button>
   </div>
 </header>
 
 <div class="hero"><div class="wrap in">
-  <div class="eyebrow">魔兽世界 · 12.0.7 · Midnight 赛季一</div>
-  <h1>输掉的那一局，多半不是手速问题</h1>
-  <div class="sub">练的是开火之前的判断：<b>该不该开、打谁、他手上还剩几张牌</b>。
-    每个训练器含情境选择题——给定局面，选技能与目标，选完给出判断依据。</div>
+  <div class="eyebrow">Patch 12.0.7 · MIDNIGHT 赛季一</div>
+  <h1><span class="bn">${SITE_NAME}</span><span class="tl">${TAGLINE}</span></h1>
+  <div class="sub">覆盖 13 职业 ${REG.stats.total} 个专精与 ${REG.compStats.total} 组竞技场组合。
+    每个训练器提供情境判断题：<b>给定局面，选技能与目标，选完给出判断依据</b>。</div>
   <div class="cta">
-    <a class="pri" href="#matrix">挑一个专精开始 →</a>
-    <a class="sec" href="#howto">先看怎么用</a>
+    <a class="pri" href="#matrix">职业专精</a>
+    <a class="sec" href="#comps">竞技场组合</a>
   </div>
   <div class="kpis">
-    <div class="kpi"><div class="v">${trainerCount}</div><div class="k">现有训练器（${liveSpecs.length} 专精 + ${REG.comps.length} 组合）</div></div>
+    <div class="kpi"><div class="v">${trainerCount}</div><div class="k">已上线训练器</div></div>
     <div class="kpi"><div class="v">${totalQ}</div><div class="k">情境判断题</div></div>
-    <div class="kpi"><div class="v">${REG.stats.done} <span style="font-size:15px;color:var(--tx3)">/ ${REG.stats.total}</span></div>
-      <div class="k">专精覆盖度</div><div class="bar"><i style="width:${REG.stats.pct}%"></i></div></div>
-    <div class="kpi"><div class="v">6</div><div class="k">内容轴：骨架 · 手法 · 对阵 · 天赋 · 装备 · 训练</div></div>
+    <div class="kpi"><div class="v">${REG.stats.done} <span class="of">/ ${REG.stats.total}</span></div>
+      <div class="k">职业专精</div><div class="bar"><i style="width:${REG.stats.pct}%"></i></div></div>
+    <div class="kpi"><div class="v">${REG.compStats.done} <span class="of">/ ${REG.compStats.total}</span></div>
+      <div class="k">竞技场组合</div><div class="bar"><i style="width:${REG.compStats.pct}%"></i></div></div>
   </div>
 </div></div>
 
@@ -163,12 +184,12 @@ ${matrix()}
   <p class="lead" style="margin-top:14px">梯队（S / A+ / A / B / C）取自 Icy Veins 12.0.7 PvP DPS 梯队表；治疗与坦克该表未收录，标注为角色。</p>
 </div>
 
-<div class="wrap">
-  <h2>组合训练</h2>
-  <p class="lead">组合训练器提供<strong>多视角</strong>：同一局面，切换查看每个位置的处置。</p>
-  <div class="comps">
+<div class="wrap" id="comps">
+  <h2>竞技场组合</h2>
+  <p class="lead">3v3 有公认命名的固定组合，2v2 按「输出 + 治疗」配对。组合名沿用英文原名——中文社区通用的也是这套缩写。
+    组合训练器提供<strong>多视角</strong>：同一局面，切换查看每个位置的处置。</p>
 ${comps()}
-  </div>
+  <p class="lead" style="margin-top:14px">组合清单来源：Icy Veins 各专精 Best Arena Compositions · wowmeta 组合梯队。</p>
 </div>
 
 <div class="wrap" id="howto">
@@ -230,7 +251,7 @@ ${comps()}
 </div>
 
 <footer><div class="wrap">
-  魔兽世界 PvP 判断训练器 · 对应补丁 ${REG.patch}（${REG.season}）· 最后更新 ${REG.updated}<br>
+  ${SITE_NAME} · ${TAGLINE} · 对应补丁 ${REG.patch}（${REG.season}）· 最后更新 ${REG.updated}<br>
   技能名与图标来自 <a href="https://www.wowhead.com" target="_blank" rel="noopener">Wowhead</a> 官方数据接口 ·
   打法参考 <a href="https://www.icy-veins.com" target="_blank" rel="noopener">Icy Veins</a> ·
   <a href="https://murlok.io" target="_blank" rel="noopener">Murlok.io</a> 实测分布 ·
