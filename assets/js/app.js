@@ -344,14 +344,18 @@ function renderGear() {
         '<span class="sv">' + (s.v || '待实测') + '</span></div>';
     }).join('') + '</div>';
     if (G.statRead) h += '<div class="stread">' + G.statRead + '</div>';
-    if (G.statSrc) h += '<div class="note" style="margin-top:10px">' + G.statSrc + '</div>';
+    if (G.statSrc) h += '<div class="stsrc">' + G.statSrc + '</div>';
   } else {
     h += '<h2>属性优先级</h2>' + todoHTML('本专精的副属性排序');
   }
-  h += '<h2>四个副属性在 PvP 里各自意味着什么</h2><div class="stwhat">' + GEAR_COMMON.what.map(function (w) {
-    return '<div class="stw"><div class="h">' + w.h + '</div><div class="d">' + w.d + '</div></div>';
-  }).join('') + '</div>';
-  h += '<h2>装备通则（所有专精共用）</h2><div class="rows">' + GEAR_COMMON.rows.map(rowHTML).join('') + '</div>';
+  var whatRow = {
+    t: '四个副属性在 PvP 里各自意味着什么', sub: '全能双向 / 精通逐专精',
+    b: '<div class="stwhat">' + GEAR_COMMON.what.map(function (w) {
+      return '<div class="stw"><div class="h">' + w.h + '</div><div class="d">' + w.d + '</div></div>';
+    }).join('') + '</div>'
+  };
+  h += '<h2>装备通则（所有专精共用）</h2><div class="rows">' +
+    rowHTML(whatRow) + GEAR_COMMON.rows.map(rowHTML).join('') + '</div>';
   if (G && G.extra) h += G.extra;
   el.innerHTML = h; paintSK(el);
 }
