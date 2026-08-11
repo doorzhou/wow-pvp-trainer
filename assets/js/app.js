@@ -321,6 +321,58 @@ if (P.assign && $('rgrid')) {
   renderAssign();
 }
 
+/* 天赋树热力图 —— 布局与使用率来自 Murlok top50 实测，
+   分歧格（pages.js 的 picks）在树上高亮，点一下跳到对应判断 */
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;') }
+function treeHTML(blocks, picks) {
+  var mark = {};
+  picks.forEach(function (p, i) { mark[p.en || p.n] = i });
+  var h = '<div class="ttree">';
+  blocks.forEach(function (b) {
+    var cells = [];
+    b.groups.forEach(function (g) { g.cells.forEach(function (c) { cells.push(c) }) });
+    var cols = Math.max.apply(null, cells.map(function (c) { return c.col || 1 }));
+    var picked = cells.filter(function (c) { return c.u > 0 }).length;
+    h += '<div class="ttb"><div class="tth">' + b.n +
+      '<span>' + cells.length + ' 格 · top50 点过 ' + picked + '</span></div>';
+    b.groups.forEach(function (g, gi) {
+      h += '<div class="ttg" style="grid-template-columns:repeat(' + cols + ',1fr)">';
+      g.cells.forEach(function (c) {
+        var st = c.u === 0 ? 'no' : c.u >= 44 ? 'yes' : 'mid';
+        var pi = mark[c.n];
+        h += '<div class="ttc ' + st + (pi != null ? ' pick' : '') + '"' +
+          ' style="grid-column:' + (c.col || 'auto') + '"' +
+          (pi != null ? ' data-pick="' + pi + '" role="button" tabindex="0"' : '') +
+          ' title="' + esc(c.n) + ' · ' + c.u + '/50">' +
+          (c.ic ? '<img src="' + IC(c.ic) + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' : '') +
+          '<span class="cu">' + c.u + '</span></div>';
+      });
+      h += '</div>';
+      if (g.label && b.groups.length > 1 && b.k === 'hero') h += '<div class="ttl">' + esc(g.label) + '</div>';
+    });
+    h += '</div>';
+  });
+  return h + '</div><div class="ttlg"><span class="s yes"></span>人人都点' +
+    '<span class="s mid"></span>有分歧<span class="s no"></span>没人点' +
+    '<span class="s pick"></span>需要你判断（点一下看）</div>';
+}
+function bindTree(el) {
+  el.addEventListener('click', function (e) {
+    var c = e.target.closest('.ttc.pick'); if (!c) return; jumpPick(el, c.dataset.pick);
+  });
+  el.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var c = e.target.closest && e.target.closest('.ttc.pick'); if (!c) return;
+    e.preventDefault(); jumpPick(el, c.dataset.pick);
+  });
+}
+function jumpPick(el, i) {
+  var cards = el.querySelectorAll('.pk'), t = cards[+i]; if (!t) return;
+  [].forEach.call(cards, function (x) { x.classList.remove('lit') });
+  t.classList.add('lit');
+  t.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
 /* ---------------- 天赋 / 装备（新版块） ---------------- */
 function renderTalent() {
   var T = P.talent, el = $('talentBox'); if (!el) return;
@@ -335,6 +387,7 @@ function renderTalent() {
   var TR = T.tree;
   if (TR) {
     h += '<h2>职业树 / 专精树</h2><div class="stread">' + TR.survey + '</div>';
+    if (T.treeData) h += treeHTML(T.treeData, TR.picks || []);
     h += '<div class="picks">' + (TR.picks || []).map(function (p) {
       return '<div class="pk"><div class="pkh"><span class="pn">' + p.n +
         (p.en ? '<i>' + p.en + '</i>' : '') + '</span>' +
@@ -346,6 +399,7 @@ function renderTalent() {
     if (TR.src) h += '<div class="stsrc">' + TR.src + '</div>';
   }
   el.innerHTML = h; paintSK(el);
+  if (TR && T.treeData) bindTree(el);
 }
 function renderGear() {
   var G = P.gear, el = $('gearBox'); if (!el) return;

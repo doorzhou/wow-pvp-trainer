@@ -111,6 +111,12 @@ function dataModule(cfg) {
     store: cfg.store, section: cfg.quizSec, done: cfg.done,
   };
   P.talent = cfg.talent || null;
+  // 天赋树实测布局：解析 Murlok heatmap 得来，与 pages.js 里的判断层分开存，
+  // 重抓数据不动判断。文件不存在就没有树，页面照常渲染其余部分。
+  const treeFile = path.join(__dirname, 'tree', cfg.file + '.json');
+  if (P.talent && fs.existsSync(treeFile)) {
+    P.talent.treeData = JSON.parse(fs.readFileSync(treeFile, 'utf8'));
+  }
   P.gear = cfg.gear || null;
   return {
     page: 'window.PAGE=' + JSON.stringify(P) + ';\n',
