@@ -47,7 +47,7 @@ window.REG = {
       specs: [
         { id: 'assassination', n: '奇袭', en: 'Assassination', role: 'dps', tier: 'A', ic: 'ability_rogue_eviscerate', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'outlaw', n: '狂徒', en: 'Outlaw', role: 'dps', tier: 'A', ic: 'ability_rogue_waylay', page: 'outlaw-rogue.html', st: [2, 2, 2, 1, 2, 2] },
-        { id: 'subtlety', n: '敏锐', en: 'Subtlety', role: 'dps', tier: 'S', ic: 'ability_stealth', page: 'subtlety-rogue.html', st: [2, 2, 2, 1, 2, 2] },
+        { id: 'subtlety', n: '敏锐', en: 'Subtlety', role: 'dps', tier: 'S', ic: 'ability_stealth', page: 'subtlety-rogue.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
     {

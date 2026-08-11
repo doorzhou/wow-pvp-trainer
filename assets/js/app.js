@@ -332,6 +332,19 @@ function renderTalent() {
   });
   h += '</div>';
   if (T.note) h += '<div class="note" style="margin-top:12px">' + T.note + '</div>';
+  var TR = T.tree;
+  if (TR) {
+    h += '<h2>职业树 / 专精树</h2><div class="stread">' + TR.survey + '</div>';
+    h += '<div class="picks">' + (TR.picks || []).map(function (p) {
+      return '<div class="pk"><div class="pkh"><span class="pn">' + p.n +
+        (p.en ? '<i>' + p.en + '</i>' : '') + '</span>' +
+        '<span class="pt">' + p.tree + '</span>' +
+        '<span class="pbar"><i style="width:' + (p.u / 50 * 100) + '%"></i></span>' +
+        '<span class="pu"><b>' + p.u + '</b>/50</span></div>' +
+        '<div class="pkb">' + p.b + '</div></div>';
+    }).join('') + '</div>';
+    if (TR.src) h += '<div class="stsrc">' + TR.src + '</div>';
+  }
   el.innerHTML = h; paintSK(el);
 }
 function renderGear() {
