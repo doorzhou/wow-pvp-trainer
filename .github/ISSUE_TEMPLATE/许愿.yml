@@ -1,0 +1,33 @@
+name: 许愿 · 想先看哪个
+description: 想让哪个专精或组合先做
+title: "[许愿] "
+labels: ["许愿"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        还有 36 个专精、31 组组合没开工。完整清单见 [路线图](../blob/main/docs/ROADMAP.md)。
+  - type: input
+    id: want
+    attributes:
+      label: 想看哪个
+      placeholder: 比如 火法 / RMP / 邪DK
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: 具体想解决什么问题
+      description: 说得越具体越有用——「想看火法」不如「火法被贴脸之后怎么把窗口做出来」
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 类型
+      options:
+        - 职业专精
+        - 竞技场组合
+        - 说不好
+    validations:
+      required: true

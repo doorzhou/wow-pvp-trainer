@@ -333,6 +333,62 @@ footer a{color:var(--tx2)}
 .rel .n{font-size:13px;font-weight:600;color:var(--tx)}
 .rel .e{font-size:11px;color:var(--tx3)}
 
+/* 许愿池 */
+#wishbox{position:fixed;inset:0;z-index:9990;display:none}
+#wishbox.on{display:block}
+#wishbox .wmask{position:absolute;inset:0;background:rgba(0,0,0,.62);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+#wishbox .wpanel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(94vw,520px);max-height:88vh;overflow:auto;background:var(--bg2);
+  border:1px solid var(--line);border-radius:var(--r4);padding:24px 26px 22px;box-shadow:var(--sh3)}
+#wishbox .wx{position:absolute;right:14px;top:12px;background:none;border:none;
+  color:var(--tx3);font-size:15px;cursor:pointer;padding:5px 8px;border-radius:var(--r1);font-family:inherit}
+#wishbox .wx:hover{color:var(--tx);background:var(--bg3)}
+#wishbox h3{font-size:20px;font-weight:700;letter-spacing:-.4px}
+#wishbox .wsub{font-size:13.5px;color:var(--tx3);margin:5px 0 16px}
+#wishbox .wl{display:block;font-size:12.5px;font-weight:620;color:var(--tx2);margin:13px 0 5px}
+/* 注意：.opt / .req 在旧组件库里已被题库选项占用，这里必须用带前缀的类名 */
+#wishbox .wl .wreq{color:var(--no);font-weight:400;font-size:11.5px}
+#wishbox .wl .wopt{color:var(--tx3);font-weight:400;font-size:11.5px}
+#wishbox select,#wishbox textarea,#wishbox input[type=text]{
+  width:100%;background:var(--bg3);border:1px solid var(--line);color:var(--tx);
+  padding:9px 12px;border-radius:var(--r2);font-size:14px;font-family:inherit;line-height:1.6}
+#wishbox textarea{resize:vertical;min-height:96px}
+#wishbox select:focus,#wishbox textarea:focus,#wishbox input:focus{
+  outline:none;border-color:var(--ac);box-shadow:var(--ring)}
+#wishbox .wcount{text-align:right;font-size:11px;color:var(--tx3);margin-top:4px;
+  font-variant-numeric:tabular-nums}
+#wishbox .wbot{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+#wishbox .wfoot{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+#wishbox .wnote{font-size:12px;color:var(--tx3)}
+#wishbox .wres{display:none;margin-top:14px;padding:11px 14px;border-radius:var(--r2);
+  font-size:13.5px;line-height:1.7}
+#wishbox .wres.show{display:block}
+#wishbox .wres.ok{background:rgba(79,191,127,.11);border:1px solid rgba(79,191,127,.32);color:var(--tx2)}
+#wishbox .wres.bad{background:rgba(217,164,65,.10);border:1px solid rgba(217,164,65,.32);color:var(--tx2)}
+#wishbox .wres a,#wishbox .wcopy{display:inline-block;margin:6px 8px 0 0;font-size:12.5px;
+  background:var(--bg3);border:1px solid var(--line);color:var(--tx2);padding:4px 11px;
+  border-radius:var(--r1);cursor:pointer;font-family:inherit;text-decoration:none}
+#wishbox .wres a:hover,#wishbox .wcopy:hover{color:var(--tx);border-color:var(--ac)}
+.wishbtn{display:inline-flex;align-items:center;gap:6px;background:var(--bg3);
+  border:1px solid var(--line);color:var(--tx2);padding:4px 11px;border-radius:var(--r1);
+  cursor:pointer;font-size:12.5px;font-family:inherit;white-space:nowrap;transition:.13s}
+.wishbtn:hover{color:var(--ac2);border-color:var(--ac)}
+/* 首页底部的大入口 */
+.wishcta{display:flex;align-items:center;gap:16px;background:
+    radial-gradient(120% 160% at 0% 0%,rgba(139,111,212,.16),transparent 62%),var(--bg2);
+  border:1px solid rgba(139,111,212,.3);border-radius:var(--r4);padding:20px 24px;flex-wrap:wrap}
+.wishcta .wt{flex:1;min-width:220px}
+.wishcta h3{font-size:17px;font-weight:670;letter-spacing:-.3px;margin-bottom:4px}
+.wishcta p{font-size:13.5px;margin:0}
+@media(max-width:760px){
+  #wishbox .wpanel{padding:20px 18px 18px;width:calc(100vw - 20px);max-height:92vh}
+  #wishbox h3{font-size:18px}
+  #wishbox textarea{min-height:110px}
+  #wishbox .wfoot .btn{flex:1;min-height:44px;text-align:center}
+  .wishcta{padding:16px 17px;gap:12px}
+}
+
 /* 规划中专精的提示气泡 */
 .soontip{position:fixed;left:50%;bottom:26px;transform:translate(-50%,14px);z-index:9998;
   background:var(--bg3);border:1px solid var(--line2);color:var(--tx);padding:11px 18px;

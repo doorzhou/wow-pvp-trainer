@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 完整路线图
+    url: https://github.com/doorzhou/wow-pvp-trainer/blob/main/docs/ROADMAP.md
+    about: 看看哪些专精和组合已经排上了
+  - name: 想自己整理一个专精
+    url: https://github.com/doorzhou/wow-pvp-trainer/blob/main/docs/新增专精.md
+    about: 完整步骤、内容纪律与文案调性都写在这里

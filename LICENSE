@@ -1,0 +1,62 @@
+WOW打架营地 / WoW Arena Judgment Trainer
+授权说明
+
+本仓库里的东西不是同一种性质，所以分三层说。
+
+────────────────────────────────────────────────────────
+第一层：代码 —— MIT
+────────────────────────────────────────────────────────
+适用范围：
+  _build/           构建工具
+  assets/css/       样式
+  assets/js/        app.js / home.js / wish.js（不含 skdb.js 的数据部分）
+  data/registry.js  的结构（不含其中的判断性描述文字）
+
+MIT License
+
+Copyright (c) 2026 doorzhou
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+────────────────────────────────────────────────────────
+第二层：内容 —— 署名-非商业性使用-相同方式共享 4.0（CC BY-NC-SA 4.0）
+────────────────────────────────────────────────────────
+适用范围：
+  _build/content/   判断框架、对局分析、情境题库与解释
+  docs/             项目文档
+  各页面里的原创文字
+
+这部分是原创的判断与写作，不是可替换的模板。
+允许转载与改编，但要求：署名、非商业、以相同方式共享。
+https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh
+
+────────────────────────────────────────────────────────
+第三层：暴雪素材 —— 不在本仓库授权范围内
+────────────────────────────────────────────────────────
+适用范围：
+  assets/icons/     技能与职业图标
+  assets/js/skdb.js 技能名称与官方说明文本
+
+《魔兽世界》及相关标识、技能图标、技能说明为 Blizzard Entertainment, Inc.
+的商标或版权财产。本项目按暴雪《粉丝内容使用条款》（Fan Content Policy）
+在非商业前提下使用，本仓库的任何授权条款均不覆盖这部分内容，
+也无权将其再授权给第三方。
+
+本项目为非官方粉丝内容，与 Blizzard Entertainment 无隶属关系，
+未经其认可或赞助。若权利方认为存在不当使用，请通过 Issues 告知，将立即移除。

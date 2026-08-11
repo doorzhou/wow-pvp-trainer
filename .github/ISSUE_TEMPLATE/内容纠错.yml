@@ -1,0 +1,39 @@
+name: 内容纠错
+description: 技能机制写错了、数据引用错了、跟游戏内不符
+title: "[纠错] "
+labels: ["内容纠错"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        技能机制与数据引用类的错误优先处理。
+  - type: input
+    id: page
+    attributes:
+      label: 哪一页
+      placeholder: 比如 敏锐贼 → 分职业 → 圣骑士
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: 现在写的是什么
+      description: 直接贴原文
+    validations:
+      required: true
+  - type: textarea
+    id: right
+    attributes:
+      label: 正确的是什么
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 出处
+      description: Wowhead / 官方补丁说明 / 游戏内截图。有出处的会优先处理
+  - type: input
+    id: patch
+    attributes:
+      label: 你玩的版本
+      value: "12.0.7"

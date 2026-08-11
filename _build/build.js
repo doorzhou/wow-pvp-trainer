@@ -10,7 +10,7 @@ const C = {};
 for (const f of fs.readdirSync(path.join(__dirname, 'content'))) {
   if (f.endsWith('.js') && !f.startsWith('_')) C[f.replace('.js','')] = require('./content/' + f);
 }
-const { DOMAIN, SITE_NAME, TAGLINE, MARK } = require('./config.js');
+const { DOMAIN, SITE_NAME, TAGLINE, MARK, ISSUES, WISH_KEY } = require('./config.js');
 const NUM = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨'];
 
 /* ---------- 每页配置 ---------- */
@@ -226,6 +226,7 @@ ${m.jsonld ? '<script type="application/ld+json">' + m.jsonld + '</script>' : ''
     <span class="badge" id="pcount">—</span>
     <div class="spacer"></div>
     ${vsw}<span class="badge" id="topAcc">正确率 —</span>
+    ${WISH_KEY ? '<button class="wishbtn" data-wish>✦ 许愿池</button>' : ''}
     <button class="tbtn" onclick="toggleTheme()" title="切换深浅色">◐</button>
   </div>
   <div class="wrap"><nav>
@@ -248,6 +249,7 @@ ${body}<div class="wrap" style="margin-top:38px">
 <script src="${v('data/registry.js')}"></script>
 <script src="${v('data/specs/'+cfg.file+'.js')}"></script>
 <script src="${v('assets/js/app.js')}"></script>
+${WISH_KEY ? `<script>window.WISH_KEY='${WISH_KEY}';window.WISH_ISSUES='${ISSUES}';</script>\n<script src="${v('assets/js/wish.js')}"></script>` : ''}
 </body>
 </html>
 `;

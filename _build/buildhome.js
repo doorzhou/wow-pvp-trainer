@@ -4,7 +4,7 @@
    ============================================================ */
 const fs = require('fs'), path = require('path');
 const SITE = path.join(__dirname, '..');
-const { DOMAIN, SITE_NAME, TAGLINE, MARK } = require('./config.js');
+const { DOMAIN, SITE_NAME, TAGLINE, MARK, ISSUES, WISH_KEY } = require('./config.js');
 const v = require('./ver.js');
 
 // 载入注册表
@@ -135,6 +135,7 @@ const html = `<!DOCTYPE html>
     <div class="spacer"></div>
     <a class="homelink" href="#matrix">职业专精</a>
     <a class="homelink" href="#comps">竞技场组合</a>
+    ${WISH_KEY ? '<button class="wishbtn" data-wish>✦ 许愿池</button>' : ''}
     <button class="tbtn" onclick="toggleTheme()" title="切换深浅色">◐</button>
   </div>
 </header>
@@ -237,6 +238,17 @@ ${comps()}
   <div class="note" style="margin-top:14px">不收录具体冷却秒数与装等数值——每次平衡改动即失效，内容按相对关系描述。</div>
 </div>
 
+${WISH_KEY ? `<div class="wrap" id="wish">
+  <h2>许愿池</h2>
+  <div class="wishcta">
+    <div class="wt">
+      <h3>想先看哪个专精或组合？</h3>
+      <p>还有 ${REG.stats.total - REG.stats.done} 个专精、${REG.compStats.total - REG.compStats.done} 组组合没开工。说一声，排顺序的时候会看。</p>
+    </div>
+    <button class="btn" data-wish>投个愿望</button>
+  </div>
+</div>` : ''}
+
 <div class="wrap" id="legal">
   <h2>版本与免责</h2>
   <div class="rows">
@@ -274,6 +286,7 @@ ${comps()}
 <script src="${v('assets/js/skdb.js')}"></script>
 <script src="${v('data/registry.js')}"></script>
 <script src="${v('assets/js/home.js')}"></script>
+${WISH_KEY ? `<script>window.WISH_KEY='${WISH_KEY}';window.WISH_ISSUES='${ISSUES}';</script>\n<script src="${v('assets/js/wish.js')}"></script>` : ''}
 </body>
 </html>
 `;
