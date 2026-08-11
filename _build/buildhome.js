@@ -192,13 +192,11 @@ ${matrix()}
     组合训练器提供<strong>多视角</strong>：同一局面，切换查看每个位置的处置。</p>
 
   <div class="cpick">
-    <div class="cpl">点职业看能打哪些组合<span class="hint">可多选——选两个就是「我们俩能带谁」</span></div>
+    <div class="cph"><span class="cpl">点职业看能打哪些组合</span><span class="cpc" id="cpc">全部 33 组</span></div>
     <div class="cpr" id="cpick">
 ${REG.classes.map(c => '      <button class="cb" data-c="' + c.id + '" style="--cc:' + c.c + '" title="' + c.n + '">' +
   '<img src="' + IC(c.ic) + '" alt="' + c.n + '" loading="lazy"><span>' + c.n + '</span></button>').join('\n')}
     </div>
-    <button class="cclr" id="cclr" hidden>清除</button>
-    <span class="cpc" id="cpc"></span>
   </div>
 
 ${comps()}
