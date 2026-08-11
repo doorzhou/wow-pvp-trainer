@@ -339,10 +339,12 @@ function renderGear() {
   var h = '';
   if (G && G.stats) {
     h += '<h2>属性优先级</h2><div class="stats">' + G.stats.map(function (s) {
-      return '<div class="strow' + (s.pct == null ? ' unknown' : '') + '"><span class="sn">' + s.n + '</span>' +
+      return '<div class="strow' + (s.pct == null ? ' unknown' : '') + (s.mid ? ' mid' : '') + (s.dim ? ' dim' : '') + '"><span class="sn">' + s.n + '</span>' +
         '<span class="sbar"><i style="width:' + (s.pct == null ? 100 : s.pct) + '%"></i></span>' +
         '<span class="sv">' + (s.v || '待实测') + '</span></div>';
     }).join('') + '</div>';
+    if (G.statRead) h += '<div class="stread">' + G.statRead + '</div>';
+    if (G.statSrc) h += '<div class="note" style="margin-top:10px">' + G.statSrc + '</div>';
   } else {
     h += '<h2>属性优先级</h2>' + todoHTML('本专精的副属性排序');
   }
