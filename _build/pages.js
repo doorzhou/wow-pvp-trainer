@@ -21,6 +21,14 @@ const PAGES = [
       ],
       note: '「Preemptive Maneuver」「Thick as Thieves」暂无官方简体中文名。' +
         '后者是 PvP 天赋，强化职业树的<sk>偷天换日</sk>，<b>两者不是同一格</b>。',
+      imp: {
+        str: 'CUQAphyM11FofNMFa1K3vFEDUCgZ2mBAAAAAmlZmZZiZZbmxMjZgZmZmlxsNmZmllhBzMGwMGAAAAzwMsY2mxsMDDMsNz20CtMbMzwMzMDmxA',
+        who: 'Whââzz', where: 'EU · Tarren Mill', rating: '3v3 3254',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '它在下面 7 个分歧格里<b>有 3 格跟多数派不一样</b>' +
+          '（点了<b>偷天换日</b>与 <b>Nimble Fingers</b>、没点<b>毒刃</b>）。' +
+          '<b>粘进游戏当起点，那 7 格再按自己的局面调。</b>',
+      },
       tree: {
         survey: '职业树 44 格 + 专精树 41 格 + 英雄天赋 28 格，共 <b>113 格</b>。' +
           'top50 的实测分布里，<b>106 格是定死的</b>——要么人人都点，要么没人点。' +

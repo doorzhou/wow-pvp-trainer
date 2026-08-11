@@ -316,6 +316,30 @@ footer a{color:var(--tx2)}
 .stsrc b{color:var(--tx3);font-weight:600}
 .dimtx{color:var(--tx3);font-size:11.5px}
 
+/* 天赋导入串 */
+.imp{background:var(--bg3);border:1px solid var(--line);border-left:3px solid var(--ac);
+  border-radius:var(--r2);padding:12px 14px;margin-bottom:12px}
+.impk{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.impt{font-size:12.5px;font-weight:650;color:var(--tx);white-space:nowrap}
+.impc{flex:1;min-width:180px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11px;line-height:1.5;color:var(--tx2);background:var(--bg2);
+  border:1px solid var(--line);border-radius:var(--r1);padding:7px 9px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-break:break-all}
+.impb{background:var(--ac);border:none;color:#fff;padding:7px 15px;border-radius:var(--r1);
+  cursor:pointer;font-size:12.5px;font-family:inherit;font-weight:600;white-space:nowrap;transition:.14s}
+.impb:hover{background:var(--ac2)}
+.impb.done{background:var(--ok)}
+.impc.sel{white-space:normal;overflow:visible;border-color:var(--ac);color:var(--tx)}
+.impn{margin-top:9px;font-size:12px;line-height:1.65;color:var(--tx2)}
+#sktip .tj{margin-top:9px;padding:7px 10px;border-radius:var(--r1);cursor:pointer;
+  background:rgba(255,169,77,.14);border:1px solid rgba(255,169,77,.4);
+  color:#ffc078;font-size:11.5px;font-weight:600}
+#sktip .tj:hover{background:rgba(255,169,77,.24)}
+/* 浮窗在亮色下是白底，浅橙字看不见 —— 换深棕 */
+html[data-theme="light"] #sktip .tj{color:#8a4b00;background:rgba(255,169,77,.2);border-color:rgba(180,110,20,.55)}
+html[data-theme="light"] #sktip .tj:hover{background:rgba(255,169,77,.32)}
+@media(max-width:640px){ .impc{min-width:0;width:100%;order:3} }
+
 /* 天赋树热力图 */
 .ttree{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:10px;margin-top:11px}
 .ttb{background:var(--bg3);border:1px solid var(--line);border-radius:var(--r2);padding:11px 13px 13px}

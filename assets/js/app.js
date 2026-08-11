@@ -342,7 +342,9 @@ function treeHTML(blocks, picks) {
         var pi = mark[c.n];
         h += '<div class="ttc ' + st + (pi != null ? ' pick' : '') + '"' +
           ' style="grid-column:' + (c.col || 'auto') + '"' +
-          (pi != null ? ' data-pick="' + pi + '" role="button" tabindex="0"' : '') +
+          ' role="button" tabindex="0" data-tal="' + esc(c.s || '') + '"' +
+          ' data-tn="' + esc(c.n) + '" data-tu="' + c.u + '" data-ti="' + esc(c.ic || '') + '"' +
+          (pi != null ? ' data-pick="' + pi + '"' : '') +
           ' title="' + esc(c.n) + ' · ' + c.u + '/50">' +
           (c.ic ? '<img src="' + IC(c.ic) + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' : '') +
           '<span class="cu">' + c.u + '</span></div>';
@@ -356,14 +358,56 @@ function treeHTML(blocks, picks) {
     '<span class="s mid"></span>有分歧<span class="s no"></span>没人点' +
     '<span class="s pick"></span>需要你判断（点一下看）</div>';
 }
+/* 天赋描述懒加载：点第一格时才请求，不进首屏 */
+var _descState = 0;   // 0 未加载 1 加载中 2 已加载 3 失败
+function loadDesc(then) {
+  if (_descState === 2 || _descState === 3) return then();
+  if (!P.talent || !P.talent.descSrc) { _descState = 3; return then() }
+  if (_descState === 1) return;
+  _descState = 1;
+  var s = document.createElement('script');
+  s.src = P.talent.descSrc;
+  s.onload = function () { _descState = 2; then() };
+  s.onerror = function () { _descState = 3; then() };
+  document.head.appendChild(s);
+}
+
+/* 天赋浮窗：复用 #sktip 的外观，数据换成 TALDESC（Murlok 英文原文） */
+function showTalTip(c) {
+  var db = window.TALDESC || {};
+  var d = db[c.dataset.tal] || null, t = tipEl();
+  var pi = c.dataset.pick;
+  t.innerHTML = '<div class="tn">' +
+    (c.dataset.ti ? '<img src="' + IC(c.dataset.ti) + '" alt="" onerror="this.style.display=\'none\'">' : '') +
+    c.dataset.tn + '</div>' +
+    (d && d.meta ? '<div class="tm">' + d.meta + '</div>' : '') +
+    '<div class="td">' + (d ? d.desc : _descState === 1 ? '载入中…'
+      : _descState === 3 ? '描述没加载成功，刷新一下试试。' : '这一格暂时没抓到描述。') + '</div>' +
+    (pi != null ? '<div class="tj">这一格需要判断 —— 点这里看什么局面选哪边 ▸</div>' : '') +
+    '<div class="tf">top50 里 <b>' + c.dataset.tu + '</b> 人点 · 描述为 Murlok.io 英文原文</div>';
+  t.classList.add('on');
+  var r = c.getBoundingClientRect(), tr = t.getBoundingClientRect();
+  var top = r.bottom + 8, left = r.left;
+  if (top + tr.height > window.innerHeight - 8) top = Math.max(8, r.top - tr.height - 8);
+  if (left + tr.width > window.innerWidth - 10) left = Math.max(8, window.innerWidth - tr.width - 10);
+  t.style.top = top + 'px'; t.style.left = left + 'px';
+  var j = t.querySelector('.tj');
+  if (j) j.onclick = function () { hideTip(); jumpPick(document.getElementById('talentBox'), pi) };
+  _pin = c;   // 钉住，否则全局 mouseover 会把刚弹出来的浮窗立刻关掉
+}
 function bindTree(el) {
+  var open = function (c) {
+    showTalTip(c);                                  // 先弹出（可能是「载入中…」）
+    loadDesc(function () { if (_pin === c) showTalTip(c) });  // 数据到了就地重画
+  };
   el.addEventListener('click', function (e) {
-    var c = e.target.closest('.ttc.pick'); if (!c) return; jumpPick(el, c.dataset.pick);
+    var c = e.target.closest('.ttc'); if (!c) return;
+    e.stopPropagation(); open(c);
   });
   el.addEventListener('keydown', function (e) {
     if (e.key !== 'Enter' && e.key !== ' ') return;
-    var c = e.target.closest && e.target.closest('.ttc.pick'); if (!c) return;
-    e.preventDefault(); jumpPick(el, c.dataset.pick);
+    var c = e.target.closest && e.target.closest('.ttc'); if (!c) return;
+    e.preventDefault(); open(c);
   });
 }
 function jumpPick(el, i) {
@@ -377,7 +421,16 @@ function jumpPick(el, i) {
 function renderTalent() {
   var T = P.talent, el = $('talentBox'); if (!el) return;
   if (!T) { el.innerHTML = todoHTML('天赋定盘'); return }
-  var h = '<div class="tal">';
+  var h = '';
+  if (T.imp) {
+    h += '<div class="imp"><div class="impk">' +
+      '<span class="impt">天赋导入串</span>' +
+      '<code class="impc">' + T.imp.str + '</code>' +
+      '<button class="impb" type="button">复制</button></div>' +
+      '<div class="impn"><b>来源：' + T.imp.who + '</b>（' + T.imp.where +
+      ' · ' + T.imp.rating + '）。' + T.imp.note + '</div></div>';
+  }
+  h += '<div class="tal">';
   (T.rows || []).forEach(function (r) {
     h += '<div class="talrow' + (r.todo ? ' locked' : '') + '"><div class="lb">' + r.lb + '</div>' +
       '<div class="vv">' + (r.todo ? '<span class="pend">待补充</span>' : r.vv) + '</div></div>';
@@ -400,6 +453,39 @@ function renderTalent() {
   }
   el.innerHTML = h; paintSK(el);
   if (TR && T.treeData) bindTree(el);
+  var ib = el.querySelector('.impb');
+  if (ib) ib.onclick = function () { copyStr(T.imp.str, ib) };
+}
+/* 复制：clipboard API → execCommand → 都不行就把串选中让用户自己按 Ctrl+C。
+   前两条都依赖页面有焦点、是安全上下文，不能假定一定可用 */
+function copyStr(s, btn) {
+  var done = function (ok) {
+    if (!ok) selectStr(btn);
+    btn.textContent = ok ? '已复制' : '已选中，按 Ctrl/⌘+C';
+    btn.classList.toggle('done', ok);
+    setTimeout(function () { btn.textContent = '复制'; btn.classList.remove('done') }, 2600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(s).then(function () { done(true) }, function () { done(fallback(s)) });
+  } else done(fallback(s));
+}
+function selectStr(btn) {
+  var code = btn.parentElement.querySelector('.impc'); if (!code) return;
+  code.classList.add('sel');
+  try {
+    var r = document.createRange(); r.selectNodeContents(code);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  } catch (e) {}
+}
+function fallback(s) {
+  try {
+    var t = document.createElement('textarea');
+    t.value = s; t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    var ok = document.execCommand('copy');
+    document.body.removeChild(t);
+    return ok;
+  } catch (e) { return false }
 }
 function renderGear() {
   var G = P.gear, el = $('gearBox'); if (!el) return;

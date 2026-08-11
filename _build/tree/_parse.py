@@ -36,11 +36,13 @@ def parse(path):
                     alt = re.search(r'alt="([^"]*)"', ainner)
                     cnt = re.search(r'guide-talent-count">(\d+)<', ainner)
                     ico = re.search(r'/icons/\d+/([a-z0-9_]+)\.jpg', ainner)
+                    slug = re.search(r'href="[^"]*#([^"]+)"', aattr)   # slug 含撇号，别枚举字符
                     if not alt: continue
                     cells.append({'col': int(col.group(1)) if col else None,
                                   'n': alt.group(1),
                                   'u': int(cnt.group(1)) if cnt else 0,
-                                  'ic': ico.group(1) if ico else None})
+                                  'ic': ico.group(1) if ico else None,
+                                  's': slug.group(1) if slug else None})
                     total += 1
             if cells: groups.append({'label': label, 'cells': cells})
         if groups: out.append({'k': key, 'n': name, 'groups': groups})

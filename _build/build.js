@@ -116,6 +116,14 @@ function dataModule(cfg) {
   const treeFile = path.join(__dirname, 'tree', cfg.file + '.json');
   if (P.talent && fs.existsSync(treeFile)) {
     P.talent.treeData = JSON.parse(fs.readFileSync(treeFile, 'utf8'));
+    // 天赋描述只在点开某一格时才要，跟题库一样单独成文件，不进首屏
+    const descFile = path.join(__dirname, 'tree', cfg.file + '.desc.json');
+    if (fs.existsSync(descFile)) {
+      fs.mkdirSync(path.join(SITE, 'data/taldesc'), { recursive: true });
+      fs.writeFileSync(path.join(SITE, 'data/taldesc', cfg.file + '.js'),
+        'window.TALDESC=' + fs.readFileSync(descFile, 'utf8') + ';\n');
+      P.talent.descSrc = v('data/taldesc/' + cfg.file + '.js');
+    }
   }
   P.gear = cfg.gear || null;
   return {
