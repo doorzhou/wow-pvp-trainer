@@ -237,9 +237,11 @@ ${m.jsonld ? '<script type="application/ld+json">' + m.jsonld + '</script>' : ''
 <header>
   <div class="wrap hd">
     <a class="brand" href="index.html"><span class="mk">${MARK}</span>${SITE_NAME}</a>
-    <span class="badge" id="pcount">—</span>
+    ${cfg.quiz !== false && (C[cfg.file].quiz || []).length
+      ? '<span class="badge" id="pcount">—</span>' : ''}
     <div class="spacer"></div>
-    ${vsw}<span class="badge" id="topAcc">正确率 —</span>
+    ${vsw}${(C[cfg.file].quiz || []).length
+      ? '<span class="badge" id="topAcc">正确率 —</span>' : ''}
     ${WISH_KEY ? '<button class="wishbtn" data-wish>✦ 许愿池</button>' : ''}
     <button class="tbtn" onclick="toggleTheme()" title="切换深浅色">◐</button>
   </div>
