@@ -335,6 +335,15 @@ footer a{color:var(--tx2)}
   background:rgba(255,169,77,.14);border:1px solid rgba(255,169,77,.4);
   color:#ffc078;font-size:11.5px;font-weight:600}
 #sktip .tj:hover{background:rgba(255,169,77,.24)}
+/* 中英切换：放在浮窗标题行右端。原来塞在最底部那行灰字里，找不到 */
+#sktip .tn{display:flex;align-items:center;gap:8px}
+#sktip .tn .tnn{flex:1;min-width:0}
+#sktip .tfen{flex:none;background:var(--ac);border:1px solid var(--ac);color:#fff;
+  border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;letter-spacing:.4px;
+  font-family:inherit;cursor:pointer;line-height:1.5;transition:.14s}
+#sktip .tfen:hover{background:var(--ac2);border-color:var(--ac2)}
+#sktip .tfen.on{background:transparent;color:var(--ac2)}
+#sktip .td.rawen{font-size:12px;line-height:1.6;color:var(--tx2)}
 /* 浮窗在亮色下是白底，浅橙字看不见 —— 换深棕 */
 html[data-theme="light"] #sktip .tj{color:#8a4b00;background:rgba(255,169,77,.2);border-color:rgba(180,110,20,.55)}
 html[data-theme="light"] #sktip .tj:hover{background:rgba(255,169,77,.32)}

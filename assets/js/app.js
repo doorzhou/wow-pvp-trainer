@@ -379,12 +379,13 @@ function showTalTip(c) {
   var pi = c.dataset.pick;
   t.innerHTML = '<div class="tn">' +
     (c.dataset.ti ? '<img src="' + IC(c.dataset.ti) + '" alt="" onerror="this.style.display=\'none\'">' : '') +
-    c.dataset.tn + '</div>' +
+    '<span class="tnn">' + c.dataset.tn + '</span>' +
+    (d && d.en ? '<button type="button" class="tfen">EN</button>' : '') + '</div>' +
     (d && d.meta ? '<div class="tm">' + d.meta + '</div>' : '') +
     '<div class="td">' + (d ? d.desc : _descState === 1 ? '载入中…'
       : _descState === 3 ? '描述没加载成功，刷新一下试试。' : '这一格暂时没抓到描述。') + '</div>' +
     (pi != null ? '<div class="tj">这一格需要判断 —— 点这里看什么局面选哪边 ▸</div>' : '') +
-    '<div class="tf">top50 里 <b>' + c.dataset.tu + '</b> 人点 · 描述为 Murlok.io 英文原文</div>';
+    '<div class="tf">top50 里 <b>' + c.dataset.tu + '</b> 人点 · 译自 Murlok.io</div>';
   t.classList.add('on');
   var r = c.getBoundingClientRect(), tr = t.getBoundingClientRect();
   var top = r.bottom + 8, left = r.left;
@@ -393,6 +394,18 @@ function showTalTip(c) {
   t.style.top = top + 'px'; t.style.left = left + 'px';
   var j = t.querySelector('.tj');
   if (j) j.onclick = function () { hideTip(); jumpPick(document.getElementById('talentBox'), pi) };
+  var en = t.querySelector('.tfen');
+  if (en) {
+    var zh = true, body = t.querySelector('.td');
+    en.onclick = function (e) {
+      e.stopPropagation();
+      zh = !zh;
+      body.textContent = zh ? d.desc : d.en;
+      body.classList.toggle('rawen', !zh);
+      en.textContent = zh ? 'EN' : '中';
+      en.classList.toggle('on', !zh);
+    };
+  }
   _pin = c;   // 钉住，否则全局 mouseover 会把刚弹出来的浮窗立刻关掉
 }
 function bindTree(el) {
