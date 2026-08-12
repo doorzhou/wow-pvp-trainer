@@ -1,0 +1,497 @@
+{
+ "note": "已通过 Wowhead 官方接口双重回验（中文名+图标）的技能名，勿重复验",
+ "byName": {
+  "暗影之舞": {
+   "id": 185313,
+   "en": "Shadow Dance"
+  },
+  "袖剑风暴": {
+   "id": 197835,
+   "en": "Shuriken Storm"
+  },
+  "暗影打击": {
+   "id": 185438,
+   "en": "Shadowstrike"
+  },
+  "刺骨": {
+   "id": 196819,
+   "en": "Eviscerate"
+  },
+  "背刺": {
+   "id": 53,
+   "en": "Backstab"
+  },
+  "黑火药": {
+   "id": 319175,
+   "en": "Black Powder"
+  },
+  "暗影步": {
+   "id": 36554,
+   "en": "Shadowstep"
+  },
+  "切割": {
+   "id": 315496,
+   "en": "Slice and Dice"
+  },
+  "影分身": {
+   "id": 280719,
+   "en": "Secret Technique"
+  },
+  "猩红之瓶": {
+   "id": 185311,
+   "en": "Crimson Vial"
+  },
+  "潜伏帷幕": {
+   "id": 114018,
+   "en": "Shroud of Concealment"
+  },
+  "幽暗之刃": {
+   "id": 200758,
+   "en": "Gloomblade"
+  },
+  "洞悉弱点": {
+   "id": 91023,
+   "en": "Find Weakness"
+  },
+  "暗影之刃": {
+   "id": 121471,
+   "en": "Shadow Blades"
+  },
+  "蓟叶茶": {
+   "id": 381623,
+   "en": "Thistle Tea"
+  },
+  "搜索": {
+   "id": 921,
+   "en": "Pick Pocket"
+  },
+  "致伤药膏": {
+   "id": 8679,
+   "en": "Wound Poison"
+  },
+  "减速药膏": {
+   "id": 3408,
+   "en": "Crippling Poison"
+  },
+  "死亡符记": {
+   "id": 212283,
+   "en": "Symbols of Death"
+  },
+  "割裂": {
+   "id": 1943,
+   "en": "Rupture"
+  },
+  "锁喉": {
+   "id": 703,
+   "en": "Garrote"
+  },
+  "伏击": {
+   "id": 8676,
+   "en": "Ambush"
+  },
+  "死亡标记": {
+   "id": 137619,
+   "en": "Marked for Death"
+  },
+  "飞镖投掷": {
+   "id": 114014,
+   "en": "Shuriken Toss"
+  },
+  "偷袭": {
+   "id": 1833,
+   "en": "Cheap Shot"
+  },
+  "肾击": {
+   "id": 408,
+   "en": "Kidney Shot"
+  },
+  "闷棍": {
+   "id": 6770,
+   "en": "Sap"
+  },
+  "疾跑": {
+   "id": 2983,
+   "en": "Sprint"
+  },
+  "消失": {
+   "id": 1856,
+   "en": "Vanish"
+  },
+  "致盲": {
+   "id": 2094,
+   "en": "Blind"
+  },
+  "佯攻": {
+   "id": 1966,
+   "en": "Feint"
+  },
+  "闪避": {
+   "id": 5277,
+   "en": "Evasion"
+  },
+  "潜行": {
+   "id": 1784,
+   "en": "Stealth"
+  },
+  "暗影斗篷": {
+   "id": 31224,
+   "en": "Cloak of Shadows"
+  },
+  "毒刃": {
+   "id": 5938,
+   "en": "Shiv"
+  },
+  "卸除武装": {
+   "id": 207777,
+   "en": "Dismantle"
+  },
+  "嫁祸诀窍": {
+   "id": 57934,
+   "en": "Tricks of the Trade"
+  },
+  "烟雾弹": {
+   "id": 359053,
+   "en": "Smoke Bomb"
+  },
+  "凿击": {
+   "id": 1776,
+   "en": "Gouge"
+  },
+  "寒冰箭": {
+   "id": null,
+   "en": null
+  },
+  "冰枪术": {
+   "id": null,
+   "en": null
+  },
+  "冰锥术": {
+   "id": null,
+   "en": null
+  },
+  "暴风雪": {
+   "id": null,
+   "en": null
+  },
+  "寒冰宝珠": {
+   "id": null,
+   "en": null
+  },
+  "冰霜新星": {
+   "id": null,
+   "en": null
+  },
+  "寒冰新星": {
+   "id": null,
+   "en": null
+  },
+  "法术反制": {
+   "id": null,
+   "en": null
+  },
+  "变形术": {
+   "id": null,
+   "en": null
+  },
+  "隐形术": {
+   "id": null,
+   "en": null
+  },
+  "强化隐形术": {
+   "id": null,
+   "en": null
+  },
+  "镜像": {
+   "id": null,
+   "en": null
+  },
+  "寒冰屏障": {
+   "id": null,
+   "en": null
+  },
+  "冰墙": {
+   "id": null,
+   "en": null
+  },
+  "寒冰指": {
+   "id": null,
+   "en": null
+  },
+  "冰川尖刺": {
+   "id": null,
+   "en": null
+  },
+  "彗星风暴": {
+   "id": null,
+   "en": null
+  },
+  "冰冻术": {
+   "id": null,
+   "en": null
+  },
+  "冰霜之环": {
+   "id": null,
+   "en": null
+  },
+  "闪现术": {
+   "id": null,
+   "en": null
+  },
+  "寒冰形态": {
+   "id": null,
+   "en": null
+  },
+  "真言术：盾": {
+   "id": null,
+   "en": null
+  },
+  "痛苦压制": {
+   "id": null,
+   "en": null
+  },
+  "心灵尖啸": {
+   "id": null,
+   "en": null
+  },
+  "暗言术：痛": {
+   "id": null,
+   "en": null
+  },
+  "消散": {
+   "id": null,
+   "en": null
+  },
+  "快速治疗": {
+   "id": null,
+   "en": null
+  },
+  "纯净术": {
+   "id": null,
+   "en": null
+  },
+  "能量灌注": {
+   "id": null,
+   "en": null
+  },
+  "苦修": {
+   "id": null,
+   "en": null
+  },
+  "绝望祷言": {
+   "id": null,
+   "en": null
+  },
+  "天堂之羽": {
+   "id": null,
+   "en": null
+  },
+  "终极苦修": {
+   "id": null,
+   "en": null
+  },
+  "心灵震爆": {
+   "id": null,
+   "en": null
+  },
+  "暗影愈合": {
+   "id": null,
+   "en": null
+  },
+  "精神控制": {
+   "id": null,
+   "en": null
+  },
+  "群体驱散": {
+   "id": null,
+   "en": null
+  },
+  "驱散魔法": {
+   "id": null,
+   "en": null
+  },
+  "解除诅咒": {
+   "id": null,
+   "en": null
+  },
+  "脚踢": {
+   "id": null,
+   "en": null
+  },
+  "假死": {
+   "id": null,
+   "en": null
+  },
+  "命运骨骰": {
+   "id": null,
+   "en": null
+  },
+  "剑刃乱舞": {
+   "id": null,
+   "en": null
+  },
+  "可乘之机": {
+   "id": null,
+   "en": null
+  },
+  "手枪射击": {
+   "id": null,
+   "en": null
+  },
+  "抓钩": {
+   "id": null,
+   "en": null
+  },
+  "逃脱": {
+   "id": null,
+   "en": null
+  },
+  "误导": {
+   "id": null,
+   "en": null
+  },
+  "灵龟守护": {
+   "id": null,
+   "en": null
+  },
+  "猎豹守护": {
+   "id": null,
+   "en": null
+  },
+  "主人的召唤": {
+   "id": null,
+   "en": null
+  },
+  "伪装": {
+   "id": null,
+   "en": null
+  },
+  "压制": {
+   "id": null,
+   "en": null
+  },
+  "夺命射击": {
+   "id": null,
+   "en": null
+  },
+  "奇美拉钉刺": {
+   "id": null,
+   "en": null
+  },
+  "牺牲咆哮": {
+   "id": null,
+   "en": null
+  },
+  "冰冻陷阱": {
+   "id": null,
+   "en": null
+  },
+  "震荡射击": {
+   "id": null,
+   "en": null
+  },
+  "束缚射击": {
+   "id": null,
+   "en": null
+  },
+  "反制射击": {
+   "id": null,
+   "en": null
+  },
+  "奥术射击": {
+   "id": null,
+   "en": null
+  },
+  "百发百中": {
+   "id": null,
+   "en": null
+  },
+  "高爆陷阱": {
+   "id": null,
+   "en": null
+  },
+  "焦油陷阱": {
+   "id": null,
+   "en": null
+  },
+  "驱散射击": {
+   "id": null,
+   "en": null
+  },
+  "胁迫": {
+   "id": null,
+   "en": null
+  },
+  "盾墙": {
+   "id": null,
+   "en": null
+  },
+  "集结呐喊": {
+   "id": null,
+   "en": null
+  },
+  "破胆怒吼": {
+   "id": null,
+   "en": null
+  },
+  "剑在人在": {
+   "id": null,
+   "en": null
+  },
+  "保护祝福": {
+   "id": null,
+   "en": null
+  },
+  "圣盾术": {
+   "id": null,
+   "en": null
+  },
+  "自由祝福": {
+   "id": null,
+   "en": null
+  },
+  "树皮术": {
+   "id": null,
+   "en": null
+  },
+  "旅行形态": {
+   "id": null,
+   "en": null
+  },
+  "反魔法护罩": {
+   "id": null,
+   "en": null
+  },
+  "反魔法领域": {
+   "id": null,
+   "en": null
+  },
+  "冰封之韧": {
+   "id": null,
+   "en": null
+  },
+  "业报之触": {
+   "id": null,
+   "en": null
+  },
+  "玄牛下凡": {
+   "id": null,
+   "en": null
+  },
+  "星界转移": {
+   "id": null,
+   "en": null
+  },
+  "悬空": {
+   "id": null,
+   "en": null
+  },
+  "黑曜鳞片": {
+   "id": null,
+   "en": null
+  },
+  "变易幻能": {
+   "id": null,
+   "en": null
+  }
+ }
+}
