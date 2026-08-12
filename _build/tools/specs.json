@@ -1,0 +1,10 @@
+{
+  "_note": "页面 slug → Murlok 路径。加一个专精就在这里加一行，refresh.py 按它抓。",
+  "specs": {
+    "subtlety-rogue": "rogue/subtlety",
+    "outlaw-rogue": "rogue/outlaw",
+    "frost-mage": "mage/frost",
+    "discipline-priest": "priest/discipline",
+    "arms-warrior": "warrior/arms"
+  }
+}
