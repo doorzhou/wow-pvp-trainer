@@ -60,14 +60,22 @@
 <h2>英雄天赋：这个专精唯一真正对半的一格</h2>
 <div class="rows" id="heroline"></div>
 <h2>该不该开？勾一下就知道</h2>
-<div class="todo"><span class="tag">待补充</span><span class="tx">开场决策器的四个条件</span></div>
+<p class="lead">四条都从技能效果推得出来，不是感觉。</p>
+<div class="gobox">
+  <div class="gh">开场决策器</div>
+  <div class="gt">现在的局面满足哪几条？</div>
+  <div class="checks" id="checks"></div>
+  <div class="verdict" id="verdict"></div>
+</div>
 <h2>三个时钟</h2>
-<div class="todo"><span class="tag">待补充</span><span class="tx">节奏判断</span></div>
+<p class="lead">武器战士的节奏全挂在这三个数字上。</p>
+<div class="rows" id="clocks"><div class="row"><div class="h" onclick="tg(this)"><span class="t">45 秒 · <sk>巨人打击</sk></span><span class="sub">你的窗口多久来一次</span><span class="ar">▸</span></div><div class="b"><p>35% 增伤、持续 10 秒。<b>这 10 秒是你一局里唯一真正能打死人的时间</b>，其余 35 秒都是在为它做准备：补减疗、拆牌、卡位置。</p><p style="margin-top:8px">Anger Management 会随怒气消耗缩短它的冷却——<b>所以「空转不打」不只是少了伤害，还推迟了下一个窗口</b>。</p></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="t">10 秒 · <sk>致死打击</sk>的减疗</span><span class="sub">对面治疗什么时候能喘气</span><span class="ar">▸</span></div><div class="b"><p>50% 减疗，10 秒。<sk>致死打击</sk>本身 6 秒冷却，所以<b>理论上可以永远盖着</b>——盖不住只有两个原因：你被拉开了，或者你把 GCD 花在别的地方了。</p><p style="margin-top:8px"><b>减疗断掉的那几秒，是对面治疗把这一轮全补回来的窗口。</b>比起多打一发伤害，先续上减疗几乎总是对的。</p></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="t">35% · 处决线</span><span class="sub">什么时候切换成收人模式</span><span class="ar">▸</span></div><div class="b"><p>点了 Massacre 之后，斩杀类技能的可用血线从 20% 提到 <b>35%</b>。</p><p style="margin-top:8px">这条线值得单独当一个时钟看：<b>目标一进 35%，你的伤害结构就变了</b>——从「攒窗口」变成「不停斩杀」。提前算好谁会先进线，比进线之后再反应快得多。</p></div></div></div>
 </div></section>
 
 <section id="s2"><div class="wrap">
-<h2>通用手法</h2>
-<div class="todo"><span class="tag">待补充</span><span class="tx">一轮交战的完整流程与手法拆解</span></div>
+<h2>一轮交战的完整流程</h2>
+<p class="lead">点着走一遍。</p>
+<div class="rows" id="general"><div class="row"><div class="h" onclick="tg(this)"><span class="t">01 · 一轮交战的完整流程</span><span class="sub">点着走一遍</span><span class="ar">▸</span></div><div class="b"><div class="stepper" id="stepBody"></div></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="t">02 · 打断与控制怎么排</span><span class="sub">手上有四张，别一起交</span><span class="ar">▸</span></div><div class="b"><p><sk>拳击</sk>是打断，<b>不算控制</b>——它不进递减，可以反复用。看到治疗抬手就打，不用省。</p><p style="margin-top:8px"><sk>风暴之锤</sk> 4 秒昏迷 · <sk>震荡波</sk> 2 秒锥形昏迷 · <sk>破胆怒吼</sk> 恐惧。<b>这三张进递减，而且是你唯一的硬控来源</b>——开场全交出去，后面治疗抬手你就只能看着。</p><div class="note" style="margin-top:10px">通用排法：<b>拳击处理施法，硬控留给「治疗必须交大」的那一刻</b>。具体到每个对手的排法待补充。</div></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="t">03 · 被压着打的时候</span><span class="sub">武器不是纸，但也不是坦克</span><span class="ar">▸</span></div><div class="b"><p><sk>剑在人在</sk> 30% 减伤 + 100% 招架率，8 秒 · <sk>防御姿态</sk> 15% 减伤（代价是自己伤害 −10%）· <sk>法术反射</sk> 反弹第一个法术并减 20% 魔法伤害 · <sk>集结呐喊</sk> 全队 +12% 生命。</p><p style="margin-top:8px"><b><sk>防御姿态</sk>是可以常开的</b>——不在你的窗口里的时候，那 10% 伤害本来也打不死人。很多人只在快死时才想起它。</p></div></div></div>
 </div></section>
 
 <section id="s3"><div class="wrap">
@@ -90,7 +98,13 @@
 
 <section id="s5"><div class="wrap">
 <h2>赛前速查</h2>
-<div class="todo"><span class="tag">待补充</span><span class="tx">开赛前 30 秒要过一遍的东西</span></div>
+<div id="sheet"><div class="sc wide"><h4>三条铁律</h4><div class="big3"><div class="b3"><div class="n">1</div><div><div class="tt">先种减疗，再谈伤害</div><div class="dd"><sk>致死打击</sk>的 50% 减疗是所有输出的前提。断了就等于白打。</div></div></div><div class="b3"><div class="n">2</div><div><div class="tt">窗口外不硬拼</div><div class="dd">没有<sk>巨人打击</sk>的 35% 增伤，你的数字对面治疗补得回来。窗口外的活是拆牌和卡位。</div></div></div><div class="b3"><div class="n">3</div><div><div class="tt">硬控留给治疗抬手那一刻</div><div class="dd"><sk>拳击</sk>不进递减，随便用；<sk>风暴之锤</sk>和<sk>震荡波</sk>只有那么几次。</div></div></div></div></div></div>
+<h2>开赛前先问自己三句</h2>
+<div class="rows">
+  <div class="row"><div class="h" onclick="tg(this)"><span class="t">对面谁有免疫牌？</span><span class="sub">决定撕裂投掷留给谁</span><span class="ar">▸</span></div><div class="b"><p>圣盾术、<sk>寒冰屏障</sk>、<sk>暗影斗篷</sk>——撕裂投掷 3 分钟冷却，一局大概只有一次机会用对。<b>开打前就该定好它是留给谁的。</b></p></div></div>
+  <div class="row"><div class="h" onclick="tg(this)"><span class="t">对面伤害来自武器还是法术？</span><span class="sub">决定 PvP 天赋第三格</span><span class="ar">▸</span></div><div class="b"><p><sk>缴械</sk>（top50 里 31 人带）对物理阵容有用，对法系阵容几乎是空的。<b>这一格是看阵容换的，不是固定的。</b></p></div></div>
+  <div class="row"><div class="h" onclick="tg(this)"><span class="t">谁会先进 35%？</span><span class="sub">决定你的处决节奏</span><span class="ar">▸</span></div><div class="b"><p>点了 Massacre 的话斩杀线是 35%。<b>提前算好哪个目标会先进线</b>，比进线之后再切目标快一整个窗口。</p></div></div>
+</div>
 </div></section>
 
 <div class="wrap" style="margin-top:38px">
@@ -103,8 +117,8 @@
 </div></footer>
 
 <script src="assets/js/skdb.js?v=2322fba1"></script>
-<script src="data/registry.js?v=77a66728"></script>
-<script src="data/specs/arms-warrior.js?v=2f52c22e"></script>
+<script src="data/registry.js?v=94874a3e"></script>
+<script src="data/specs/arms-warrior.js?v=6b871d69"></script>
 <script src="assets/js/app.js?v=57c12d34"></script>
 
 </body>
