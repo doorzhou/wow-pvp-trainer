@@ -15,18 +15,19 @@ const PAGES = [
           lb: 'PvP 天赋 · 另两格三选二',
           vv: '<b>Preemptive Maneuver</b>（45/50）—— 近乎必带<br>' +
             '<sk>卸除武装</sk>（29/50）—— 对面伤害来自武器<br>' +
-            '<b>Thick as Thieves</b>（23/50）—— 强化<sk>偷天换日</sk>，队友能跟你对齐爆发时<br>' +
+            '<sk>偷天换日</sk>（23/50）—— 让<sk>嫁祸诀窍</sk>额外给队友 15% 伤害，队友能跟你对齐爆发时<br>' +
             '<span class="dimtx">三者占了这两格全部选择的 97%，剩下的 3% 是零星试验。</span>'
         },
       ],
-      note: '「Preemptive Maneuver」「Thick as Thieves」暂无官方简体中文名。' +
-        '后者是 PvP 天赋，强化职业树的<sk>偷天换日</sk>，<b>两者不是同一格</b>。',
+      note: '「Preemptive Maneuver」暂无官方简体中文名。' +
+        '<b><sk>嫁祸诀窍</sk>（职业树）本身只转移威胁值</b>——给队友加 15% 伤害要靠 PvP 天赋' +
+        '<sk>偷天换日</sk>，两者不是同一格。',
       imp: {
         str: 'CUQAphyM11FofNMFa1K3vFEDUCgZ2mBAAAAAmlZmZZiZZbmxMjZgZmZmlxsNmZmllhBzMGwMGAAAAzwMsY2mxsMDDMsNz20CtMbMzwMzMDmxA',
         who: 'Whââzz', where: 'EU · Tarren Mill', rating: '3v3 3254',
         note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
           '它在下面 7 个分歧格里<b>有 3 格跟多数派不一样</b>' +
-          '（点了<b>偷天换日</b>与 <b>Nimble Fingers</b>、没点<b>毒刃</b>）。' +
+          '（点了<b>嫁祸诀窍</b>与 <b>Nimble Fingers</b>、没点<b>毒刃</b>）。' +
           '<b>粘进游戏当起点，那 7 格再按自己的局面调。</b>',
       },
       tree: {
@@ -53,10 +54,13 @@ const PAGES = [
               '对面减速手段密集时点它；对面靠硬控而不是减速的，这一点收益小。'
           },
           {
-            n: '偷天换日', en: 'Tricks of the Trade', tree: '职业', u: 25,
-            b: '使友方目标伤害提高 15%，30 秒冷却。' +
-              '<br><b>全树最分裂的一格，正好对半分。</b>它把收益给队友——' +
-              '队友有能跟你对齐的爆发窗口才值；否则这 15% 撒在平时的伤害上，不如自己留着这一点。'
+            n: '嫁祸诀窍', en: 'Tricks of the Trade', tree: '职业', u: 25,
+            b: '把你产生的威胁值转移给指定队友，30 秒冷却。' +
+              '<b>它本身不加伤害</b>——那 15% 要另外点 PvP 天赋<sk>偷天换日</sk>。' +
+              '<br><b>全树最分裂的一格，正好对半分。</b>' +
+              '单点它在竞技场几乎没用（PvP 里威胁值不决定谁挨打）——<b>它的价值全在跟' +
+              '<sk>偷天换日</sk>凑成一套</b>，给队友的爆发窗口加伤害。' +
+              '队友有能跟你对齐的窗口才值，否则这一点不如留给自己。'
           },
           {
             n: 'Nimble Fingers', tree: '职业', u: 23,
