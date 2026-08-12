@@ -21,7 +21,7 @@ window.REG = {
     {
       id: 'warrior', n: '战士', en: 'Warrior', c: '#C69B6D', ic: 'classicon_warrior', armor: '板甲',
       specs: [
-        { id: 'arms', n: '武器', en: 'Arms', role: 'dps', tier: 'S', ic: 'ability_warrior_savageblow', page: 'arms-warrior.html', st: [2, 2, 0, 2, 2, 0] },
+        { id: 'arms', n: '武器', en: 'Arms', role: 'dps', tier: 'S', ic: 'ability_warrior_savageblow', page: 'arms-warrior.html', st: [2, 2, 2, 2, 2, 0] },
         { id: 'fury', n: '狂怒', en: 'Fury', role: 'dps', tier: 'B', ic: 'ability_warrior_innerrage', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'protection', n: '防护', en: 'Protection', role: 'tank', tier: null, ic: 'ability_warrior_defensivestance', page: null, st: [0, 0, 0, 0, 0, 0] },
       ]
