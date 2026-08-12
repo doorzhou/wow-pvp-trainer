@@ -61,7 +61,7 @@ module.exports = {
     "猩红之瓶": "ability_rogue_crimsonvial",
     "切割": "ability_rogue_slicedice",
     "时运继延": "ability_rogue_keepitrolling",
-    "菊花茶": "inv_drink_milk_05",
+    "蓟叶茶": "inv_drink_milk_05",
     "可乘之机": "ability_rogue_pistolshot",
     "局势逆转": "ability_rogue_waylay",
     "命运硬币": "inv_ability_fateboundrogue_handoffateheads",
