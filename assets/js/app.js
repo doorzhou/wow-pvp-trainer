@@ -441,7 +441,10 @@ function renderTalent() {
       '<code class="impc">' + T.imp.str + '</code>' +
       '<button class="impb" type="button">复制</button></div>' +
       '<div class="impn"><b>来源：' + T.imp.who + '</b>（' + T.imp.where +
-      ' · ' + T.imp.rating + '）。' + T.imp.note + '</div></div>';
+      ' · ' + T.imp.rating + '）。' + T.imp.note +
+      (T.imp.at ? '<br><span class="dimtx">' + T.imp.at +
+        ' 的快照。玩家随时会改配点，这串只代表当时那一套。</span>' : '') +
+      '</div></div>';
   }
   h += '<div class="tal">';
   (T.rows || []).forEach(function (r) {

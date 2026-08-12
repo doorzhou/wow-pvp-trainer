@@ -24,10 +24,11 @@ const PAGES = [
         '<sk>偷天换日</sk>，两者不是同一格。',
       imp: {
         str: 'CUQAphyM11FofNMFa1K3vFEDUCgZ2mBAAAAAmlZmZZiZZbmxMjZgZmZmlxsNmZmllhBzMGwMGAAAAzwMsY2mxsMDDMsNz20CtMbMzwMzMDmxA',
-        who: 'Whââzz', where: 'EU · Tarren Mill', rating: '3v3 3254',
+        who: 'Whââzz', where: 'EU · Tarren Mill', rating: '3v3 3254', at: '2026-08-12',
         note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
-          '它在下面 7 个分歧格里<b>有 3 格跟多数派不一样</b>' +
-          '（点了<b>嫁祸诀窍</b>与 <b>Nimble Fingers</b>、没点<b>毒刃</b>）。' +
+          '选它的理由是：<b>它在下面 7 个分歧格上与多数派一致 6 格</b>，' +
+          '在 top50 前五名里贴合度最高。唯一偏离的是<sk>嫁祸诀窍</sk>——' +
+          '那一格 25/50 正好对半，本来就没有多数派。' +
           '<b>粘进游戏当起点，那 7 格再按自己的局面调。</b>',
       },
       tree: {
@@ -120,6 +121,13 @@ const PAGES = [
         },
       ],
       note: '「Preemptive Maneuver」「Turn the Tables」暂无官方简体中文名。',
+      imp: {
+        str: 'CQQA5HmDzx68KWyrW/8Y781L7DgZAGzwMbzMzMzYMLbmZmZbabGz2MAAAAAgZZZmZwMjZWMzMGAAAAzAYwsNLmZmRzMbMbssNtwmZAmZmZGYA',
+        who: 'Dzd', where: 'US · Stormrage', rating: '3v3 3055', at: '2026-08-12',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 7 个分歧格上与多数派完全一致（7/7）</b>，' +
+          '在 top50 前五名里贴合度最高。<b>粘进游戏当起点，那 7 格再按自己的局面调。</b>',
+      },
       tree: {
         survey: '职业树 44 格 + 专精树 38 格 + 英雄天赋 28 格，共 <b>110 格</b>。' +
           '扣掉没人走的命运之缚整条线，top50 的实测里 <b>93 格是定死的</b>。' +
@@ -197,6 +205,13 @@ const PAGES = [
         { lb: 'PvP 天赋 · 情境', vv: '<b>Master Shepherd</b>（36/50） · <sk>冰墙</sk>（9/50）' },
       ],
       note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'CAEAMhlVtghLZL4RZzExaQoBYNmtlZWmZmZDzMxMMzMzMzsYmZGzYmZZmmZ2mFAwMzMLLzMtBAALAAAAbAstMmZGwy8AGzMWAAAYmFgZYMDYwA',
+        who: 'Yozóra', where: 'EU · Ravencrest', rating: '3v3 3257', at: '2026-08-12',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 3 个分歧格上与多数派完全一致（3/3）</b>，' +
+          '在 top50 前五名里贴合度最高。<b>粘进游戏当起点，那 3 格再按自己的局面调。</b>',
+      },
       tree: {
         survey: '职业树 42 格 + 专精树 38 格 + 英雄天赋 28 格，共 <b>108 格</b>。' +
           '扣掉没人走的霜火整条线，<b>102 格是定死的</b>——' +
@@ -255,6 +270,14 @@ const PAGES = [
         { lb: 'PvP 天赋 · 情境', vv: '<b>Inner Light</b>（33/50）' },
       ],
       note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'CAQA4VPTJ8eQb8/qEm8PyGu4yADsMzwyMjZmBMbzYmZGjZGAAAAAAAAAAzMzyMYMGLzMzMssYamYwYmZDDhxsNWstYMGLGAAGzwYwAzMzMzEM',
+        who: 'Eniram', where: 'EU · Ravencrest', rating: '3v3 3165', at: '2026-08-12',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 7 个分歧格上与多数派完全一致（7/7）</b>。' +
+          '戒律牧是四个专精里配点空间最大的一个，' +
+          '<b>这串只是一个起点，那 7 格更值得你按自己的局面重调。</b>',
+      },
       tree: {
         survey: '职业树 48 格 + 专精树 41 格 + 英雄天赋 28 格，共 <b>117 格</b>。' +
           '扣掉只有 5 人走的虚空编织者整条线，仍有 <b>17 格</b>存在真实分歧——' +
