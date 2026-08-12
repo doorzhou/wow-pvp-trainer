@@ -46,14 +46,14 @@ window.REG = {
       id: 'rogue', n: '潜行者', en: 'Rogue', c: '#FFF468', ic: 'classicon_rogue', armor: '皮甲',
       specs: [
         { id: 'assassination', n: '奇袭', en: 'Assassination', role: 'dps', tier: 'A', ic: 'ability_rogue_eviscerate', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'outlaw', n: '狂徒', en: 'Outlaw', role: 'dps', tier: 'A', ic: 'ability_rogue_waylay', page: 'outlaw-rogue.html', st: [2, 2, 2, 1, 2, 2] },
+        { id: 'outlaw', n: '狂徒', en: 'Outlaw', role: 'dps', tier: 'A', ic: 'ability_rogue_waylay', page: 'outlaw-rogue.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'subtlety', n: '敏锐', en: 'Subtlety', role: 'dps', tier: 'S', ic: 'ability_stealth', page: 'subtlety-rogue.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
     {
       id: 'priest', n: '牧师', en: 'Priest', c: '#FFFFFF', ic: 'classicon_priest', armor: '布甲',
       specs: [
-        { id: 'discipline', n: '戒律', en: 'Discipline', role: 'heal', tier: null, ic: 'spell_holy_powerwordshield', page: 'discipline-priest.html', st: [2, 2, 2, 1, 2, 2] },
+        { id: 'discipline', n: '戒律', en: 'Discipline', role: 'heal', tier: null, ic: 'spell_holy_powerwordshield', page: 'discipline-priest.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'holy', n: '神圣', en: 'Holy', role: 'heal', tier: null, ic: 'spell_holy_guardianspirit', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'shadow', n: '暗影', en: 'Shadow', role: 'dps', tier: 'A', ic: 'spell_shadow_shadowwordpain', page: null, st: [0, 0, 0, 0, 0, 0] },
       ]
@@ -79,7 +79,7 @@ window.REG = {
       specs: [
         { id: 'arcane', n: '奥术', en: 'Arcane', role: 'dps', tier: 'B', ic: 'spell_holy_magicalsentry', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'fire', n: '火焰', en: 'Fire', role: 'dps', tier: 'S', ic: 'spell_fire_firebolt02', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'frost', n: '冰霜', en: 'Frost', role: 'dps', tier: 'A+', ic: 'spell_frost_frostbolt02', page: 'frost-mage.html', st: [2, 2, 2, 1, 2, 2] },
+        { id: 'frost', n: '冰霜', en: 'Frost', role: 'dps', tier: 'A+', ic: 'spell_frost_frostbolt02', page: 'frost-mage.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
     {
