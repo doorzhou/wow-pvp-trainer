@@ -542,6 +542,101 @@ const PAGES = [
     },
   },
   {
+    file: 'windwalker-monk', kind: 'spec', cls: 'monk', spec: 'windwalker',
+    h1: '踏风武僧 PvP 判断训练器', short: '踏风武僧',
+    icon: 'spell_monk_windwalker_spec', tier: 'S', color: '#00FF98',
+    crumb: ['武僧', '踏风'], store: 'banyeWWMonkPvP1207', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在看「他什么时候开」，不是在看自己冷却好没好。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「该不该开」的四条件过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋', vv: '<b>影踏 Shado-Pan</b>（48/50）—— 天神引导只有 2 人。围绕 Flurry Strikes 与<sk>怒雷破</sk>展开。' },
+        { lb: 'PvP 天赋 · 唯一必带', vv: '<b>Turbo Fists</b> —— <b>50/50</b>，没有例外。<sk>怒雷破</sk>期间减速 90% + 招架全部攻击' },
+        {
+          lb: 'PvP 天赋 · 另两格',
+          vv: '<b>Ride the Wind</b>（35/50）—— 清减速并给队友铺路<br>' +
+            '<b>Grapple Weapon</b>（32/50）—— 缴械，对面物理输出重时上<br>' +
+            '<b>Wind Waker</b>（30/50）—— 强化位移增益<br>' +
+            '<span class="dimtx">四项占了全部选择的 98%，三格分得很匀 —— 这两格是真的看阵容。</span>'
+        },
+      ],
+      note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'C0QAQnG51S19isUJoJoTeJ/IKbmZMYMDbzMz2MAAAAAAAAAAAALDjwMz2wAwMmZMzYWmFGmlZCAYzMLzMMzMzABwmxysMmmtZpZmZWAGGYmxAwCjBzY28B',
+        who: 'Doritoxd', where: 'US · Duskwood', rating: '3v3 3183', at: '2026-08-14',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 6 个分歧格上与多数派一致 5 格</b>。' +
+          '<b>踏风的分歧格有 17 个，是站上最多的之一</b>——这串只是一个起点，' +
+          '那些格子更要按自己的阵容重调。',
+      },
+      tree: {
+        survey: '职业树 52 格 + 专精树 47 格 + 英雄天赋 28 格，共 <b>127 格</b>。' +
+          '扣掉只有 2 人走的天神引导整条线、以及影踏线里跟着「走这条线」一起点掉的格子，' +
+          'top50 的实测里 <b>110 格是定死的</b>。真正需要判断的有 <b>17 格</b>，' +
+          '<b>这是站上分歧最多的一棵树之一</b>，下面是其中 6 格。',
+        picks: [
+          {
+            n: 'Universal Energy', tree: '专精', u: 42,
+            b: '你的法术伤害提高 8%。' +
+              '<br>纯增伤，不看对面。<b>84% 接近定盘</b>——踏风的伤害里法术部分占比不低（真气类技能），' +
+              '所以这一格比看起来值。不点的那 8 人是把它换成了保命或机动。'
+          },
+          {
+            n: 'Windwalking', tree: '职业', u: 36,
+            b: '你和 10 码内的盟友移动速度提高 4%，可与其他效果叠加。' +
+              '<br><b>它是给队伍的，不是给你的。</b>队友里有需要跑位的（治疗、法系）时价值翻倍；' +
+              '双近战阵容里这一点几乎不动。'
+          },
+          {
+            n: 'Peace and Prosperity', tree: '职业', u: 33,
+            b: '<sk>平心之环</sk>冷却降低 5 秒，<sk>赤精之歌</sk>施法时间缩短。' +
+              '<br>买的是<b>「环能不能多放一次」</b>。对面靠贴身输出（双近战）时，' +
+              '多一个环等于多一次把人踢出去的机会；对面是远程阵容，这一点收益有限。'
+          },
+          {
+            n: 'Knowledge of the Broken Temple', tree: '专精', u: 32,
+            b: '<sk>风领主之击</sk>和<sk>升龙霸</sk>授予 4 层 Teachings，且层数上限提到 8 层。' +
+              '<br><b>它把爆发窗口的层数直接拉满。</b>' +
+              '你打法偏「攒一个大窗口一次结账」就点它；偏持续输出的话，8 层上限用不满。'
+          },
+          {
+            n: 'Ironshell Brew', tree: '职业', u: 29, ch: 1,
+            b: '<sk>壮胆酒</sk>激活期间，最大生命值再 +10%、受到伤害再 −10%。' +
+              '<br><b>这是二选一格</b>——同格另一个选项数据源没给。' +
+              '它把<sk>壮胆酒</sk>从「一般减伤」变成「真正扛得住一波」，' +
+              '你是集火目标的局值，不是的话换成输出更实在。'
+          },
+          {
+            n: 'Stillstep Coil', tree: '职业', u: 29,
+            b: '<sk>扫堂腿</sk>结束时对目标施加 Disable（重减速），持续 5 秒。' +
+              '<br><b>把一次性的昏迷接成一段黏人</b>。对面靠跑位拉扯时很值；' +
+              '对面是站桩型阵容，昏迷结束他本来也不走，这一点是空的。'
+          },
+        ],
+        src: '使用率：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 踏风武僧 top 50</b> 实测配点。' +
+          '「什么时候点」为编者按天赋效果与该专精打法推导，非实测结论。' +
+          '暂无官方简体中文名的天赋使用英文原名。',
+      },
+    },
+    gear: {
+      stats: [
+        { n: '精通', v: '主堆', pct: 100 },
+        { n: '全能', v: '主堆', pct: 82 },
+        { n: '爆击', v: '可弃', pct: 11, dim: 1 },
+        { n: '急速', v: '可弃', pct: 8, dim: 1 },
+      ],
+      statRead: '<b>精通和全能一组，之后是断崖。</b>' +
+        '<b>急速排在最后是这个专精的特点</b>——踏风的伤害靠层数和窗口，不靠出手快。' +
+        '前两条一起堆，后两条装备上带多少算多少。',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 踏风武僧 top 50</b> 实测配装。' +
+        '档位划分为编者按断层位置判定。',
+    },
+  },
+  {
     file: 'rogue-priest-2v2', kind: 'comp', h1: '贼 + 戒律牧 · 2v2 组合训练器', short: '贼牧 2v2',
     icon: 'classicon_rogue', icon2: 'classicon_priest', tier: null, color: '#8b6fd4',
     crumb: ['组合', '2v2 贼牧'], store: 'banyeRoguePriest2v2_1207', quizSec: 's5',

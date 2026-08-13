@@ -95,7 +95,7 @@ window.REG = {
       specs: [
         { id: 'brewmaster', n: '酒仙', en: 'Brewmaster', role: 'tank', tier: null, ic: 'spell_monk_brewmaster_spec', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'mistweaver', n: '织雾', en: 'Mistweaver', role: 'heal', tier: null, ic: 'spell_monk_mistweaver_spec', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'windwalker', n: '踏风', en: 'Windwalker', role: 'dps', tier: 'S', ic: 'spell_monk_windwalker_spec', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'windwalker', n: '踏风', en: 'Windwalker', role: 'dps', tier: 'S', ic: 'spell_monk_windwalker_spec', page: 'windwalker-monk.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
     {

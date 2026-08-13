@@ -592,6 +592,118 @@
   "巫妖之躯": {
    "id": 49039,
    "en": "Lichborne"
+  },
+  "猛虎掌": {
+   "id": 100780,
+   "en": "Tiger Palm"
+  },
+  "幻灭踢": {
+   "id": 100784,
+   "en": "Blackout Kick"
+  },
+  "旭日东升踢": {
+   "id": 107428,
+   "en": "Rising Sun Kick"
+  },
+  "神鹤引项踢": {
+   "id": 101546,
+   "en": "Spinning Crane Kick"
+  },
+  "怒雷破": {
+   "id": 113656,
+   "en": "Fists of Fury"
+  },
+  "风领主之击": {
+   "id": 392983,
+   "en": "Strike of the Windlord"
+  },
+  "升龙霸": {
+   "id": 152175,
+   "en": "Whirling Dragon Punch"
+  },
+  "风火雷电": {
+   "id": 137639,
+   "en": "Storm, Earth, and Fire"
+  },
+  "白虎下凡": {
+   "id": 123904,
+   "en": "Invoke Xuen, the White Tiger"
+  },
+  "散魔功": {
+   "id": 122783,
+   "en": "Diffuse Magic"
+  },
+  "壮胆酒": {
+   "id": 115203,
+   "en": "Fortifying Brew"
+  },
+  "切喉手": {
+   "id": 116705,
+   "en": "Spear Hand Strike"
+  },
+  "扫堂腿": {
+   "id": 119381,
+   "en": "Leg Sweep"
+  },
+  "分筋错骨": {
+   "id": 115078,
+   "en": "Paralysis"
+  },
+  "迅如猛虎": {
+   "id": 116841,
+   "en": "Tiger's Lust"
+  },
+  "滚地翻": {
+   "id": 109132,
+   "en": "Roll"
+  },
+  "真气突": {
+   "id": 115008,
+   "en": "Chi Torpedo"
+  },
+  "魂体双分": {
+   "id": 101643,
+   "en": "Transcendence"
+  },
+  "魂体双分：转移": {
+   "id": 119996,
+   "en": "Transcendence: Transfer"
+  },
+  "平心之环": {
+   "id": 116844,
+   "en": "Ring of Peace"
+  },
+  "赤精之歌": {
+   "id": 198898,
+   "en": "Song of Chi-Ji"
+  },
+  "移花接木": {
+   "id": 322101,
+   "en": "Expel Harm"
+  },
+  "清创生血": {
+   "id": 115450,
+   "en": "Detox"
+  },
+  "活血术": {
+   "id": 116670,
+   "en": "Vivify"
+  },
+  "氤氲之雾": {
+   "id": 124682,
+   "en": "Enveloping Mist"
+  },
+  "复苏之雾": {
+   "id": 115151,
+   "en": "Renewing Mist"
+  },
+  "金创药": {
+   "id": 122281,
+   "en": "Healing Elixir"
+  },
+  "碧火踏": {
+   "id": 388193,
+   "en": "Jadefire Stomp"
   }
  }
 }
