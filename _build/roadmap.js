@@ -4,7 +4,7 @@
    ============================================================ */
 const fs = require('fs'), path = require('path');
 const SITE = path.join(__dirname, '..');
-const { SITE_NAME, PATCH } = require('./config.js');
+const { SITE_NAME, PATCH, TIER_PATCH } = require('./config.js');
 
 const win = { REG: null };
 new Function('window', fs.readFileSync(path.join(SITE, 'data/registry.js'), 'utf8'))(win);
@@ -68,7 +68,7 @@ const md = `# 路线图
 
 ## 建议的下一批
 
-排序依据是 PvP 梯队（Icy Veins ${PATCH}）与组合的主流程度，**不是我的判断，是公开数据的坐标**。
+排序依据是 PvP 梯队（Icy Veins ${TIER_PATCH}）与组合的主流程度，**不是我的判断，是公开数据的坐标**。
 
 ### 专精
 ${nextSpecs.map((s, i) => (i + 1) + '. **' + s.n + s.clsName + '**（${t}）'.replace('${t}', s.tier || '—') + ' — ' + s.en).join('\n')}

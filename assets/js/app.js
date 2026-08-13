@@ -340,12 +340,13 @@ function treeHTML(blocks, picks) {
       g.cells.forEach(function (c) {
         var st = c.u === 0 ? 'no' : c.u >= 44 ? 'yes' : 'mid';
         var pi = mark[c.n];
-        h += '<div class="ttc ' + st + (pi != null ? ' pick' : '') + '"' +
+        h += '<div class="ttc ' + st + (pi != null ? ' pick' : '') + (c.ch ? ' ch' : '') + '"' +
           ' style="grid-column:' + (c.col || 'auto') + '"' +
           ' role="button" tabindex="0" data-tal="' + esc(c.s || '') + '"' +
           ' data-tn="' + esc(c.n) + '" data-tu="' + c.u + '" data-ti="' + esc(c.ic || '') + '"' +
+          (c.ch ? ' data-ch="1"' : '') +
           (pi != null ? ' data-pick="' + pi + '"' : '') +
-          ' title="' + esc(c.n) + ' · ' + c.u + '/50">' +
+          ' title="' + esc(c.n) + ' · ' + c.u + '/50' + (c.ch ? ' · 二选一格' : '') + '">' +
           (c.ic ? '<img src="' + IC(c.ic) + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' : '') +
           '<span class="cu">' + c.u + '</span></div>';
       });
@@ -356,7 +357,11 @@ function treeHTML(blocks, picks) {
   });
   return h + '</div><div class="ttlg"><span class="s yes"></span>人人都点' +
     '<span class="s mid"></span>有分歧<span class="s no"></span>没人点' +
-    '<span class="s pick"></span>需要你判断（点一下看）</div>';
+    '<span class="s pick"></span>需要你判断（点一下看）' +
+    '<span class="s ch"></span>二选一格</div>' +
+    '<p class="ttnote">带 <b>⇄</b> 的是<b>二选一格</b>：同一格有两个天赋，只能选一个。' +
+    '数据源只统计了多数派选中的那个，<b>另一个选项拿不到分布</b>——' +
+    '所以这类格子的「34/50」不等于「16 个人空着这一格」。</p>';
 }
 /* 天赋描述懒加载：点第一格时才请求，不进首屏 */
 var _descState = 0;   // 0 未加载 1 加载中 2 已加载 3 失败
@@ -385,7 +390,9 @@ function showTalTip(c) {
     '<div class="td">' + (d ? d.desc : _descState === 1 ? '载入中…'
       : _descState === 3 ? '描述没加载成功，刷新一下试试。' : '这一格暂时没抓到描述。') + '</div>' +
     (pi != null ? '<div class="tj">这一格需要判断 —— 点这里看什么局面选哪边 ▸</div>' : '') +
-    '<div class="tf">top50 里 <b>' + c.dataset.tu + '</b> 人点 · 译自 Murlok.io</div>';
+    '<div class="tf">top50 里 <b>' + c.dataset.tu + '</b> 人点 · 译自 Murlok.io' +
+    (c.dataset.ch ? '<br><b>⇄ 二选一格</b>：同格另一个天赋的分布数据源没给，' +
+      '剩下的人不是空着这格，是选了另一个。' : '') + '</div>';
   t.classList.add('on');
   var r = c.getBoundingClientRect(), tr = t.getBoundingClientRect();
   var top = r.bottom + 8, left = r.left;

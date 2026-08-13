@@ -4,7 +4,7 @@
    ============================================================ */
 const fs = require('fs'), path = require('path');
 const SITE = path.join(__dirname, '..');
-const { DOMAIN, SITE_NAME, TAGLINE, MARK, ISSUES, WISH_KEY, PATCH, SEASON, SEASON_EN } = require('./config.js');
+const { DOMAIN, SITE_NAME, TAGLINE, MARK, ISSUES, WISH_KEY, PATCH, SEASON, SEASON_EN, TIER_PATCH } = require('./config.js');
 const v = require('./ver.js');
 
 // 载入注册表
@@ -184,7 +184,7 @@ const html = `<!DOCTYPE html>
   <div class="matrix" id="mx">
 ${matrix()}
   </div>
-  <p class="lead" style="margin-top:14px">梯队（S / A+ / A / B / C）取自 Icy Veins ${PATCH} PvP DPS 梯队表；治疗与坦克该表未收录，标注为角色。</p>
+  <p class="lead" style="margin-top:14px">梯队（S / A+ / A / B / C）取自 Icy Veins ${TIER_PATCH} PvP DPS 梯队表；治疗与坦克该表未收录，标注为角色。</p>
 </div>
 
 <div class="wrap" id="comps">
@@ -225,7 +225,7 @@ ${comps()}
       <li>技能中文名、图标、技能说明 —— Wowhead 官方数据接口</li>
       <li>天赋使用率 —— Murlok.io top50 实测分布（页面上 50/50、8/8 这类标注）</li>
       <li>版本改动 —— 官方补丁说明</li>
-      <li>梯队排名 —— Icy Veins ${PATCH} PvP 梯队表</li>
+      <li>梯队排名 —— Icy Veins ${TIER_PATCH} PvP 梯队表（梯队榜按第三方节奏更新，与游戏补丁号不同步）</li>
       <li>装备机制（货币、催化器、PvP 装等缩放）—— Icy Veins 配装指南</li>
     </ul></div>
     <div class="src derived"><h4>△ 编者推导</h4><ul>

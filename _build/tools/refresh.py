@@ -66,9 +66,15 @@ def picks_of(tree):
     这套口径必须和站上写的一致，否则报告出的格数没法直接对着改页面。
 
       一边倒（峰值差 > 15，如冰法 50/0）：未选中的线整条排除，
-        选中的线内部仍可能有真分歧（戒律牧 Oracle 线里的 Desperate Measures 27/50）。
+        选中的线内部仍可能有真分歧（戒律牧 Oracle 线里的 Desperate Measures 28/50）。
       真二选一（峰值差 ≤ 15，如武器战士 29/21）：整棵英雄树排除 ——
         两条线的格子都只是「选了哪条线」的产物，分不出线内取舍。
+
+    另外，不管走哪个分支：线内使用率**等于该线峰值**的格子一律不算逐格分歧。
+    它们是「走了这条线」这一个决策的产物，不是各自独立的判断。
+    不加这条的话，整条线会随峰值跨越 85% 线一起进出分歧区 ——
+    戒律牧 12.0.7 的 Oracle 线 45/50（90%，在区间外），12.1 掉到 42/50（84%），
+    15 格凭空冒出来，其实一个新判断都没产生。
 
     返回 (格子字典, 用了哪条规则的说明)
     """
@@ -86,6 +92,15 @@ def picks_of(tree):
             else:
                 dead |= {c['n'] for g in hero[0]['groups'] for c in g['cells']}
                 rule = f"真二选一（{hi[1]}/{lo[1]}），整棵英雄树不计逐格分歧"
+            # 线内齐平的格子 = 选线那一个决策，不是逐格分歧
+            for g in hero[0]['groups']:
+                us = [c['u'] for c in g['cells']]
+                if not us: continue
+                pk = max(us)
+                flat = {c['n'] for c in g['cells'] if c['u'] == pk}
+                if len(flat) > 1:
+                    dead |= flat
+                    rule += f"；「{g['label'].replace(' Hero Talents','')}」线内 {len(flat)} 格齐平于 {pk}，归为选线决策"
     out = {}
     for b in tree:
         if b['k'] == 'pvp':

@@ -12,6 +12,10 @@ A  = re.compile(r'<a\b([^>]*)>(.*?)</a>', re.S)
 UL = re.compile(r'<ul\b[^>]*>(.*?)</ul>', re.S)
 H3 = re.compile(r'<h3[^>]*>(.*?)</h3>', re.S)
 
+# 二选一格：格子里带一对左右切换箭头。Murlok 只渲染 top50 多数派选中的那一个，
+# 同格另一选项的分布拿不到 —— 所以这种格子的 34/50 不是「16 人空着」。
+CHEVRON = 'M15.41,16.58L10.83,12'
+
 def txt(s): return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', s)).strip()
 
 def parse(path):
@@ -38,11 +42,13 @@ def parse(path):
                     ico = re.search(r'/icons/\d+/([a-z0-9_]+)\.jpg', ainner)
                     slug = re.search(r'href="[^"]*#([^"]+)"', aattr)   # slug 含撇号，别枚举字符
                     if not alt: continue
-                    cells.append({'col': int(col.group(1)) if col else None,
-                                  'n': alt.group(1),
-                                  'u': int(cnt.group(1)) if cnt else 0,
-                                  'ic': ico.group(1) if ico else None,
-                                  's': slug.group(1) if slug else None})
+                    cell = {'col': int(col.group(1)) if col else None,
+                            'n': alt.group(1),
+                            'u': int(cnt.group(1)) if cnt else 0,
+                            'ic': ico.group(1) if ico else None,
+                            's': slug.group(1) if slug else None}
+                    if CHEVRON in inner: cell['ch'] = 1   # 二选一格
+                    cells.append(cell)
                     total += 1
             if cells: groups.append({'label': label, 'cells': cells})
         if groups: out.append({'k': key, 'n': name, 'groups': groups})

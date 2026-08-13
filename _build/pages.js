@@ -13,30 +13,37 @@ const PAGES = [
         { lb: '英雄天赋', vv: '<b>诡术师 Trickster</b> —— top50 三对三里 50 人全用，死亡追猎者 <b>0 人</b>。这不是推荐，是唯一解。' },
         { lb: 'PvP 天赋 · 唯一必带', vv: '<sk>烟雾弹</sk> —— <b>50/50</b>，没有例外' },
         {
-          lb: 'PvP 天赋 · 另两格三选二',
+          lb: 'PvP 天赋 · 另两格',
           vv: '<b>Preemptive Maneuver</b>（45/50）—— 近乎必带<br>' +
-            '<sk>卸除武装</sk>（29/50）—— 对面伤害来自武器<br>' +
-            '<sk>偷天换日</sk>（23/50）—— 让<sk>嫁祸诀窍</sk>额外给队友 15% 伤害，队友能跟你对齐爆发时<br>' +
-            '<span class="dimtx">三者占了这两格全部选择的 97%，剩下的 3% 是零星试验。</span>'
+            '<sk>卸除武装</sk>（39/50）—— <b>12.1 从 29 涨到 39</b>，现在是明显优先<br>' +
+            '<sk>偷天换日</sk>（12/50）—— <b>12.1 从 23 跌到 12</b>，已经不是主流<br>' +
+            '<span class="dimtx">三者占了这两格全部选择的 96%。</span>'
         },
       ],
       note: '「Preemptive Maneuver」暂无官方简体中文名。' +
-        '<b><sk>嫁祸诀窍</sk>（职业树）本身只转移威胁值</b>——给队友加 15% 伤害要靠 PvP 天赋' +
-        '<sk>偷天换日</sk>，两者不是同一格。',
+        '<b>12.1 职业树上那个二选一格整个翻面了</b>：<sk>嫁祸诀窍</sk>从 25 人跌到 0 人，' +
+        '同格的<sk>劈头棒击</sk>从 0 人涨到 34 人。' +
+        '<sk>偷天换日</sk>跟着从 23 跌到 12——它的加成挂在前者身上，前者没人点，它自然失去意义。',
       imp: {
-        str: 'CUQAphyM11FofNMFa1K3vFEDUCgZ2mBAAAAAmlZmZZiZZbmxMjZgZmZmlxsNmZmllhBzMGwMGAAAAzwMsY2mxsMDDMsNz20CtMbMzwMzMDmxA',
-        who: 'Whââzz', where: 'EU · Tarren Mill', rating: '3v3 3254', at: '2026-08-12',
+        str: 'CUQAphyM11FofNMFa1K3vFEDUCgZ2mBAAAAAmtZmZZiZZbmxMjZgZmZmlxsNmZmllhBzMGwMGAAAAzwMsYWmxsMDjFG2mZbahWmNmZYmZmBzYA',
+        who: 'Stunion', where: 'US · Stormrage', rating: '3v3 3220', at: '2026-08-13',
         note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
-          '选它的理由是：<b>它在下面 7 个分歧格上与多数派一致 6 格</b>，' +
-          '在 top50 前五名里贴合度最高。唯一偏离的是<sk>嫁祸诀窍</sk>——' +
-          '那一格 25/50 正好对半，本来就没有多数派。' +
-          '<b>粘进游戏当起点，那 7 格再按自己的局面调。</b>',
+          '选它的理由是：<b>下面 8 个分歧格里，有多数派的 7 格他全部一致（7/7）</b>。' +
+          '（第 8 格 <b>Nimble Fingers</b> 25/50 正好对半，本来就没有多数派。）' +
+          '<b>粘进游戏当起点，那 8 格再按自己的局面调。</b>',
       },
       tree: {
         survey: '职业树 44 格 + 专精树 41 格 + 英雄天赋 28 格，共 <b>113 格</b>。' +
-          'top50 的实测分布里，<b>106 格是定死的</b>——要么人人都点，要么没人点。' +
-          '真正需要你判断的只有下面 <b>7 格</b>。',
+          'top50 的实测分布里，<b>105 格是定死的</b>——要么人人都点，要么没人点。' +
+          '真正需要你判断的只有下面 <b>8 格</b>。',
         picks: [
+          {
+            n: 'Superior Mixture', tree: '职业', u: 41,
+            b: '致残药膏的减速再多 10%。' +
+              '<br><b>这格 12.1 之前是 88%、几乎算定死的，现在掉到 82% 进了分歧区。</b>' +
+              '它管的是黏人，不是打伤害——对面有位移或解控能挣脱你的减速时，' +
+              '这一点换成别的更实在。'
+          },
           {
             n: 'Weaponmaster', tree: '专精', u: 38,
             b: '暗影打击与暗殁之刺有 <b>20% 几率</b>产生影分身，复制一次攻击造成 50% 伤害。' +
@@ -44,7 +51,7 @@ const PAGES = [
               '20% 的触发在单个窗口里可能一次都不来。不点的那 12 人是把这一点换成了稳定的东西。'
           },
           {
-            n: '毒刃', en: 'Shiv', tree: '职业', u: 34,
+            n: '毒刃', en: 'Shiv', tree: '职业', u: 36,
             b: '副手攻击，<b>驱散目标身上所有激怒效果</b>，并施加浓缩的非致命药膏。' +
               '<br><b>全树最明确的一格「看对面」。</b>对面带激怒类增益 —— 驱掉就是白赚一整个窗口；' +
               '对面没有激怒，这一点是空的。开局看到对面阵容就能定。'
@@ -56,31 +63,30 @@ const PAGES = [
               '对面减速手段密集时点它；对面靠硬控而不是减速的，这一点收益小。'
           },
           {
-            n: '嫁祸诀窍', en: 'Tricks of the Trade', tree: '职业', u: 25,
-            b: '把你产生的威胁值转移给指定队友，30 秒冷却。' +
-              '<b>它本身不加伤害</b>——那 15% 要另外点 PvP 天赋<sk>偷天换日</sk>。' +
-              '<br><b>全树最分裂的一格，正好对半分。</b>' +
-              '单点它在竞技场几乎没用（PvP 里威胁值不决定谁挨打）——<b>它的价值全在跟' +
-              '<sk>偷天换日</sk>凑成一套</b>，给队友的爆发窗口加伤害。' +
-              '队友有能跟你对齐的窗口才值，否则这一点不如留给自己。'
+            n: '劈头棒击', en: 'Blackjack', tree: '职业', u: 34,
+            b: '致盲或闷棍的效果在敌人身上结束后，该敌人造成的伤害和治疗效果降低 30%，持续 6 秒。' +
+              '<br><b>这一格 12.1 彻底翻了面</b>：它和<sk>嫁祸诀窍</sk>共用一格、二选一，' +
+              '上个版本 25 人选那个、没人选它，这个版本反过来。' +
+              '<br>它把控制的收尾接了一段——你闷棍完一个人转身走，那人醒来的头 6 秒是软的。' +
+              '<b>要用上得靠打法配合</b>：控制打在治疗身上、且队友的爆发正好压在这 6 秒里才算数。'
           },
           {
-            n: 'Nimble Fingers', tree: '职业', u: 23,
+            n: 'Nimble Fingers', tree: '职业', u: 25,
             b: '佯攻与猩红之瓶的能量消耗降低 10。' +
               '<br>省的是<b>防守动作</b>的能量。被压着打、需要反复佯攻和喝药的局才值；' +
               '你是压制方的那些局，这一点几乎不动。'
           },
           {
-            n: 'Toxic Stiletto', tree: '职业', u: 18,
+            n: 'Toxic Stiletto', tree: '职业', u: 15,
             b: '毒刃的能量消耗 −20、冷却 −15 秒、射程 +3 码。' +
-              '<br><b>它只强化毒刃。</b>毒刃 34 人点，它 18 人点——' +
-              '也就是说要毒刃的人里大约一半觉得不值第二点。' +
+              '<br><b>它只强化毒刃。</b>毒刃 36 人点，它 15 人点——' +
+              '也就是说要毒刃的人里超过一半觉得不值第二点。' +
               '对面激怒刷得勤、需要毒刃转得更快时才追加。'
           },
           {
             n: 'Perforated Veins', tree: '专精', u: 13,
             b: '在「破绽」生效期间，背刺、影袭风暴、暗殁之刺伤害提高 10%。' +
-              '<br>条件伤害，只在已经很强的窗口里再加一层。<b>26% 是这 7 格里最低的</b>——' +
+              '<br>条件伤害，只在已经很强的窗口里再加一层。<b>26% 是这 8 格里最低的</b>——' +
               '敏锐的短板通常不是窗口内不够疼，是窗口外没威胁。'
           },
         ],
@@ -92,9 +98,9 @@ const PAGES = [
     gear: {
       stats: [
         { n: '精通', v: '主堆', pct: 100 },
-        { n: '全能', v: '主堆', pct: 95 },
-        { n: '急速', v: '次要', pct: 21, mid: 1 },
-        { n: '爆击', v: '可弃', pct: 9, dim: 1 },
+        { n: '全能', v: '主堆', pct: 92 },
+        { n: '急速', v: '次要', pct: 23, mid: 1 },
+        { n: '爆击', v: '可弃', pct: 8, dim: 1 },
       ],
       statRead: '<b>精通和全能几乎并列，之后是断崖。</b>这两条一起堆，不用在它们之间做取舍；' +
         '<b>急速和爆击装备上带多少算多少</b>，不要为了它们放弃前两条。',
@@ -114,7 +120,8 @@ const PAGES = [
         {
           lb: '英雄天赋 · 唯一真正对半的一格',
           vv: '<b>Slayer</b>（29/50 · 58%）　vs　<b>Colossus</b>（21/50 · 42%）<br>' +
-            '<span class="dimtx">另外四个已上线专精的英雄天赋都是一边倒（50/0、46/4、45/5），' +
+            '<span class="dimtx">另外四个已上线专精的英雄天赋都是一边倒' +
+            '（敏锐贼 50/0、狂徒贼 50/0、冰法 50/0、戒律牧 42/8），' +
             '武器战士是唯一一个 top50 内部也没共识的。</span>'
         },
         {
@@ -127,6 +134,15 @@ const PAGES = [
         },
       ],
       note: '「Berserker Roar」暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'CcEAjLzRlq54bI5v+r8Sr9Xw4DzMzsMzMmZAAAAMMhxMzYjZmZYGzMDAAAAgxiZgtMzYZbWMz2wmhhZmZahmZG2AmxiZZMsMz2AMzAwMGGA',
+        who: 'Vîces', where: 'US · Sargeras', rating: '3v3 3190', at: '2026-08-13',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在 9 个分歧格上与多数派一致 8 格</b>，' +
+          '唯一偏离的是 <b>Dreadnaught</b>（33/50）。' +
+          '<b>它走的是 Slayer 线</b>——那一格 58 比 42，本来就没有正确答案，' +
+          '想走 Colossus 的话这串不适用。',
+      },
       tree: {
         survey: '职业树 40 格 + 专精树 36 格 + 英雄天赋 28 格，共 <b>104 格</b>。' +
           '<b>英雄天赋那 28 格不算逐格分歧</b>——它们是「走 Slayer 还是 Colossus」' +
@@ -172,7 +188,7 @@ const PAGES = [
         ],
         src: '使用率：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 武器战士 top 50</b> 实测配点。' +
           '另外 3 格分歧（Tactical Edge 28/50 · Rumbling Earth 26/50 · Critical Thinking 14/50）不单列。' +
-          '「什么时候点」为编者按天赋效果推导，非实测结论。导入串待补充。',
+          '「什么时候点」为编者按天赋效果推导，非实测结论。',
       },
     },
     gear: {
@@ -210,16 +226,18 @@ const PAGES = [
       ],
       note: '「Preemptive Maneuver」「Turn the Tables」暂无官方简体中文名。',
       imp: {
-        str: 'CQQA5HmDzx68KWyrW/8Y781L7DgZAGzwMbzMzMzYMLbmZmZbabGz2MAAAAAgZZZmZwMjZWMzMGAAAAzAYwsNLmZmRzMbMbssNtwmZAmZmZGYA',
-        who: 'Dzd', where: 'US · Stormrage', rating: '3v3 3055', at: '2026-08-12',
+        str: 'CQQAphyM11FofNMFa1K3vFEDUCgZAGzwMbzMzMzYMLbmZmZbabGz2MAAAAAAbLzMDmZMzYmZMAAAAmhBGMbziZmZ0MzGzGLbTLsZGgZGMwA',
+        who: 'Dázèd', where: 'US · Stormrage', rating: '3v3 3139', at: '2026-08-13',
         note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
-          '选它的理由是：<b>它在下面 7 个分歧格上与多数派完全一致（7/7）</b>，' +
-          '在 top50 前五名里贴合度最高。<b>粘进游戏当起点，那 7 格再按自己的局面调。</b>',
+          '选它的理由是：<b>它在 10 个分歧格上与多数派一致 9 格</b>，在 top50 前五名里贴合度最高。' +
+          '唯一偏离的是<sk>嫁祸诀窍</sk>那格（26/50 · 52%），本来就接近对半。' +
+          '<b>粘进游戏当起点，那 10 格再按自己的局面调。</b>',
       },
       tree: {
         survey: '职业树 44 格 + 专精树 38 格 + 英雄天赋 28 格，共 <b>110 格</b>。' +
-          '扣掉没人走的命运之缚整条线，top50 的实测里 <b>93 格是定死的</b>。' +
-          '真正需要你判断的是下面 <b>7 格</b>。',
+          '扣掉没人走的命运之缚整条线、以及诡术师线里跟着「走这条线」一起点掉的 11 格，' +
+          'top50 的实测里 <b>100 格是定死的</b>。' +
+          '真正需要你判断的是 <b>10 格</b>，下面是其中 7 格。',
         picks: [
           {
             n: 'Soothing Darkness', tree: '职业', u: 42,
@@ -269,9 +287,9 @@ const PAGES = [
     gear: {
       stats: [
         { n: '全能', v: '主堆', pct: 100 },
-        { n: '急速', v: '兼顾', pct: 58, mid: 1 },
+        { n: '急速', v: '兼顾', pct: 57, mid: 1 },
         { n: '爆击', v: '可弃', pct: 8, dim: 1 },
-        { n: '精通', v: '可弃', pct: 5, dim: 1 },
+        { n: '精通', v: '可弃', pct: 7, dim: 1 },
       ],
       statRead: '<b>全能一枝独秀，急速跟上，之后是断崖。</b>' +
         '爆击和精通在 top50 的配装里几乎为零——<b>不用为这两条做任何取舍</b>。',
@@ -294,16 +312,16 @@ const PAGES = [
       ],
       note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
       imp: {
-        str: 'CAEAMhlVtghLZL4RZzExaQoBYNmtlZWmZmZDzMxMMzMzMzsYmZGzYmZZmmZ2mFAwMzMLLzMtBAALAAAAbAstMmZGwy8AGzMWAAAYmFgZYMDYwA',
-        who: 'Yozóra', where: 'EU · Ravencrest', rating: '3v3 3257', at: '2026-08-12',
+        str: 'CAEAMhlVtghLZL4RZzExaQoBYNstMzyMzMbziZmYwMzMzMziZmZMjZmlZamZbWAAzMzssMz0GAAsAAAAsBw2yYmZGYZeAjZGLAAAMzCwMMmBMYA',
+        who: 'Ventús', where: 'EU · Ravencrest', rating: '3v3 3252', at: '2026-08-13',
         note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
           '选它的理由是：<b>它在下面 3 个分歧格上与多数派完全一致（3/3）</b>，' +
           '在 top50 前五名里贴合度最高。<b>粘进游戏当起点，那 3 格再按自己的局面调。</b>',
       },
       tree: {
-        survey: '职业树 42 格 + 专精树 38 格 + 英雄天赋 28 格，共 <b>108 格</b>。' +
-          '扣掉没人走的霜火整条线，<b>102 格是定死的</b>——' +
-          '<b>这是四个专精里最没得选的一棵树</b>。真正要判断的只有 <b>3 格</b>，' +
+        survey: '职业树 43 格 + 专精树 38 格 + 英雄天赋 28 格，共 <b>109 格</b>。' +
+          '扣掉没人走的霜火整条线，<b>106 格是定死的</b>——' +
+          '<b>这是站上几个专精里最没得选的一棵树</b>。真正要判断的只有 <b>3 格</b>，' +
           '另外三格 top50 里只有个位数在点。',
         picks: [
           {
@@ -359,17 +377,18 @@ const PAGES = [
       ],
       note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
       imp: {
-        str: 'CAQA4VPTJ8eQb8/qEm8PyGu4yADsMzwyMjZmBMbzYmZGjZGAAAAAAAAAAzMzyMYMGLzMzMssYamYwYmZDDhxsNWstYMGLGAAGzwYwAzMzMzEM',
-        who: 'Eniram', where: 'EU · Ravencrest', rating: '3v3 3165', at: '2026-08-12',
+        str: 'CAQAR03Gt7xPmcDNOjs2Zlb3yCDsMzDwyMjZmBMbzYmZGjZGAAAAAAAAAAzMzyMYMGLzMzMssYamYwYmZDDhxsNWstYMGLGAAGzwYwAzMzMzEMD',
+        who: 'Eniram', where: 'EU · Ravencrest', rating: '3v3 3165', at: '2026-08-13',
         note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
-          '选它的理由是：<b>它在下面 7 个分歧格上与多数派完全一致（7/7）</b>。' +
-          '戒律牧是四个专精里配点空间最大的一个，' +
-          '<b>这串只是一个起点，那 7 格更值得你按自己的局面重调。</b>',
+          '选它的理由是：<b>它在全部 16 个分歧格上与多数派完全一致（16/16）</b>。' +
+          '戒律牧是站上几个专精里配点空间最大的一个，' +
+          '<b>这串只是一个起点，下面那 7 格更值得你按自己的局面重调。</b>',
       },
       tree: {
-        survey: '职业树 48 格 + 专精树 41 格 + 英雄天赋 28 格，共 <b>117 格</b>。' +
-          '扣掉只有 5 人走的虚空编织者整条线，仍有 <b>17 格</b>存在真实分歧——' +
-          '<b>这是四个专精里配点空间最大的一棵树</b>，下面是其中最值得想的 7 格。',
+        survey: '职业树 48 格 + 专精树 42 格 + 英雄天赋 28 格，共 <b>118 格</b>。' +
+          '扣掉只有 8 人走的虚空编织者整条线、以及先知线里跟着「走这条线」一起点掉的 12 格，' +
+          '仍有 <b>16 格</b>存在真实分歧——' +
+          '<b>这是站上几个专精里配点空间最大的一棵树</b>，下面是其中最值得想的 7 格。',
         picks: [
           {
             n: 'Move with Grace', tree: '职业', u: 39,
@@ -421,8 +440,8 @@ const PAGES = [
     gear: {
       stats: [
         { n: '精通', v: '主堆', pct: 100 },
-        { n: '全能', v: '主堆', pct: 89 },
-        { n: '急速', v: '兼顾', pct: 60, mid: 1 },
+        { n: '全能', v: '主堆', pct: 96 },
+        { n: '急速', v: '兼顾', pct: 64, mid: 1 },
         { n: '爆击', v: '可弃', pct: 1, dim: 1 },
       ],
       statRead: '<b>三条都有分量，断层只在爆击之前。</b>' +

@@ -13,6 +13,12 @@ module.exports = {
   SEASON: 'Midnight 赛季一',
   SEASON_EN: 'Midnight S1',
 
+  /* 梯队榜（S/A/B）是外部第三方按自己的节奏更新的，跟游戏补丁号不是一回事。
+     它有自己的版本，只有真去重抓了榜单才动这一行 ——
+     跟着 PATCH 走会让页面声称「12.1 的梯队」，而数据其实是上个版本的。 */
+  TIER_PATCH: '12.0.7',
+  TIER_AT: '2026-06-15',
+
   /* 许愿池：Web3Forms 的 access key。
      去 https://web3forms.com 填收件邮箱，它会把 key 发到你邮箱里，粘到这里。
      邮箱地址本身不会出现在页面上——页面只带这个 key。
