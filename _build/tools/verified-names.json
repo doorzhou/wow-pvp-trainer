@@ -704,6 +704,110 @@
   "碧火踏": {
    "id": 388193,
    "en": "Jadefire Stomp"
+  },
+  "公正之剑": {
+   "id": 184575,
+   "en": "Blade of Justice"
+  },
+  "圣殿骑士的裁决": {
+   "id": 85256,
+   "en": "Templar's Verdict"
+  },
+  "十字军打击": {
+   "id": 35395,
+   "en": "Crusader Strike"
+  },
+  "复仇之盾": {
+   "id": 184662,
+   "en": "Shield of Vengeance"
+  },
+  "复仇之怒": {
+   "id": 31884,
+   "en": "Avenging Wrath"
+  },
+  "灰烬觉醒": {
+   "id": 255937,
+   "en": "Wake of Ashes"
+  },
+  "制裁之锤": {
+   "id": 853,
+   "en": "Hammer of Justice"
+  },
+  "忏悔": {
+   "id": 20066,
+   "en": "Repentance"
+  },
+  "责难": {
+   "id": 96231,
+   "en": "Rebuke"
+  },
+  "牺牲祝福": {
+   "id": 6940,
+   "en": "Blessing of Sacrifice"
+  },
+  "圣佑术": {
+   "id": 498,
+   "en": "Divine Protection"
+  },
+  "圣疗术": {
+   "id": 633,
+   "en": "Lay on Hands"
+  },
+  "救赎": {
+   "id": 7328,
+   "en": "Redemption"
+  },
+  "愤怒之锤": {
+   "id": 24275,
+   "en": "Hammer of Wrath"
+  },
+  "神圣风暴": {
+   "id": 53385,
+   "en": "Divine Storm"
+  },
+  "妨害之手": {
+   "id": 183218,
+   "en": "Hand of Hindrance"
+  },
+  "神圣马驹": {
+   "id": 190784,
+   "en": "Divine Steed"
+  },
+  "清洁术": {
+   "id": 4987,
+   "en": "Cleanse"
+  },
+  "清毒术": {
+   "id": 213644,
+   "en": "Cleanse Toxins"
+  },
+  "奉献": {
+   "id": 26573,
+   "en": "Consecration"
+  },
+  "审判": {
+   "id": 327977,
+   "en": "Judgment"
+  },
+  "最终清算": {
+   "id": 343721,
+   "en": "Final Reckoning"
+  },
+  "光辉敕令": {
+   "id": 384052,
+   "en": "Radiant Decree"
+  },
+  "以眼还眼": {
+   "id": 205191,
+   "en": "Eye for an Eye"
+  },
+  "庇护祝福": {
+   "id": 210256,
+   "en": "Blessing of Sanctuary"
+  },
+  "盲目之光": {
+   "id": 115750,
+   "en": "Blinding Light"
   }
  }
 }

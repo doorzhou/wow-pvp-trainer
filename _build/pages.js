@@ -637,6 +637,100 @@ const PAGES = [
     },
   },
   {
+    file: 'ret-paladin', kind: 'spec', cls: 'paladin', spec: 'retribution',
+    h1: '惩戒骑 PvP 判断训练器', short: '惩戒骑',
+    icon: 'spell_holy_auraoflight', tier: 'A+', color: '#F48CBA',
+    crumb: ['圣骑士', '惩戒'], store: 'banyeRetPalaPvP1207', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在算 Forbearance 的时间轴，不是看谁血低就给牌。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「该不该开」的四条件过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋', vv: '<b>晨光使者 Herald of the Sun</b> —— top50 里 50 人全用，圣殿武士 <b>0 人</b>。这不是推荐，是唯一解。' },
+        { lb: 'PvP 天赋 · 两格接近必带', vv: '<sk>庇护祝福</sk>（50/50）—— 拆控制链<br><b>Hallowed Ground</b>（49/50）—— <sk>奉献</sk>清队友身上的减速' },
+        {
+          lb: 'PvP 天赋 · 第三格看阵容',
+          vv: '<b>Blessing of Spellwarding</b>（28/50）—— 免疫魔法版的保护祝福，对面法系重时换上<br>' +
+            '<b>Searing Glare</b>（14/50）—— 范围致盲<br>' +
+            '<span class="dimtx">四项占了全部选择的 94%。</span>'
+        },
+      ],
+      note: '「Hallowed Ground」「Blessing of Spellwarding」「Searing Glare」暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'CYEAzbn3egSOtoSwvPw1U1vTLAAAAAANLbzMzyYmZMAAAAAAzUmlZYG2GPw2wMbz4BMmZYGLsNAMLz2Mzs0Mz0yMzyMAgNADgxYmtxgZMsglZmZGGDDG',
+        who: 'Budgetcara', where: 'EU · Stormscale', rating: '3v3 3172', at: '2026-08-14',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 6 个分歧格上与多数派一致 4 格</b>，在前几名里贴合度最高。' +
+          '<b>惩戒的 14 个分歧格里有不少是「给队友的加成」</b>——' +
+          '这类格子跟你的队伍构成关系很大，粘完更要按自己的队友重调。',
+      },
+      tree: {
+        survey: '职业树 54 格 + 专精树 34 格 + 英雄天赋 28 格，共 <b>116 格</b>。' +
+          '扣掉没人走的圣殿武士整条线、以及晨光使者线里跟着「走这条线」一起点掉的格子，' +
+          'top50 的实测里 <b>102 格是定死的</b>。真正需要判断的是 <b>14 格</b>，下面是其中 6 格。',
+        picks: [
+          {
+            n: 'Holy Ritual', tree: '职业', u: 42,
+            b: '对盟友施放<sk>保护祝福</sk>或<sk>牺牲祝福</sk>时，额外为其治疗一次。' +
+              '<br><b>84% 接近定盘。</b>它把「救人」这个动作的收益翻了一倍——' +
+              '你本来就要给牌，顺带还回一口血。<b>惩戒的价值一半在队友身上，这一格正是那一半的加成。</b>'
+          },
+          {
+            n: 'Heart of the Crusader', tree: '专精', u: 41,
+            b: '<sk>十字军打击</sk>和自动攻击伤害提高，爆击伤害也提高。' +
+              '<br>纯输出加成，不看对面。<b>82% 说明多数人认为惩戒的基础输出值得投资</b>——' +
+              '不点的那 9 人是把这一点换成了生存或机动。'
+          },
+          {
+            n: 'Blessed Champion', tree: '专精', u: 36,
+            b: '<sk>十字军打击</sk>和<sk>审判</sk>额外命中 4 个目标，但对次要目标伤害降低。' +
+              '<br><b>它买的是「多目标压力」。</b>3v3 里对面站得近、需要同时给三个人上压力时值；' +
+              '打法偏单点集火的话，这一点的收益就薄了。'
+          },
+          {
+            n: 'Crusading Strikes', tree: '专精', u: 32, ch: 1,
+            b: '<sk>十字军打击</sk>取代自动攻击，但自动攻击速度降低。' +
+              '<br><b>这是二选一格</b>——它把你的输出模式从「按技能」改成「自动流」。' +
+              '好处是不占 GCD，坏处是节奏变钝。<b>64% 说明这个改动不是无脑正确</b>，' +
+              '手法密集的打法反而不喜欢它。'
+          },
+          {
+            n: 'Blessed Calling', tree: '职业', u: 30,
+            b: '受你祝福影响的盟友移动速度提高。' +
+              '<br><b>又一个「价值在队友身上」的格子。</b>队友需要跑位（治疗、法系）时价值高；' +
+              '双近战阵容里这一点几乎不动。'
+          },
+          {
+            n: 'Blessing of Protection', tree: '职业', u: 26,
+            b: '祝福一名队友，使其短时间内免疫物理伤害和有害效果，并造成 20 秒 Forbearance。' +
+              '<br><b>只有一半的人点它，这件事本身值得想。</b>它是全游戏最强的外部牌之一，' +
+              '但它带 Forbearance——<b>点了它，你的<sk>圣疗术</sk>就会被它挤占</b>。' +
+              '不点的那一半是选择把治疗留得更灵活。'
+          },
+        ],
+        src: '使用率：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 惩戒骑 top 50</b> 实测配点。' +
+          '「什么时候点」为编者按天赋效果与该专精打法推导，非实测结论。' +
+          '暂无官方简体中文名的天赋使用英文原名。',
+      },
+    },
+    gear: {
+      stats: [
+        { n: '全能', v: '主堆', pct: 100 },
+        { n: '精通', v: '兼顾', pct: 46, mid: 1 },
+        { n: '急速', v: '可弃', pct: 10, dim: 1 },
+        { n: '爆击', v: '可弃', pct: 0, dim: 1 },
+      ],
+      statRead: '<b>全能一枝独秀，之后是断崖。</b>全能同时提高伤害和减伤——' +
+        '对一个既要输出又要给队友挡刀的专精，两头都吃得到。' +
+        '<b>爆击实测接近 0</b>，完全不用考虑。',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 惩戒骑 top 50</b> 实测配装。' +
+        '档位划分为编者按断层位置判定。',
+    },
+  },
+  {
     file: 'rogue-priest-2v2', kind: 'comp', h1: '贼 + 戒律牧 · 2v2 组合训练器', short: '贼牧 2v2',
     icon: 'classicon_rogue', icon2: 'classicon_priest', tier: null, color: '#8b6fd4',
     crumb: ['组合', '2v2 贼牧'], store: 'banyeRoguePriest2v2_1207', quizSec: 's5',

@@ -1,0 +1,752 @@
+window.TALDESC={
+"lay-on-hands": {
+"name": "Lay on Hands",
+"meta": "Instant · 40 yd range · 10 min cooldown",
+"en": "Heals a friendly target for an amount equal to 100% your maximum health. Cannot be used on a target with Forbearance. Causes Forbearance for 20 sec.",
+"desc": "治疗一个友方目标，治疗量等于你最大生命值的 100%。无法用于拥有 Forbearance 的目标，并使目标获得 Forbearance，持续 20 秒。"
+},
+"auras-of-the-resolute": {
+"name": "Auras of the Resolute",
+"meta": "Passive",
+"en": "Learn Concentration Aura, Devotion Aura, and Crusader Aura: Concentration Aura: Interrupt and Silence effects on party and raid members within 60 yds are 30% shorter. Devotion Aura: Party and raid members within 60 yds are bolstered by their devotion, reducing damage taken by 3%. Crusader Aura: Increases mounted speed by 20% for all party and raid members within 60 yds.",
+"desc": "习得专注光环、虔诚光环和十字军光环。专注光环：60 码内队伍成员受到的打断和沉默效果持续时间缩短 30%。虔诚光环：60 码内队伍成员受到的伤害降低 3%。十字军光环：60 码内所有成员的骑乘速度提高 20%。"
+},
+"hammer-of-wrath": {
+"name": "Hammer of Wrath",
+"meta": "Passive",
+"en": "During Avenging Wrath, Judgment is empowered into Hammer of Wrath. Hammer of Wrath Hurls a divine hammer that strikes an enemy for 10,767 Holy damage. Generates 1 Holy Power.",
+"desc": "复仇之怒期间，审判被强化为愤怒之锤。愤怒之锤：投出一把神圣之锤，对敌人造成 10,767 点神圣伤害，生成 1 点神圣能量。"
+},
+"cleanse-toxins": {
+"name": "Cleanse Toxins",
+"meta": "Instant · 40 yd range · 8 sec cooldown",
+"en": "Cleanses a friendly target, removing all Poison and Disease effects.",
+"desc": "净化一名友方目标，移除其身上所有中毒和疾病效果。"
+},
+"empyreal-ward": {
+"name": "Empyreal Ward",
+"meta": "Passive",
+"en": "Lay on Hands grants the target 30% increased armor for 8 sec and now ignores healing reduction effects.",
+"desc": "圣疗术使目标护甲提高 30%，持续 8 秒，且现在无视治疗衰减效果。"
+},
+"fist-of-justice": {
+"name": "Fist of Justice",
+"meta": "Passive",
+"en": "Hammer of Justice's cooldown is reduced by 15 sec.",
+"desc": "制裁之锤的冷却时间降低 15 秒。"
+},
+"blinding-light": {
+"name": "Blinding Light",
+"meta": "Instant · 1.5 min cooldown",
+"en": "Emits dazzling light in all directions, blinding enemies within 10 yds, causing them to wander disoriented for 6 sec. Damage may cancel the effect.",
+"desc": "向四面八方发出耀眼光芒，使 10 码内的敌人目盲并无序游荡 6 秒。受到伤害可能中断该效果。"
+},
+"turn-evil": {
+"name": "Turn Evil",
+"meta": "1.5 sec cast · 20 yd range · 15 sec cooldown",
+"en": "The power of the Light compels an Undead, Aberration, or Demon target to flee for up to 40 sec. Damage may break the effect. Lesser creatures have a chance to be destroyed. Only one target can be turned at a time.",
+"desc": "以圣光之力迫使一个亡灵、畸变体或恶魔目标逃离，最多 40 秒。受到伤害会打破效果。较弱的生物有几率被直接摧毁。同时只能对一个目标生效。"
+},
+"a-just-reward": {
+"name": "A Just Reward",
+"meta": "Passive",
+"en": "After Cleanse Toxins successfully removes an effect from an ally, they are healed for 31,836.",
+"desc": "清毒术成功移除盟友身上的效果后，为其治疗 31,836 点生命值。"
+},
+"healing-hands": {
+"name": "Healing Hands",
+"meta": "Passive",
+"en": "The cooldown of Lay on Hands is reduced up to 60%, based on the target's missing health. Word of Glory's healing is increased by up to 100% on yourself, based on your missing health.",
+"desc": "圣疗术的冷却时间最多降低 60%，取决于目标缺失的生命值。Word of Glory 对你自身的治疗最多提高 100%，取决于你缺失的生命值。"
+},
+"guided-prayer": {
+"name": "Guided Prayer",
+"meta": "Passive",
+"en": "When your health is brought below 25%, you instantly cast a free Word of Glory at 60% effectiveness on yourself. Cannot occur more than once every 60 sec.",
+"desc": "当你的生命值降至 25% 以下时，立即对自己施放一次免费的 Word of Glory，效能为 60%。每 60 秒最多触发一次。"
+},
+"divine-steed": {
+"name": "Divine Steed",
+"meta": "Instant · 0.75 sec cooldown",
+"en": "Leap atop your Charger for 10.8 sec, increasing movement speed by 100%. Usable while indoors or in combat.",
+"desc": "骑上你的战马，持续 10.8 秒，移动速度提高 100%。可在室内或战斗中使用。"
+},
+"light's-countenance": {
+"name": "Light's Countenance",
+"meta": "Passive",
+"en": "The cooldown of Blinding Light is reduced by 15 sec.",
+"desc": "盲目之光的冷却时间降低 15 秒。"
+},
+"greater-judgment": {
+"name": "Greater Judgment",
+"meta": "Passive",
+"en": "Judgment causes the target to take 20% increased damage from your next Holy Power ability. Multiple applications may overlap.",
+"desc": "审判使目标受到你下一次神圣能量技能的伤害提高 20%。可多次叠加。"
+},
+"wrench-evil": {
+"name": "Wrench Evil",
+"meta": "Passive",
+"en": "Turn Evil's cast time is reduced by 100%.",
+"desc": "Turn Evil 的施法时间缩短 100%。"
+},
+"holy-reprieve": {
+"name": "Holy Reprieve",
+"meta": "Passive",
+"en": "Your Forbearance's duration is reduced by 10 sec.",
+"desc": "你身上的 Forbearance 持续时间缩短 10 秒。"
+},
+"shield-of-vengeance": {
+"name": "Shield of Vengeance",
+"meta": "Passive",
+"en": "Divine Protection reduces damage taken by an additional 10% and casts Shield of Vengeance. Shield of Vengeance Creates a barrier of holy light that absorbs 150,684 damage for 10 sec. When the shield expires, it bursts to inflict Holy damage equal to the total amount absorbed, divided among all nearby enemies.",
+"desc": "圣佑术额外降低受到的伤害 10%，并施放复仇之盾。复仇之盾：创建一个圣光屏障，吸收 150,684 点伤害，持续 10 秒。屏障消散时爆炸，对附近所有敌人造成神圣伤害，总量等于屏障吸收的伤害并在他们之间分摊。"
+},
+"cavalier": {
+"name": "Cavalier",
+"meta": "Passive",
+"en": "Divine Steed now has 2 charges.",
+"desc": "神圣马驹现在有 2 次充能。"
+},
+"divine-spurs": {
+"name": "Divine Spurs",
+"meta": "Passive",
+"en": "Divine Steed's cooldown is reduced by 20%, but its duration is reduced by 40%.",
+"desc": "神圣马驹的冷却时间降低 20%，但持续时间缩短 40%。"
+},
+"blessing-of-freedom": {
+"name": "Blessing of Freedom",
+"meta": "Instant · 40 yd range · 1.5 sec cooldown",
+"en": "Blesses a party or raid member, granting immunity to movement impairing effects for 8 sec.",
+"desc": "祝福一名队伍或团队成员，使其在 8 秒内免疫移动减速效果。"
+},
+"rebuke": {
+"name": "Rebuke",
+"meta": "Instant · Melee Range · 15 sec cooldown",
+"en": "Interrupts spellcasting and prevents any spell in that school from being cast for 5 sec.",
+"desc": "打断施法，并使该系法术在 5 秒内无法施放。"
+},
+"obduracy": {
+"name": "Obduracy",
+"meta": "Passive",
+"en": "Speed increased by 4% and damage taken from area of effect attacks reduced by 4%.",
+"desc": "移动速度提高 4%，受到的范围伤害降低 4%。"
+},
+"divine-toll": {
+"name": "Divine Toll",
+"meta": "Instant · 30 yd range · 1 min cooldown",
+"en": "Instantly cast Judgment on up to 5 targets within 30 yds. Divine Toll's Judgment deals 50% increased damage.",
+"desc": "立即对 30 码内最多 5 个目标施放审判。Divine Toll 触发的审判伤害提高 50%。"
+},
+"unbound-freedom": {
+"name": "Unbound Freedom",
+"meta": "Passive",
+"en": "Blessing of Freedom increases movement speed by 30%, and you gain Blessing of Freedom when cast on a friendly target.",
+"desc": "自由祝福额外提高 30% 移动速度；对友方目标施放时，你也会获得自由祝福。"
+},
+"sanctified-plates": {
+"name": "Sanctified Plates",
+"meta": "Passive",
+"en": "Armor increased by 40%, Stamina increased by 20% and damage taken from area of effect attacks reduced by 12%.",
+"desc": "护甲提高 40%，耐力提高 20%，受到的范围伤害降低 12%。"
+},
+"punishment": {
+"name": "Punishment",
+"meta": "Passive",
+"en": "Successfully interrupting an enemy with Rebuke casts an extra Crusader Strike.",
+"desc": "用责难成功打断敌人后会额外施放一次十字军打击。"
+},
+"divine-reach": {
+"name": "Divine Reach",
+"meta": "Passive",
+"en": "The radius of your auras is increased by 20 yds.",
+"desc": "你的光环半径增加 20 码。"
+},
+"brought-to-light": {
+"name": "Brought to Light",
+"meta": "Passive",
+"en": "Killing an enemy that yields experience or honor causes you to explode with holy energy, healing up to 5 nearby allies and yourself for 13,160, split evenly among them.",
+"desc": "击杀可提供经验或荣誉的敌人时爆发神圣能量，为你和最多 5 名附近盟友治疗共 13,160 点生命值并均摊。"
+},
+"blessing-of-sacrifice": {
+"name": "Blessing of Sacrifice",
+"meta": "Instant · 40 yd range · 2 min cooldown",
+"en": "Blesses a party or raid member, reducing their damage taken by 30%, but you suffer 100% of damage prevented. Last 12 sec, or until transferred damage would cause you to fall below 20% health.",
+"desc": "祝福一名队伍或团队成员，使其受到的伤害降低 30%，但你承受被减免伤害的 100%。持续 12 秒，或直到转移的伤害会让你的生命值低于 20% 为止。"
+},
+"divine-resonance": {
+"name": "Divine Resonance",
+"meta": "Passive",
+"en": "After casting Divine Toll, your next 3 Judgments cast again at 100% effectiveness.",
+"desc": "施放 Divine Toll 后，你接下来的 3 次审判会以 100% 效能再次施放。"
+},
+"blessing-of-protection": {
+"name": "Blessing of Protection",
+"meta": "Instant · 40 yd range · 1.5 sec cooldown",
+"en": "Blesses a party or raid member, granting immunity to Physical damage and harmful effects for 10 sec. Cannot be used on a target with Forbearance. Causes Forbearance for 20 sec.",
+"desc": "祝福一名队伍或团队成员，使其在 10 秒内免疫物理伤害和有害效果。不能用于已有 Forbearance 的目标，并造成 20 秒 Forbearance。"
+},
+"fear-no-evil": {
+"name": "Fear No Evil",
+"meta": "Passive",
+"en": "Fear duration on you reduced by 20%. This effect is increased to 60% during Avenging Wrath.",
+"desc": "你身上的恐惧效果持续时间缩短 20%。复仇之怒期间提高到 60%。"
+},
+"consecrated-ground": {
+"name": "Consecrated Ground",
+"meta": "Passive",
+"en": "Your Consecration is 15% larger, and enemies within it have 50% reduced movement speed.",
+"desc": "奉献的范围扩大 15%，其中的敌人移动速度降低 50%。"
+},
+"holy-aegis": {
+"name": "Holy Aegis",
+"meta": "Passive",
+"en": "Armor and critical strike chance increased by 4%.",
+"desc": "护甲和爆击几率提高 4%。"
+},
+"sacrifice-of-the-just": {
+"name": "Sacrifice of the Just",
+"meta": "Passive",
+"en": "Reduces the cooldown of Blessing of Sacrifice by 60 sec.",
+"desc": "牺牲祝福的冷却时间降低 60 秒。"
+},
+"sacred-strength": {
+"name": "Sacred Strength",
+"meta": "Passive",
+"en": "Holy Power spending abilities have 2% increased damage and healing.",
+"desc": "消耗神圣能量的技能伤害和治疗提高 2%。"
+},
+"improved-blessing-of-protection": {
+"name": "Improved Blessing of Protection",
+"meta": "Passive",
+"en": "Reduces the cooldown of Blessing of Protection by 60 sec.",
+"desc": "保护祝福的冷却时间降低 60 秒。"
+},
+"unbreakable-spirit": {
+"name": "Unbreakable Spirit",
+"meta": "Passive",
+"en": "Reduces the cooldown of your Divine Shield, Divine Protection, and Lay on Hands by 30%.",
+"desc": "圣盾术、圣佑术和圣疗术的冷却时间降低 30%。"
+},
+"lightforged-blessing": {
+"name": "Lightforged Blessing",
+"meta": "Passive",
+"en": "Divine Storm heals you and up to 2 nearby allies for 2,686.",
+"desc": "神圣风暴为你和最多 2 名附近盟友治疗 2,686 点生命值。"
+},
+"lead-the-charge": {
+"name": "Lead the Charge",
+"meta": "Passive",
+"en": "Divine Steed reduces the cooldown of 4 nearby ally's major movement ability by 3.0 sec. Your movement speed is increased by 3%.",
+"desc": "神圣马驹使 4 名附近盟友的主要位移技能冷却时间降低 3 秒。你的移动速度提高 3%。"
+},
+"righteous-protection": {
+"name": "Righteous Protection",
+"meta": "Passive",
+"en": "Blessing of Sacrifice now removes and prevents all Poison and Disease effects.",
+"desc": "牺牲祝福现在会移除并阻止所有中毒和疾病效果。"
+},
+"holy-ritual": {
+"name": "Holy Ritual",
+"meta": "Passive",
+"en": "Allies are healed for 52,685 when you cast Blessing of Protection or Blessing of Sacrifice on them.",
+"desc": "对盟友施放保护祝福或牺牲祝福时，为其治疗 52,685 点生命值。"
+},
+"blessed-calling": {
+"name": "Blessed Calling",
+"meta": "Passive",
+"en": "Allies affected by your Blessings have 15% increased movement speed.",
+"desc": "受你祝福影响的盟友移动速度提高 15%。"
+},
+"inspired-guard": {
+"name": "Inspired Guard",
+"meta": "Passive",
+"en": "Divine Protection increases healing taken by 15% for its duration.",
+"desc": "圣佑术在持续期间使你受到的治疗提高 15%。"
+},
+"light's-revocation": {
+"name": "Light's Revocation",
+"meta": "Passive",
+"en": "Removing harmful effects with Divine Shield heals you for 10% for each effect removed. This heal cannot exceed 30% of your maximum health. Divine Shield may now be cast while Forbearance is active.",
+"desc": "用圣盾术移除有害效果时，每移除一个效果为你治疗最大生命值的 10%，总量不超过最大生命值的 30%。圣盾术现在可以在 Forbearance 生效时施放。"
+},
+"faith's-armor": {
+"name": "Faith's Armor",
+"meta": "Passive",
+"en": "Word of Glory grants 20% bonus armor for 4.5 sec.",
+"desc": "Word of Glory 额外提供 20% 护甲，持续 4.5 秒。"
+},
+"stoicism": {
+"name": "Stoicism",
+"meta": "Passive",
+"en": "The duration of stun effects on you is reduced by 20%.",
+"desc": "你身上的昏迷效果持续时间缩短 20%。"
+},
+"seal-of-might": {
+"name": "Seal of Might",
+"meta": "Passive",
+"en": "Mastery increased by 4% and Strength increased by 4%.",
+"desc": "精通提高 4%，力量提高 4%。"
+},
+"vengeful-wrath": {
+"name": "Vengeful Wrath",
+"meta": "Passive",
+"en": "Hammer of Wrath deals up to 50% additional damage based on its target's health. Lower health targets receive more damage.",
+"desc": "愤怒之锤根据目标生命值最多造成 50% 的额外伤害，目标血量越低伤害越高。"
+},
+"eye-for-an-eye": {
+"name": "Eye for an Eye",
+"meta": "Passive",
+"en": "Melee and ranged attackers receive 891 Holy damage each time they strike you during Divine Protection and Divine Shield.",
+"desc": "圣佑术和圣盾术期间，近战和远程攻击者每次击中你都会受到 891 点神圣伤害。"
+},
+"golden-path": {
+"name": "Golden Path",
+"meta": "Passive",
+"en": "Consecration heals you and 5 allies within it for 142 every 0.9 sec.",
+"desc": "奉献在其范围内为你和 5 名盟友每 0.9 秒治疗 142 点生命值。"
+},
+"blessing-of-dawn": {
+"name": "Blessing of Dawn",
+"meta": "Passive",
+"en": "While you are above 85% health, 5% of all damage taken by allies within 20 yds is redirected to you, up to a maximum of 17,119 every 5 sec.",
+"desc": "当你的生命值高于 85% 时，20 码内盟友受到的伤害有 5% 转移到你身上，每 5 秒最多 17,119 点。"
+},
+"lightbearer": {
+"name": "Lightbearer",
+"meta": "Passive",
+"en": "10% of all healing done to you from other sources heals up to 4 nearby allies, divided evenly among them.",
+"desc": "你受到的所有治疗的 10% 会分摊治疗最多 4 名附近盟友。"
+},
+"blessing-of-dusk": {
+"name": "Blessing of Dusk",
+"meta": "Passive",
+"en": "Damage taken reduced by up to 10%, increasing as your health decreases.",
+"desc": "受到的伤害最多降低 10%，随你生命值降低而增强。"
+},
+"blade-of-justice": {
+"name": "Blade of Justice",
+"meta": "Instant · 12 yd range",
+"en": "Pierce enemies with a blade of light, dealing 7,494 Holy damage to your target and 3,234 Holy damage to nearby enemies. Generates 2 Holy Power.",
+"desc": "以光刃刺穿敌人，对目标造成 7,494 点神圣伤害，对附近敌人造成 3,234 点神圣伤害。生成 2 点神圣能量。"
+},
+"divine-storm": {
+"name": "Divine Storm",
+"meta": "Instant",
+"en": "Unleashes a whirl of divine energy, dealing 7,418 Holy damage to all nearby enemies. Deals reduced damage beyond 5 targets.",
+"desc": "释放神圣能量漩涡，对附近所有敌人造成 7,418 点神圣伤害。超过 5 个目标后伤害降低。"
+},
+"expurgation": {
+"name": "Expurgation",
+"meta": "Passive",
+"en": "Your Blade of Justice causes the target to burn for 4,442 Radiant damage over 9 sec. When reapplied, any remaining damage is added to the new effect.",
+"desc": "公正之剑使目标燃烧，在 9 秒内造成 4,442 点光辉伤害。重新施加时剩余伤害会累加到新效果上。"
+},
+"swift-justice": {
+"name": "Swift Justice",
+"meta": "Passive",
+"en": "Reduces the cooldown of Judgment by 2 sec and Crusader Strike by 2 sec.",
+"desc": "审判的冷却时间降低 2 秒，十字军打击的冷却时间降低 2 秒。"
+},
+"judgment-of-justice": {
+"name": "Judgment of Justice",
+"meta": "Passive",
+"en": "Judgment deals 10% increased damage and increases your movement speed by 10% for 5 sec. If you have Greater Judgment, Judgment slows enemies by 30% for 8 sec.",
+"desc": "审判造成的伤害提高 10%，并使你的移动速度提高 10%，持续 5 秒。若已习得 Greater Judgment，审判还会使敌人减速 30%，持续 8 秒。"
+},
+"avenging-wrath": {
+"name": "Avenging Wrath",
+"meta": "Instant · 2 min cooldown",
+"en": "Call upon the Light to become an avatar of retribution, increasing your damage, healing, and critical strike chance by 15% for 24 sec.",
+"desc": "召唤圣光化身，在 24 秒内提高你的伤害、治疗和爆击几率 15%。"
+},
+"final-verdict": {
+"name": "Final Verdict",
+"meta": "Instant · 12 yd range",
+"en": "Unleashes a powerful weapon strike that deals 18,414 Holystrike damage to an enemy target, Final Verdict has a 15% chance to reset the cooldown of Judgment.",
+"desc": "释放强力的武器攻击，对目标造成 18,414 点圣击伤害，并有 15% 几率重置审判的冷却时间。"
+},
+"holy-blade": {
+"name": "Holy Blade",
+"meta": "Passive",
+"en": "Blade of Justice generates 1 additional Holy Power.",
+"desc": "公正之剑额外生成 1 点神圣能量。"
+},
+"art-of-war": {
+"name": "Art of War",
+"meta": "Passive",
+"en": "Your auto attacks have a 15% chance to reset the cooldown of Blade of Justice and increase the damage of its next cast by 80%. Critical strikes increase the chance by an additional 10%.",
+"desc": "你的自动攻击有 15% 几率重置公正之剑的冷却时间，并使其下一次施放的伤害提高 80%。爆击时几率再提高 10%。"
+},
+"jurisdiction": {
+"name": "Jurisdiction",
+"meta": "Passive",
+"en": "Final Verdict and Blade of Justice deal 10% increased damage. The range of Final Verdict and Blade of Justice is increased to 20 yds.",
+"desc": "Final Verdict 和公正之剑造成的伤害提高 10%，作用距离提高到 20 码。"
+},
+"tempest-of-the-lightbringer": {
+"name": "Tempest of the Lightbringer",
+"meta": "Passive",
+"en": "Divine Storm projects an additional wave of light, striking all enemies up to 20 yds in front of you for 20% of Divine Storm's damage.",
+"desc": "神圣风暴额外投射一道光波，打击你前方最多 20 码内的所有敌人，伤害为神圣风暴的 20%。"
+},
+"rush-of-light": {
+"name": "Rush of Light",
+"meta": "Passive",
+"en": "The critical strikes of your Holy Power generating abilities grant you 5% Haste for 10 sec.",
+"desc": "你的神圣能量生成技能爆击时提供 5% 急速，持续 10 秒。"
+},
+"sanctify": {
+"name": "Sanctify",
+"meta": "Passive",
+"en": "Enemies hit by Divine Storm take 20% more damage from Consecration and Divine Hammers for 12 sec.",
+"desc": "被神圣风暴击中的敌人在 12 秒内受到来自奉献和 Divine Hammers 的伤害提高 20%。"
+},
+"holy-flames": {
+"name": "Holy Flames",
+"meta": "Passive",
+"en": "You deal 5% increased Holy damage to targets burning from your Expurgation.",
+"desc": "你对被 Expurgation 燃烧的目标造成的神圣伤害提高 5%。"
+},
+"improved-judgment": {
+"name": "Improved Judgment",
+"meta": "Passive",
+"en": "Judgment now has 2 charges.",
+"desc": "审判现在有 2 次充能。"
+},
+"zealot's-fervor": {
+"name": "Zealot's Fervor",
+"meta": "Passive",
+"en": "Auto-attack speed increased by 40%.",
+"desc": "自动攻击速度提高 40%。"
+},
+"heart-of-the-crusader": {
+"name": "Heart of the Crusader",
+"meta": "Passive",
+"en": "Crusader Strike and auto-attacks deal 20% increased damage and deal 20% increased critical strike damage.",
+"desc": "十字军打击和自动攻击造成的伤害提高 20%，爆击伤害提高 20%。"
+},
+"blade-of-vengeance": {
+"name": "Blade of Vengeance",
+"meta": "Passive",
+"en": "Blade of Justice now hits nearby enemies for 2,737 Holy damage. Deals reduced damage beyond 5 targets.",
+"desc": "公正之剑现在对附近敌人造成 2,737 点神圣伤害。超过 5 个目标后伤害降低。"
+},
+"empyrean-power": {
+"name": "Empyrean Power",
+"meta": "Passive",
+"en": "Crusader Strike has a 15% chance to make your next Divine Storm free and deal 15% additional damage.",
+"desc": "十字军打击有 15% 几率使你的下一次神圣风暴免费施放并造成 15% 额外伤害。"
+},
+"highlord's-wrath": {
+"name": "Highlord's Wrath",
+"meta": "Passive",
+"en": "Mastery: Highlord's Judgment is 50% more effective on Judgment and Hammer of Wrath. Judgment applies an additional stack of Greater Judgment if it is known.",
+"desc": "精通「Highlord's Judgment」对审判和愤怒之锤的效果提高 50%。若已习得，审判会施加额外层数的 Greater Judgment。"
+},
+"crusading-strikes": {
+"name": "Crusading Strikes",
+"meta": "Passive",
+"en": "Crusader Strike replaces your auto-attacks and deals 10,128 Physical damage, but you auto-attack 20% slower.",
+"desc": "十字军打击取代你的自动攻击，造成 10,128 点物理伤害，但自动攻击速度降低 20%。"
+},
+"blessed-champion": {
+"name": "Blessed Champion",
+"meta": "Passive",
+"en": "Crusader Strike and Judgment hit an additional 4 targets but deal 25% reduced damage to secondary targets.",
+"desc": "十字军打击和审判额外命中 4 个目标，但对次要目标造成的伤害降低 25%。"
+},
+"burning-crusade": {
+"name": "Burning Crusade",
+"meta": "Passive",
+"en": "Your damage over time effects deal 10% more damage.",
+"desc": "你的持续伤害效果造成的伤害提高 10%。"
+},
+"blades-of-light": {
+"name": "Blades of Light",
+"meta": "Passive",
+"en": "Crusader Strike, Judgment and Blade of Justice deal 20% increased damage.",
+"desc": "十字军打击、审判和公正之剑造成的伤害提高 20%。"
+},
+"wake-of-ashes": {
+"name": "Wake of Ashes",
+"meta": "Instant",
+"en": "Lash out at your enemies, dealing 13,225 Radiant damage to all enemies within 14 yds in front of you, and applying Truth's Wake, burning the targets for an additional 9,057 damage over 9 sec. Demon and Undead enemies are also stunned for 5 sec. Generates 3 Holy Power.",
+"desc": "猛击敌人，对前方 14 码内所有敌人造成 13,225 点光辉伤害，并施加 Truth's Wake，在 9 秒内额外造成 9,057 点伤害。恶魔和亡灵还会被昏迷 5 秒。生成 3 点神圣能量。"
+},
+"divine-wrath": {
+"name": "Divine Wrath",
+"meta": "Passive",
+"en": "Increases the duration of Avenging Wrath or Crusade by 4 sec.",
+"desc": "复仇之怒或 Crusade 的持续时间延长 4 秒。"
+},
+"execution-sentence": {
+"name": "Execution Sentence",
+"meta": "Instant · 30 yd range · 1 min cooldown",
+"en": "Unleash a heavenly blast around the target, dealing 20,978 Holy damage to all enemies nearby, and call down a hammer that slowly falls from the sky upon the target. After 10 sec, they suffer 20% of the Holy damage you dealt to all targets affected by the initial blast during that time.",
+"desc": "在目标周围释放天堂爆炸，对附近所有敌人造成 20,978 点神圣伤害，并召唤一把缓缓坠落的锤子击中目标。10 秒后，目标承受你在这段时间内对初始爆炸所影响目标造成神圣伤害的 20%。"
+},
+"seething-flames": {
+"name": "Seething Flames",
+"meta": "Passive",
+"en": "Wake of Ashes deals significantly reduced damage to secondary targets, but now causes you to lash out 2 extra times for 9,431 Radiant damage.",
+"desc": "灰烬觉醒对次要目标造成的伤害大幅降低，但现在会额外猛击 2 次，每次造成 9,431 点光辉伤害。"
+},
+"empyrean-legacy": {
+"name": "Empyrean Legacy",
+"meta": "Passive",
+"en": "Avenging Wrath empowers your next damage dealing single target Holy Power ability to automatically activate Divine Storm with 25% increased effectiveness.",
+"desc": "复仇之怒强化你的下一个单体神圣能量消耗技能，自动触发神圣风暴，效果提高 25%。"
+},
+"judge,-jury-and-executioner": {
+"name": "Judge, Jury and Executioner",
+"meta": "Passive",
+"en": "Holy Power spending abilities deal 5% increased damage. After casting Execution Sentence, your next 1 Holy Power ability will refund its Holy Power cost.",
+"desc": "消耗神圣能量的技能造成的伤害提高 5%。施放 Execution Sentence 后，你的下一个神圣能量消耗技能会返还其消耗。"
+},
+"radiant-glory": {
+"name": "Radiant Glory",
+"meta": "Passive",
+"en": "Avenging Wrath is replaced with Radiant Glory. Radiant Glory Wake of Ashes activates Avenging Wrath for 11 sec.",
+"desc": "复仇之怒被 Radiant Glory 取代。Radiant Glory：灰烬觉醒会激活复仇之怒，持续 11 秒。"
+},
+"burn-to-ash": {
+"name": "Burn to Ash",
+"meta": "Passive",
+"en": "When Truth's Wake critically strikes, its duration is extended by 2 sec. Your other damage over time effects deal 30% increased damage to targets affected by Truth's Wake.",
+"desc": "Truth's Wake 爆击时其持续时间延长 2 秒。你的其他持续伤害效果对受 Truth's Wake 影响的目标造成的伤害提高 30%。"
+},
+"crusade": {
+"name": "Crusade",
+"meta": "Passive",
+"en": "Avenging Wrath now grants you 2% Haste. Each Holy Power spent during Avenging Wrath increases Haste by an additional 2%, up to 20%.",
+"desc": "复仇之怒现在为你提供 2% 急速。复仇之怒期间每消耗 1 点神圣能量，急速再提高 2%，最多 20%。"
+},
+"light-within": {
+"name": "Light Within",
+"meta": "Passive",
+"en": "Rank 1: Art of War increases the damage of your next Blade of Justice by 150%. Rank 3: Avenging Wrath further increases the damage of Final Verdict and Divine Storm by 20%. Rank 4: Art of War further empowers Blade of Justice to unleash a wave of Holy energy, dealing 46,276 Holy damage to its primary target and 18,014 Holy damage to all other enemies in its path.",
+"desc": "第 1 级：Art of War 使你下一次公正之剑的伤害提高 150%。第 3 级：复仇之怒使 Final Verdict 和神圣风暴的伤害再提高 20%。第 4 级：Art of War 进一步强化公正之剑，释放一道神圣能量波，对主要目标造成 46,276 点神圣伤害，对路径上其他敌人造成 18,014 点神圣伤害。"
+},
+"light's-guidance": {
+"name": "Light's Guidance",
+"meta": "Passive",
+"en": "Wake of Ashes is replaced with Hammer of Light for 20 sec after it is cast. Hammer of Light: Hammer down your enemy with the power of the Light, dealing 60,813 Holy damage and 34,879 Holy damage up to 7 nearby enemies. Additionally, calls down Empyrean Hammers from the sky to strike 3 nearby enemies for 2,102 Holy damage each. Costs 5 Holy Power.",
+"desc": "灰烬觉醒在施放后被 Hammer of Light 取代，持续 20 秒。Hammer of Light：以圣光之锤重击敌人，造成 60,813 点神圣伤害，对最多 7 个附近敌人造成 34,879 点神圣伤害；同时从天空召唤 Empyrean Hammers 击中 3 个附近敌人，各造成 2,102 点神圣伤害。消耗 5 点神圣能量。"
+},
+"zealous-vindication": {
+"name": "Zealous Vindication",
+"meta": "Passive",
+"en": "Hammer of Light instantly calls down 2 Empyrean Hammers on your target when it is cast.",
+"desc": "Hammer of Light 施放时立即在目标身上召唤 2 把 Empyrean Hammers。"
+},
+"shake-the-heavens": {
+"name": "Shake the Heavens",
+"meta": "Passive",
+"en": "After casting Hammer of Light, you call down an Empyrean Hammer on a nearby target every 2 sec, for 10 sec.",
+"desc": "施放 Hammer of Light 后，你每 2 秒召唤一把 Empyrean Hammer 击中附近目标，持续 10 秒。"
+},
+"wrathful-descent": {
+"name": "Wrathful Descent",
+"meta": "Passive",
+"en": "When Empyrean Hammer critically strikes, 35% of its damage is dealt to nearby enemies. Enemies hit by this effect deal 5% reduced damage to you for 8 sec.",
+"desc": "Empyrean Hammer 爆击时，其 35% 的伤害转移到附近敌人。被此效果击中的敌人对你造成的伤害降低 5%，持续 8 秒。"
+},
+"divine-hammer": {
+"name": "Divine Hammer",
+"meta": "Passive",
+"en": "Divine Toll summons Divine Hammers that spin around you for 8 sec. Divine Hammer Strikes all enemies nearby for 8,698 Holy damage every 2 sec. Deals reduced damage beyond 8 targets.",
+"desc": "Divine Toll 召唤 Divine Hammers 在你周围旋转 8 秒。Divine Hammer 每 2 秒对附近所有敌人造成 8,698 点神圣伤害。超过 8 个目标后伤害降低。"
+},
+"sacrosanct-crusade": {
+"name": "Sacrosanct Crusade",
+"meta": "Passive",
+"en": "Wake of Ashes surrounds you with a Holy barrier for 10% of your maximum health. Hammer of Light heals you for 5% of your maximum health, increased by 1% for each additional target hit. Any overhealing done with this effect gets converted into a Holy barrier instead.",
+"desc": "灰烬觉醒为你创建一个相当于最大生命值 10% 的神圣屏障。Hammer of Light 治疗你最大生命值的 5%，每额外击中一个目标再加 1%。此效果的超量治疗会转化为神圣屏障。"
+},
+"higher-calling": {
+"name": "Higher Calling",
+"meta": "Passive",
+"en": "Crusader Strike, Hammer of Wrath and Blade of Justice extend the duration of Shake the Heavens by 1 sec.",
+"desc": "十字军打击、愤怒之锤和公正之剑使 Shake the Heavens 的持续时间延长 1 秒。"
+},
+"bonds-of-fellowship": {
+"name": "Bonds of Fellowship",
+"meta": "Passive",
+"en": "You receive 20% less damage from Blessing of Sacrifice and each time its target takes damage, you gain 4% movement speed up to a maximum of 40%.",
+"desc": "你从牺牲祝福承受的伤害降低 20%，其目标每受到一次伤害，你获得 4% 移动速度，最多 40%。"
+},
+"light's-judicator": {
+"name": "Light's Judicator",
+"meta": "Passive",
+"en": "Empyrean Hammer deals 20% increased critical strike damage and its critical strikes have 50% chance to grant an additional stack of Light's Deliverance.",
+"desc": "Empyrean Hammer 的爆击伤害提高 20%，其爆击有 50% 几率提供额外层数的 Light's Deliverance。"
+},
+"endless-wrath": {
+"name": "Endless Wrath",
+"meta": "Passive",
+"en": "Empyrean Hammer has a 10% increased chance to critically strike.",
+"desc": "Empyrean Hammer 的爆击几率提高 10%。"
+},
+"hammerfall": {
+"name": "Hammerfall",
+"meta": "Passive",
+"en": "Templar's Verdict and Divine Storm calls down an Empyrean Hammer on a nearby enemy. While Shake the Heavens is active, this effect calls down an additional Empyrean Hammer.",
+"desc": "圣殿骑士的裁决和神圣风暴召唤一把 Empyrean Hammer 击中附近敌人。Shake the Heavens 生效时会额外召唤一把。"
+},
+"undisputed-ruling": {
+"name": "Undisputed Ruling",
+"meta": "Passive",
+"en": "Hammer of Light applies Judgment to its targets, and increases your Haste by 15% for 10 sec.",
+"desc": "Hammer of Light 对目标施加审判，并使你的急速提高 15%，持续 10 秒。"
+},
+"divine-exaction": {
+"name": "Divine Exaction",
+"meta": "Passive",
+"en": "Divine Toll casts 2 additional times on your target at 100% effectiveness.",
+"desc": "Divine Toll 对你的目标额外施放 2 次，效能为 100%。"
+},
+"light's-deliverance": {
+"name": "Light's Deliverance",
+"meta": "Passive",
+"en": "You gain a stack of Light's Deliverance when you call down an Empyrean Hammer. While Wake of Ashes and Hammer of Light are unavailable, you consume 50 stacks of Light's Deliverance, empowering yourself to cast Hammer of Light an additional time for free.",
+"desc": "召唤 Empyrean Hammer 时获得 1 层 Light's Deliverance。当灰烬觉醒和 Hammer of Light 都不可用时，消耗 50 层来免费额外施放一次 Hammer of Light。"
+},
+"dawnlight": {
+"name": "Dawnlight",
+"meta": "Passive",
+"en": "Casting Wake of Ashes causes your next 3 Holy Power spending abilities to apply Dawnlight on your target, dealing 48,499 Radiant damage or 57,319 healing over 8 sec. 4% of Dawnlight's damage and healing radiates to nearby allies or enemies, reduced beyond 5 targets.",
+"desc": "施放灰烬觉醒使你接下来 3 个神圣能量消耗技能对目标施加 Dawnlight，在 8 秒内造成 48,499 点光辉伤害或 57,319 点治疗。Dawnlight 有 4% 的伤害和治疗扩散到附近单位，超过 5 个目标后递减。"
+},
+"gleaming-rays": {
+"name": "Gleaming Rays",
+"meta": "Passive",
+"en": "Your Holy Power spenders deal 3% additional damage and healing.",
+"desc": "你的神圣能量消耗技能造成的伤害和治疗提高 3%。"
+},
+"eternal-flame": {
+"name": "Eternal Flame",
+"meta": "Instant · 40 yd range",
+"en": "Heals an ally for 68,142 and an additional 22,847 over 16 sec. Healing increased by 35% when cast on self.",
+"desc": "治疗一名友方单位 68,142 点，并在 16 秒内额外治疗 22,847 点。对自己施放时治疗提高 35%。"
+},
+"luminosity": {
+"name": "Luminosity",
+"meta": "Passive",
+"en": "Critical Strike chance of Hammer of Wrath and Divine Storm increased by 10%.",
+"desc": "愤怒之锤和神圣风暴的爆击几率提高 10%。"
+},
+"endless-gleam": {
+"name": "Endless Gleam",
+"meta": "Passive",
+"en": "Dawnlight's duration is increased by 0.3 sec whenever struck by Divine Storm or Templar's Verdict. When 2 Dawnlights are struck by Divine Storm, their durations are extended by an additional 0.5 sec.",
+"desc": "每当被神圣风暴或圣殿骑士的裁决击中时，Dawnlight 的持续时间延长 0.3 秒。当 2 个 Dawnlight 同时被神圣风暴击中时，额外延长 0.5 秒。"
+},
+"will-of-the-dawn": {
+"name": "Will of the Dawn",
+"meta": "Passive",
+"en": "Movement speed increased by 5% while above 80% health. When your health is brought below 35%, your movement speed is increased by 40% for 5 sec. Cannot occur more than once every 1 min.",
+"desc": "生命值高于 80% 时移动速度提高 5%。生命值降至 35% 以下时移动速度提高 40%，持续 5 秒，每分钟最多触发一次。"
+},
+"blessing-of-an'she": {
+"name": "Blessing of An'she",
+"meta": "Passive",
+"en": "Your damage and healing over time effects have a chance to increase the damage of your next Judgment by 50%.",
+"desc": "你的持续伤害和治疗效果有几率使你下一次审判的伤害提高 50%。"
+},
+"sun-sear": {
+"name": "Sun Sear",
+"meta": "Passive",
+"en": "Hammer of Wrath and Divine Storm critical strikes cause the target to burn for an additional 3,114 Radiant damage over 4 sec.",
+"desc": "愤怒之锤和神圣风暴爆击时使目标燃烧，在 4 秒内额外造成 3,114 点光辉伤害。"
+},
+"solar-grace": {
+"name": "Solar Grace",
+"meta": "Passive",
+"en": "Haste is increased by 2%.",
+"desc": "急速提高 2%。"
+},
+"aurora": {
+"name": "Aurora",
+"meta": "Passive",
+"en": "After you cast Wake of Ashes, gain Divine Purpose. Divine Purpose Your next Holy Power spending ability is free and deals 10% increased damage and healing.",
+"desc": "施放灰烬觉醒后获得 Divine Purpose：你的下一个神圣能量消耗技能免费施放并造成 10% 额外伤害和治疗。"
+},
+"walk-into-light": {
+"name": "Walk Into Light",
+"meta": "Passive",
+"en": "You have a 100% chance to gain Blessing of An'she and generate 2 Holy Power after casting Avenging Wrath. During Avenging Wrath, Hammer of Wrath casts Blade of Justice at 100% effectiveness.",
+"desc": "施放复仇之怒后必定获得 Blessing of An'she 并生成 2 点神圣能量。复仇之怒期间，愤怒之锤会以 100% 效能施放公正之剑。"
+},
+"second-sunrise": {
+"name": "Second Sunrise",
+"meta": "Passive",
+"en": "Divine Storm and Hammer of Wrath have a 20% chance to cast again at 50% effectiveness.",
+"desc": "神圣风暴和愤怒之锤有 20% 几率以 50% 效能再次施放。"
+},
+"born-in-sunlight": {
+"name": "Born in Sunlight",
+"meta": "Passive",
+"en": "Dawnlight's critical strike chance is increased by 15% during Avenging Wrath.",
+"desc": "复仇之怒期间，Dawnlight 的爆击几率提高 15%。"
+},
+"sun's-avatar": {
+"name": "Sun's Avatar",
+"meta": "Passive",
+"en": "You link to your Dawnlights within 30 yds, causing 2,516 Radiant damage to enemies or 288 healing to allies that pass through the beams, reduced beyond 8 targets.",
+"desc": "你与 30 码内的 Dawnlight 相连，对穿过光束的敌人造成 2,516 点光辉伤害，或为友方单位治疗 288 点，超过 8 个目标后递减。"
+},
+"luminescence": {
+"name": "Luminescence",
+"meta": "",
+"en": "Lightbearer's healing transfer is increased by up to 150% based on your current health. Lower health heals allies for more.",
+"desc": "Lightbearer 的治疗转移量最多提高 150%，取决于你当前的生命值——血量越低，对友方的治疗越多。"
+},
+"blessing-of-sanctuary": {
+"name": "Blessing of Sanctuary",
+"meta": "",
+"en": "Instantly removes all stun, silence, fear and horror effects from the friendly target and reduces the duration of future such effects by 60% for 5 sec.",
+"desc": "庇护祝福立即移除友方目标身上所有昏迷、沉默、恐惧和恐怖效果，并使此类效果在接下来 5 秒内的持续时间降低 60%。"
+},
+"ultimate-retribution": {
+"name": "Ultimate Retribution",
+"meta": "",
+"en": "Mark an enemy player for retribution after they kill an ally within your active Aura. If the marked enemy is slain within 12 sec, cast Redemption on the fallen ally.",
+"desc": "当敌方玩家在你的光环范围内击杀一名友方单位后，将其标记为复仇对象。若被标记的敌人在 12 秒内被击杀，对阵亡的友方单位施放救赎。"
+},
+"hallowed-ground": {
+"name": "Hallowed Ground",
+"meta": "",
+"en": "Your Consecration clears and suppresses all snare effects on allies within its area of effect.",
+"desc": "你的奉献会清除并抑制其范围内友方单位身上的所有减速效果。"
+},
+"spreading-the-word": {
+"name": "Spreading the Word",
+"meta": "",
+"en": "Your allies affected by your Aura gain an effect after you cast Blessing of Protection or Blessing of Freedom. Blessing of Protection Physical damage reduced by 30% for 6 sec. Blessing of Freedom Cleared of all movement impairing effects.",
+"desc": "受你光环影响的友方单位在你施放保护祝福或自由祝福后获得对应效果。保护祝福：物理伤害降低 30%，持续 6 秒。自由祝福：清除所有移动限制效果。"
+},
+"blessing-of-spellwarding": {
+"name": "Blessing of Spellwarding",
+"meta": "",
+"en": "Blesses a party or raid member, granting immunity to magical damage and harmful effects for 10 sec. Cannot be used on a target with Forbearance. Causes Forbearance for 30 sec. Shares a cooldown with Blessing of Protection.",
+"desc": "祝福一名队伍或团队成员，使其在 10 秒内免疫魔法伤害和有害效果。不能用于已有 Forbearance 的目标，并造成 30 秒 Forbearance。与保护祝福共享冷却时间。"
+},
+"searing-glare": {
+"name": "Searing Glare",
+"meta": "",
+"en": "Call upon the light to blind enemy players in a 25 yd cone, causing enemies to miss their spells and attacks for 4 sec.",
+"desc": "召唤光芒使 25 码锥形范围内的敌方玩家目盲，其法术和攻击将失手，持续 4 秒。"
+},
+"spellbreaker": {
+"name": "Spellbreaker",
+"meta": "",
+"en": "Eye for an Eye can now also trigger at 100% effectiveness from direct Magic damage.",
+"desc": "以眼还眼现在也能被直接魔法伤害以 100% 效能触发。"
+},
+"shining-revelation": {
+"name": "Shining Revelation",
+"meta": "",
+"en": "The light reveals all enemies in stealth or invisible to you while under the effects of Divine Shield. This effect lingers for 20 sec after Divine Shield fades.",
+"desc": "你使用圣盾术时，光芒会揭示所有隐身或潜行的敌人。该效果在圣盾术消失后持续 20 秒。"
+}
+};

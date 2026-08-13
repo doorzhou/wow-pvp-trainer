@@ -31,7 +31,7 @@ window.REG = {
       specs: [
         { id: 'holy', n: '神圣', en: 'Holy', role: 'heal', tier: null, ic: 'spell_holy_holybolt', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'protection', n: '防护', en: 'Protection', role: 'tank', tier: null, ic: 'ability_paladin_shieldofthetemplar', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'retribution', n: '惩戒', en: 'Retribution', role: 'dps', tier: 'A+', ic: 'spell_holy_auraoflight', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'retribution', n: '惩戒', en: 'Retribution', role: 'dps', tier: 'A+', ic: 'spell_holy_auraoflight', page: 'ret-paladin.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
     {
