@@ -1164,6 +1164,70 @@
   "微风": {
    "id": 374227,
    "en": "Zephyr"
+  },
+  "瞄准射击": {
+   "id": 19434,
+   "en": "Aimed Shot"
+  },
+  "多重射击": {
+   "id": 257620,
+   "en": "Multi-Shot"
+  },
+  "急速射击": {
+   "id": 257044,
+   "en": "Rapid Fire"
+  },
+  "爆裂射击": {
+   "id": 186387,
+   "en": "Bursting Shot"
+  },
+  "意气风发": {
+   "id": 109304,
+   "en": "Exhilaration"
+  },
+  "二连发": {
+   "id": 260402,
+   "en": "Double Tap"
+  },
+  "爆炸射击": {
+   "id": 212431,
+   "en": "Explosive Shot"
+  },
+  "猎人印记": {
+   "id": 257284,
+   "en": "Hunter's Mark"
+  },
+  "原始暴怒": {
+   "id": 272678,
+   "en": "Primal Rage"
+  },
+  "乱射": {
+   "id": 260243,
+   "en": "Volley"
+  },
+  "照明弹": {
+   "id": 1543,
+   "en": "Flare"
+  },
+  "夺命黑鸦": {
+   "id": 131894,
+   "en": "A Murder of Crows"
+  },
+  "凶暴野兽": {
+   "id": 120679,
+   "en": "Dire Beast"
+  },
+  "飞轮": {
+   "id": 375891,
+   "en": "Chakram"
+  },
+  "致命射击": {
+   "id": 260395,
+   "en": "Lethal Shots"
+  },
+  "野兽之眼": {
+   "id": 321297,
+   "en": "Eyes of the Beast"
   }
  }
 }

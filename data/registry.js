@@ -38,7 +38,7 @@ window.REG = {
       id: 'hunter', n: '猎人', en: 'Hunter', c: '#AAD372', ic: 'classicon_hunter', armor: '锁甲',
       specs: [
         { id: 'beast-mastery', n: '兽王', en: 'Beast Mastery', role: 'dps', tier: 'B', ic: 'ability_hunter_bestialdiscipline', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'marksmanship', n: '射击', en: 'Marksmanship', role: 'dps', tier: 'A', ic: 'ability_hunter_focusedaim', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'marksmanship', n: '射击', en: 'Marksmanship', role: 'dps', tier: 'A', ic: 'ability_hunter_focusedaim', page: 'mm-hunter.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'survival', n: '生存', en: 'Survival', role: 'dps', tier: 'A', ic: 'ability_hunter_camouflage', page: null, st: [0, 0, 0, 0, 0, 0] },
       ]
     },

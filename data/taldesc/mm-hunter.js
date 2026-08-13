@@ -1,0 +1,716 @@
+window.TALDESC={
+"rejuvenating-wind": {
+"name": "Rejuvenating Wind",
+"meta": "Passive",
+"en": "Exhilaration now also heals you for an additional 12.0% of your maximum health over 8 sec.",
+"desc": "意气风发额外在 8 秒内治疗你最大生命值的 12%。"
+},
+"survival-of-the-fittest": {
+"name": "Survival of the Fittest",
+"meta": "Instant",
+"en": "Reduces all damage you and your pet take by 30% for 6 sec.",
+"desc": "使你和宠物受到的所有伤害降低 30%，持续 6 秒。"
+},
+"posthaste": {
+"name": "Posthaste",
+"meta": "Passive",
+"en": "Disengage also frees you from all movement impairing effects and increases your movement speed by 50% for 4 sec.",
+"desc": "逃脱额外解除你身上所有移动减速效果，并在 4 秒内提高 50% 移动速度。"
+},
+"natural-mending": {
+"name": "Natural Mending",
+"meta": "Passive",
+"en": "Exhilaration's cooldown is reduced by 120 sec.",
+"desc": "意气风发的冷却时间降低 120 秒。"
+},
+"padded-armor": {
+"name": "Padded Armor",
+"meta": "Passive",
+"en": "Survival of the Fittest gains an additional charge.",
+"desc": "Survival of the Fittest 额外获得 1 次充能。"
+},
+"hunter's-avoidance": {
+"name": "Hunter's Avoidance",
+"meta": "Passive",
+"en": "Damage taken from area of effect attacks reduced by 5%.",
+"desc": "你受到的范围效果伤害降低 5%。"
+},
+"wilderness-medicine": {
+"name": "Wilderness Medicine",
+"meta": "Passive",
+"en": "Mend Pet heals for an additional 25% of your pet's health over its duration, and has a 25% chance to dispel a magic effect each time it heals your pet.",
+"desc": "Mend Pet 额外治疗宠物最大生命值的 25%，且每次治疗有 25% 几率驱散一个魔法效果。"
+},
+"combat-experience": {
+"name": "Combat Experience",
+"meta": "Passive",
+"en": "Your Agility is increased by 3%.",
+"desc": "敏捷提高 3%。"
+},
+"improved-aspect-of-the-cheetah": {
+"name": "Improved Aspect of the Cheetah",
+"meta": "Passive",
+"en": "The cooldown of Aspect of the Cheetah is reduced by 30 sec.",
+"desc": "猎豹守护的冷却时间降低 30 秒。"
+},
+"concussive-shot": {
+"name": "Concussive Shot",
+"meta": "Instant · 40 yd range · 5 sec cooldown",
+"en": "Dazes the target, slowing movement speed by 60% for 6 sec. Steady Shot will increase the duration of Concussive Shot on the target by 3.0 sec.",
+"desc": "震慑目标，使其移动速度降低 60%，持续 6 秒。Steady Shot 会使目标身上的该效果延长 3 秒。"
+},
+"precision-strikes": {
+"name": "Precision Strikes",
+"meta": "Passive",
+"en": "Your auto shot damage is increased by 25%.",
+"desc": "你的自动射击伤害提高 25%。"
+},
+"counter-shot": {
+"name": "Counter Shot",
+"meta": "Instant · 40 yd range · 24 sec cooldown",
+"en": "Interrupts spellcasting, preventing any spell in that school from being cast for 5 sec.",
+"desc": "打断目标施法，并使该系法术在 5 秒内无法施放。"
+},
+"serrated-tips": {
+"name": "Serrated Tips",
+"meta": "Passive",
+"en": "You gain 8% more critical strike from critical strike sources.",
+"desc": "你从爆击来源获得的爆击提高 8%。"
+},
+"tranquilizing-shot": {
+"name": "Tranquilizing Shot",
+"meta": "Instant · 40 yd range · 10 sec cooldown",
+"en": "Removes 1 Enrage and 1 Magic effect from an enemy target.",
+"desc": "移除敌方目标身上 1 个激怒效果和 1 个魔法效果。"
+},
+"pathfinding": {
+"name": "Pathfinding",
+"meta": "Passive",
+"en": "Movement speed increased by 4%.",
+"desc": "移动速度提高 4%。"
+},
+"disruptive-rounds": {
+"name": "Disruptive Rounds",
+"meta": "Passive",
+"en": "When Counter Shot interrupts a cast, gain 30 Focus.",
+"desc": "反制射击成功打断施法时，获得 30 点集中值。"
+},
+"improved-feign-death": {
+"name": "Improved Feign Death",
+"meta": "Passive",
+"en": "The cooldown of Feign Death is reduced by 20 sec.",
+"desc": "假死的冷却时间降低 20 秒。"
+},
+"misdirection": {
+"name": "Misdirection",
+"meta": "Instant · 100 yd range · 30 sec cooldown",
+"en": "Misdirects all threat you cause to the targeted party or raid member, beginning with your next attack within 30 sec and lasting for 8 sec.",
+"desc": "将你造成的所有仇恨转移给指定队友，从下一次攻击开始生效，持续 8 秒。"
+},
+"kodo-tranquilizer": {
+"name": "Kodo Tranquilizer",
+"meta": "Passive",
+"en": "Tranquilizing Shot removes 1 additional Magic effect from up to 2 nearby targets.",
+"desc": "Tranquilizing Shot 额外从最多 2 个附近目标身上移除 1 个魔法效果。"
+},
+"kindling-flare": {
+"name": "Kindling Flare",
+"meta": "Passive",
+"en": "Flare's radius is increased by 50%.",
+"desc": "照明弹的范围扩大 50%。"
+},
+"trigger-finger": {
+"name": "Trigger Finger",
+"meta": "Passive",
+"en": "Haste increased by 2%.",
+"desc": "急速提高 2%。"
+},
+"tar-trap": {
+"name": "Tar Trap",
+"meta": "Instant · 40 yd range · 30 sec cooldown",
+"en": "Hurls a tar trap to the target location that creates a 8 yd radius pool of tar around itself for 30 sec when the first enemy approaches. All enemies have 50% reduced movement speed while in the area of effect. Limit 1. Trap will exist for 1 min.",
+"desc": "投出焦油陷阱，第一个靠近的敌人会触发它，在其周围形成 8 码焦油池，持续 30 秒，范围内所有敌人移动速度降低 50%。限 1 个。陷阱存在 1 分钟。"
+},
+"touch-of-grass": {
+"name": "Touch of Grass",
+"meta": "Passive",
+"en": "Your maximum health is increased by 20%.",
+"desc": "最大生命值提高 20%。"
+},
+"camouflage": {
+"name": "Camouflage",
+"meta": "Instant · 1 min cooldown",
+"en": "You and your pet blend into the surroundings and gain stealth for 1 min. While camouflaged, you will heal for 2% of maximum health every 1 sec.",
+"desc": "你和宠物融入环境并进入隐形，持续 1 分钟。伪装期间每秒治疗你最大生命值的 2%。"
+},
+"no-hard-feelings": {
+"name": "No Hard Feelings",
+"meta": "Passive",
+"en": "When Misdirection targets your pet, it reduces the damage they take by 50% for 5 sec. The cooldown of Misdirection is reduced by 5 sec.",
+"desc": "误导以宠物为目标时，使其受到的伤害降低 50%，持续 5 秒。误导的冷却时间降低 5 秒。"
+},
+"improved-aspect-of-the-turtle": {
+"name": "Improved Aspect of the Turtle",
+"meta": "Passive",
+"en": "The cooldown of Aspect of the Turtle is reduced by 30 sec.",
+"desc": "灵龟守护的冷却时间降低 30 秒。"
+},
+"specialized-arsenal": {
+"name": "Specialized Arsenal",
+"meta": "Passive",
+"en": "Aimed Shot deals 10% increased damage.",
+"desc": "瞄准射击的伤害提高 10%。"
+},
+"scout's-instincts": {
+"name": "Scout's Instincts",
+"meta": "Passive",
+"en": "You cannot be slowed below 80% of your normal movement speed while Aspect of the Cheetah is active.",
+"desc": "猎豹守护激活期间，你的移动速度不会被降低到正常速度的 80% 以下。"
+},
+"shell-wall": {
+"name": "Shell Wall",
+"meta": "Passive",
+"en": "Damage taken during Aspect of the Turtle is reduced by an additional 20%.",
+"desc": "灵龟守护期间你受到的伤害额外降低 20%。"
+},
+"intimidation": {
+"name": "Intimidation",
+"meta": "Instant · 40 yd range · 1 min cooldown",
+"en": "Your Spotting Eagle descends from the skies, stunning your target for 5 sec. This ability does not require line of sight when used against players.",
+"desc": "你的雄鹰从天而降，使目标昏迷 5 秒。对玩家使用时不需要视线。"
+},
+"improved-snaring": {
+"name": "Improved Snaring",
+"meta": "Passive",
+"en": "Wing Clip slows an additional 25%. Concussive Shot slows an additional 10%.",
+"desc": "Wing Clip 额外减速 25%，Concussive Shot 额外减速 10%。"
+},
+"lone-survivor": {
+"name": "Lone Survivor",
+"meta": "Passive",
+"en": "The duration of Survival of the Fittest is increased by 2.0 sec.",
+"desc": "Survival of the Fittest 的持续时间延长 2 秒。"
+},
+"catlike-reflexes": {
+"name": "Catlike Reflexes",
+"meta": "Passive",
+"en": "Aspect of the Cheetah's initial burst of speed is increased by 2.0 sec.",
+"desc": "猎豹守护的初始加速效果延长 2 秒。"
+},
+"binding-shot": {
+"name": "Binding Shot",
+"meta": "Instant · 30 yd range · 45 sec cooldown",
+"en": "Fires a magical projectile, tethering the enemy and any other enemies within 5 yds for 10 sec, stunning them for 3 sec if they move more than 5 yds from the arrow.",
+"desc": "发射一枚魔法弹，将敌人及其 5 码内的其他敌人束缚 10 秒；若他们移动超过 5 码，则昏迷 3 秒。"
+},
+"trailblazer": {
+"name": "Trailblazer",
+"meta": "Passive",
+"en": "Your movement speed is increased by 30% anytime you have not attacked for 3 sec.",
+"desc": "3 秒内未进行攻击时，你的移动速度提高 30%。"
+},
+"cold-feet": {
+"name": "Cold Feet",
+"meta": "Passive",
+"en": "When your Freezing Trap breaks, the victim's movement speed is reduced by 70% for 4 sec.",
+"desc": "你的冰冻陷阱消散时，受害者移动速度降低 70%，持续 4 秒。"
+},
+"territorial-instincts": {
+"name": "Territorial Instincts",
+"meta": "Passive",
+"en": "The cooldown of Intimidation is reduced by 20 sec.",
+"desc": "胁迫的冷却时间降低 20 秒。"
+},
+"born-to-be-wild": {
+"name": "Born To Be Wild",
+"meta": "Passive",
+"en": "The cooldown of Aspect of the Cheetah, and Aspect of the Turtle are reduced by 60 sec.",
+"desc": "猎豹守护和灵龟守护的冷却时间降低 60 秒。"
+},
+"keen-eyesight": {
+"name": "Keen Eyesight",
+"meta": "Passive",
+"en": "Critical strike chance increased by 4%.",
+"desc": "爆击几率提高 4%。"
+},
+"tar-coated-bindings": {
+"name": "Tar-Coated Bindings",
+"meta": "Passive",
+"en": "Binding Shot's stun duration is increased by 1 sec.",
+"desc": "Binding Shot 的昏迷持续时间延长 1 秒。"
+},
+"improved-traps": {
+"name": "Improved Traps",
+"meta": "Passive",
+"en": "The cooldown of Tar Trap and Freezing Trap is reduced by 5.0 sec.",
+"desc": "焦油陷阱和冰冻陷阱的冷却时间降低 5 秒。"
+},
+"emergency-salve": {
+"name": "Emergency Salve",
+"meta": "Passive",
+"en": "Feign Death and Aspect of the Turtle removes poison and disease effects from you.",
+"desc": "假死和灵龟守护移除你身上的中毒和疾病效果。"
+},
+"guardian's-hide": {
+"name": "Guardian's Hide",
+"meta": "Passive",
+"en": "Your pet protects you at all times, reducing the damage you take by 3%. Your pet receives 100% of the damage it mitigates.",
+"desc": "宠物时刻保护你，使你受到的伤害降低 3%，被减免的伤害由宠物承受。"
+},
+"unnatural-causes": {
+"name": "Unnatural Causes",
+"meta": "Passive",
+"en": "Your damage over time effects deal 10% increased damage. This effect is increased by 50% on targets below 20% health.",
+"desc": "你的持续伤害效果造成的伤害提高 10%；对生命值低于 20% 的目标，此效果再提高 50%。"
+},
+"aimed-shot": {
+"name": "Aimed Shot",
+"meta": "2.5 sec cast · 40 yd range",
+"en": "A powerful aimed shot that deals 36,137 Physical damage.",
+"desc": "一次强力的瞄准射击，造成 36,137 点物理伤害。"
+},
+"rapid-fire": {
+"name": "Rapid Fire",
+"meta": "Channeled · 40 yd range · 16 sec cooldown",
+"en": "Shoot a stream of 10 shots at your target over 1.9 sec, dealing a total of 72,536 Physical damage. Usable while moving. Each shot generates 3 Focus.",
+"desc": "在 1.9 秒内向目标射出 10 发，共造成 72,536 点物理伤害。可在移动中施放，每发生成 3 点集中值。"
+},
+"precise-shots": {
+"name": "Precise Shots",
+"meta": "Passive",
+"en": "Aimed Shot causes your next Arcane Shot or Multi-Shot to deal 80% more damage and cost 60% less Focus. Precise Shots benefits Black Arrow's damage at 100% effectiveness.",
+"desc": "瞄准射击使你的下一次奥术射击或多重射击伤害提高 80%、集中值消耗降低 60%。"
+},
+"quick-draw": {
+"name": "Quick Draw",
+"meta": "Passive",
+"en": "Rapid Fire shoots 3 additional shots. Aimed Shot grants 50% increased movement speed for 2 sec, decaying rapidly over its duration.",
+"desc": "急速射击额外射出 3 发。瞄准射击提供 50% 移动速度提升，持续 2 秒并快速衰减。"
+},
+"unbreakable-bond": {
+"name": "Unbreakable Bond",
+"meta": "Passive",
+"en": "Regain access to Call Pet. While outdoors, your pet deals 15% increased damage and takes 15% reduced damage.",
+"desc": "重新获得 Call Pet。在户外时，你的宠物造成的伤害提高 15%、受到的伤害降低 15%。"
+},
+"lock-and-load": {
+"name": "Lock and Load",
+"meta": "Passive",
+"en": "Your ranged auto attacks have a 10% chance to trigger Lock and Load, causing your next Aimed Shot to cost no Focus and be instant.",
+"desc": "你的远程自动攻击有 10% 几率触发 Lock and Load，使你的下一次瞄准射击不消耗集中值且瞬发。"
+},
+"surging-shots": {
+"name": "Surging Shots",
+"meta": "Passive",
+"en": "Rapid Fire deals 35% additional damage, and Aimed Shot has a 15% chance to reset the cooldown of Rapid Fire.",
+"desc": "急速射击造成的伤害提高 35%，瞄准射击有 15% 几率重置急速射击的冷却时间。"
+},
+"cunning": {
+"name": "Cunning",
+"meta": "Passive",
+"en": "Your Spotting Eagle gains the Cunning specialization, granting you Master's Call and Pathfinding. Master's Call Your pet removes all root and movement impairing effects from itself and a friendly target, and grants immunity to all such effects for 4 sec. Pathfinding Your movement speed is increased by 8%.",
+"desc": "你的雄鹰获得 Cunning 专精，使你获得 Master's Call 和 Pathfinding。Master's Call：宠物移除自身和友方目标身上所有定身与减速效果，并提供 4 秒免疫。Pathfinding：移动速度提高 8%。"
+},
+"penetrating-shots": {
+"name": "Penetrating Shots",
+"meta": "Passive",
+"en": "Gain critical strike damage equal to 25% of your critical strike chance.",
+"desc": "获得等于你爆击几率 25% 的爆击伤害。"
+},
+"aspect-of-the-hydra": {
+"name": "Aspect of the Hydra",
+"meta": "Passive",
+"en": "Aimed Shot and Rapid Fire now hit 1 additional target for 47% of their damage.",
+"desc": "瞄准射击和急速射击额外命中 1 个目标，造成 47% 的伤害。"
+},
+"on-target": {
+"name": "On Target",
+"meta": "Passive",
+"en": "Your Haste is increased by 2%.",
+"desc": "急速提高 2%。"
+},
+"no-scope": {
+"name": "No Scope",
+"meta": "Passive",
+"en": "Rapid Fire grants Precise Shots.",
+"desc": "急速射击提供 Precise Shots。"
+},
+"explosive-shot": {
+"name": "Explosive Shot",
+"meta": "Instant · 40 yd range · 30 sec cooldown",
+"en": "Fires an explosive shot at your target that lasts for 4 sec. Every 1 sec the target burns for 10,528 Fire damage and explode, dealing 50% of the damage to all enemies within 8 yds. Any remaining damage from your previous Explosive Shot will be added into a new Explosive Shot. Deals reduced damage beyond 5 targets.",
+"desc": "向目标发射一枚爆炸射击，持续 4 秒。每秒灼烧目标造成 10,528 点火焰伤害并爆炸，对 8 码内所有敌人造成 50% 伤害。前一次爆炸射击的剩余伤害会累加到新的一次上。超过 5 个目标后伤害降低。"
+},
+"light-ammo": {
+"name": "Light Ammo",
+"meta": "Passive",
+"en": "Trick Shots now causes Aimed Shot and Rapid Fire to ricochet to 2 additional targets. Aspect of the Hydra's damage bonus is increased by 15%.",
+"desc": "Trick Shots 现在使瞄准射击和急速射击弹射到 2 个额外目标。Aspect of the Hydra 的伤害加成提高 15%。"
+},
+"kill-shot": {
+"name": "Kill Shot",
+"meta": "Instant · 40 yd range",
+"en": "You attempt to finish off a wounded target, dealing 39,629 Physical damage. Only usable on enemies with less than 20% health.",
+"desc": "尝试击杀受伤的目标，造成 39,629 点物理伤害。仅可对生命值低于 20% 的敌人使用。"
+},
+"trueshot": {
+"name": "Trueshot",
+"meta": "Instant · 2 min cooldown",
+"en": "Increases your critical strike chance by 15% and critical strike damage by 30% for 17 sec. Aimed Shot Cooldown recovers 40% faster. Rapid Fire Cooldown recovers 60% faster. Applies Sentinel's Mark.",
+"desc": "爆击几率提高 15%、爆击伤害提高 30%，持续 17 秒。瞄准射击的冷却回复速度加快 40%，急速射击加快 60%。施加 Sentinel's Mark。"
+},
+"tactical-reload": {
+"name": "Tactical Reload",
+"meta": "Passive",
+"en": "Casting Explosive Shot has a 100% chance to grant Lock and Load.",
+"desc": "发射爆炸射击必定提供 Lock and Load。"
+},
+"precision-detonation": {
+"name": "Precision Detonation",
+"meta": "Passive",
+"en": "When Aimed Shot damages a target affected by your Explosive Shot, Explosive Shot instantly explodes, dealing 20% increased damage.",
+"desc": "当瞄准射击伤害受你爆炸射击影响的目标时，爆炸射击立即引爆，伤害提高 20%。"
+},
+"critical-precision": {
+"name": "Critical Precision",
+"meta": "Passive",
+"en": "Precise Shots now increases the critical strike chance of Arcane Shot and Multi-Shot by 10%",
+"desc": "Precise Shots 现在还使奥术射击和多重射击的爆击几率提高 10%。"
+},
+"deathblow": {
+"name": "Deathblow",
+"meta": "Passive",
+"en": "Aimed Shot has a 10% chance to grant Deathblow. Deathblow The cooldown of Kill Shot is reset. Your next Kill Shot can be used on any target, regardless of their current health.",
+"desc": "瞄准射击有 10% 几率提供 Deathblow：重置夺命射击的冷却时间，且下一次夺命射击可用于任何目标，无视其生命值。"
+},
+"deadeye": {
+"name": "Deadeye",
+"meta": "Passive",
+"en": "Kill Shot now has 2 charges and has its cooldown reduced by 2.0 sec.",
+"desc": "夺命射击现在有 2 次充能，冷却时间降低 2 秒。"
+},
+"bullseye": {
+"name": "Bullseye",
+"meta": "Passive",
+"en": "When your abilities damage a target below 20% health, you gain 1% increased critical strike chance for 6 sec, stacking up to 30 times.",
+"desc": "你的技能伤害生命值低于 20% 的目标时，爆击几率提高 1%，持续 6 秒，最多叠加 30 层。"
+},
+"feathered-frenzy": {
+"name": "Feathered Frenzy",
+"meta": "Passive",
+"en": "Trueshot sends your Sentinel Owl into a frenzy, instantly applying Sentinel's Mark to your target. During Trueshot, your chance to apply Sentinel's Mark is increased by 100%.",
+"desc": "百发百中使你的 Sentinel Owl 进入狂乱，立即对目标施加 Sentinel's Mark。百发百中期间施加 Sentinel's Mark 的几率提高 100%。"
+},
+"master-marksman": {
+"name": "Master Marksman",
+"meta": "Passive",
+"en": "Your ranged ability critical strikes cause the target to bleed for an additional 10% of the damage dealt over 6 sec.",
+"desc": "你的远程技能爆击使目标流血，在 6 秒内造成额外伤害的 10%。"
+},
+"eagle's-accuracy": {
+"name": "Eagle's Accuracy",
+"meta": "Passive",
+"en": "Aimed Shot deals 5% increased damage. Rapid Fire deals 10% increased damage.",
+"desc": "瞄准射击伤害提高 5%，急速射击伤害提高 10%。"
+},
+"unmatched-precision": {
+"name": "Unmatched Precision",
+"meta": "Passive",
+"en": "The damage bonus of Precise Shots is increased by an additional 40%.",
+"desc": "Precise Shots 的伤害加成额外提高 40%。"
+},
+"calling-the-shots": {
+"name": "Calling the Shots",
+"meta": "Passive",
+"en": "Trueshot's cooldown is reduced by 30 sec.",
+"desc": "百发百中的冷却时间降低 30 秒。"
+},
+"small-game-hunter": {
+"name": "Small Game Hunter",
+"meta": "Passive",
+"en": "Explosive Shot deals 32% increased damage and Volley deals 48% increased damage.",
+"desc": "爆炸射击伤害提高 32%，乱射伤害提高 48%。"
+},
+"focused-aim": {
+"name": "Focused Aim",
+"meta": "Passive",
+"en": "Consuming Precise Shots reduces the cooldown of Aimed Shot by 1.00 sec.",
+"desc": "消耗 Precise Shots 使瞄准射击的冷却时间降低 1 秒。"
+},
+"bulletstorm": {
+"name": "Bulletstorm",
+"meta": "Passive",
+"en": "Rapid Fire increases the damage of your next Aimed Shot by 20%.",
+"desc": "急速射击使你的下一次瞄准射击伤害提高 20%。"
+},
+"tensile-bowstring": {
+"name": "Tensile Bowstring",
+"meta": "Passive",
+"en": "Trueshot now also reduces the cast time of Aimed Shot by 40% and reduces the Focus cost of Aimed Shot by 60%.",
+"desc": "百发百中还使瞄准射击的施法时间缩短 40%、集中值消耗降低 60%。"
+},
+"volley": {
+"name": "Volley",
+"meta": "Instant · 40 yd range · 45 sec cooldown",
+"en": "Rain a volley of arrows down over 6 sec, dealing up to 67,726 Physical damage to any enemy in the area, and gain the effects of Trick Shots for as long as Volley is active.",
+"desc": "在 6 秒内降下箭雨，对范围内敌人造成最多 67,726 点物理伤害，期间获得 Trick Shots 的效果。"
+},
+"focus-fire": {
+"name": "Focus Fire",
+"meta": "Passive",
+"en": "When Surging Shots resets the cooldown of Rapid Fire, the damage of your next Rapid Fire is increased by 20%.",
+"desc": "当 Surging Shots 重置急速射击的冷却时间时，你的下一次急速射击伤害提高 20%。"
+},
+"windrunner-quiver": {
+"name": "Windrunner Quiver",
+"meta": "Passive",
+"en": "Rapid Fire damage increased by 10%. Rapid Fire has a 30% chance to grant the Lock and Load effect.",
+"desc": "急速射击伤害提高 10%，且有 30% 几率提供 Lock and Load。"
+},
+"accuracy-by-volume": {
+"name": "Accuracy By Volume",
+"meta": "Passive",
+"en": "Bulletstorm now increases your critical strike damage by 2%. Additionally, Bulletstorm now stacks 5 more times.",
+"desc": "Bulletstorm 现在还使你的爆击伤害提高 2%，且最多叠加 5 层。"
+},
+"salvo": {
+"name": "Salvo",
+"meta": "Passive",
+"en": "Volley now also applies Explosive Shot to up to 2 targets hit. Explosive Shot Fires an explosive shot at your target that lasts for 4 sec. Every 1 sec the target burns for 10,448 Fire damage and explode, dealing 50% of the damage to all enemies within 8 yds. Any remaining damage from your previous Explosive Shot will be added into a new Explosive Shot. Deals reduced damage beyond 5 targets.",
+"desc": "乱射还会对最多 2 个被击中的目标施加爆炸射击。"
+},
+"unload": {
+"name": "Unload",
+"meta": "Passive",
+"en": "When Rapid Fire begins and finishes channeling, it releases an Arcane Shot at 100% effectiveness. If your target is below 20% health, Rapid Fire instead releases Kill Shots.",
+"desc": "急速射击开始和结束引导时各释放一次 100% 效能的奥术射击。若目标生命值低于 20%，改为释放夺命射击。"
+},
+"take-aim": {
+"name": "Take Aim",
+"meta": "Passive",
+"en": "Rank 1: Aimed Shot always critically strikes. Rank 3: Aimed Shot's critical strike damage is increased by 100% of your critical strike chance. The damage of your other ranged abilities is increased by 12%. Rank 4: Rapid Fire damage increased by 25%. Each shot fired from Rapid Fire reduces the cooldown of Aimed Shot by 0.50 sec.",
+"desc": "第 1 级：瞄准射击必定爆击。第 3 级：瞄准射击的爆击伤害按你的爆击几率提高，其他远程技能伤害提高 12%。第 4 级：急速射击伤害提高 25%，其每一发使瞄准射击的冷却降低 0.5 秒。"
+},
+"sentinel": {
+"name": "Sentinel",
+"meta": "Passive",
+"en": "Your Eagle is replaced with a Sentinel Owl that applies an enhanced Sentinel's Mark. Sentinel's Mark Your next Aimed Shot deals 40% increased direct damage to the marked target.",
+"desc": "你的雄鹰被 Sentinel Owl 取代，它会施加强化版 Sentinel's Mark：你的下一次瞄准射击对被标记目标造成的直接伤害提高 40%。"
+},
+"don't-look-back": {
+"name": "Don't Look Back",
+"meta": "Passive",
+"en": "Consuming Sentinel's Mark grants you an absorb shield equal to 10.0% of your maximum health.",
+"desc": "消耗 Sentinel's Mark 时获得等于你最大生命值 10% 的吸收护盾。"
+},
+"moon's-blessing": {
+"name": "Moon's Blessing",
+"meta": "Passive",
+"en": "Consuming Precise Shots has a 10% increased chance to summon your Sentinel Owl. When your Sentinel Owl applies Sentinel's Mark, reduce the cooldown of Aimed Shot by 2.0 sec.",
+"desc": "消耗 Precise Shots 时召唤 Sentinel Owl 的几率提高 10%。Sentinel Owl 施加 Sentinel's Mark 时，瞄准射击的冷却降低 2 秒。"
+},
+"sanctified-armaments": {
+"name": "Sanctified Armaments",
+"meta": "Passive",
+"en": "An additional 25% of Rapid Fire's damage is dealt as Arcane damage over 6 sec.",
+"desc": "急速射击额外的 25% 伤害改为在 6 秒内以奥术伤害形式造成。"
+},
+"moonlight-chakram": {
+"name": "Moonlight Chakram",
+"meta": "Passive",
+"en": "For 17 sec after casting Trueshot, Trueshot is replaced with Moonlight Chakram. Moonlight Chakram Throw a chakram blessed with moonlight at your current target that will rapidly deal 10,562 Physical damage 7 times, bouncing to other targets if they are nearby.",
+"desc": "施放百发百中后的 17 秒内，百发百中被 Moonlight Chakram 取代：向当前目标投出被月光祝福的飞轮，快速造成 7 次 10,562 点物理伤害，附近有其他目标时会弹跳。"
+},
+"stargazer": {
+"name": "Stargazer",
+"meta": "Passive",
+"en": "Consuming Precise Shots grants 2% increased critical strike damage for 10 sec. Multiple applications may overlap.",
+"desc": "消耗 Precise Shots 时爆击伤害提高 2%，持续 10 秒，可叠加。"
+},
+"can't-miss,-won't-miss": {
+"name": "Can't Miss, Won't Miss",
+"meta": "Passive",
+"en": "Precise Shots damage bonus increased by 10%. Trueshot duration increased by 2 sec.",
+"desc": "Precise Shots 的伤害加成提高 10%，百发百中的持续时间延长 2 秒。"
+},
+"invigorating-pulse": {
+"name": "Invigorating Pulse",
+"meta": "Passive",
+"en": "Steady Shot grants an additional 5 Focus and its damage is increased by 20%. Maximum Focus increased by 25.",
+"desc": "Steady Shot 额外提供 5 点集中值，伤害提高 20%。最大集中值提高 25 点。"
+},
+"stalk-and-strike": {
+"name": "Stalk and Strike",
+"meta": "Passive",
+"en": "Throwing your Moonlight Chakram grants you Lock and Load.",
+"desc": "投出 Moonlight Chakram 时获得 Lock and Load。"
+},
+"arcane-talons": {
+"name": "Arcane Talons",
+"meta": "Passive",
+"en": "Sentinel's Mark further increases the damage of Aimed Shot by 15%",
+"desc": "Sentinel's Mark 使瞄准射击造成的伤害再提高 15%。"
+},
+"lunar-calling": {
+"name": "Lunar Calling",
+"meta": "Passive",
+"en": "Feathered Frenzy further increases your chance to summon your Sentinel Owl during Trueshot by 10%.",
+"desc": "Feathered Frenzy 使你在百发百中期间召唤 Sentinel Owl 的几率再提高 10%。"
+},
+"conditioning": {
+"name": "Conditioning",
+"meta": "Passive",
+"en": "Your movement speed is increased by 8%. Aspect of the Cheetah's cooldown is reduced by 30 sec.",
+"desc": "移动速度提高 8%，猎豹守护的冷却时间降低 30 秒。"
+},
+"radiant-edge": {
+"name": "Radiant Edge",
+"meta": "Passive",
+"en": "Your Moonlight Chakram deals 25% increased damage each time it bounces.",
+"desc": "Moonlight Chakram 每次弹跳造成的伤害提高 25%。"
+},
+"lunar-storm": {
+"name": "Lunar Storm",
+"meta": "Passive",
+"en": "When Sentinel's Mark is consumed, it summons a barrage of 4 lunar missiles, each dealing 5,410 Arcane damage to enemies within 10 yds.",
+"desc": "Sentinel's Mark 被消耗时，召唤 4 枚月光导弹的齐射，每枚对 10 码内的敌人造成 5,410 点奥术伤害。"
+},
+"black-arrow": {
+"name": "Black Arrow",
+"meta": "Passive",
+"en": "Your Kill Shot is replaced with Black Arrow. Black Arrow You attempt to finish off a wounded target, dealing 26,760 Shadow damage and 21,738 Shadow damage over 8 sec. Only usable on enemies above 80% health or below 20% health.",
+"desc": "你的夺命射击被 Black Arrow 取代：尝试击倒受伤的目标，造成 26,760 点暗影伤害，并在 8 秒内额外造成 21,738 点暗影伤害。仅可在敌人生命值高于 80% 或低于 20% 时使用。"
+},
+"bleak-arrows": {
+"name": "Bleak Arrows",
+"meta": "Passive",
+"en": "Your auto shot now deals Shadow damage, allowing it to bypass armor. Auto shot damage increased by 100%.",
+"desc": "你的自动射击改为造成暗影伤害，因而无视护甲，伤害提高 100%。"
+},
+"soul-drinker": {
+"name": "Soul Drinker",
+"meta": "Passive",
+"en": "Aimed Shot's chance to grant Deathblow is increased by 10%. Rapid Fire has a 100% chance to grant Deathblow. Deathblow The cooldown of Black Arrow is reset. Your next Black Arrow can be used on any target, regardless of their current health.",
+"desc": "瞄准射击获得 Deathblow 的几率提高 10%，急速射击必定获得 Deathblow。"
+},
+"bleak-powder": {
+"name": "Bleak Powder",
+"meta": "Passive",
+"en": "Black Arrow now explodes in a cloud of shadow and sulfur on impact, dealing 11,023 Shadow damage to all enemies within an 8 yd cone behind the target. Damage reduced beyond 8 targets.",
+"desc": "Black Arrow 命中时爆炸，在目标身后 8 码锥形范围内造成 11,023 点暗影伤害。超过 8 个目标后伤害降低。"
+},
+"corpsecaller": {
+"name": "Corpsecaller",
+"meta": "Passive",
+"en": "Black Arrow's periodic damage has a small chance to rouse the dead, summoning a Dark Minion to fight alongside you for 20 sec.",
+"desc": "Black Arrow 的持续伤害有几率唤醒亡灵，召唤一个黑暗仆从助战 20 秒。"
+},
+"through-the-eyes": {
+"name": "Through the Eyes",
+"meta": "Passive",
+"en": "Black Arrow damage increased by 10%.",
+"desc": "Black Arrow 的伤害提高 10%。"
+},
+"smoke-screen": {
+"name": "Smoke Screen",
+"meta": "Passive",
+"en": "Exhilaration grants you 3 sec of Survival of the Fittest. Survival of the Fittest activates Exhilaration at 50% effectiveness.",
+"desc": "意气风发提供 3 秒的 Survival of the Fittest；Survival of the Fittest 以 50% 效能触发意气风发。"
+},
+"dark-chains": {
+"name": "Dark Chains",
+"meta": "Passive",
+"en": "While in combat, Disengage will chain the closest target to the ground, causing them to move 40% slower until they move 8 yards away.",
+"desc": "战斗中，逃脱会用锁链将最近的目标锁在地面，使其移动速度降低 40%，直到他离开 8 码。"
+},
+"wailing-dead": {
+"name": "Wailing Dead",
+"meta": "Passive",
+"en": "Trueshot summons a Dark Minion. For 15 sec after casting Trueshot, Trueshot is replaced with Wailing Arrow. Wailing Arrow Fire an enchanted arrow, dealing 48,549 Shadow damage to your target and an additional 24,088 Shadow damage to all enemies within 8 yds of your target. Non-Player targets struck by a Wailing Arrow have their spellcasting interrupted and are silenced for 1 sec. Grants Deathblow.",
+"desc": "百发百中召唤一个黑暗仆从。施放百发百中后的 15 秒内，它被 Wailing Arrow 取代：发射一支魔法箭，对目标造成 48,549 点暗影伤害，并对其 8 码内所有敌人造成 24,088 点暗影伤害；被击中的非玩家目标施法会被打断并沉默 1 秒。提供 Deathblow。"
+},
+"blighted-quiver": {
+"name": "Blighted Quiver",
+"meta": "Passive",
+"en": "You fire 2 additional Black Arrows during Withering Fire's barrage. Trick Shots damage bonus increased by 10%. Aspect of the Hydra's damage bonus increased by 12%.",
+"desc": "Withering Fire 的齐射期间额外发射 2 支 Black Arrow。Trick Shots 的伤害加成提高 10%，Aspect of the Hydra 的伤害加成提高 12%。"
+},
+"the-bell-tolls": {
+"name": "The Bell Tolls",
+"meta": "Passive",
+"en": "Critical strike chance increased by 3%. Dark Minion damage increased by 10%.",
+"desc": "爆击几率提高 3%，黑暗仆从伤害提高 10%。"
+},
+"umbral-reach": {
+"name": "Umbral Reach",
+"meta": "Passive",
+"en": "Bleak Powder now applies Black Arrow's periodic effect to all enemies it damages. If Bleak Powder damages 2 or more enemies, gain Trick Shots if talented.",
+"desc": "Bleak Powder 现在对其伤害到的所有敌人施加 Black Arrow 的持续效果。若伤害 2 个或更多敌人，则获得 Trick Shots（若已习得）。"
+},
+"pact-of-the-hollow": {
+"name": "Pact of the Hollow",
+"meta": "Passive",
+"en": "Aimed Shot causes your Dark Minion to fire a Blighted Arrow, dealing 13,085 Shadow damage to up to 8 nearby enemies.",
+"desc": "瞄准射击使你的黑暗仆从发射一支 Blighted Arrow，对最多 8 个附近敌人造成 13,085 点暗影伤害。"
+},
+"withering-fire": {
+"name": "Withering Fire",
+"meta": "Passive",
+"en": "Trueshot causes you to surrender to darkness, granting you Withering Fire for the duration of Trueshot and Deathblow. Withering Fire Casting Black Arrow fires a barrage of 4 additional Black Arrows at nearby targets at 30% effectiveness, prioritizing enemies that aren't affected by Black Arrow's damage over time effect.",
+"desc": "百发百中使你屈从于黑暗，在百发百中和 Deathblow 持续期间获得 Withering Fire：施放 Black Arrow 时以 30% 效能向附近目标额外射出 4 支 Black Arrow，优先选择未受其持续伤害影响的敌人。"
+},
+"survival-tactics": {
+"name": "Survival Tactics",
+"meta": "",
+"en": "Feign Death reduces damage taken by 90% for 2 sec.",
+"desc": "假死在 2 秒内使你受到的伤害降低 90%。"
+},
+"chimaeral-sting": {
+"name": "Chimaeral Sting",
+"meta": "",
+"en": "Stings the target, dealing 52 Nature damage and initiating a series of venoms. Each lasts 3 sec and applies the next effect after the previous one ends. Scorpid Venom: 90% reduced movement speed. Spider Venom: Silenced. Viper Venom: 20% reduced damage and healing.",
+"desc": "刺痛目标造成少量自然伤害并启动一连串毒液，每种持续 3 秒依次生效。蝎毒：移动速度降低 90%。蛛毒：沉默。蝰蛇毒：伤害和治疗降低 20%。"
+},
+"ranger's-finesse": {
+"name": "Ranger's Finesse",
+"meta": "",
+"en": "Casting Aimed Shot provides you with Ranger's Finesse. After gaining 3 stacks of Ranger's Finesse, increase your next Volley's radius and duration by 50%. Consuming Ranger's Finesse reduces the remaining cooldown of Aspect of the Turtle by 20 sec.",
+"desc": "施放瞄准射击提供 Ranger's Finesse。叠满 3 层后，你的下一次乱射范围和持续时间提高 50%。消耗它使灵龟守护的剩余冷却降低 20 秒。"
+},
+"sniper's-advantage": {
+"name": "Sniper's Advantage",
+"meta": "",
+"en": "Trueshot and Volley increase the range of all shots by 30% for their duration.",
+"desc": "百发百中和乱射期间，所有射击的射程提高 30%。"
+},
+"hunting-pack": {
+"name": "Hunting Pack",
+"meta": "",
+"en": "Aspect of the Cheetah has 50% reduced cooldown and grants its effects to allies within 30 yds.",
+"desc": "猎豹守护的冷却时间降低 50%，并将其效果提供给 30 码内的盟友。"
+},
+"consecutive-concussion": {
+"name": "Consecutive Concussion",
+"meta": "",
+"en": "Concussive Shot slows movement by an additional 10%. Using Steady Shot 3 times on a concussed enemy stuns them for 4 sec.",
+"desc": "Concussive Shot 额外降低 10% 移动速度。对被减速的敌人使用 3 次 Steady Shot 会使其昏迷 4 秒。"
+},
+"diamond-ice": {
+"name": "Diamond Ice",
+"meta": "",
+"en": "Victims of Freezing Trap can no longer be damaged or healed. Freezing Trap is now undispellable, but has a 4 sec duration.",
+"desc": "冰冻陷阱的受害者不再能受到伤害或治疗。冰冻陷阱无法被驱散，但持续时间缩短为 4 秒。"
+},
+"aspect-of-the-fox": {
+"name": "Aspect of the Fox",
+"meta": "",
+"en": "Aimed Shot may be cast while moving during Aspect of the Cheetah and Aspect of the Cheetah's delayed effect is increased by 4 sec.",
+"desc": "猎豹守护期间，瞄准射击可以在移动中施放，且猎豹守护的延迟效果延长 4 秒。"
+},
+"scatter-shot": {
+"name": "Scatter Shot",
+"meta": "",
+"en": "A short-range shot that deals 1 damage, removes all harmful damage over time effects, and incapacitates the target for 3 sec. Any damage caused will remove the effect. Turns off your attack when used.",
+"desc": "一次近距离射击，造成极少伤害，移除所有有害持续伤害效果，并使目标失去行动能力 3 秒。任何伤害都会移除该效果。使用时会关闭你的攻击。"
+}
+};
