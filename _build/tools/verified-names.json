@@ -932,6 +932,134 @@
   "星界传送": {
    "id": 556,
    "en": "Astral Recall"
+  },
+  "愤怒": {
+   "id": 190984,
+   "en": "Wrath"
+  },
+  "星火术": {
+   "id": 194153,
+   "en": "Starfire"
+  },
+  "星涌术": {
+   "id": 78674,
+   "en": "Starsurge"
+  },
+  "星辰坠落": {
+   "id": 191034,
+   "en": "Starfall"
+  },
+  "艾露恩之怒": {
+   "id": 202770,
+   "en": "Fury of Elune"
+  },
+  "枭兽形态": {
+   "id": 24858,
+   "en": "Moonkin Form"
+  },
+  "化身：艾露恩之眷": {
+   "id": 102560,
+   "en": "Incarnation: Chosen of Elune"
+  },
+  "超凡之盟": {
+   "id": 194223,
+   "en": "Celestial Alignment"
+  },
+  "甘霖": {
+   "id": 108238,
+   "en": "Renewal"
+  },
+  "生存本能": {
+   "id": 61336,
+   "en": "Survival Instincts"
+  },
+  "激活": {
+   "id": 29166,
+   "en": "Innervate"
+  },
+  "日光术": {
+   "id": 78675,
+   "en": "Solar Beam"
+  },
+  "旋风": {
+   "id": 33786,
+   "en": "Cyclone"
+  },
+  "纠缠根须": {
+   "id": 339,
+   "en": "Entangling Roots"
+  },
+  "群体缠绕": {
+   "id": 102359,
+   "en": "Mass Entanglement"
+  },
+  "蛮力猛击": {
+   "id": 5211,
+   "en": "Mighty Bash"
+  },
+  "台风": {
+   "id": 132469,
+   "en": "Typhoon"
+  },
+  "狂奔怒吼": {
+   "id": 77761,
+   "en": "Stampeding Roar"
+  },
+  "急奔": {
+   "id": 1850,
+   "en": "Dash"
+  },
+  "猎豹形态": {
+   "id": 768,
+   "en": "Cat Form"
+  },
+  "熊形态": {
+   "id": 5487,
+   "en": "Bear Form"
+  },
+  "清除腐蚀": {
+   "id": 2782,
+   "en": "Remove Corruption"
+  },
+  "愈合": {
+   "id": 8936,
+   "en": "Regrowth"
+  },
+  "回春术": {
+   "id": 774,
+   "en": "Rejuvenation"
+  },
+  "野性成长": {
+   "id": 48438,
+   "en": "Wild Growth"
+  },
+  "自然之愈": {
+   "id": 88423,
+   "en": "Nature's Cure"
+  },
+  "自然之力": {
+   "id": 205636,
+   "en": "Force of Nature"
+  },
+  "艾露恩的战士": {
+   "id": 202425,
+   "en": "Warrior of Elune"
+  },
+  "新月": {
+   "id": 274281,
+   "en": "New Moon"
+  },
+  "星辰耀斑": {
+   "id": 202347,
+   "en": "Stellar Flare"
+  },
+  "阳炎术": {
+   "id": 93402,
+   "en": "Sunfire"
+  },
+  "月火术": {
+   "id": 8921,
+   "en": "Moonfire"
   }
  }
 }

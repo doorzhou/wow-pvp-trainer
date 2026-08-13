@@ -824,6 +824,98 @@ const PAGES = [
     },
   },
   {
+    file: 'balance-druid', kind: 'spec', cls: 'druid', spec: 'balance',
+    h1: '平衡德 PvP 判断训练器', short: '平衡德',
+    icon: 'spell_nature_starfall', tier: 'A+', color: '#FF7C0A',
+    crumb: ['德鲁伊', '平衡'], store: 'banyeBalanceDruidPvP1207', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在想「这一局旋风该给谁」，不是见人就控。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「该不该开」的四条件过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋', vv: '<b>丛林守护者 Keeper of the Grove</b>（49/50）—— 艾露恩之眷只有 1 人。这不是推荐，是唯一解。' },
+        {
+          lb: 'PvP 天赋 · 三格四个候选',
+          vv: '<b>Moonkin Aura</b>（46/50）—— <sk>星涌术</sk>给队友法术爆击加成<br>' +
+            '<b>Owlkin Adept</b>（43/50）—— 缩短<sk>旋风</sk>与<sk>纠缠根须</sk>施法时间<br>' +
+            '<b>High Winds</b>（37/50）—— 增加<sk>旋风</sk>、<sk>台风</sk>、<sk>纠缠根须</sk>距离<br>' +
+            '<b>Faerie Swarm</b>（13/50）—— 缴械并减速<br>' +
+            '<span class="dimtx">注意前三个里有<b>两个在强化控制</b> —— top50 的共识是控场优先于伤害。</span>'
+        },
+      ],
+      note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'CYGADBD3hSPCL9Y9gz68WcKvMAAAAAAAAAAAAAAAAAWoMLNjxMD8AmtxMzMLwwMLjlhZMzwsMjZmZwGGAM22mx22MbzyMNzsMTAAAA2MzMzMYzwYMDgZGYGYA',
+        who: 'Cowkiri', where: 'EU · Tarren Mill', rating: '3v3 3240', at: '2026-08-14',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 6 个分歧格上与多数派一致 4 格</b>。' +
+          '偏离的两格里，<sk>清除腐蚀</sk>是<b>典型的看阵容格</b>——' +
+          '对面没有诅咒和中毒效果时，那一点确实是空的。',
+      },
+      tree: {
+        survey: '职业树 53 格 + 专精树 38 格 + 英雄天赋 28 格，共 <b>119 格</b>。' +
+          '扣掉几乎没人走的艾露恩之眷整条线，top50 的实测里 <b>104 格是定死的</b>。' +
+          '真正需要判断的是 <b>15 格</b>，下面是其中 6 格。',
+        picks: [
+          {
+            n: 'Forestwalk', tree: '职业', u: 42,
+            b: '施放<sk>愈合</sk>使你的移动速度和受到的治疗提高，持续数秒。' +
+              '<br><b>84% 接近定盘。</b>它买的是<b>「被贴脸之后能不能跑掉」</b>——' +
+              '平衡德靠距离活着，这一格直接服务于那个前提。'
+          },
+          {
+            n: 'Total Eclipse', tree: '专精', u: 42,
+            b: '进入任一日蚀时有几率同时获得两种日蚀的加成。' +
+              '<br>纯输出加成，不看对面。<b>它的价值是「减少切换日蚀的操作成本」</b>——' +
+              '触发时你不用纠结该放哪种伤害类型的技能。'
+          },
+          {
+            n: 'Umbral Intensity', tree: '专精', u: 40,
+            b: '<sk>愤怒</sk>和<sk>星火术</sk>的伤害提高。' +
+              '<br>基础输出加成。<b>这两个是你最常按的技能</b>，所以这一格的实际收益比看起来稳定。'
+          },
+          {
+            n: 'Sunseeker Mushroom', tree: '专精', u: 39, ch: 1,
+            b: '<sk>阳炎术</sk>的伤害有几率在目标位置长出蘑菇并爆炸，造成伤害并<b>减速 50%</b>。' +
+              '<br><b>这是二选一格。</b>注意它带减速——<b>对平衡德来说「让对面走不掉」的价值不亚于伤害</b>。' +
+              '对面机动性强时这一格更值。'
+          },
+          {
+            n: 'Remove Corruption', tree: '职业', u: 38,
+            b: '移除友方目标身上的所有诅咒和中毒效果。' +
+              '<br><b>它是团队功能不是个人输出。</b>对面有大量诅咒/中毒（术士、盗贼）时是刚需；' +
+              '对面阵容里没有这类效果，这一点就是空的。'
+          },
+          {
+            n: 'Ursine Vigor', tree: '职业', u: 36,
+            b: '切换到熊形态后数秒内，生命值和护甲提高。' +
+              '<br><b>又一个「活下来」的格子。</b>被近战贴住时切熊形态硬扛几秒，' +
+              '是平衡德的应急手段之一——<b>72% 的使用率说明这种场面很常见</b>。'
+          },
+        ],
+        src: '使用率：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 平衡德 top 50</b> 实测配点。' +
+          '「什么时候点」为编者按天赋效果与该专精打法推导，非实测结论。' +
+          '暂无官方简体中文名的天赋使用英文原名。',
+      },
+    },
+    gear: {
+      stats: [
+        { n: '全能', v: '主堆', pct: 100 },
+        { n: '急速', v: '主堆', pct: 85 },
+        { n: '精通', v: '可弃', pct: 12, dim: 1 },
+        { n: '爆击', v: '可弃', pct: 1, dim: 1 },
+      ],
+      statRead: '<b>全能和急速几乎并列，之后是断崖。</b>' +
+        '急速在这里价值特别高 —— <b>它缩短施法时间，而平衡德的控制和输出大多要读条</b>。' +
+        '前两条一起堆，精通和爆击装备上带多少算多少。',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 平衡德 top 50</b> 实测配装。' +
+        '档位划分为编者按断层位置判定。',
+    },
+  },
+  {
     file: 'rogue-priest-2v2', kind: 'comp', h1: '贼 + 戒律牧 · 2v2 组合训练器', short: '贼牧 2v2',
     icon: 'classicon_rogue', icon2: 'classicon_priest', tier: null, color: '#8b6fd4',
     crumb: ['组合', '2v2 贼牧'], store: 'banyeRoguePriest2v2_1207', quizSec: 's5',
