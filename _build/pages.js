@@ -1107,6 +1107,102 @@ const PAGES = [
     },
   },
   {
+    file: 'affliction-warlock', kind: 'spec', cls: 'warlock', spec: 'affliction',
+    h1: '痛苦术士 PvP 判断训练器', short: '痛苦术士',
+    icon: 'spell_shadow_deathcoil', tier: 'A', color: '#8788EE',
+    crumb: ['术士', '痛苦'], store: 'banyeAffLockPvP1207', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在算「碎片什么时候花」，不是攒满就扔。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「该不该开」的四条件过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋', vv: '<b>摄魂者 Soul Harvester</b>（49/50）—— 地狱行者只有 1 人。围绕 Demonic Soul 展开。' },
+        { lb: 'PvP 天赋 · 唯一必带', vv: '<b>Jinx</b>（50/50）—— 施放诅咒时同时上<sk>腐蚀术</sk>和<sk>痛楚</sk>，' +
+          '<b>把你最脆弱的铺垫期缩短了一半</b>' },
+        {
+          lb: 'PvP 天赋 · 另两格',
+          vv: '<b>Impish Instincts</b>（38/50）—— 受到物理伤害缩短<sk>恶魔法阵</sk>冷却<br>' +
+            '<b>Nether Ward</b>（22/50）—— 反射有害法术<br>' +
+            '<b>Gateway Mastery</b>（20/50）—— 强化传送门<br>' +
+            '<span class="dimtx">Impish Instincts 的高使用率说明了一件事：' +
+            '<b>被近战贴住是这个专精的主要威胁</b>。</span>'
+        },
+      ],
+      note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'CkQAMrNP5kak+EBqLfUa3dMm+uMmxMjmtZGLMzMLDAAwMziNzMLmBAmlllxwYWMTjZmhtMLMsNAAAMDAAMzMzMzMzMjZmhZMzMzMYGGAgBMA',
+        who: 'Pd', where: 'US · Nathrezim', rating: '3v3 3141', at: '2026-08-14',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 6 个分歧格上与多数派一致 5 格</b>。' +
+          '<b>痛苦术士只有 7 个分歧格</b>，配点共识度高——' +
+          '所以这串的参考价值比多数专精更高，真正要练的是节奏不是配点。',
+      },
+      tree: {
+        survey: '职业树 42 格 + 专精树 37 格 + 英雄天赋 28 格，共 <b>107 格</b>。' +
+          '扣掉几乎没人走的地狱行者整条线，top50 的实测里 <b>100 格是定死的</b>。' +
+          '<b>真正需要判断的只有 7 格 —— 站上分歧最少的</b>，' +
+          '这说明痛苦术士的难点不在配点，在 DoT 的铺设时机和碎片的花费时机上。',
+        picks: [
+          {
+            n: 'Empowered Healthstone', tree: '职业', u: 40,
+            b: '治疗石额外治疗你最大生命值的 5%。' +
+              '<br><b>80% 接近定盘。</b>术士的自保靠吸血、护盾和治疗石堆起来——' +
+              '这一格提高的是「你能扛几次爆发」的下限。'
+          },
+          {
+            n: 'Fatal Echoes', tree: '专精', u: 40,
+            b: '<sk>痛苦无常</sk>到期时有几率自动重新施加。' +
+              '<br><b>它省的是施法时间。</b>对一个「铺垫要花很多 GCD」的专精，' +
+              '少铺一次就等于多一次输出或走位的机会。'
+          },
+          {
+            n: 'Curse of Tongues', tree: '职业', u: 38,
+            b: '迫使目标使用恶魔语言，所有法术施法时间延长 30%。' +
+              '<br><b>它是给对面治疗准备的。</b>76% 的使用率说明多数人认为' +
+              '「拖慢治疗的施法」比另一个诅咒更值——但对面是纯近战的话，这一格就空了。'
+          },
+          {
+            n: 'Fortified Soul', tree: '职业', u: 36,
+            b: 'Soul Leech 额外可吸收你最大生命值的 5%。' +
+              '<br>又一个生存格。<b>注意痛苦术士有连续三格高使用率的生存天赋</b>——' +
+              '这说明这个专精在 PvP 里挨打是常态，不是意外。'
+          },
+          {
+            n: 'Shared Fate', tree: '英雄', u: 32, ch: 1,
+            b: '击杀目标时，其受折磨的灵魂被抛向附近敌人，持续造成暗影伤害。' +
+              '<br><b>这是二选一格</b>，而且<b>它只在你击杀之后才生效</b>——' +
+              '所以它的价值取决于你的队伍能不能稳定拿到击杀。打不出击杀的队伍，这一点是空的。'
+          },
+          {
+            n: "Gorefiend's Avarice", tree: '职业', u: 25,
+            b: '<sk>吸取生命</sk>的引导速度和回血速度都提高 100%。' +
+              '<br><b>正好对半分。</b>它让你的自愈更快，但<sk>吸取生命</sk>是引导技能——' +
+              '被贴住打断的局面里，引导得再快也放不出来。这就是分歧所在。'
+          },
+        ],
+        src: '使用率：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 痛苦术士 top 50</b> 实测配点。' +
+          '「什么时候点」为编者按天赋效果与该专精打法推导，非实测结论。' +
+          '暂无官方简体中文名的天赋使用英文原名。',
+      },
+    },
+    gear: {
+      stats: [
+        { n: '全能', v: '主堆', pct: 100 },
+        { n: '急速', v: '主堆', pct: 70 },
+        { n: '精通', v: '可弃', pct: 6, dim: 1 },
+        { n: '爆击', v: '可弃', pct: 1, dim: 1 },
+      ],
+      statRead: '<b>全能和急速一组，之后是断崖。</b>' +
+        '急速对痛苦术士有双重价值：<b>既缩短施法时间（你最怕铺不上），也加快 DoT 的跳动速度</b>' +
+        '（你的伤害兑现更快）。前两条一起堆。',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 痛苦术士 top 50</b> 实测配装。' +
+        '档位划分为编者按断层位置判定。',
+    },
+  },
+  {
     file: 'rogue-priest-2v2', kind: 'comp', h1: '贼 + 戒律牧 · 2v2 组合训练器', short: '贼牧 2v2',
     icon: 'classicon_rogue', icon2: 'classicon_priest', tier: null, color: '#8b6fd4',
     crumb: ['组合', '2v2 贼牧'], store: 'banyeRoguePriest2v2_1207', quizSec: 's5',

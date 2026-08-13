@@ -85,7 +85,7 @@ window.REG = {
     {
       id: 'warlock', n: '术士', en: 'Warlock', c: '#8788EE', ic: 'classicon_warlock', armor: '布甲',
       specs: [
-        { id: 'affliction', n: '痛苦', en: 'Affliction', role: 'dps', tier: 'A', ic: 'spell_shadow_deathcoil', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'affliction', n: '痛苦', en: 'Affliction', role: 'dps', tier: 'A', ic: 'spell_shadow_deathcoil', page: 'affliction-warlock.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'demonology', n: '恶魔学识', en: 'Demonology', role: 'dps', tier: 'C', ic: 'spell_shadow_metamorphosis', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'destruction', n: '毁灭', en: 'Destruction', role: 'dps', tier: 'A', ic: 'spell_shadow_rainoffire', page: null, st: [0, 0, 0, 0, 0, 0] },
       ]

@@ -1228,6 +1228,130 @@
   "野兽之眼": {
    "id": 321297,
    "en": "Eyes of the Beast"
+  },
+  "腐蚀术": {
+   "id": 172,
+   "en": "Corruption"
+  },
+  "痛楚": {
+   "id": 980,
+   "en": "Agony"
+  },
+  "痛苦无常": {
+   "id": 30108,
+   "en": "Unstable Affliction"
+  },
+  "鬼影缠身": {
+   "id": 48181,
+   "en": "Haunt"
+  },
+  "腐蚀之种": {
+   "id": 27243,
+   "en": "Seed of Corruption"
+  },
+  "吸取生命": {
+   "id": 234153,
+   "en": "Drain Life"
+  },
+  "吸取灵魂": {
+   "id": 198590,
+   "en": "Drain Soul"
+  },
+  "诡异魅影": {
+   "id": 205179,
+   "en": "Phantom Singularity"
+  },
+  "灵魂交换": {
+   "id": 386951,
+   "en": "Soul Swap"
+  },
+  "召唤黑眼": {
+   "id": 205180,
+   "en": "Summon Darkglare"
+  },
+  "灾难狂欢": {
+   "id": 324536,
+   "en": "Malefic Rapture"
+  },
+  "恐惧": {
+   "id": 5782,
+   "en": "Fear"
+  },
+  "死亡缠绕": {
+   "id": 6789,
+   "en": "Mortal Coil"
+  },
+  "暗影之怒": {
+   "id": 30283,
+   "en": "Shadowfury"
+  },
+  "恐惧嚎叫": {
+   "id": 5484,
+   "en": "Howl of Terror"
+  },
+  "法术封锁": {
+   "id": 19647,
+   "en": "Spell Lock"
+  },
+  "不灭决心": {
+   "id": 104773,
+   "en": "Unending Resolve"
+  },
+  "黑暗契约": {
+   "id": 108416,
+   "en": "Dark Pact"
+  },
+  "治疗石": {
+   "id": 6262,
+   "en": "Healthstone"
+  },
+  "恶魔传送门": {
+   "id": 111771,
+   "en": "Demonic Gateway"
+  },
+  "恶魔法阵：传送": {
+   "id": 48020,
+   "en": "Demonic Circle: Teleport"
+  },
+  "爆燃冲刺": {
+   "id": 111400,
+   "en": "Burning Rush"
+  },
+  "牺牲魔典": {
+   "id": 108503,
+   "en": "Grimoire of Sacrifice"
+  },
+  "邪能统御": {
+   "id": 333889,
+   "en": "Fel Domination"
+  },
+  "灵魂石": {
+   "id": 20707,
+   "en": "Soulstone"
+  },
+  "召唤护魂者": {
+   "id": 386256,
+   "en": "Summon Soulkeeper"
+  },
+  "邪恶污染": {
+   "id": 278350,
+   "en": "Vile Taint"
+  },
+  "黑暗灵魂：哀难": {
+   "id": 113860,
+   "en": "Dark Soul: Misery"
+  },
+  "大灾变": {
+   "id": 152108,
+   "en": "Cataclysm"
+  },
+  "召唤地狱火": {
+   "id": 1122,
+   "en": "Summon Infernal"
+  },
+  "召唤地狱猎犬": {
+   "id": 691,
+   "en": "Summon Felhunter"
   }
  }
 }
