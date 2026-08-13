@@ -184,7 +184,12 @@ def run(slug, path, no_fetch):
         if not o:
             retrans.append((k, '新增'))
         elif o.get('en', o.get('desc', '')) != v['desc']:
-            retrans.append((k, '原文变了'))
+            retrans.append((k, '原文变了' + ('，且这条带人工修正（fix），修正理由可能已失效' if o.get('fix') else '')))
+
+    # 带人工修正的条目：Murlok 某个专精页数据滞后时，译文会被手工改成正确值，
+    # 理由记在 fix 字段里。上游一旦补上，这些修正就该撤掉 —— 不提醒就会一直留着。
+    fixed = [(k, v.get('fix', '')) for k, v in new_desc.items()
+             if old_desc.get(k, {}).get('fix')]
 
     return {
         'slug': slug,
@@ -202,6 +207,7 @@ def run(slug, path, no_fetch):
         'hero': (hero_of(old_tree), hero_of(new_tree)),
         'icons': got,
         'retrans': retrans,
+        'fixed': fixed,
         'desc_n': (len(old_desc), len(new_desc)),
         'newfiles': (new_tree_p, new_desc_p),
         'parse': r1.stdout.strip().split('\n')[0],
@@ -273,6 +279,8 @@ def report(r):
         print(f"  ⚠ 需重译 {len(r['retrans'])} 条：{', '.join(k for k, _ in r['retrans'][:10])}")
     else:
         print("  译文：原文没变，不用重译")
+    for k, why in r.get('fixed', []):
+        print(f"  ⓘ 「{k}」带人工修正，复核上游是否已补上：{why}")
     print(f"  新数据在 {r['newfiles'][0]}")
 
 

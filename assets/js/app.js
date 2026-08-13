@@ -60,7 +60,8 @@ function showTip(el, name) {
   t.innerHTML = '<div class="tn"><img src="' + IC(d.icon) + '" alt="" onerror="this.style.display=\'none\'">' + name + '</div>' +
     (d.meta ? '<div class="tm">' + d.meta + '</div>' : '') +
     '<div class="td">' + d.desc + '</div>' +
-    '<div class="tf">Wowhead 官方数据 · 简体中文</div>';
+    '<div class="tf">Wowhead 官方数据 · <b>PvE 语境</b>：竞技场里控制时长与部分数值另有调整，' +
+    '天赋树里的描述取自 PvP 实测源。</div>';
   t.classList.add('on');
   var r = el.getBoundingClientRect(), tr = t.getBoundingClientRect();
   var top = r.bottom + 8, left = r.left;
