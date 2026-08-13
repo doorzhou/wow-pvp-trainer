@@ -4,7 +4,7 @@
    ============================================================ */
 const fs = require('fs'), path = require('path');
 const SITE = path.join(__dirname, '..');
-const { DOMAIN, SITE_NAME, TAGLINE, MARK, ISSUES, WISH_KEY } = require('./config.js');
+const { DOMAIN, SITE_NAME, TAGLINE, MARK, ISSUES, WISH_KEY, PATCH, SEASON, SEASON_EN } = require('./config.js');
 const v = require('./ver.js');
 
 // 载入注册表
@@ -89,7 +89,7 @@ function comps() {
 const liveSpecs = REG.flat.filter(s => s.page);
 const trainerCount = liveSpecs.length + REG.compStats.done;
 
-const DESC = SITE_NAME + '——' + TAGLINE + '，对应 12.0.7 Midnight 赛季一。' +
+const DESC = SITE_NAME + '——' + TAGLINE + '，对应 ${PATCH} ${SEASON}。' +
   '覆盖 13 职业 ' + REG.stats.total + ' 个专精与 ' + REG.compStats.total + ' 组竞技场组合，含 ' + totalQ + ' 道情境判断题：' +
   '给定局面，选技能与目标，选完给出判断依据。现已上线敏锐贼、狂徒贼、冰法、戒律牧与 Thug Cleave 3v3、贼牧 2v2。';
 
@@ -98,9 +98,9 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>${SITE_NAME} · ${TAGLINE} | 12.0.7 Midnight 赛季一</title>
+<title>${SITE_NAME} · ${TAGLINE} | ${PATCH} ${SEASON}</title>
 <meta name="description" content="${DESC}">
-<meta name="keywords" content="WOW打架营地,魔兽世界,WOW,PVP,竞技场,arena,12.0.7,Midnight,午夜,判断训练,敏锐贼,狂徒贼,冰法,戒律牧,2v2,3v3,RMP,Thug Cleave,天赋,配装,属性优先级">
+<meta name="keywords" content="WOW打架营地,魔兽世界,WOW,PVP,竞技场,arena,${PATCH},Midnight,午夜,判断训练,敏锐贼,狂徒贼,冰法,戒律牧,2v2,3v3,RMP,Thug Cleave,天赋,配装,属性优先级">
 <meta name="author" content="${SITE_NAME}">
 <link rel="canonical" href="${DOMAIN}/">
 <meta property="og:type" content="website">
@@ -131,7 +131,7 @@ const html = `<!DOCTYPE html>
 <header>
   <div class="wrap hd">
     <a class="brand" href="index.html"><span class="mk">${MARK}</span>${SITE_NAME}</a>
-    <span class="badge hot">12.0.7 · Midnight S1</span>
+    <span class="badge hot">${PATCH} · ${SEASON_EN}</span>
     <div class="spacer"></div>
     <a class="homelink" href="#matrix">职业专精</a>
     <a class="homelink" href="#comps">竞技场组合</a>
@@ -141,7 +141,7 @@ const html = `<!DOCTYPE html>
 </header>
 
 <div class="hero"><div class="wrap in">
-  <div class="eyebrow">Patch 12.0.7 · MIDNIGHT 赛季一</div>
+  <div class="eyebrow">Patch ${PATCH} · MIDNIGHT 赛季一</div>
   <h1><span class="bn">${SITE_NAME}</span><span class="tl">${TAGLINE}</span></h1>
   <div class="sub">覆盖 13 职业 ${REG.stats.total} 个专精与 ${REG.compStats.total} 组竞技场组合。
     每个训练器提供情境判断题：<b>给定局面，选技能与目标，选完给出判断依据</b>。</div>
@@ -184,7 +184,7 @@ const html = `<!DOCTYPE html>
   <div class="matrix" id="mx">
 ${matrix()}
   </div>
-  <p class="lead" style="margin-top:14px">梯队（S / A+ / A / B / C）取自 Icy Veins 12.0.7 PvP DPS 梯队表；治疗与坦克该表未收录，标注为角色。</p>
+  <p class="lead" style="margin-top:14px">梯队（S / A+ / A / B / C）取自 Icy Veins ${PATCH} PvP DPS 梯队表；治疗与坦克该表未收录，标注为角色。</p>
 </div>
 
 <div class="wrap" id="comps">
@@ -225,7 +225,7 @@ ${comps()}
       <li>技能中文名、图标、技能说明 —— Wowhead 官方数据接口</li>
       <li>天赋使用率 —— Murlok.io top50 实测分布（页面上 50/50、8/8 这类标注）</li>
       <li>版本改动 —— 官方补丁说明</li>
-      <li>梯队排名 —— Icy Veins 12.0.7 PvP 梯队表</li>
+      <li>梯队排名 —— Icy Veins ${PATCH} PvP 梯队表</li>
       <li>装备机制（货币、催化器、PvP 装等缩放）—— Icy Veins 配装指南</li>
     </ul></div>
     <div class="src derived"><h4>△ 编者推导</h4><ul>
@@ -253,7 +253,7 @@ ${WISH_KEY ? `<div class="wrap" id="wish">
   <h2>版本与免责</h2>
   <div class="rows">
     <div class="row"><div class="h" onclick="tg(this)"><span class="t">时效性</span>
-      <span class="sub">对应 12.0.7 · 最后更新 ${REG.updated}</span><span class="ar">▸</span></div>
+      <span class="sub">对应 ${PATCH} · 最后更新 ${REG.updated}</span><span class="ar">▸</span></div>
       <div class="b"><p>本站内容对应<b>补丁 ${REG.patch}（${REG.season}）</b>。平衡改动可能使部分判断失效；
         与游戏内不符时以游戏内为准，欢迎提交勘误。</p></div></div>
     <div class="row"><div class="h" onclick="tg(this)"><span class="t">与暴雪的关系</span>

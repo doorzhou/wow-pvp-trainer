@@ -2,13 +2,15 @@
    由 freeze.js 从旧版单体页固化而来（2026-08-10）
    这是构建期输入，不会发给浏览器。改内容改这里，然后跑 node build.js
    题目 51 道 · 对阵 13 条 · 技能 77 个 */
+const { PATCH, SEASON } = require('../config.js');
+
 module.exports = {
   "meta": {
-    "title": "冰法 PvP 判断训练 · 12.0.7 Midnight",
-    "desc": "魔兽世界正式服 12.0.7 冰霜法师 PvP 竞技场判断训练。核心是碎冰机制——目标没冻住时所有伤害都在打折。含 51 道情境判断题、变形术自伤陷阱、假读条技巧与 13 职业对局。",
-    "keywords": "冰法,冰霜法师,PVP,竞技场,魔兽世界,12.0.7,碎冰,frost mage,arena",
+    "title": "冰法 PvP 判断训练 · " + PATCH + " Midnight",
+    "desc": "魔兽世界正式服 " + PATCH + " 冰霜法师 PvP 竞技场判断训练。核心是碎冰机制——目标没冻住时所有伤害都在打折。含 51 道情境判断题、变形术自伤陷阱、假读条技巧与 13 职业对局。",
+    "keywords": "冰法,冰霜法师,PVP,竞技场,魔兽世界," + PATCH + ",碎冰,frost mage,arena",
     "h1": "<span class=\"sp\">冰法</span> PvP 判断训练器",
-    "footer": "Patch 12.0.7 · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。打法参考 <a href=\"https://www.icy-veins.com/wow/frost-mage-pvp-guide\" target=\"_blank\">Icy Veins</a> · <a href=\"https://murlok.io/mage/frost/3v3\" target=\"_blank\">Murlok.io top50</a> · <a href=\"https://www.method.gg/guides/frost-mage/talents\" target=\"_blank\">Method</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
+    "footer": "Patch " + PATCH + " · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。打法参考 <a href=\"https://www.icy-veins.com/wow/frost-mage-pvp-guide\" target=\"_blank\">Icy Veins</a> · <a href=\"https://murlok.io/mage/frost/3v3\" target=\"_blank\">Murlok.io top50</a> · <a href=\"https://www.method.gg/guides/frost-mage/talents\" target=\"_blank\">Method</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
     "jsonld": null
   },
   "nav": [

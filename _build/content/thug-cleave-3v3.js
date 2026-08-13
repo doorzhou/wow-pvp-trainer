@@ -2,13 +2,15 @@
    由 freeze.js 从旧版单体页固化而来（2026-08-10）
    这是构建期输入，不会发给浏览器。改内容改这里，然后跑 node build.js
    题目 51 道 · 对阵 6 条 · 技能 85 个 */
+const { PATCH, SEASON } = require('../config.js');
+
 module.exports = {
   "meta": {
-    "title": "Thug Cleave 3v3 组合训练 · 12.0.7 Midnight",
-    "desc": "魔兽世界 12.0.7 Thug Cleave（贼/猎/牧）3v3 三视角配合训练。3v3 赢在三个人的控制接成一条链——含控制链递减详解、角色分配器（锁匠/杀手/接手）与 51 道分视角判断题。",
-    "keywords": "3v3,Thug Cleave,贼牧猎,组合,竞技场,魔兽世界,12.0.7,控制链,arena 3v3",
+    "title": "Thug Cleave 3v3 组合训练 · " + PATCH + " Midnight",
+    "desc": "魔兽世界 " + PATCH + " Thug Cleave（贼/猎/牧）3v3 三视角配合训练。3v3 赢在三个人的控制接成一条链——含控制链递减详解、角色分配器（锁匠/杀手/接手）与 51 道分视角判断题。",
+    "keywords": "3v3,Thug Cleave,贼牧猎,组合,竞技场,魔兽世界," + PATCH + ",控制链,arena 3v3",
     "h1": "Thug Cleave · <span class=\"r\">贼</span>+<span class=\"p\">牧</span>+<span class=\"hn\">猎</span> 3v3",
-    "footer": "Patch 12.0.7 · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。组合定位 <a href=\"https://www.icy-veins.com/wow/subtlety-rogue-pvp-best-arena-compositions\" target=\"_blank\">Icy Veins（Thug Cleave）</a> · 天赋数据 <a href=\"https://murlok.io/rogue/subtlety/3v3\" target=\"_blank\">Murlok.io</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
+    "footer": "Patch " + PATCH + " · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。组合定位 <a href=\"https://www.icy-veins.com/wow/subtlety-rogue-pvp-best-arena-compositions\" target=\"_blank\">Icy Veins（Thug Cleave）</a> · 天赋数据 <a href=\"https://murlok.io/rogue/subtlety/3v3\" target=\"_blank\">Murlok.io</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
     "jsonld": null
   },
   "nav": [

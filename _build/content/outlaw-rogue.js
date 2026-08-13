@@ -2,13 +2,15 @@
    由 freeze.js 从旧版单体页固化而来（2026-08-10）
    这是构建期输入，不会发给浏览器。改内容改这里，然后跑 node build.js
    题目 51 道 · 对阵 13 条 · 技能 67 个 */
+const { PATCH, SEASON } = require('../config.js');
+
 module.exports = {
   "meta": {
-    "title": "狂徒贼 PvP 判断训练 · 12.0.7 Midnight",
-    "desc": "魔兽世界正式服 12.0.7 狂徒潜行者 PvP 竞技场判断训练。核心是",
-    "keywords": "狂徒贼,潜行者,PVP,竞技场,魔兽世界,12.0.7,命运骨骰,outlaw rogue,arena",
+    "title": "狂徒贼 PvP 判断训练 · " + PATCH + " Midnight",
+    "desc": "魔兽世界正式服 " + PATCH + " 狂徒潜行者 PvP 竞技场判断训练。核心是",
+    "keywords": "狂徒贼,潜行者,PVP,竞技场,魔兽世界," + PATCH + ",命运骨骰,outlaw rogue,arena",
     "h1": "<span class=\"sp\">狂徒贼</span> PvP 判断训练器",
-    "footer": "Patch 12.0.7 · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。打法参考 <a href=\"https://www.icy-veins.com/wow/outlaw-rogue-pvp-guide\" target=\"_blank\">Icy Veins</a> · <a href=\"https://murlok.io/rogue/outlaw/fatebound/3v3\" target=\"_blank\">Murlok.io top50</a> · <a href=\"https://www.method.gg/guides/outlaw-rogue/talents\" target=\"_blank\">Method</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
+    "footer": "Patch " + PATCH + " · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。打法参考 <a href=\"https://www.icy-veins.com/wow/outlaw-rogue-pvp-guide\" target=\"_blank\">Icy Veins</a> · <a href=\"https://murlok.io/rogue/outlaw/fatebound/3v3\" target=\"_blank\">Murlok.io top50</a> · <a href=\"https://www.method.gg/guides/outlaw-rogue/talents\" target=\"_blank\">Method</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
     "jsonld": null
   },
   "nav": [

@@ -4,13 +4,15 @@
    当前状态：数据层已完成（天赋树 / 属性 / PvP 天赋分布，全部实测），
    骨架只写实测数据能支撑的部分；对阵与题库待补充。
    ============================================================ */
+const { PATCH, SEASON } = require('../config.js');
+
 module.exports = {
 
   meta: {
-    title: '武器战士 PvP 判断训练器 · 魔兽世界 12.0.7 Midnight 赛季一',
-    desc: '魔兽世界正式服 12.0.7 武器战士 PvP 竞技场判断训练。含天赋树热力图、属性优先级与 PvP 天赋实测分布，数据取自四大区 top50。',
-    keywords: '武器战士,战士,PVP,竞技场,魔兽世界,12.0.7,Midnight,arms warrior,arena',
-    footer: 'Patch 12.0.7 · Midnight 赛季一。图标与中文技能名来自 <a href="https://www.wowhead.com" target="_blank">Wowhead</a> 官方数据接口（逐个回验）。<br><a href="index.html">← 返回全部训练器</a> · <a href="index.html#legal">数据来源与免责声明</a>',
+    title: '武器战士 PvP 判断训练器 · 魔兽世界 ' + PATCH + ' Midnight 赛季一',
+    desc: '魔兽世界正式服 ' + PATCH + ' 武器战士 PvP 竞技场判断训练。含天赋树热力图、属性优先级与 PvP 天赋实测分布，数据取自四大区 top50。',
+    keywords: '武器战士,战士,PVP,竞技场,魔兽世界,' + PATCH + ',Midnight,arms warrior,arena',
+    footer: 'Patch ' + PATCH + ' · Midnight 赛季一。图标与中文技能名来自 <a href="https://www.wowhead.com" target="_blank">Wowhead</a> 官方数据接口（逐个回验）。<br><a href="index.html">← 返回全部训练器</a> · <a href="index.html#legal">数据来源与免责声明</a>',
     jsonld: null,
   },
 

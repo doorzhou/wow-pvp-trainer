@@ -6,6 +6,13 @@ module.exports = {
   MARK: '营',                                             // 站标里的那个字
   ISSUES: 'https://github.com/doorzhou/wow-pvp-trainer/issues',
 
+  /* 补丁与赛季。新补丁上线后只改这两行，全站（页头徽章、SEO、数据出处、
+     首页、路线图）跟着走。别再往别处写死版本号。
+     PATCH_EN 用在英文场合（keywords、Murlok 出处），PATCH 用在中文正文。 */
+  PATCH: '12.1',
+  SEASON: 'Midnight 赛季一',
+  SEASON_EN: 'Midnight S1',
+
   /* 许愿池：Web3Forms 的 access key。
      去 https://web3forms.com 填收件邮箱，它会把 key 发到你邮箱里，粘到这里。
      邮箱地址本身不会出现在页面上——页面只带这个 key。

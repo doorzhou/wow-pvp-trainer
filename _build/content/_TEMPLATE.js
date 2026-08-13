@@ -12,15 +12,17 @@
      · 引导语能删就删。一个版块的标题说清楚了，就不要再加一段铺垫。
      · 陈述句优先，不用第一人称表态（"我推的""我会立即移除"→"编者推导""将立即移除"）。
    ============================================================ */
+const { PATCH, SEASON } = require('../config.js');
+
 module.exports = {
 
   /* ---------- 页面 meta（直接进 <head>，SEO 看这里）---------- */
   meta: {
-    title: '火法 PvP 判断训练器 · 魔兽世界 12.0.7 Midnight 赛季一',
+    title: '火法 PvP 判断训练器 · 魔兽世界 " + PATCH + " Midnight 赛季一',
     // description 决定搜索结果里那段摘要。写清楚「是什么 + 有多少 + 版本」
-    desc: '魔兽世界正式服 12.0.7 火法 PvP 竞技场判断训练。含 N 道情境判断题、13 职业对局四问、开场决策器与赛前速查。',
-    keywords: '火法,法师,PVP,竞技场,魔兽世界,12.0.7,Midnight,fire mage,arena',
-    footer: 'Patch 12.0.7 · Midnight 赛季一。图标与中文技能名来自 <a href="https://www.wowhead.com" target="_blank">Wowhead</a> 官方数据接口（逐个实测）。<br><a href="index.html">← 返回全部训练器</a> · <a href="index.html#legal">数据来源与免责声明</a>',
+    desc: '魔兽世界正式服 ' + PATCH + ' 火法 PvP 竞技场判断训练。含 N 道情境判断题、13 职业对局四问、开场决策器与赛前速查。',
+    keywords: '火法,法师,PVP,竞技场,魔兽世界,' + PATCH + ',Midnight,fire mage,arena',
+    footer: 'Patch ' + PATCH + ' · Midnight 赛季一。图标与中文技能名来自 <a href="https://www.wowhead.com" target="_blank">Wowhead</a> 官方数据接口（逐个实测）。<br><a href="index.html">← 返回全部训练器</a> · <a href="index.html#legal">数据来源与免责声明</a>',
     jsonld: null,
   },
 

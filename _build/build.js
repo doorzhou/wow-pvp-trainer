@@ -10,7 +10,7 @@ const C = {};
 for (const f of fs.readdirSync(path.join(__dirname, 'content'))) {
   if (f.endsWith('.js') && !f.startsWith('_')) C[f.replace('.js','')] = require('./content/' + f);
 }
-const { DOMAIN, SITE_NAME, TAGLINE, MARK, ISSUES, WISH_KEY } = require('./config.js');
+const { DOMAIN, SITE_NAME, TAGLINE, MARK, ISSUES, WISH_KEY, PATCH, SEASON, SEASON_EN } = require('./config.js');
 const NUM = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨'];
 
 /* ---------- 每页配置 ---------- */
@@ -153,7 +153,7 @@ function page(cfg) {
   const hero = '<div class="spechero">' + heroImgs +
     '<div><h1>' + cfg.h1 + '</h1><div class="meta">' + tierBadge +
     '<span class="badge">' + cfg.crumb.join(' · ') + '</span>' +
-    '<span class="badge hot">12.0.7 · Midnight S1</span></div></div></div>\n\n';
+    `<span class="badge hot">${PATCH} · ${SEASON_EN}</span></div></div></div>\n\n`;
 
   // 章节
   const order = [];

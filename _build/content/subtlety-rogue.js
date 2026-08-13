@@ -2,13 +2,15 @@
    由 freeze.js 从旧版单体页固化而来（2026-08-10）
    这是构建期输入，不会发给浏览器。改内容改这里，然后跑 node build.js
    题目 56 道 · 对阵 13 条 · 技能 61 个 */
+const { PATCH, SEASON } = require('../config.js');
+
 module.exports = {
   "meta": {
-    "title": "敏锐贼 PvP 判断训练 · 12.0.7 Midnight",
-    "desc": "魔兽世界正式服 12.0.7 敏锐潜行者 PvP 竞技场判断训练。本版移除割裂伤后打法从",
-    "keywords": "敏锐贼,潜行者,PVP,竞技场,魔兽世界,12.0.7,Midnight,subtlety rogue,arena",
+    "title": "敏锐贼 PvP 判断训练 · " + PATCH + " Midnight",
+    "desc": "魔兽世界正式服 " + PATCH + " 敏锐潜行者 PvP 竞技场判断训练。本版移除割裂伤后打法从",
+    "keywords": "敏锐贼,潜行者,PVP,竞技场,魔兽世界," + PATCH + ",Midnight,subtlety rogue,arena",
     "h1": "<span class=\"sp\">敏锐贼</span> PvP 判断训练器",
-    "footer": "Patch 12.0.7 · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。打法参考 <a href=\"https://www.icy-veins.com/wow/subtlety-rogue-pvp-guide\" target=\"_blank\">Icy Veins</a> · <a href=\"https://murlok.io/rogue/subtlety/3v3\" target=\"_blank\">Murlok.io top50</a> · <a href=\"https://www.method.gg/guides/subtlety-rogue/talents\" target=\"_blank\">Method</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
+    "footer": "Patch " + PATCH + " · Midnight 赛季一。技能名与图标： <a href=\"https://www.wowhead.com\" target=\"_blank\">Wowhead</a> 官方数据接口。打法参考 <a href=\"https://www.icy-veins.com/wow/subtlety-rogue-pvp-guide\" target=\"_blank\">Icy Veins</a> · <a href=\"https://murlok.io/rogue/subtlety/3v3\" target=\"_blank\">Murlok.io top50</a> · <a href=\"https://www.method.gg/guides/subtlety-rogue/talents\" target=\"_blank\">Method</a>。<br><a href=\"index.html\">← 返回全部训练器</a> · <a href=\"index.html#legal\">数据来源与免责声明</a>",
     "jsonld": null
   },
   "nav": [
