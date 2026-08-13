@@ -492,6 +492,106 @@
   "变易幻能": {
    "id": null,
    "en": null
+  },
+  "凋零缠绕": {
+   "id": 47541,
+   "en": "Death Coil"
+  },
+  "脓疮打击": {
+   "id": 85948,
+   "en": "Festering Strike"
+  },
+  "天灾打击": {
+   "id": 55090,
+   "en": "Scourge Strike"
+  },
+  "天启": {
+   "id": 275699,
+   "en": "Apocalypse"
+  },
+  "亡者大军": {
+   "id": 42650,
+   "en": "Army of the Dead"
+  },
+  "黑暗突变": {
+   "id": 63560,
+   "en": "Dark Transformation"
+  },
+  "符文武器增效": {
+   "id": 47568,
+   "en": "Empower Rune Weapon"
+  },
+  "心灵冰冻": {
+   "id": 47528,
+   "en": "Mind Freeze"
+  },
+  "窒息": {
+   "id": 108194,
+   "en": "Asphyxiate"
+  },
+  "致盲冰雨": {
+   "id": 207167,
+   "en": "Blinding Sleet"
+  },
+  "寒冰锁链": {
+   "id": 45524,
+   "en": "Chains of Ice"
+  },
+  "死亡之握": {
+   "id": 49576,
+   "en": "Death Grip"
+  },
+  "死亡脚步": {
+   "id": 48265,
+   "en": "Death's Advance"
+  },
+  "幻影步": {
+   "id": 212552,
+   "en": "Wraith Walk"
+  },
+  "枯萎凋零": {
+   "id": 43265,
+   "en": "Death and Decay"
+  },
+  "亡者复生": {
+   "id": 46584,
+   "en": "Raise Dead"
+  },
+  "爆发": {
+   "id": 77575,
+   "en": "Outbreak"
+  },
+  "亵渎": {
+   "id": 152280,
+   "en": "Defile"
+  },
+  "白骨风暴": {
+   "id": 194844,
+   "en": "Bonestorm"
+  },
+  "召唤石像鬼": {
+   "id": 49206,
+   "en": "Summon Gargoyle"
+  },
+  "绞袭": {
+   "id": 47476,
+   "en": "Strangulate"
+  },
+  "冰霜之路": {
+   "id": 3714,
+   "en": "Path of Frost"
+  },
+  "复活盟友": {
+   "id": 61999,
+   "en": "Raise Ally"
+  },
+  "天灾契约": {
+   "id": 48743,
+   "en": "Death Pact"
+  },
+  "巫妖之躯": {
+   "id": 49039,
+   "en": "Lichborne"
   }
  }
 }

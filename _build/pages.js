@@ -451,6 +451,97 @@ const PAGES = [
     },
   },
   {
+    file: 'unholy-dk', kind: 'spec', cls: 'deathknight', spec: 'unholy',
+    h1: '邪恶死骑 PvP 判断训练器', short: '邪恶死骑',
+    icon: 'spell_deathknight_unholypresence', tier: 'S', color: '#C41E3A',
+    crumb: ['死亡骑士', '邪恶'], store: 'banyeUnholyDKPvP1207', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在看「病铺没铺满」，不是在看冷却好没好。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「该不该开」的四条件过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋', vv: '<b>天启骑手 Rider of the Apocalypse</b> —— top50 三对三里 50 人全用，圣血 San\'layn <b>0 人</b>。这不是推荐，是唯一解。' },
+        { lb: 'PvP 天赋 · 唯一必带', vv: '<b>Necrotic Wounds</b> —— <b>50/50</b>，没有例外。减疗靠疫病顺带完成' },
+        {
+          lb: 'PvP 天赋 · 另两格',
+          vv: '<b>Spellwarden</b>（41/50）—— 抗法术，对面法系多就带<br>' +
+            '<sk>绞袭</sk>（38/50）—— 4 秒沉默，卡治疗读条<br>' +
+            '<b>Bloodforged Armor</b>（12/50）—— 抗物理，只在对面双近战时换上<br>' +
+            '<span class="dimtx">三者占了这两格全部选择的 91%。</span>'
+        },
+      ],
+      note: '「Necrotic Wounds」「Spellwarden」「Bloodforged Armor」暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'CwPAkXBWxkyfx9CbGaHonEAhLBYmBjZmZYWGzMTzmxMzMMDAAAAAAAgZGzMDAWmxMDzMmZGwmZzwQGY2YoxCDwMAMmZGzAMzMMG',
+        who: 'Dandyz', where: 'US · Trollbane', rating: '3v3 3151', at: '2026-08-13',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 5 个分歧格上与多数派完全一致（5/5）</b>。' +
+          '<b>邪恶死骑的配点比站上其他专精分散得多</b>——前五名里另外几个只对上 2 格。' +
+          '这说明这 5 格是真的看局面，不是有个标准答案而别人没抄对。' +
+          '<b>粘进游戏当起点，那 5 格更要按自己的阵容重调。</b>',
+      },
+      tree: {
+        survey: '职业树 44 格 + 专精树 37 格 + 英雄天赋 28 格，共 <b>109 格</b>。' +
+          '扣掉没人走的圣血整条线、以及天启骑手线里跟着「走这条线」一起点掉的 13 格，' +
+          'top50 的实测里 <b>104 格是定死的</b>。真正需要你判断的只有下面 <b>5 格</b>。',
+        picks: [
+          {
+            n: 'Blood Draw', tree: '职业', u: 35,
+            b: '血量跌破 30% 时，从附近敌人身上吸取生命，并在随后一段时间里降低受到的伤害、' +
+              '让<sk>天灾契约</sk>之外的自保更便宜。两分钟只能触发一次。' +
+              '<br><b>它是被动保命，不是主动牌。</b>70% 的人带它，说明大多数局面里邪恶会被打到 30% 以下——' +
+              '你要判断的是：这一局你是集火目标吗？不是的话，这一点可以换成输出。'
+          },
+          {
+            n: 'Grip of the Dead', tree: '职业', u: 34,
+            b: '<sk>枯萎凋零</sk>范围内的敌人移动速度大幅降低，随时间递减。' +
+              '<br><b>邪恶抓人靠<sk>死亡之握</sk>，黏人靠这个。</b>' +
+              '对面靠位移拉扯（法师、德鲁伊、DH）时它把地面变成陷阱；' +
+              '对面是站桩型阵容，这一点几乎不动。'
+          },
+          {
+            n: 'Cycle of Death', tree: '专精', u: 31,
+            b: '腐化与<sk>枯萎凋零</sk>互相缩短对方的冷却。' +
+              '<br>它买的是<b>「地面能不能一直铺着」</b>。' +
+              '3v3 里目标多、<sk>枯萎凋零</sk>能打到的人多，转得就快；' +
+              '2v2 或者对面很分散的时候，这个循环转不起来。'
+          },
+          {
+            n: 'Coldthirst', tree: '职业', u: 29,
+            b: '用<sk>心灵冰冻</sk>成功打断后回复符文能量，并缩短它的冷却。' +
+              '<br><b>只在对面有读条时才有价值。</b>对面两个法系，你一局能打断很多次，' +
+              '这一点等于白送资源；对面纯近战，它是死点。' +
+              '58% 的使用率正好反映「看阵容」这件事。'
+          },
+          {
+            n: 'Infected Claws', tree: '专精', u: 19,
+            b: '食尸鬼的爪击有几率让目标染病，造成一段持续暗影伤害。' +
+              '<br>依附于宠物能不能持续打到人。<b>38% 是这 5 格里最低的</b>——' +
+              '对面机动性高的时候，宠物本来就贴不上，这一点跟着一起落空。'
+          },
+        ],
+        src: '使用率：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 邪恶死骑 top 50</b> 实测配点。' +
+          '「什么时候点」为编者按天赋效果与该专精打法推导，非实测结论。' +
+          '暂无官方简体中文名的天赋使用英文原名。',
+      },
+    },
+    gear: {
+      stats: [
+        { n: '全能', v: '主堆', pct: 100 },
+        { n: '精通', v: '兼顾', pct: 58, mid: 1 },
+        { n: '急速', v: '次要', pct: 28, mid: 1 },
+        { n: '爆击', v: '可弃', pct: 4, dim: 1 },
+      ],
+      statRead: '<b>全能一枝独秀，之后是断层。</b>全能同时给伤害和减伤——' +
+        '邪恶是站着输出的专精，两头都吃得到。<b>精通和急速拿到什么用什么</b>，不用为它们放弃全能。',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 邪恶死骑 top 50</b> 实测配装。' +
+        '档位划分为编者按断层位置判定。',
+    },
+  },
+  {
     file: 'rogue-priest-2v2', kind: 'comp', h1: '贼 + 戒律牧 · 2v2 组合训练器', short: '贼牧 2v2',
     icon: 'classicon_rogue', icon2: 'classicon_priest', tier: null, color: '#8b6fd4',
     crumb: ['组合', '2v2 贼牧'], store: 'banyeRoguePriest2v2_1207', quizSec: 's5',

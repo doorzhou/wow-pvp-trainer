@@ -1,10 +1,19 @@
 {
-  "_note": "页面 slug → Murlok 路径。加一个专精就在这里加一行，refresh.py 按它抓。",
+  "_note": "页面 slug → Murlok 路径。加一个专精就在这里加一行，refresh.py 按它抓。注意职业名用连字符：death-knight、demon-hunter。",
   "specs": {
     "subtlety-rogue": "rogue/subtlety",
     "outlaw-rogue": "rogue/outlaw",
     "frost-mage": "mage/frost",
     "discipline-priest": "priest/discipline",
-    "arms-warrior": "warrior/arms"
+    "arms-warrior": "warrior/arms",
+    "unholy-dk": "death-knight/unholy",
+    "windwalker-monk": "monk/windwalker",
+    "ret-paladin": "paladin/retribution",
+    "enhance-shaman": "shaman/enhancement",
+    "balance-druid": "druid/balance",
+    "devastation-evoker": "evoker/devastation",
+    "mm-hunter": "hunter/marksmanship",
+    "affliction-warlock": "warlock/affliction",
+    "havoc-dh": "demon-hunter/havoc"
   }
 }

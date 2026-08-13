@@ -63,7 +63,7 @@ window.REG = {
       specs: [
         { id: 'blood', n: '鲜血', en: 'Blood', role: 'tank', tier: null, ic: 'spell_deathknight_bloodpresence', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'frost', n: '冰霜', en: 'Frost', role: 'dps', tier: 'C', ic: 'spell_deathknight_frostpresence', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'unholy', n: '邪恶', en: 'Unholy', role: 'dps', tier: 'S', ic: 'spell_deathknight_unholypresence', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'unholy', n: '邪恶', en: 'Unholy', role: 'dps', tier: 'S', ic: 'spell_deathknight_unholypresence', page: 'unholy-dk.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
     {

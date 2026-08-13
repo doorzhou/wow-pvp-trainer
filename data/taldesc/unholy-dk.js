@@ -1,0 +1,716 @@
+window.TALDESC={
+"icebound-fortitude": {
+"name": "Icebound Fortitude",
+"meta": "Instant · 2 min cooldown",
+"en": "Your blood freezes, granting immunity to Stun effects and reducing all damage you take by 30% for 8 sec.",
+"desc": "你的血液冻结，令你免疫昏迷效果，并在 8 秒内使你受到的所有伤害降低 30%。"
+},
+"death-strike": {
+"name": "Death Strike",
+"meta": "Instant · Melee Range",
+"en": "Focuses dark power into a strike that deals 2,915 Physical damage and heals you for 32.00% of all damage taken in the last 5 sec, minimum 11.2% of maximum health.",
+"desc": "集中黑暗力量进行打击，造成 2,915 点物理伤害，并治疗你在过去 5 秒内所受伤害的 32%，最少治疗最大生命值的 11.2%。"
+},
+"raise-dead": {
+"name": "Raise Dead",
+"meta": "Instant · 30 yd range · 2 min cooldown",
+"en": "Raises a ghoul to fight by your side. You can have a maximum of one ghoul at a time. Lasts 1 min.",
+"desc": "召唤一只食尸鬼在你身旁战斗。同时最多只能拥有一只食尸鬼。持续 1 分钟。"
+},
+"runic-attenuation": {
+"name": "Runic Attenuation",
+"meta": "Passive",
+"en": "Auto attacks have a chance to generate 3 Runic Power.",
+"desc": "自动攻击有几率生成 3 点符文能量。"
+},
+"improved-death-strike": {
+"name": "Improved Death Strike",
+"meta": "Passive",
+"en": "Death Strike's cost is reduced by 10, and its healing is increased by 60%.",
+"desc": "灵界打击的消耗降低 10，其治疗效果提高 60%。"
+},
+"cleaving-strikes": {
+"name": "Cleaving Strikes",
+"meta": "Passive",
+"en": "Scourge Strike and Festering Strike deal 10% increased damage.",
+"desc": "天灾打击和脓疮打击造成的伤害提高 10%。"
+},
+"mind-freeze": {
+"name": "Mind Freeze",
+"meta": "Instant · 15 yd range · 15 sec cooldown",
+"en": "Smash the target's mind with cold, interrupting spellcasting and preventing any spell in that school from being cast for 5 sec.",
+"desc": "用冰冷之力冲击目标的心智，打断其施法，并阻止该系别的任何法术在 5 秒内被施放。"
+},
+"blinding-sleet": {
+"name": "Blinding Sleet",
+"meta": "Instant · 1 min cooldown",
+"en": "Targets in a cone in front of you are blinded, causing them to wander disoriented for 5 sec. Damage may cancel the effect. When Blinding Sleet ends, enemies are slowed by 50% for 6 sec.",
+"desc": "你正前方锥形范围内的目标被致盲，使其陷入困惑并游荡，持续 5 秒。伤害可能会取消该效果。致盲冰雨结束时，敌人在 6 秒内被减速 50%。"
+},
+"gloom-ward": {
+"name": "Gloom Ward",
+"meta": "Passive",
+"en": "Absorbs are 30% more effective on you.",
+"desc": "对你的吸收效果提高 30%。"
+},
+"wraith-walk": {
+"name": "Wraith Walk",
+"meta": "Channeled · 1 min cooldown",
+"en": "Embrace the power of the Shadowlands, removing all root effects and increasing your movement speed by 80% for 4 sec. Taking any action cancels the effect. While active, your movement speed cannot be reduced below 170%.",
+"desc": "拥抱暗影之力，移除所有定身效果，并在 4 秒内提高你的移动速度 80%。进行任何行动都会取消该效果。激活期间，你的移动速度不会低于 170%。"
+},
+"unholy-momentum": {
+"name": "Unholy Momentum",
+"meta": "Passive",
+"en": "Increases Haste by 4%.",
+"desc": "急速提高 4%。"
+},
+"control-undead": {
+"name": "Control Undead",
+"meta": "1.5 sec cast · 30 yd range",
+"en": "Dominates the target undead creature up to level 91, forcing it to do your bidding for 5 min.",
+"desc": "控制等级不超过 91 的目标亡灵生物，强制其为你效力 5 分钟。"
+},
+"enfeeble": {
+"name": "Enfeeble",
+"meta": "Passive",
+"en": "Your ghoul's attacks have a chance to apply Enfeeble, reducing the enemies movement speed by 30% and the damage they deal to you by 12% for 6 sec.",
+"desc": "你的食尸鬼的攻击有几率施加 Enfeeble，在 6 秒内将敌人的移动速度降低 30%，并将其对你造成的伤害降低 12%。"
+},
+"coldthirst": {
+"name": "Coldthirst",
+"meta": "Passive",
+"en": "Successfully interrupting an enemy with Mind Freeze grants 10 Runic Power and reduces its cooldown by 3 sec.",
+"desc": "成功用心灵冰冻打断敌人的施法会授予你 10 点符文能量，并将其冷却时间降低 3 秒。"
+},
+"proliferating-chill": {
+"name": "Proliferating Chill",
+"meta": "Passive",
+"en": "Chains of Ice affects 1 additional nearby enemy.",
+"desc": "寒冰锁链额外影响 1 个附近的敌人。"
+},
+"permafrost": {
+"name": "Permafrost",
+"meta": "Passive",
+"en": "Your auto attack damage grants you an absorb shield equal to 35% of the damage dealt.",
+"desc": "你的自动攻击伤害会授予你一个吸收护盾，数值等于造成伤害的 35%。"
+},
+"veteran-of-the-third-war": {
+"name": "Veteran of the Third War",
+"meta": "Passive",
+"en": "Stamina increased by 12%.",
+"desc": "耐力提高 12%。"
+},
+"death-pact": {
+"name": "Death Pact",
+"meta": "Instant · 2 min cooldown",
+"en": "Create a death pact that heals you for 50% of your maximum health, but absorbs incoming healing equal to 30% of your max health for 15 sec.",
+"desc": "创建一个天灾契约，治疗你最大生命值的 50%，但在 15 秒内吸收相当于你最大生命值 30% 的治疗效果。"
+},
+"brittle": {
+"name": "Brittle",
+"meta": "Passive",
+"en": "Your diseases have a chance to weaken your enemy causing your attacks against them to deal 6% increased damage for 5 sec.",
+"desc": "你的疾病有几率削弱敌人，使你对其的攻击在 5 秒内造成 6% 的额外伤害。"
+},
+"blood-bond": {
+"name": "Blood Bond",
+"meta": "Passive",
+"en": "While you are below 50% health, your Ghoul sacrifices 4% of its maximum health to heal you for 1% of your maximum health every sec.",
+"desc": "当你的生命值低于 50% 时，你的食尸鬼每秒牺牲其最大生命值的 4% 来治疗你最大生命值的 1%。"
+},
+"icy-talons": {
+"name": "Icy Talons",
+"meta": "Passive",
+"en": "Your Runic Power spending abilities increase your melee attack speed by 6% for 10 sec, stacking up to 3 times.",
+"desc": "你消耗符文能量的能力使你的近战攻击速度提升 6%，持续 10 秒，最多叠加 3 层。"
+},
+"death-notes": {
+"name": "Death Notes",
+"meta": "Passive",
+"en": "Raise Ally costs 30 less Runic Power.",
+"desc": "复活盟友的符文能量消耗降低 30。"
+},
+"anti-magic-zone": {
+"name": "Anti-Magic Zone",
+"meta": "Instant · 30 yd range · 4 min cooldown",
+"en": "Places an Anti-Magic Zone for 8 sec, reducing the magic damage taken by party or raid members by 15%.",
+"desc": "放置一个反魔法领域，持续 8 秒，降低队伍或团队成员承受的魔法伤害 15%。"
+},
+"death-defiance": {
+"name": "Death Defiance",
+"meta": "Passive",
+"en": "The cooldown of Death Pact is reduced by 30 sec, and you receive 50% increased healing while its healing absorb is active.",
+"desc": "天灾契约的冷却时间降低 30 秒，在其治疗吸收激活期间，你获得的治疗效果提升 50%。"
+},
+"unholy-bond": {
+"name": "Unholy Bond",
+"meta": "Passive",
+"en": "Increases the effectiveness of your Runeforge effects by 20%.",
+"desc": "将你的 Runeforge 效果的效能提升 20%。"
+},
+"ice-prison": {
+"name": "Ice Prison",
+"meta": "Passive",
+"en": "Chains of Ice now also roots enemies for 4 sec but its cooldown is increased to 12 sec.",
+"desc": "寒冰锁链现在还会将敌人定身 4 秒，但其冷却时间增加至 12 秒。"
+},
+"asphyxiate": {
+"name": "Asphyxiate",
+"meta": "Instant · 20 yd range · 45 sec cooldown",
+"en": "Lifts the enemy target off the ground, crushing their throat with dark energy and stunning them for 5 sec.",
+"desc": "将敌方目标抬离地面，用暗影能量碾碎其喉咙，使其昏迷 5 秒。"
+},
+"assimilation": {
+"name": "Assimilation",
+"meta": "Passive",
+"en": "The cooldown of Anti-Magic Zone is reduced by 60 sec and its duration is increased by 2 sec.",
+"desc": "反魔法领域的冷却时间降低 60 秒，其持续时间增加 2 秒。"
+},
+"anti-magic-barrier": {
+"name": "Anti-Magic Barrier",
+"meta": "Passive",
+"en": "Reduces the cooldown of Anti-Magic Shell by 20 sec and increases its duration and amount absorbed by 40%.",
+"desc": "将反魔法护罩的冷却时间降低 20 秒，将其持续时间和吸收量增加 40%。"
+},
+"grip-of-the-dead": {
+"name": "Grip of the Dead",
+"meta": "Passive",
+"en": "Death and Decay reduces the movement speed of enemies within its area by 90%, decaying by 10% every sec.",
+"desc": "枯萎凋零将其范围内敌人的移动速度降低 90%，每秒衰减 10%。"
+},
+"suppression": {
+"name": "Suppression",
+"meta": "Passive",
+"en": "Damage taken from area of effect attacks reduced by 3%. When suffering a loss of control effect, this bonus is increased by an additional 6% for 6 sec.",
+"desc": "从范围伤害攻击中承受的伤害降低 3%。当你受到控制效果时，此加成额外增加 6%，持续 6 秒。"
+},
+"blood-scent": {
+"name": "Blood Scent",
+"meta": "Passive",
+"en": "Increases Leech by 3%.",
+"desc": "吸血效果提升 3%。"
+},
+"unholy-endurance": {
+"name": "Unholy Endurance",
+"meta": "Passive",
+"en": "Increases Lichborne duration by 2 sec and reduces the cooldown by 30 sec.",
+"desc": "巫妖之躯的持续时间增加 2 秒，冷却时间降低 30 秒。"
+},
+"osmosis": {
+"name": "Osmosis",
+"meta": "Passive",
+"en": "Anti-Magic Shell increases healing received by 15%.",
+"desc": "反魔法护罩增加你获得的治疗效果 15%。"
+},
+"insidious-chill": {
+"name": "Insidious Chill",
+"meta": "Passive",
+"en": "Your auto-attacks reduce the target's auto-attack speed by 5% for 30 sec, stacking up to 4 times.",
+"desc": "你的自动攻击降低目标的自动攻击速度 5%，持续 30 秒，最多叠加 4 层。"
+},
+"runic-protection": {
+"name": "Runic Protection",
+"meta": "Passive",
+"en": "Your chance to be critically struck is reduced by 3% and your Armor is increased by 6%.",
+"desc": "你被爆击的几率降低 3%，护甲提升 6%。"
+},
+"blood-draw": {
+"name": "Blood Draw",
+"meta": "Passive",
+"en": "When you fall below 30% health you drain 2,283 health from nearby enemies, the damage you take is reduced by 10% and your Death Strike cost is reduced by 10 for 8 sec. Can only occur every 2 min.",
+"desc": "当你的生命值降低至 30% 以下时，你从附近敌人吸取 2,283 点生命值，你承受的伤害降低 10%，灵界打击的符文能量消耗降低 10，持续 8 秒。每 2 分钟只能触发一次。"
+},
+"rune-mastery": {
+"name": "Rune Mastery",
+"meta": "Passive",
+"en": "Consuming a Rune has a chance to increase your Strength by 6% for 8 sec.",
+"desc": "消耗符文时有几率使你的力量提升 6%，持续 8 秒。"
+},
+"subduing-grasp": {
+"name": "Subduing Grasp",
+"meta": "Passive",
+"en": "When you would pull an enemy, the damage they deal to you is reduced by 6% for 6 sec.",
+"desc": "当你拉动敌人时，敌人对你造成的伤害降低 6%，持续 6 秒。"
+},
+"will-of-the-necropolis": {
+"name": "Will of the Necropolis",
+"meta": "Passive",
+"en": "Damage taken below 30% Health is reduced by 35%.",
+"desc": "当你的生命值低于 30% 时，承受的伤害降低 35%。"
+},
+"null-magic": {
+"name": "Null Magic",
+"meta": "Passive",
+"en": "Magic damage taken is reduced by 5% and the duration of harmful Magic effects against you are reduced by 35%.",
+"desc": "你受到的魔法伤害降低 5%，你受到的有害魔法效果持续时间降低 35%。"
+},
+"unyielding-will": {
+"name": "Unyielding Will",
+"meta": "Passive",
+"en": "Anti-Magic Shell now removes all harmful magical effects when activated, but its cooldown is increased by 20 sec.",
+"desc": "反魔法护罩在激活时现在移除所有有害魔法效果，但其冷却时间增加 20 秒。"
+},
+"death's-echo": {
+"name": "Death's Echo",
+"meta": "Passive",
+"en": "Death's Advance, Death and Decay, and Death Grip have 1 additional charge.",
+"desc": "死亡脚步、枯萎凋零和死亡之握各增加 1 次充能。"
+},
+"vestigial-shell": {
+"name": "Vestigial Shell",
+"meta": "Passive",
+"en": "Casting Anti-Magic Shell grants 2 nearby allies a Lesser Anti-Magic Shell that Absorbs up to 10,775 magic damage and reduces the duration of harmful Magic effects against them by 50%.",
+"desc": "施放反魔法护罩为 2 名附近的盟友授予 Lesser Anti-Magic Shell，可吸收最多 10,775 点魔法伤害，并将其受到的有害魔法效果持续时间降低 50%。"
+},
+"outbreak": {
+"name": "Outbreak",
+"meta": "Instant · 30 yd range",
+"en": "Inflicts the target with Dread Plague and Virulent Plague. Dread Plague A malicious plague that deals 19,029 Shadow damage over 18 sec. Explodes for 5,562 Shadow damage to nearby enemies and infects one when the host dies. Can only be applied to 1 host at a time. Virulent Plague An infectious plague that spreads to all nearby enemies, dealing 8,682 Shadow damage over 18 sec.",
+"desc": "给目标施加 Dread Plague 和恶性病变。Dread Plague：一种恶性病变，在 18 秒内造成 19,029 点暗影伤害；当宿主死亡时爆发并对附近敌人造成 5,562 点暗影伤害，感染其中一个。同时只能作用于 1 个宿主。恶性病变：一种传染病变，传播到所有附近敌人，在 18 秒内造成 8,682 点暗影伤害。"
+},
+"scourge-strike": {
+"name": "Scourge Strike",
+"meta": "Instant · 30 yd range",
+"en": "An unholy strike that deals 5,629 Shadow damage and causing your plagues on the target to erupt, dealing their damage an additional time at 35% effectiveness. Applies Virulent Plague or spreads it to a nearby enemy.",
+"desc": "一次邪恶打击，造成 5,629 点暗影伤害，引爆你在目标身上的病变，额外以 35% 的效能造成伤害。对附近一名敌人施加或传播恶性病变。"
+},
+"sudden-doom": {
+"name": "Sudden Doom",
+"meta": "Passive",
+"en": "Dread Plague has a 35% chance to exhilarate you, making your next Death Coil or Epidemic cost 15 less Runic Power and deal 35% increased damage.",
+"desc": "Dread Plague 有 35% 的几率激励你，使你的下一次凋零缠绕或扩散的符文能量消耗降低 15，并造成提高 35% 的伤害。"
+},
+"clawing-shadows": {
+"name": "Clawing Shadows",
+"meta": "Passive",
+"en": "Shadows guide your strikes, increasing the damage of your Scourge Strike by 25%, and causing it to grant you Clawing Shadows up to 5 times. For each stack of Clawing Shadows, your Scourge Strike chains to an additional enemy. Each subsequent chain deals 20% reduced damage.",
+"desc": "暗影指引你的攻击，使你的天灾打击伤害提高 25%，并使其为你授予暗影之爪，最多 5 层。每有一层暗影之爪，你的天灾打击就会连锁到一名额外的敌人，后续每次连锁造成的伤害降低 20%。"
+},
+"putrefy": {
+"name": "Putrefy",
+"meta": "Instant · 40 yd range",
+"en": "Summon a Lesser Ghoul to strike the enemy for 10,594 Shadow damage and have them explode for 5,479 Shadow damage to nearby enemies.",
+"desc": "召唤一只次级食尸鬼攻击敌人，造成 10,594 点暗影伤害，并让它爆裂，对附近敌人造成 5,479 点暗影伤害。"
+},
+"dark-transformation": {
+"name": "Dark Transformation",
+"meta": "Instant · 45 sec cooldown",
+"en": "Corrupt and evolve your Ghoul into a Monstrosity, greatly empowering its abilities for 15 sec. Death Coil and Epidemic extends the duration of this effect by 1.0 sec.",
+"desc": "腐蚀并进化你的食尸鬼成为 Monstrosity，大幅增强其能力 15 秒。凋零缠绕和扩散将此效果的持续时间延长 1 秒。"
+},
+"foul-infections": {
+"name": "Foul Infections",
+"meta": "Passive",
+"en": "Your diseases deal 10% more damage and have a 5% increased chance to critically strike.",
+"desc": "你的疾病造成的伤害提高 10%，爆击几率提高 5%。"
+},
+"plague-mastery": {
+"name": "Plague Mastery",
+"meta": "Passive",
+"en": "Critical strike damage of your diseases is increased by 25%",
+"desc": "你的疾病的爆击伤害提高 25%。"
+},
+"necromancer's-cunning": {
+"name": "Necromancer's Cunning",
+"meta": "Passive",
+"en": "When your Lesser Ghouls expire, they explode in viscera, dealing 1,572 Shadow damage to enemies nearby.",
+"desc": "当你的次级食尸鬼消散时，它们内脏爆裂，对附近敌人造成 1,572 点暗影伤害。"
+},
+"ebon-fever": {
+"name": "Ebon Fever",
+"meta": "Passive",
+"en": "Plagues deal 15% more damage over time in 75% of their duration.",
+"desc": "病变在其持续时间的 75% 内造成提高 15% 的持续伤害。"
+},
+"festering-scythe": {
+"name": "Festering Scythe",
+"meta": "Passive",
+"en": "Festering Strike now follows up with a Festering Scythe that costs no Runes. Festering Scythe Slashes through all enemies within 14 yds in front of you, dealing 2,942 Shadow damage and hastening all of your plagues on targets hit to deal damage 35% faster for 25 sec.",
+"desc": "脓疮打击现在会衔接 Festering Scythe，无需符文消耗。Festering Scythe：对你前方 14 码内的所有敌人造成 2,942 点暗影伤害，并加快被击中目标身上的所有病变，使其伤害以快 35% 的速度造成，持续 25 秒。"
+},
+"superstrain": {
+"name": "Superstrain",
+"meta": "Passive",
+"en": "Dread Plague deals damage to an additional nearby enemy at 75% effectiveness and has a chance to grant you 4 Runic Power.",
+"desc": "Dread Plague 对一名附近的额外敌人造成 75% 效能的伤害，并有几率为你提供 4 点符文能量。"
+},
+"soul-reaper": {
+"name": "Soul Reaper",
+"meta": "Instant · Melee Range · 15 sec cooldown",
+"en": "Rupture the soul of your enemy, dealing 18,253 Shadowfrost damage and causing the foe to take 20% increased damage from your diseases and minions for 8 sec. Only usable on enemies below 35% maximum health. Consumes up to 2 available charges to cast Putrefy.",
+"desc": "撕裂敌人的灵魂，造成 18,253 点暗影冰霜伤害，并使敌人受到你的疾病和仆从造成的伤害提高 20%，持续 8 秒。仅可对生命值低于最大生命值 35% 的敌人使用。消耗最多 2 个可用充能来施放 Putrefy。"
+},
+"magus-of-the-dead": {
+"name": "Magus of the Dead",
+"meta": "Passive",
+"en": "Dark Transformation and Army of the Dead summon a Magus of the Dead who hurls Frostbolts and Shadow Bolts at your foes for 15 sec.",
+"desc": "黑暗突变和亡者大军召唤一个 Magus of the Dead，向你的敌人投掷冰霜箭和暗影箭，持续 15 秒。"
+},
+"infected-claws": {
+"name": "Infected Claws",
+"meta": "Passive",
+"en": "The infected claws of your ghouls have a chance to sicken the foe, dealing 532 Shadow damage over 9 sec. When reapplied, any remaining damage is added to the new effect.",
+"desc": "你的食尸鬼被感染的爪子有几率使敌人染病，在 9 秒内造成 532 点暗影伤害。重新施加时，剩余伤害会累加到新效果上。"
+},
+"cycle-of-death": {
+"name": "Cycle of Death",
+"meta": "Passive",
+"en": "Putrefy reduces the cooldown of Death and Decay by 1.0 sec. Death and Decay reduces the cooldown of Putrefy by 0.3 sec for each enemy it damages, up to 3.0 sec.",
+"desc": "Putrefy 将枯萎凋零的冷却时间降低 1 秒。枯萎凋零每伤害一个敌人，就将 Putrefy 的冷却时间降低 0.3 秒，最多 3 秒。"
+},
+"coil-of-devastation": {
+"name": "Coil of Devastation",
+"meta": "Passive",
+"en": "Death Coil deals 10% increased damage and causes the target to take an additional 30% of the direct damage dealt over 4 sec.",
+"desc": "凋零缠绕造成提高 10% 的伤害，并使目标在 4 秒内额外受到所造成直接伤害的 30%。"
+},
+"army-of-the-dead": {
+"name": "Army of the Dead",
+"meta": "Instant · 1.5 min cooldown",
+"en": "Summon or empower Lesser Ghouls to form an unholy army of 8 for 30 sec. While active, summoning a Lesser Ghoul will instead execute Orders based on nearby enemies. Death Orders Lesser Ghouls strike with you, dealing 745 Shadow damage to your target. Epidemic Orders Lesser Ghouls erupt in viscera, dealing 259 Shadow damage to nearby enemies. Deals reduced damage beyond 5 targets.",
+"desc": "召唤或增强次级食尸鬼，组成一支 8 人的邪恶军队，持续 30 秒。在活跃期间，召唤次级食尸鬼将转而根据附近敌人执行指令。死亡指令：次级食尸鬼随你一起攻击，对你的目标造成 745 点暗影伤害。扩散指令：次级食尸鬼内脏爆裂，对附近敌人造成 259 点暗影伤害。超过 5 个目标后伤害降低。"
+},
+"reaping": {
+"name": "Reaping",
+"meta": "Passive",
+"en": "Scourge Strike, Festering Strike, and Death Coil deal 30% additional damage to enemies below 35% health. Dark Transformation resets Soul Reaper's cooldown and allows it to be used on any target.",
+"desc": "天灾打击、脓疮打击和凋零缠绕对生命值低于 35% 的敌人造成提高 30% 的伤害。黑暗突变重置灵魂收割的冷却时间，并允许其用于任何目标。"
+},
+"menacing-magus": {
+"name": "Menacing Magus",
+"meta": "Passive",
+"en": "Your Magus of the Dead Shadow Bolt now fires a volley of Shadow Bolts at up to 8 nearby enemies. Your Lord of the Dead Frostbolts now chain to 3 additional enemies.",
+"desc": "你的 Magus of the Dead 的暗影箭现在会对最多 8 个附近敌人发射弹幕。你的 Lord of the Dead 的冰霜箭现在会连锁到 3 个额外敌人。"
+},
+"ghoulish-frenzy": {
+"name": "Ghoulish Frenzy",
+"meta": "Passive",
+"en": "Dark Transformation increases the attack speed and damage of you and your Monstrosity by 5% for 15 sec.",
+"desc": "黑暗突变使你和你的 Monstrosity 的攻击速度和伤害提高 5%，持续 15 秒。"
+},
+"morbidity": {
+"name": "Morbidity",
+"meta": "Passive",
+"en": "Diseased enemies take 1% increased damage from you per disease they are affected by.",
+"desc": "染病的敌人每受到一种疾病影响，从你那里受到的伤害就提高 1%。"
+},
+"harbinger-of-doom": {
+"name": "Harbinger of Doom",
+"meta": "Passive",
+"en": "Sudden Doom triggers 30% more often and can accumulate up to 2 charges. Summoning a Lesser Ghoul with Scourge Strike reduces the cooldown of Putrefy by 2.5 sec.",
+"desc": "末日突降触发频率提高 30%，并最多可累积 2 个充能。用天灾打击召唤次级食尸鬼时，将 Putrefy 的冷却时间降低 2.5 秒。"
+},
+"raise-abomination": {
+"name": "Raise Abomination",
+"meta": "Passive",
+"en": "Army of the Dead now raises an Abomination for 30 sec to attack enemies while emitting a disease cloud, dealing 853 Plague damage to nearby enemies every 2 sec.",
+"desc": "亡者大军现在召唤一个 Abomination，持续 30 秒攻击敌人，同时散发疾病之云，每 2 秒对附近敌人造成 853 点瘟疫伤害。"
+},
+"unholy-devotion": {
+"name": "Unholy Devotion",
+"meta": "Passive",
+"en": "Putrefy causes your permanent Ghoul to go on an unholy frenzy, increasing its attack speed and energy regeneration by 25% for 12 sec. Multiple applications may overlap.",
+"desc": "Putrefy 使你的永久食尸鬼进入邪恶狂乱，其攻击速度和能量回复提高 25%，持续 12 秒。多次施加可以叠加。"
+},
+"all-will-serve": {
+"name": "All Will Serve",
+"meta": "Passive",
+"en": "Raise Dead summons an additional skeletal archer at your command that shoots Blighted Arrows. Blighted Arrow An unholy arrow that deals 767 Shadow damage. When consuming Sudden Doom, your Death Coil commands your archer to fire an additional Blighted Arrow at 80% effectiveness. Epidemic will instead cause Blighted Arrow to ricochet and hit up to 5 additional targets.",
+"desc": "亡者复生额外召唤一名骸骨弓箭手，听从你的命令射出诅咒之箭。诅咒之箭：造成 767 点暗影伤害的邪恶箭矢。消耗末日突降时，你的凋零缠绕会命令弓箭手以 80% 的效能额外射出一支诅咒之箭；扩散则会使诅咒之箭弹射并击中最多 5 个额外目标。"
+},
+"blightburst": {
+"name": "Blightburst",
+"meta": "Passive",
+"en": "The explosion effect of Putrefy extends the duration of your plagues by 3.0 sec and deals 35% of the damage they would deal over that time instantly. Putrefy now applies your plagues to unaffected targets.",
+"desc": "Putrefy 的爆炸将你的瘟疫持续时间延长 3 秒，并立即造成它们在该时间内本会造成伤害的 35%。Putrefy 现在会对未受影响的目标施加你的瘟疫。"
+},
+"putrid-echoes": {
+"name": "Putrid Echoes",
+"meta": "Passive",
+"en": "Putrefy deals 20% increased damage, has 2 additional charges and consumes up to 2 available charges.",
+"desc": "Putrefy 造成提高 20% 的伤害，额外获得 2 个充能，并可消耗最多 2 个可用充能。"
+},
+"doomed-bidding": {
+"name": "Doomed Bidding",
+"meta": "Passive",
+"en": "Consuming Sudden Doom summons forth a Lesser Ghoul to assist you for 8 sec.",
+"desc": "消耗末日突降会召唤一只次级食尸鬼协助你，持续 8 秒。"
+},
+"scourging": {
+"name": "Scourging",
+"meta": "Passive",
+"en": "Scourge Strike now causes your Plagues to erupt at 70% effectiveness. Clawing Shadows can now stack 2 additional times.",
+"desc": "天灾打击现在使你的瘟疫以 70% 的效能爆发。暗影之爪现在可以额外叠加 2 层。"
+},
+"ancient-power": {
+"name": "Ancient Power",
+"meta": "Passive",
+"en": "Spending Runic Power increases your Strength by 0.30% for 20 sec. Multiple applications may overlap.",
+"desc": "消耗符文能量使你的力量提高 0.3%，持续 20 秒。多次施加可以叠加。"
+},
+"unholy-aura": {
+"name": "Unholy Aura",
+"meta": "Passive",
+"en": "Magus of the Dead grants you 2.0% Haste for 15 sec. Multiple applications may overlap.",
+"desc": "Magus of the Dead 为你提供 2% 急速，持续 15 秒。多次施加可以叠加。"
+},
+"commander-of-the-dead": {
+"name": "Commander of the Dead",
+"meta": "Passive",
+"en": "Dark Transformation empowers your Gargoyle, Abomination, Magus and Lesser Ghouls for 30 sec, increasing their damage by 20%.",
+"desc": "黑暗突变强化你的石像鬼、Abomination、Magus 和次级食尸鬼 30 秒，使它们的伤害提高 20%。"
+},
+"blightfall": {
+"name": "Blightfall",
+"meta": "Passive",
+"en": "Dark Transformation grants access to Blightfall. Blightfall Consume 100% of your plagues around you and deal 100% of their remaining damage instantly. Grants 1 charge of Putrefy.",
+"desc": "黑暗突变使你能够使用 Blightfall。Blightfall：消耗你周围 100% 的瘟疫，立即造成它们剩余伤害的 100%，并为 Putrefy 提供 1 个充能。"
+},
+"lord-of-the-dead": {
+"name": "Lord of the Dead",
+"meta": "Passive",
+"en": "When you Putrefy a Lesser Ghoul, it has a 100% chance to reanimate as a Magus of the Dead who hurls Frostbolts and Shadow Bolts at your foes for 15 sec. Magus of the Dead Frostbolts and Shadow Bolts deal 25% increased damage.",
+"desc": "当你 Putrefy 一只次级食尸鬼时，它有 100% 的几率以 Magus of the Dead 的形式重新激活，向你的敌人投掷冰霜箭和暗影箭，持续 15 秒。Magus of the Dead 的冰霜箭和暗影箭造成提高 25% 的伤害。"
+},
+"outnumber": {
+"name": "Outnumber",
+"meta": "Passive",
+"en": "Each Lesser Ghoul increases the damage of your permanent Ghoul by 10%, and Dark Transformation additionally empowers the Claw attacks of your Lesser Ghouls to Sweeping Claws. Sweeping Claws Rakes an enemy with deformed claws, dealing 1,620 Shadow damage to the target and 1,119 Shadow damage to nearby enemies.",
+"desc": "每只次级食尸鬼使你的永久食尸鬼伤害提高 10%。黑暗突变还会使你的次级食尸鬼的爪击强化为 Sweeping Claws。Sweeping Claws：用畸形的爪子横扫敌人，对目标造成 1,620 点暗影伤害，对附近敌人造成 1,119 点暗影伤害。"
+},
+"forbidden-knowledge": {
+"name": "Forbidden Knowledge",
+"meta": "Passive",
+"en": "Rank 1: Army of the Dead siphons the power of the fallen, transforming Death Coil and Epidemic into Necrotic Coil and Graveyard for 30 sec. Necrotic Coil Unleash a vortex of necrotic energy and bone, dealing 6,546 Shadowstrike damage up to 3 foes and 2,055 Shadow damage to all pierced enemies. Graveyard The dead erupt beneath all foes with Virulent Plague, dealing 2,451 Shadow damage and 1,009 Shadow damage to enemies nearby. Rank 3: Putrefy causes your next 1 Scourge Strike to summon a Lesser Ghoul, and grants you 6% Mastery for 12 sec. Multiple applications may overlap. Rank 4: Each Magus of the Dead under your command increases the damage of Necrotic Coil and Graveyard by 8%. Dread Plague has a 20% chance to rouse the dead, causing a Lesser Ghoul to unearth and leap at the target to Putrefy at 60% effectiveness.",
+"desc": "第 1 阶：亡者大军吸取阵亡者的力量，将凋零缠绕和扩散转变为 Necrotic Coil 和 Graveyard，持续 30 秒。Necrotic Coil：释放一股坏死能量与骨骼漩涡，对最多 3 个敌人造成 6,546 点暗影伤害，对所有被穿刺的敌人造成 2,055 点暗影伤害。Graveyard：死者在所有敌人脚下爆发，伴随恶性病变，造成 2,451 点暗影伤害，对附近敌人造成 1,009 点暗影伤害。第 3 阶：Putrefy 使你的下一次天灾打击召唤一只次级食尸鬼，并为你提供 6% 精通，持续 12 秒，多次施加可以叠加。第 4 阶：你麾下每有一个 Magus of the Dead，Necrotic Coil 和 Graveyard 的伤害就提高 8%。Dread Plague 有 20% 的几率唤醒亡灵，使一只次级食尸鬼破土而出冲向目标，以 60% 的效能施展 Putrefy。"
+},
+"vampiric-strike": {
+"name": "Vampiric Strike",
+"meta": "Passive",
+"en": "Your Death Coil, Epidemic and Death Strike have a 25% chance to make your next Scourge Strike become Vampiric Strike. Vampiric Strike heals you for 2% of your maximum health and grants you Essence of the Blood Queen, increasing your Haste by 1.0%, up to 7.0% for 20 sec.",
+"desc": "你的凋零缠绕、扩散和灵界打击有 25% 的几率使你的下一次天灾打击变为 Vampiric Strike。Vampiric Strike：为你恢复最大生命值的 2%，并为你提供 鲜血女王的精华，使你的急速提高 1%，最多 7%，持续 20 秒。"
+},
+"newly-turned": {
+"name": "Newly Turned",
+"meta": "Passive",
+"en": "Raise Ally revives players at full health and grants you and your ally an absorb shield equal to 20% of your maximum health.",
+"desc": "复活盟友在满生命值状态下复活玩家，并为你和你的盟友提供等于你最大生命值 20% 的吸收护盾。"
+},
+"blood-soaked-ground": {
+"name": "Blood-Soaked Ground",
+"meta": "Passive",
+"en": "While you are within your Death and Decay, your physical damage taken is reduced by 5% and your chance to gain Vampiric Strike is increased by 5%.",
+"desc": "当你处于自己的枯萎凋零内时，你受到的物理伤害降低 5%，获得 Vampiric Strike 的几率提高 5%。"
+},
+"vampiric-aura": {
+"name": "Vampiric Aura",
+"meta": "Passive",
+"en": "Your Leech is increased by 2%. While Lichborne is active, the Leech bonus of this effect is increased by 100%, and it affects 4 allies within 12 yds.",
+"desc": "你的吸血提高 2%。当巫妖之躯激活时，该效果的吸血加成提高 100%，并影响 12 码内的 4 名盟友。"
+},
+"thrill-of-blood": {
+"name": "Thrill of Blood",
+"meta": "Passive",
+"en": "Essence of the Blood Queen additionally increases your Mastery by 0.2% per stack. Dread Plague deals 10% and Virulent Plague deals 10% increased damage.",
+"desc": "鲜血女王的精华 还会使你的精通每层提高 0.2%。Dread Plague 的伤害提高 10%，恶性病变的伤害提高 10%。"
+},
+"infliction-of-sorrow": {
+"name": "Infliction of Sorrow",
+"meta": "Passive",
+"en": "When Vampiric Strike damages an enemy affected by your plagues, it extends the duration of the plagues by 3.0 sec, and erupts them with 30% increased effectiveness.",
+"desc": "当 Vampiric Strike 伤害到受你的疾病影响的敌人时，它会将这些疾病的持续时间延长 3 秒，并以提高 30% 的效能使其爆发。"
+},
+"frenzied-bloodthirst": {
+"name": "Frenzied Bloodthirst",
+"meta": "Passive",
+"en": "Essence of the Blood Queen stacks 2 additional times and increases the damage of your Death Coil and Death Strike by 3%, and Epidemic by 5% per stack.",
+"desc": "鲜血女王的精华 额外叠加 2 层，使你的凋零缠绕和灵界打击的伤害每层提高 3%，扩散的伤害每层提高 5%。"
+},
+"the-blood-is-life": {
+"name": "The Blood is Life",
+"meta": "Passive",
+"en": "Dark Transformation summons a Blood Beast to attack your enemy for 10 sec. Each time the Blood Beast attacks, it stores a portion of the damage dealt. When the Blood Beast dies, it explodes, dealing 15% of the damage accumulated to nearby enemies and healing the Death Knight for the same amount. Deals reduced damage beyond 8 targets.",
+"desc": "黑暗突变召唤一只 Blood Beast 攻击你的敌人，持续 10 秒。Blood Beast 每次攻击时都会储存所造成伤害的一部分。当 Blood Beast 死亡时，它会爆炸，对附近敌人造成累积伤害的 15%，并为死亡骑士治疗等量生命。超过 8 个目标时伤害降低。"
+},
+"visceral-strength": {
+"name": "Visceral Strength",
+"meta": "Passive",
+"en": "When Sudden Doom is consumed, you gain 4% Strength for 5 sec.",
+"desc": "当末日突降被消耗时，你获得 4% 力量，持续 5 秒。"
+},
+"inevitable": {
+"name": "Inevitable",
+"meta": "Passive",
+"en": "Your plagues deal up to 30% increased damage based on the target's missing health. Vampiric Strike grants maximum stacks of Clawing Shadows.",
+"desc": "你的疾病根据目标缺失的生命值造成最多提高 30% 的伤害。Vampiric Strike 提供最大层数的暗影之爪。"
+},
+"incite-terror": {
+"name": "Incite Terror",
+"meta": "Passive",
+"en": "Vampiric Strike and Scourge Strike cause your targets to take 1% increased Shadow damage, up to 3% for 15 sec. Vampiric Strike benefits from Incite Terror at 400% effectiveness.",
+"desc": "Vampiric Strike 和天灾打击使你的目标受到的暗影伤害提高 1%，最多 3%，持续 15 秒。Vampiric Strike 从 Incite Terror 获得 400% 的效能加成。"
+},
+"pact-of-the-san'layn": {
+"name": "Pact of the San'layn",
+"meta": "Passive",
+"en": "You store 10% of all Shadow damage dealt into your Blood Beast to explode for additional damage when it expires.",
+"desc": "你将造成的所有暗影伤害的 10% 储存到 Blood Beast 中，当其消失时爆炸造成额外伤害。"
+},
+"transfusion": {
+"name": "Transfusion",
+"meta": "Passive",
+"en": "Vampiric Strike increases the damage of the Lesser Ghoul it summons by 10%.",
+"desc": "Vampiric Strike 使它召唤的次级食尸鬼伤害提高 10%。"
+},
+"gift-of-the-san'layn": {
+"name": "Gift of the San'layn",
+"meta": "Passive",
+"en": "While Dark Transformation is active you gain Gift of the San'layn. Gift of the San'layn increases the effectiveness of your Essence of the Blood Queen by 80%, and Vampiric Strike replaces your Scourge Strike for the duration.",
+"desc": "当黑暗突变激活时，你获得 萨莱因之赐。萨莱因之赐：使你的 鲜血女王的精华 效能提高 80%，并在持续时间内使 Vampiric Strike 替代你的天灾打击。"
+},
+"rider's-champion": {
+"name": "Rider's Champion",
+"meta": "Passive",
+"en": "Spending Runes has a chance to call forth the aid of a Horsemen for 10 sec. Mograine Casts Death and Decay at his location that follows his position and extends the duration of your diseases by 1.0 sec whenever it deals damage. Whitemane Casts Undeath on your target dealing 249 Shadowfrost damage per stack every 3 sec, for 24 sec. Each time Undeath deals damage it gains a stack. Cannot be refreshed. Trollbane Casts Chains of Ice on your target slowing their movement speed by 40% and increasing the damage they take from you by 5% for 8 sec. Nazgrim While Nazgrim is active you gain Apocalyptic Conquest, increasing your Strength by 5%.",
+"desc": "消耗符文时有几率召唤四骑士之一前来协助，持续 10 秒。莫格莱尼：在其位置投下枯萎凋零，跟随其移动，并在每次造成伤害时将你的疾病持续时间延长 1 秒。怀特迈恩：在你的目标身上施加 Undeath，每层每 3 秒造成 249 点暗影冰霜伤害，持续 24 秒；每次 Undeath 造成伤害时获得一层，不能刷新。Trollbane：对你的目标施放寒冰锁链，使其移动速度降低 40%，并使其受到你造成的伤害提高 5%，持续 8 秒。纳兹戈林：激活时你获得 Apocalyptic Conquest，使你的力量提高 5%。"
+},
+"death-charge": {
+"name": "Death Charge",
+"meta": "Passive",
+"en": "Call upon your Death Charger to break free of movement impairment effects. For 10 sec, while upon your Death Charger your movement speed is increased by 100%, you cannot be slowed below 100% of normal speed, and you are immune to forced movement effects and knockbacks.",
+"desc": "召唤你的 Death Charger 来摆脱移动阻碍效果。10 秒内骑乘 Death Charger 时，你的移动速度提高 100%，移动速度不会被降低至 100% 以下，且免疫强制移动和击退效果。"
+},
+"mograine's-might": {
+"name": "Mograine's Might",
+"meta": "Passive",
+"en": "Your damage is increased by 5% and you gain the benefits of your Death and Decay while inside Mograine's Death and Decay.",
+"desc": "你的伤害提高 5%，且当你处于 莫格莱尼 的枯萎凋零内时，你获得自己枯萎凋零的加成。"
+},
+"pact-of-the-apocalypse": {
+"name": "Pact of the Apocalypse",
+"meta": "Passive",
+"en": "When you take damage, 5% of the damage is redirected to each active horsemen.",
+"desc": "当你受到伤害时，伤害的 5% 分摊给每一位激活的四骑士。"
+},
+"ride-or-die!": {
+"name": "Ride or Die!",
+"meta": "Passive",
+"en": "Dark Transformation summons forth Whitemane for 6 sec.",
+"desc": "黑暗突变召唤 怀特迈恩，持续 6 秒。"
+},
+"whitemane's-famine": {
+"name": "Whitemane's Famine",
+"meta": "Passive",
+"en": "When Scourge Strike damages an enemy affected by Undeath it gains 1 stack and infects another nearby enemy.",
+"desc": "当天灾打击伤害到受 Undeath 影响的敌人时，获得 1 层，并感染附近的另一个敌人。"
+},
+"nazgrim's-conquest": {
+"name": "Nazgrim's Conquest",
+"meta": "Passive",
+"en": "If an enemy dies while Nazgrim is active, the strength of Apocalyptic Conquest is increased by 3%. Additionally, each Rune you spend increase its value by 1%.",
+"desc": "如果敌人在 纳兹戈林 激活期间死亡，Apocalyptic Conquest 的强度提高 3%。此外，你每消耗一个符文都会使其数值提高 1%。"
+},
+"trollbane's-icy-fury": {
+"name": "Trollbane's Icy Fury",
+"meta": "Passive",
+"en": "Scourge Strike shatters Trollbane's Chains of Ice when hit, dealing 4,122 Shadowfrost damage to nearby enemies, and slowing them by 40% for 4 sec. Deals reduced damage beyond 8 targets.",
+"desc": "天灾打击击中时会击碎 Trollbane 的寒冰锁链，对附近敌人造成 4,122 点暗影冰霜伤害，并使其减速 40%，持续 4 秒。超过 8 个目标时伤害降低。"
+},
+"let-terror-reign": {
+"name": "Let Terror Reign",
+"meta": "Passive",
+"en": "Casting Death Coil or Epidemic orders Whitemane to cast her Death Coil or Epidemic alongside you at 125% effectiveness.",
+"desc": "施放凋零缠绕或扩散时，命令 怀特迈恩 在你身边以 125% 的效能施放她的凋零缠绕或扩散。"
+},
+"hungering-thirst": {
+"name": "Hungering Thirst",
+"meta": "Passive",
+"en": "The damage of your diseases and Death Coil are increased by 5%.",
+"desc": "你的疾病和凋零缠绕的伤害提高 5%。"
+},
+"a-feast-of-souls": {
+"name": "A Feast of Souls",
+"meta": "Passive",
+"en": "While you have 2 or more Horsemen aiding you, your Death Coil deals 20% and Epidemic deals 20% increased damage.",
+"desc": "当有 2 位或更多四骑士协助你时，你的凋零缠绕造成提高 20% 的伤害，扩散造成提高 20% 的伤害。"
+},
+"mawsworn-menace": {
+"name": "Mawsworn Menace",
+"meta": "Passive",
+"en": "Scourge Strike deals 15% increased damage and the cooldown of your Death and Decay is reduced by 5 sec.",
+"desc": "天灾打击造成提高 15% 的伤害，你的枯萎凋零的冷却时间降低 5 秒。"
+},
+"unholy-armaments": {
+"name": "Unholy Armaments",
+"meta": "Passive",
+"en": "The abilities that Horsemen cast deal 5% increased damage. Your Ghoul and skeletal archer deals 10% and Lesser Ghouls deal 20% increased damage.",
+"desc": "四骑士施放的技能造成提高 5% 的伤害。你的食尸鬼和骸骨弓箭手造成提高 10% 的伤害，次级食尸鬼造成提高 20% 的伤害。"
+},
+"apocalypse-now": {
+"name": "Apocalypse Now",
+"meta": "Passive",
+"en": "Army of the Dead and Frostwyrm's Fury call upon all 4 Horsemen to aid you for 20 sec.",
+"desc": "亡者大军和 冰霜巨龙之怒 召唤全部 4 位四骑士协助你 20 秒。"
+},
+"life-and-death": {
+"name": "Life and Death",
+"meta": "",
+"en": "When the target afflicted with your Dread Plague is healed, you are also healed for 10% of the amount. Additionally, Dread Plague deals 200% of its remaining damage to the target when dispelled.",
+"desc": "当受你的 Dread Plague 影响的目标被治疗时，你也获得该治疗量 10% 的治疗。此外，Dread Plague 被驱散时会对目标造成其剩余伤害的 200%。"
+},
+"dark-simulacrum": {
+"name": "Dark Simulacrum",
+"meta": "",
+"en": "Places a dark ward on an enemy player that persists for 12 sec, triggering when the enemy next spends mana on a spell, and allowing the Death Knight to unleash an exact duplicate of that spell.",
+"desc": "在敌方玩家身上放置一个黑暗护符，持续 12 秒；当该敌人下次消耗法力施法时触发，允许死亡骑士施放该法术的完整复制品。"
+},
+"necrotic-wounds": {
+"name": "Necrotic Wounds",
+"meta": "",
+"en": "Putrefy applies a Necrotic Wound to the enemy when it deals damage, absorbing 8% of all healing received for 15 sec. Max 3 stacks. Adding a stack does not refresh the duration.",
+"desc": "Putrefy 造成伤害时会对敌人施加一层 Necrotic Wound，吸收其 15 秒内受到的所有治疗的 8%。最多 3 层。叠加新层数不会刷新持续时间。"
+},
+"zombify": {
+"name": "Zombify",
+"meta": "",
+"en": "Reanimates a nearby corpse, summoning a zombie for 20 sec that slowly moves towards your target. If your zombie reaches its target, it explodes after 3.0 sec. The explosion stuns all enemies within 8 yards for 3 sec and deals 10% of their health in Shadow damage.",
+"desc": "复活附近的一具尸体，召唤一只僵尸 20 秒，缓慢向你的目标移动。如果你的僵尸抵达目标，会在 3 秒后爆炸。爆炸使 8 码内的所有敌人昏迷 3 秒，并造成其生命值 10% 的暗影伤害。"
+},
+"stitchmaster": {
+"name": "Stitchmaster",
+"meta": "",
+"en": "When a Lesser Ghoul dies, you gather the remains to heal for 2% of its maximum health. Death Strike sacrifices all Lesser Ghouls under your command.",
+"desc": "当次级食尸鬼死亡时，你收集其遗骸，治疗其最大生命值的 2%。灵界打击会牺牲你指挥下的所有次级食尸鬼。"
+},
+"strangulate": {
+"name": "Strangulate",
+"meta": "",
+"en": "Shadowy tendrils constrict an enemy's throat, silencing them for 4 sec.",
+"desc": "暗影触须勒紧敌人的喉咙，使其沉默 4 秒。"
+},
+"doomburst": {
+"name": "Doomburst",
+"meta": "",
+"en": "Sudden Doom also causes your next Death Coil to deal the damage of your plagues an additional time at 25% effectiveness and reduce the target's movement speed by 45% for 3 sec.",
+"desc": "末日突降还会使你的下一次凋零缠绕额外以 25% 的效能造成一次你的疾病伤害，并将目标的移动速度降低 45%，持续 3 秒。"
+},
+"rot-and-wither": {
+"name": "Rot and Wither",
+"meta": "",
+"en": "Your Death and Decay rots enemies each time it deals damage, absorbing healing equal to 100% of damage dealt.",
+"desc": "你的枯萎凋零每次造成伤害时都会腐蚀敌人，吸收等于所造成伤害 100% 的治疗。"
+},
+"bloodforged-armor": {
+"name": "Bloodforged Armor",
+"meta": "",
+"en": "Death Strike reduces all Physical damage taken by 25% for 4 sec.",
+"desc": "灵界打击使你受到的物理伤害降低 25%，持续 4 秒。"
+},
+"spellwarden": {
+"name": "Spellwarden",
+"meta": "",
+"en": "Anti-Magic Shell is now usable on allies and its cooldown is reduced by 10 sec.",
+"desc": "反魔法护罩现在可以对盟友使用，其冷却时间降低 10 秒。"
+}
+};
