@@ -1035,6 +1035,14 @@ const PAGES = [
         },
       ],
       note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'C4PAD57yiELKEty14ekTDtZEqYbZWGDjZMTjlZG2yMMbAAAAAAAAgZYMjFjZmZmxwoZMzY2W2mZmZmhZsNGLDmBAAMzYmZmZGMjtFMDwGjlZMA',
+        who: 'Elopolice', where: 'EU · Argent Dawn', rating: '3v3 3167', at: '2026-08-14',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 6 个分歧格上与多数派一致 4 格</b>。' +
+          '偏离的两格（Born To Be Wild、Dark Chains）都是「机动与控场」类——' +
+          '<b>这类格子跟你常遇到的阵容关系很大</b>，粘完更要按自己的对手重调。',
+      },
       tree: {
         survey: '职业树 44 格 + 专精树 38 格 + 英雄天赋 28 格，共 <b>110 格</b>。' +
           '扣掉几乎没人走的哨兵整条线，top50 的实测里 <b>102 格是定死的</b>。' +
