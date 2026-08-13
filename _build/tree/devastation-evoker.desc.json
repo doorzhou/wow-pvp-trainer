@@ -1,0 +1,740 @@
+{
+"landslide": {
+"name": "Landslide",
+"meta": "Instant · 10-40 yd range · 1.5 min cooldown",
+"en": "Conjure a path of shifting stone towards the target location, rooting enemies for 15 sec. Damage may cancel the effect.",
+"desc": "在目标位置凝聚一条石块之路，将敌人定身 15 秒。受到伤害可能打破此效果。"
+},
+"obsidian-scales": {
+"name": "Obsidian Scales",
+"meta": "Instant · 1 sec cooldown",
+"en": "Reinforce your scales, reducing damage taken by 30% and causing you to be healed over 8 sec equal to the damage it prevented. Lasts 12 sec.",
+"desc": "强化你的黑曜鳞片，使受到的伤害降低 30%，并在 8 秒内将所减免的伤害转化为治疗返还。持续 12 秒。"
+},
+"expunge": {
+"name": "Expunge",
+"meta": "Instant · 25 yd range · 8 sec cooldown",
+"en": "Expunge toxins affecting an ally, removing all Poison effects.",
+"desc": "净除友方身上的毒素，移除所有中毒效果。"
+},
+"natural-convergence": {
+"name": "Natural Convergence",
+"meta": "Passive",
+"en": "Disintegrate channels 20% faster.",
+"desc": "裂解的引导速度提高 20%。"
+},
+"heavy-wingbeats": {
+"name": "Heavy Wingbeats",
+"meta": "Passive",
+"en": "Wing Buffet's cooldown is reduced by 2 min.",
+"desc": "飞翼打击的冷却时间降低 2 分钟。"
+},
+"verdant-embrace": {
+"name": "Verdant Embrace",
+"meta": "Instant · 25 yd range · 0.5 sec cooldown",
+"en": "Fly to an ally and heal them for 92,199, or heal yourself for the same amount.",
+"desc": "飞向一名友方并为其治疗 92,199 点生命值，或对自己施放治疗同等数值。"
+},
+"forger-of-mountains": {
+"name": "Forger of Mountains",
+"meta": "Passive",
+"en": "Landslide's cooldown is reduced by 30 sec, and it can withstand 200% more damage before breaking.",
+"desc": "山崩的冷却时间降低 30 秒，且它在破碎前能多承受 200% 的伤害。"
+},
+"innate-magic": {
+"name": "Innate Magic",
+"meta": "Passive",
+"en": "Essence regenerates 10% faster.",
+"desc": "精华的回复速度提高 10%。"
+},
+"obsidian-bulwark": {
+"name": "Obsidian Bulwark",
+"meta": "Passive",
+"en": "Obsidian Scales has an additional charge.",
+"desc": "黑曜鳞片额外获得一次充能。"
+},
+"enkindled": {
+"name": "Enkindled",
+"meta": "Passive",
+"en": "Living Flame deals 6% more damage and healing.",
+"desc": "活化烈焰造成的伤害和治疗提高 6%。"
+},
+"scarlet-adaptation": {
+"name": "Scarlet Adaptation",
+"meta": "Passive",
+"en": "Store 20% of your effective healing, up to 4,517. Your next damaging Living Flame consumes all stored healing to increase its damage dealt.",
+"desc": "储存 20% 的有效治疗，最多 4,517 点。你的下一次伤害型活化烈焰会消耗全部储存量以提高伤害。"
+},
+"inner-radiance": {
+"name": "Inner Radiance",
+"meta": "Passive",
+"en": "Your Living Flame and Emerald Blossom are 30% more effective on yourself.",
+"desc": "活化烈焰和翡翠之花对你自身的效果提高 30%。"
+},
+"recall": {
+"name": "Recall",
+"meta": "Passive",
+"en": "You may reactivate Deep Breath within 3 sec after landing to travel back in time to your takeoff location.",
+"desc": "着陆后 3 秒内可以重新激活深呼吸，回溯时间返回起飞位置。"
+},
+"clobbering-sweep": {
+"name": "Clobbering Sweep",
+"meta": "Passive",
+"en": "Tail Swipe's cooldown is reduced by 2 min.",
+"desc": "Tail Swipe 的冷却时间降低 2 分钟。"
+},
+"tailwind": {
+"name": "Tailwind",
+"meta": "Passive",
+"en": "Hover increases your movement speed by 70% for the first 4 sec.",
+"desc": "悬空在最初 4 秒内使你的移动速度提高 70%。"
+},
+"cauterizing-flame": {
+"name": "Cauterizing Flame",
+"meta": "Instant · 25 yd range · 1 min cooldown",
+"en": "Cauterize an ally's wounds, removing all Bleed, Poison, Curse, and Disease effects. Heals for 8,681 upon removing any effect.",
+"desc": "灼烧友方的伤口，移除所有流血、中毒、诅咒和疾病效果。每移除一个效果治疗 8,681 点。"
+},
+"ancient-flame": {
+"name": "Ancient Flame",
+"meta": "Passive",
+"en": "Casting Emerald Blossom or Verdant Embrace reduces the cast time of your next Living Flame by 40%.",
+"desc": "施放翡翠之花或青翠之拥后，你的下一次活化烈焰施法时间缩短 40%。"
+},
+"instinctive-arcana": {
+"name": "Instinctive Arcana",
+"meta": "Passive",
+"en": "Your Magic damage done is increased by 4%.",
+"desc": "你造成的魔法伤害提高 4%。"
+},
+"tip-the-scales": {
+"name": "Tip the Scales",
+"meta": "Instant · 2 min cooldown",
+"en": "Compress time to make your next empowered spell cast instantly at its maximum empower level.",
+"desc": "压缩时间，使你的下一个蓄力法术瞬间以最高蓄力等级施放。"
+},
+"attuned-to-the-dream": {
+"name": "Attuned to the Dream",
+"meta": "Passive",
+"en": "Your healing done and healing received are increased by 12%.",
+"desc": "你造成的治疗和受到的治疗提高 12%。"
+},
+"sleep-walk": {
+"name": "Sleep Walk",
+"meta": "1.7 sec cast · 25 yd range",
+"en": "Disorient an enemy for 20 sec, causing them to sleep walk towards you. Damage has a chance to awaken them.",
+"desc": "使一名敌人梦游 20 秒，期间他会朝你移动。受到伤害有几率将其唤醒。"
+},
+"protracted-talons": {
+"name": "Protracted Talons",
+"meta": "Passive",
+"en": "Azure Strike damages 1 additional enemy.",
+"desc": "碧蓝打击额外命中 1 个敌人。"
+},
+"inherent-resistance": {
+"name": "Inherent Resistance",
+"meta": "Passive",
+"en": "Magic damage taken reduced by 16%.",
+"desc": "你受到的魔法伤害降低 16%。"
+},
+"draconic-legacy": {
+"name": "Draconic Legacy",
+"meta": "Passive",
+"en": "Your Stamina is increased by 8%.",
+"desc": "耐力提高 8%。"
+},
+"extended-flight": {
+"name": "Extended Flight",
+"meta": "Passive",
+"en": "Hover lasts 4 sec longer.",
+"desc": "悬空的持续时间延长 4 秒。"
+},
+"bountiful-bloom": {
+"name": "Bountiful Bloom",
+"meta": "Passive",
+"en": "Emerald Blossom heals 2 additional allies.",
+"desc": "翡翠之花额外治疗 2 名友方。"
+},
+"regenerative-magic": {
+"name": "Regenerative Magic",
+"meta": "Passive",
+"en": "Your Leech is increased by 4%.",
+"desc": "你的吸血效果提高 4%。"
+},
+"blast-furnace": {
+"name": "Blast Furnace",
+"meta": "Passive",
+"en": "Fire Breath's damage over time lasts 4 sec longer.",
+"desc": "火焰吐息的持续伤害延长 4 秒。"
+},
+"exuberance": {
+"name": "Exuberance",
+"meta": "Passive",
+"en": "While above 75% health, your movement speed is increased by 10%.",
+"desc": "生命值高于 75% 时，你的移动速度提高 10%。"
+},
+"renewing-blaze": {
+"name": "Renewing Blaze",
+"meta": "Passive",
+"en": "Obsidian Scales surrounds you with a Renewing Blaze, causing 100% of the damage it prevented to be healed back over 8 sec.",
+"desc": "黑曜鳞片以新生光焰环绕你，将所减免伤害的 100% 在 8 秒内转化为治疗返还。"
+},
+"walloping-blow": {
+"name": "Walloping Blow",
+"meta": "Passive",
+"en": "Wing Buffet and Tail Swipe knock enemies further and daze them, reducing movement speed by 70% for 4 sec.",
+"desc": "飞翼打击和 Tail Swipe 将敌人击退更远，并使其昏迷、移动速度降低 70%，持续 4 秒。"
+},
+"panacea": {
+"name": "Panacea",
+"meta": "Passive",
+"en": "Emerald Blossom and Verdant Embrace instantly heal you for 8,914 when cast.",
+"desc": "翡翠之花和青翠之拥在施放时立即为你恢复 8,914 点生命值。"
+},
+"stretch-time": {
+"name": "Stretch Time",
+"meta": "Passive",
+"en": "While flying during Deep Breath, 100% of damage you would take is instead dealt over 10 sec.",
+"desc": "深呼吸飞行期间，你本应受到的伤害有 100% 改为在 10 秒内分摊造成。"
+},
+"unravel": {
+"name": "Unravel",
+"meta": "Passive",
+"en": "Direct damage from Fire Breath consumes absorb shields from enemies, dealing 40,856 additional Spellfrost damage to them.",
+"desc": "火焰吐息的直接伤害消耗敌人的吸收护盾，并额外造成 40,856 点法术冰霜伤害。"
+},
+"oppressing-roar": {
+"name": "Oppressing Roar",
+"meta": "Instant · 2 min cooldown",
+"en": "Let out a bone-shaking roar at enemies in a cone in front of you, increasing the duration of crowd controls that affect them by 50% in the next 10 sec. Removes 1 Enrage effect from each enemy.",
+"desc": "向前方锥形范围内的敌人发出怒吼，使随后 10 秒内影响他们的控制效果持续时间延长 50%，并移除每个敌人身上 1 个激怒效果。"
+},
+"foci-of-life": {
+"name": "Foci of Life",
+"meta": "Passive",
+"en": "Renewing Blaze restores you more quickly, causing damage you take to be healed back over 4 sec.",
+"desc": "新生光焰的回复速度提高，使你受到的伤害在 4 秒内被补回。"
+},
+"rescue": {
+"name": "Rescue",
+"meta": "Instant · 30 yd range · 1 min cooldown",
+"en": "Swoop to an ally and fly with them to the target location. Clears movement impairing effects from you and your ally.",
+"desc": "冲向一名盟友并与其一同飞向目标位置，清除你和盟友身上的移动阻碍效果。"
+},
+"lush-growth": {
+"name": "Lush Growth",
+"meta": "Passive",
+"en": "Green spells restore 10% more health.",
+"desc": "绿色系法术的治疗额外提高 10%。"
+},
+"source-of-magic": {
+"name": "Source of Magic",
+"meta": "Instant · 25 yd range",
+"en": "Redirect your excess magic to a friendly healer for 1 hour. When you cast an empowered spell, you restore 0.25% of their maximum mana per empower level. Limit 1.",
+"desc": "将你多余的魔法引导给一名友方治疗者，持续 1 小时。你每施放一个蓄力法术，按蓄力等级为其恢复最大法力值的 0.25%。限 1 个目标。"
+},
+"strike-from-above": {
+"name": "Strike from Above",
+"meta": "Passive",
+"en": "Glide speed and height increased by 10%.",
+"desc": "滑翔速度和高度提高 10%。"
+},
+"leaping-flames": {
+"name": "Leaping Flames",
+"meta": "Passive",
+"en": "Fire Breath causes your next Living Flame to strike 1 additional target per empower level.",
+"desc": "火焰吐息使你的下一次活化烈焰按蓄力等级额外命中目标。"
+},
+"overawe": {
+"name": "Overawe",
+"meta": "Passive",
+"en": "Oppressing Roar removes 1 Enrage effect from each enemy, and its cooldown is reduced by 30 sec.",
+"desc": "压迫怒吼额外移除每个敌人身上 1 个激怒效果，其冷却时间降低 30 秒。"
+},
+"aerial-mastery": {
+"name": "Aerial Mastery",
+"meta": "Passive",
+"en": "Hover gains 1 additional charge.",
+"desc": "悬空额外获得 1 次充能。"
+},
+"twin-guardian": {
+"name": "Twin Guardian",
+"meta": "Passive",
+"en": "Rescue increases movement speed by 100% and allows spells to be cast while moving for 3 sec.",
+"desc": "营救使移动速度提高 100%，并允许在移动中施法 3 秒。"
+},
+"potent-mana": {
+"name": "Potent Mana",
+"meta": "Passive",
+"en": "Source of Magic increases the target's healing and damage done by 3%.",
+"desc": "魔法源泉使目标的治疗和伤害提高 3%。"
+},
+"terror-of-the-skies": {
+"name": "Terror of the Skies",
+"meta": "Passive",
+"en": "Deep Breath stuns enemies for 3 sec.",
+"desc": "深呼吸使敌人昏迷 3 秒。"
+},
+"time-spiral": {
+"name": "Time Spiral",
+"meta": "Instant · 2 min cooldown",
+"en": "Bend time, allowing you and your allies within 40 yds to cast their major movement ability once in the next 10 sec, even if it is on cooldown.",
+"desc": "弯曲时间，使你和 40 码内的盟友在随后 10 秒内可以额外施放一次主要位移技能，即使它正在冷却中。"
+},
+"zephyr": {
+"name": "Zephyr",
+"meta": "Instant · 2 min cooldown",
+"en": "Conjure an updraft to lift you and your 4 nearest allies within 20 yds into the air, reducing damage taken from area-of-effect attacks by 20% and increasing movement speed by 30% for 8 sec.",
+"desc": "召唤一道上升气流，将你和 20 码内最近的 4 名盟友托入空中，使受到的范围伤害降低 20%、移动速度提高 30%，持续 8 秒。"
+},
+"pyre": {
+"name": "Pyre",
+"meta": "Instant · 25 yd range",
+"en": "Lob a ball of flame, dealing 11,388 Fire damage to your target and all enemies within 8 yds.",
+"desc": "投出一团烈焰，对目标及其 8 码内所有敌人造成 11,388 点火焰伤害。"
+},
+"ruby-essence-burst": {
+"name": "Ruby Essence Burst",
+"meta": "Passive",
+"en": "Your Living Flame has a 20% chance to cause an Essence Burst, making your next Disintegrate or Pyre cost no Essence.",
+"desc": "活化烈焰有 20% 几率触发精华迸发，使你的下一次裂解或葬火不消耗精华。"
+},
+"azure-essence-burst": {
+"name": "Azure Essence Burst",
+"meta": "Passive",
+"en": "Azure Strike has a 15% chance to cause an Essence Burst, making your next Disintegrate or Pyre cost no Essence.",
+"desc": "碧蓝打击有 15% 几率触发精华迸发，使你的下一次裂解或葬火不消耗精华。"
+},
+"lay-waste": {
+"name": "Lay Waste",
+"meta": "Passive",
+"en": "Deep Breath's damage is increased by 20%.",
+"desc": "深呼吸的伤害提高 20%。"
+},
+"quell": {
+"name": "Quell",
+"meta": "Instant · 25 yd range · 20 sec cooldown",
+"en": "Interrupt an enemy's spellcasting and prevent any spell from that school of magic from being cast for 6 sec.",
+"desc": "打断敌人施法，并使该系法术在 6 秒内无法施放。"
+},
+"eternity-surge": {
+"name": "Eternity Surge",
+"meta": "Channeled · 25 yd range · 30 sec cooldown",
+"en": "Focus your energies to release a salvo of pure magic, dealing 27,840 Spellfrost damage to an enemy. Damages additional enemies within 25 yds when empowered. I: Damages 1 enemy. II: Damages 2 enemies. III: Damages 3 enemies.",
+"desc": "聚集能量释放一道纯魔法波，对一名敌人造成 27,840 点法术冰霜伤害。蓄力可命中 25 码内更多敌人：一级 1 个、二级 2 个、三级 3 个。"
+},
+"volatility": {
+"name": "Volatility",
+"meta": "Passive",
+"en": "Pyre has a 30% chance to flare up and explode again on a nearby target.",
+"desc": "葬火有 30% 几率突然闪烧，在附近目标身上再次爆炸。"
+},
+"power-nexus": {
+"name": "Power Nexus",
+"meta": "Passive",
+"en": "Increases your maximum Essence to 6.",
+"desc": "你的最大精华提高到 6 点。"
+},
+"dragonrage": {
+"name": "Dragonrage",
+"meta": "Instant · 2 min cooldown",
+"en": "Erupt with draconic fury and exhale Pyres at 3 enemies within 25 yds. For 18 sec, Essence Burst's chance to occur is increased to 100%, and you gain the maximum benefit of Mastery: Giantkiller regardless of targets' health.",
+"desc": "爆发龙威，向 25 码内 3 名敌人喷出葬火。18 秒内精华迸发的触发几率提高到 100%，且无论目标生命值如何都能获得精通的最大收益。"
+},
+"azure-sweep": {
+"name": "Azure Sweep",
+"meta": "Passive",
+"en": "Eternity Surge upgrades your next Azure Strike to Azure Sweep, damaging all nearby enemies and dealing 75% additional damage. Azure Sweep Concentrate azure energy into your tail and sweep to release pure magic upon an enemy and nearby targets for 7,492 Spellfrost damage. Damage reduced beyond 9 targets.",
+"desc": "永恒之涌将你的下一次碧蓝打击升级为 Azure Sweep，命中所有附近敌人并额外造成 75% 伤害。"
+},
+"arcane-intensity": {
+"name": "Arcane Intensity",
+"meta": "Passive",
+"en": "Disintegrate and Azure Strike deal 16% more damage.",
+"desc": "裂解和碧蓝打击造成的伤害提高 16%。"
+},
+"ruby-embers": {
+"name": "Ruby Embers",
+"meta": "Passive",
+"en": "Living Flame deals 1,598 damage over 12 sec to enemies, or restores 2,814 health to allies over 12 sec. Stacks 3 times.",
+"desc": "活化烈焰在 12 秒内对敌人造成 1,598 点伤害，或为盟友恢复 2,814 点生命值。最多叠加 3 层。"
+},
+"animosity": {
+"name": "Animosity",
+"meta": "Passive",
+"en": "Casting an empower spell extends the duration of Dragonrage by 5 sec. Each time this occurs during Dragonrage, its effectiveness is reduced by 25%.",
+"desc": "施放蓄力法术使狂龙之怒的持续时间延长 5 秒。狂龙之怒期间每触发一次，其效能降低 25%。"
+},
+"essence-attunement": {
+"name": "Essence Attunement",
+"meta": "Passive",
+"en": "Essence Burst stacks 2 times.",
+"desc": "精华迸发可叠加 2 层。"
+},
+"engulfing-blaze": {
+"name": "Engulfing Blaze",
+"meta": "Passive",
+"en": "Living Flame deals 10% increased damage and healing and its cast time is reduced by 0.3 sec.",
+"desc": "活化烈焰造成的伤害和治疗提高 10%，施法时间缩短 0.3 秒。"
+},
+"heat-wave": {
+"name": "Heat Wave",
+"meta": "Passive",
+"en": "Fire Breath deals 30% more damage.",
+"desc": "火焰吐息造成的伤害提高 30%。"
+},
+"honed-aggression": {
+"name": "Honed Aggression",
+"meta": "Passive",
+"en": "The critical strike chance of your spells is increased by 4%.",
+"desc": "你的法术爆击几率提高 4%。"
+},
+"eternity's-span": {
+"name": "Eternity's Span",
+"meta": "Passive",
+"en": "Eternity Surge hits twice as many targets.",
+"desc": "永恒之涌命中的目标数量翻倍。"
+},
+"eye-of-infinity": {
+"name": "Eye of Infinity",
+"meta": "Passive",
+"en": "Eternity Surge deals 15% increased damage to your primary target.",
+"desc": "永恒之涌对你的主要目标伤害提高 15%。"
+},
+"catalyze": {
+"name": "Catalyze",
+"meta": "Passive",
+"en": "While channeling Disintegrate your Fire Breath on the target deals damage 100% more often.",
+"desc": "引导裂解期间，你施加在目标身上的火焰吐息伤害频率提高 100%。"
+},
+"tyranny": {
+"name": "Tyranny",
+"meta": "Passive",
+"en": "During Deep Breath and Dragonrage you gain the maximum benefit of Mastery: Giantkiller regardless of targets' health. Unbound Flame always gains the maximum benefit.",
+"desc": "深呼吸和狂龙之怒期间，你获得精通的最大收益，不受目标生命值影响。Unbound Flame 始终获得最大收益。"
+},
+"charged-blast": {
+"name": "Charged Blast",
+"meta": "Passive",
+"en": "Your Blue damage increases the damage of your next Pyre by 2%, stacking 20 times.",
+"desc": "你造成的蓝色系伤害使下一次葬火的伤害提高 2%，最多叠加 20 层。"
+},
+"shattering-stars": {
+"name": "Shattering Stars",
+"meta": "Passive",
+"en": "Eternity Surge additionally releases a Shattering Star at your target that deals 50% more damage per empower level reached. Shattering Star Exhale a bolt of concentrated power from your mouth at the target for 3,698 Spellfrost damage.",
+"desc": "永恒之涌额外在目标处释放一次 Shattering Star，每提升一个蓄力等级伤害提高 50%。"
+},
+"feed-the-flames": {
+"name": "Feed the Flames",
+"meta": "Passive",
+"en": "After casting 6 Pyres, your next Pyre will explode into a Firestorm. Firestorm An explosion bombards the target area with white-hot embers, dealing 37,155 Fire damage to enemies over 10 sec.",
+"desc": "施放 6 次葬火后，你的下一次葬火爆炸为火焰风暴：向目标区域轰下滚烫余烬，在 10 秒内造成 37,155 点火焰伤害。"
+},
+"burnout": {
+"name": "Burnout",
+"meta": "Passive",
+"en": "Fire Breath damage has 16% chance to cause your next Living Flame to be instant cast, stacking 2 times.",
+"desc": "火焰吐息的伤害有 16% 几率使你的下一次活化烈焰变为瞬发，最多叠加 2 层。"
+},
+"onyx-legacy": {
+"name": "Onyx Legacy",
+"meta": "Passive",
+"en": "Deep Breath's cooldown is reduced by 1 min.",
+"desc": "深呼吸的冷却时间降低 1 分钟。"
+},
+"spellweaver's-dominance": {
+"name": "Spellweaver's Dominance",
+"meta": "Passive",
+"en": "Your damaging critical strikes deal 230% damage instead of the usual 200%.",
+"desc": "你的伤害爆击造成 230% 伤害，而非通常的 200%。"
+},
+"star-salvo": {
+"name": "Star Salvo",
+"meta": "Passive",
+"en": "Increases Shattering Star damage by 35%. Shattering Stars are exhaled at all of your Eternity Surge targets.",
+"desc": "Shattering Star 的伤害提高 35%，且会在你永恒之涌的所有目标处释放。"
+},
+"imminent-destruction": {
+"name": "Imminent Destruction",
+"meta": "Passive",
+"en": "Deep Breath reduces the Essence costs of your next 4 Disintegrates and Pyres by 1. Stacks up to 8 times.",
+"desc": "深呼吸使你接下来 4 次裂解和葬火的精华消耗降低 1 点，最多叠加 8 层。"
+},
+"font-of-magic": {
+"name": "Font of Magic",
+"meta": "Passive",
+"en": "Your empower spells' maximum level is increased by 1, and they reach maximum empower level 20% faster.",
+"desc": "你的蓄力法术最高等级提高 1 级，且达到最高蓄力等级的速度提高 20%。"
+},
+"titanic-wrath": {
+"name": "Titanic Wrath",
+"meta": "Passive",
+"en": "Essence Burst increases the damage of affected spells by 15.0%.",
+"desc": "精华迸发使受影响法术的伤害提高 15%。"
+},
+"azure-celerity": {
+"name": "Azure Celerity",
+"meta": "Passive",
+"en": "Disintegrate deals damage 25% more often, but deals 10% less damage.",
+"desc": "裂解的伤害触发频率提高 25%，但单次伤害降低 10%。"
+},
+"power-swell": {
+"name": "Power Swell",
+"meta": "Passive",
+"en": "Casting an empower spell increases your Essence regeneration rate by 100% for 4 sec.",
+"desc": "施放蓄力法术后 4 秒内，你的精华回复速度提高 100%。"
+},
+"strafing-run": {
+"name": "Strafing Run",
+"meta": "Passive",
+"en": "Deep Breath deals 20% increased damage and can be cast again within 18 sec of being used. Recall will be available after the second cast if talented.",
+"desc": "深呼吸的伤害提高 20%，且可在使用后 18 秒内再次施放。"
+},
+"scorching-embers": {
+"name": "Scorching Embers",
+"meta": "Passive",
+"en": "Enemies affected by Fire Breath's damage over time effect take 25% increased damage from your Red spells.",
+"desc": "受火焰吐息持续伤害影响的敌人受到你红色系法术的伤害提高 25%。"
+},
+"causality": {
+"name": "Causality",
+"meta": "Passive",
+"en": "Disintegrate reduces the remaining cooldown of your empower spells by 0.50 sec each time it deals damage. Pyre reduces the remaining cooldown of your empower spells by 0.40 sec per enemy struck, up to 2.0 sec.",
+"desc": "裂解每次造成伤害使你的蓄力法术冷却降低 0.5 秒。葬火每命中一个敌人降低 0.4 秒，最多 2 秒。"
+},
+"scintillation": {
+"name": "Scintillation",
+"meta": "Passive",
+"en": "Disintegrate has a 15% chance each time it deals damage to launch a level 1 Eternity Surge at 40% power.",
+"desc": "裂解每次造成伤害有 15% 几率以 40% 威力触发一次一级永恒之涌。"
+},
+"iridescence": {
+"name": "Iridescence",
+"meta": "Passive",
+"en": "Casting an empower spell increases the damage of your next 2 spells of the same color by 20% within 10 sec.",
+"desc": "施放蓄力法术后 10 秒内，你接下来 2 个同色法术的伤害提高 20%。"
+},
+"rising-fury": {
+"name": "Rising Fury",
+"meta": "Passive",
+"en": "Rank 1: While Dragonrage is active you gain Rising Fury every 6 sec, increasing your haste by 4%, stacking up to 5 times. Rank 3: At 5 stacks of Rising Fury, all damage dealt is increased by 15%. Rank 4: When Dragonrage ends, Rising Fury persists for 4 sec per stack, and Dragonrage becomes Unbound Flame. Unbound Flame may be cast 4 times before Dragonrage finishes its cooldown. Unbound Flame Exhale destructive flame, critically striking for 46,894 Fire damage to your target and nearby enemies, reduced beyond 5 targets. Causes 1 Essence Burst.",
+"desc": "第 1 级：狂龙之怒激活时每 6 秒获得一层 Rising Fury，急速提高 4%，最多 5 层。第 3 级：满 5 层时你造成的所有伤害提高 15%。第 4 级：狂龙之怒结束时 Rising Fury 每层持续 4 秒，狂龙之怒变为 Unbound Flame，可在冷却完成前施放 4 次。"
+},
+"mass-disintegrate": {
+"name": "Mass Disintegrate",
+"meta": "Passive",
+"en": "Empower spells cause your next Disintegrate to strike up to 4 targets. When striking fewer than 4 targets, Disintegrate damage is increased by 10% for each missing target.",
+"desc": "蓄力法术使你的下一次裂解最多命中 4 个目标。命中不足 4 个时，每少一个目标伤害提高 10%。"
+},
+"might-of-the-black-dragonflight": {
+"name": "Might of the Black Dragonflight",
+"meta": "Passive",
+"en": "Black spells deal 20% increased damage.",
+"desc": "黑色系法术造成的伤害提高 20%。"
+},
+"bombardments": {
+"name": "Bombardments",
+"meta": "Passive",
+"en": "Mass Disintegrate marks your primary target for destruction for the next 6 sec. You and your allies have a chance to trigger a Bombardment when attacking marked targets, dealing 12,220 Volcanic damage split amongst all nearby enemies.",
+"desc": "Mass Disintegrate 将主要目标标记 6 秒。你和盟友攻击被标记目标时有几率触发轰炸，对所有附近敌人共造成 12,220 点火山伤害。"
+},
+"onslaught": {
+"name": "Onslaught",
+"meta": "Passive",
+"en": "Entering combat grants a charge of Burnout, causing your next Living Flame to cast instantly.",
+"desc": "进入战斗时获得一层 Burnout，使你的下一次活化烈焰变为瞬发。"
+},
+"command-squadron": {
+"name": "Command Squadron",
+"meta": "Passive",
+"en": "While flying during Deep Breath you are assisted by a squadron of Dracthyr who assault enemies with Pyre, dealing 4,843 Fire damage to nearby enemies up to 8 times.",
+"desc": "深呼吸飞行期间，一支 Dracthyr 中队协助你，用葬火攻击敌人，对附近敌人造成 4,843 点火焰伤害，最多 8 次。"
+},
+"melt-armor": {
+"name": "Melt Armor",
+"meta": "Passive",
+"en": "Deep Breath causes enemies to take 20% increased damage from Bombardments and Essence abilities for 12 sec. The duration of this effect is extended when Deep Breath is cast multiple times.",
+"desc": "深呼吸使敌人在 12 秒内受到轰炸和精华类技能的伤害提高 20%。多次施放深呼吸会延长该效果。"
+},
+"wingleader": {
+"name": "Wingleader",
+"meta": "Passive",
+"en": "Mass Disintegrate reduces the remaining cooldown of Deep Breath by 1.0 sec for each target struck.",
+"desc": "Mass Disintegrate 每命中一个目标，深呼吸的剩余冷却时间降低 1 秒。"
+},
+"unrelenting-siege": {
+"name": "Unrelenting Siege",
+"meta": "Passive",
+"en": "For each second you are in combat, Azure Strike, Living Flame, and Disintegrate deal 1% increased damage, up to 15%.",
+"desc": "战斗中每过 1 秒，碧蓝打击、活化烈焰和裂解造成的伤害提高 1%，最多 15%。"
+},
+"concentrated-power": {
+"name": "Concentrated Power",
+"meta": "Passive",
+"en": "Mass Disintegrate strikes 1 additional target.",
+"desc": "Mass Disintegrate 额外命中 1 个目标。"
+},
+"hardened-scales": {
+"name": "Hardened Scales",
+"meta": "Passive",
+"en": "Obsidian Scales reduces damage taken by an additional 10%.",
+"desc": "黑曜鳞片额外降低你受到的伤害 10%。"
+},
+"diverted-power": {
+"name": "Diverted Power",
+"meta": "Passive",
+"en": "Bombardments have a chance to generate Essence Burst.",
+"desc": "轰炸有几率触发精华迸发。"
+},
+"slipstream": {
+"name": "Slipstream",
+"meta": "Passive",
+"en": "Deep Breath resets a charge of Hover.",
+"desc": "深呼吸重置悬空的一次充能。"
+},
+"refined-essence": {
+"name": "Refined Essence",
+"meta": "Passive",
+"en": "Essence abilities deal 25% additional damage.",
+"desc": "精华类技能造成的伤害提高 25%。"
+},
+"maneuverability": {
+"name": "Maneuverability",
+"meta": "Passive",
+"en": "Deep Breath can now be steered in your desired direction. In addition, Deep Breath burns targets for 34,905 Volcanic damage over 12 sec. The duration of this effect is extended when Deep Breath is cast multiple times.",
+"desc": "深呼吸现在可以按你的意愿操控方向。此外深呼吸会灼烧目标，在 12 秒内造成 34,905 点火山伤害，多次施放会延长该效果。"
+},
+"legacy-of-the-lifebinder": {
+"name": "Legacy of the Lifebinder",
+"meta": "Passive",
+"en": "Fire Breath gains an additional charge.",
+"desc": "火焰吐息额外获得一次充能。"
+},
+"trailblazer": {
+"name": "Trailblazer",
+"meta": "Passive",
+"en": "Hover and Deep Breath travel 40% faster, and Hover travels 40% further.",
+"desc": "悬空和深呼吸的速度提高 40%，悬空的距离提高 40%。"
+},
+"ashes-in-motion": {
+"name": "Ashes in Motion",
+"meta": "Passive",
+"en": "Fire Breath's cooldown is reduced by 5 sec.",
+"desc": "火焰吐息的冷却时间降低 5 秒。"
+},
+"expanded-lungs": {
+"name": "Expanded Lungs",
+"meta": "Passive",
+"en": "Fire Breath's damage over time is increased by 30%. Dream Breath's heal over time is increased by 20%.",
+"desc": "火焰吐息的持续伤害提高 30%，Dream Breath 的持续治疗提高 20%。"
+},
+"essence-well": {
+"name": "Essence Well",
+"meta": "Passive",
+"en": "Fire Breath has a 50% chance to generate Essence Burst.",
+"desc": "火焰吐息有 50% 几率触发精华迸发。"
+},
+"conduit-of-flame": {
+"name": "Conduit of Flame",
+"meta": "Passive",
+"en": "Critical strike chance against targets above 50% health increased by 10%.",
+"desc": "对生命值高于 50% 的目标爆击几率提高 10%。"
+},
+"burning-adrenaline": {
+"name": "Burning Adrenaline",
+"meta": "Passive",
+"en": "Fire Breath reaches its maximum empower level 20% faster.",
+"desc": "火焰吐息达到最高蓄力等级的速度加快 20%。"
+},
+"fulminous-roar": {
+"name": "Fulminous Roar",
+"meta": "Passive",
+"en": "Fire Breath deals its damage 15% more often.",
+"desc": "火焰吐息的伤害触发频率提高 15%。"
+},
+"twin-flame": {
+"name": "Twin Flame",
+"meta": "Passive",
+"en": "Consuming Essence Burst fires a twin flame, striking your target for 6,184 Fire damage.",
+"desc": "消耗精华迸发时射出 Twin Flame，对目标造成 6,184 点火焰伤害。"
+},
+"titanic-precision": {
+"name": "Titanic Precision",
+"meta": "Passive",
+"en": "Living Flame and Azure Strike have 1 extra chance to trigger Essence Burst when they critically strike.",
+"desc": "活化烈焰和碧蓝打击爆击时各额外获得一次触发精华迸发的机会。"
+},
+"deep-exhalation": {
+"name": "Deep Exhalation",
+"meta": "Passive",
+"en": "Fire Breath's damage over time lasts 4 sec longer.",
+"desc": "火焰吐息的伤害持续时间延长 4 秒。"
+},
+"lifecinders": {
+"name": "Lifecinders",
+"meta": "Passive",
+"en": "Obsidian Scales also applies to your target or 1 nearby injured ally at 50% value.",
+"desc": "黑曜鳞片同时以 50% 效果作用于你的目标或附近一名受伤盟友。"
+},
+"fire-torrent": {
+"name": "Fire Torrent",
+"meta": "Passive",
+"en": "Twin Flame bounces to up to 2 additional targets.",
+"desc": "Twin Flame 弹跳到最多 2 个额外目标。"
+},
+"consume-flame": {
+"name": "Consume Flame",
+"meta": "Passive",
+"en": "Disintegrate consumes 1.0 sec of Fire Breath from enemies it damages, detonating it for 150% of the amount consumed. Pyre consumes 4 sec of Fire Breath from enemies it damages, detonating it for 115% of the amount consumed.",
+"desc": "裂解消耗敌人身上 1 秒的火焰吐息伤害并以 150% 引爆；葬火消耗 4 秒并以 115% 引爆。"
+},
+"chrono-loop": {
+"name": "Chrono Loop",
+"meta": "",
+"en": "Trap the enemy in a time loop for 5 sec. Afterwards, they are returned to their previous location and health. Cannot reduce an enemy's health below 20%.",
+"desc": "将敌人困在时间循环中 5 秒，之后他会被送回之前的位置和生命值。无法将其生命值降到 20% 以下。"
+},
+"obsidian-mettle": {
+"name": "Obsidian Mettle",
+"meta": "",
+"en": "While Obsidian Scales is active you gain immunity to interrupt, silence, and pushback effects.",
+"desc": "黑曜鳞片激活期间，你免疫打断、沉默和位移推挤效果。"
+},
+"scouring-flame": {
+"name": "Scouring Flame",
+"meta": "",
+"en": "Fire Breath burns away 2 beneficial Magic effects from all targets.",
+"desc": "火焰吐息灼烧所有目标身上 2 个有益魔法效果。"
+},
+"time-stop": {
+"name": "Time Stop",
+"meta": "",
+"en": "Freeze an ally's timestream for 5 sec. While frozen in time they are invulnerable, cannot act, and auras do not progress. You may reactivate Time Stop to end this effect early.",
+"desc": "冻结一名盟友的时间流 5 秒。被冻结期间他无敌、无法行动，光环也不生效。你可以重新激活提前结束此效果。"
+},
+"nullifying-shroud": {
+"name": "Nullifying Shroud",
+"meta": "",
+"en": "Verdant Embrace wreathes you in arcane energy, preventing the next full loss of control effect against you. Lasts 3 sec.",
+"desc": "青翠之拥以奥术能量笼罩你，阻止下一次完全控制效果对你生效，持续 3 秒。"
+},
+"unburdened-flight": {
+"name": "Unburdened Flight",
+"meta": "",
+"en": "Hover prevents movement speed from being reduced below 100%.",
+"desc": "悬空期间你的移动速度不会被降低到 100% 以下。"
+},
+"divide-and-conquer": {
+"name": "Divide and Conquer",
+"meta": "",
+"en": "Deep Breath forms curtains of fire, preventing line of sight to enemies outside its walls and burning enemies who walk through them for 2,736 Fire damage. Lasts 6 sec.",
+"desc": "深呼吸形成一道火焰帘幕，阻断敌人穿过它的视线，并灼烧穿过的敌人造成 2,736 点火焰伤害，持续 6 秒。"
+},
+"dreamwalker's-embrace": {
+"name": "Dreamwalker's Embrace",
+"meta": "",
+"en": "Verdant Embrace tethers you to an ally, increasing movement speed by 40% and slowing and siphoning 475 life from enemies who come in contact with the tether. The tether lasts up to 10 sec or until you move more than 30 yards away from your ally.",
+"desc": "青翠之拥将你和一名盟友缠绕在一起，移动速度提高 40%，并减速和吸取接触缠绕的敌人 475 点生命值。缠绕最多持续 10 秒，或直到你与盟友距离超过 30 码。"
+}
+}

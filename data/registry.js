@@ -118,7 +118,7 @@ window.REG = {
     {
       id: 'evoker', n: '唤魔师', en: 'Evoker', c: '#33937F', ic: 'classicon_evoker', armor: '锁甲',
       specs: [
-        { id: 'devastation', n: '湮灭', en: 'Devastation', role: 'dps', tier: 'A+', ic: 'classicon_evoker_devastation', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'devastation', n: '湮灭', en: 'Devastation', role: 'dps', tier: 'A+', ic: 'classicon_evoker_devastation', page: 'devastation-evoker.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'preservation', n: '恩护', en: 'Preservation', role: 'heal', tier: null, ic: 'classicon_evoker_preservation', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'augmentation', n: '增辉', en: 'Augmentation', role: 'dps', tier: 'C', ic: 'classicon_evoker_augmentation', page: null, st: [0, 0, 0, 0, 0, 0] },
       ]

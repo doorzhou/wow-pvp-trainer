@@ -916,6 +916,101 @@ const PAGES = [
     },
   },
   {
+    file: 'devastation-evoker', kind: 'spec', cls: 'evoker', spec: 'devastation',
+    h1: '湮灭唤魔师 PvP 判断训练器', short: '湮灭唤魔师',
+    icon: 'classicon_evoker', tier: 'A+', color: '#33937F',
+    crumb: ['唤魔师', '湮灭'], store: 'banyeDevoEvokerPvP1207', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在算「现在敢不敢站住」，不是无脑蓄满。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「该不该开」的四条件过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋', vv: '<b>龙鳞指挥官 Scalecommander</b>（49/50）—— 塑焰者只有 1 人。围绕<sk>深呼吸</sk>展开。' },
+        { lb: 'PvP 天赋 · 唯一必带', vv: '<b>Unburdened Flight</b>（49/50）—— <sk>悬空</sk>期间移动速度不会被降到 100% 以下，<b>等于免疫减速</b>' },
+        {
+          lb: 'PvP 天赋 · 另两格',
+          vv: '<b>Time Stop</b>（43/50）—— 冻结盟友时间流让他无敌<br>' +
+            '<b>Scouring Flame</b>（30/50）—— <sk>火焰吐息</sk>灼烧有益魔法效果<br>' +
+            '<b>Obsidian Mettle</b>（26/50）—— <sk>黑曜鳞片</sk>期间<b>免疫打断和沉默</b><br>' +
+            '<span class="dimtx">Obsidian Mettle 的使用率不算高，但<b>对上打断多的阵容它价值飙升</b> —— ' +
+            '你的技能全要蓄力或引导，被打断就等于没输出。</span>'
+        },
+      ],
+      note: '上述 PvP 天赋暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'CsbBPJc41CfcseY0baneJ1IHrBAAAAAAAAAAgZmZGmZYGmhZGYMTjZmJDWGzMzYmZmZGgZMjHYmZZMDMwYwGsMGN2GQmJAbYgZGYMA',
+        who: 'Shenlongx', where: 'EU · Aegwynn', rating: '3v3 3158', at: '2026-08-14',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 6 个分歧格上与多数派一致 5 格</b>。' +
+          '<b>但湮灭有 22 个分歧格，是站上最多的之一</b>——' +
+          '这串只是一个起点，剩下的格子更要按自己的阵容和打法重调。',
+      },
+      tree: {
+        survey: '职业树 48 格 + 专精树 39 格 + 英雄天赋 28 格，共 <b>115 格</b>。' +
+          '扣掉几乎没人走的塑焰者整条线，top50 的实测里 93 格定死，' +
+          '<b>需要判断的有 22 格 —— 站上分歧最多的之一</b>。' +
+          '注意这跟英雄天赋 49/1 并不矛盾：<b>大方向没得选，细节上自由度很高</b>。下面是其中 6 格。',
+        picks: [
+          {
+            n: 'Potent Mana', tree: '职业', u: 42,
+            b: '魔法源泉使目标的治疗和伤害提高。' +
+              '<br><b>它是给队友的，不是给你的。</b>84% 的使用率说明这个增益在 3v3 里很值——' +
+              '但如果队伍里没有能吃到它的治疗，这一点就打折了。'
+          },
+          {
+            n: 'Honed Aggression', tree: '专精', u: 41,
+            b: '你的法术爆击几率提高。' +
+              '<br>纯输出加成，不看对面。<b>注意湮灭的爆击实测只有 13</b>——' +
+              '这一格补的正是那个短板，所以 82% 的人点它。'
+          },
+          {
+            n: 'Innate Magic', tree: '职业', u: 36,
+            b: '精华的回复速度提高。' +
+              '<br><b>资源效率格。</b>你的<sk>裂解</sk>和<sk>葬火</sk>都要花精华，' +
+              '回复越快，窗口里能按出的技能越多。'
+          },
+          {
+            n: 'Strike from Above', tree: '职业', u: 34,
+            b: '滑翔速度和高度提高。' +
+              '<br><b>纯机动格。</b>68% 的人点它——对一个「站定输出、怕被贴脸」的专精，' +
+              '机动性直接换成了活着的时间。'
+          },
+          {
+            n: 'Power Nexus', tree: '专精', u: 33,
+            b: '最大精华提高到 6 点。' +
+              '<br><b>它买的是「爆发窗口的容量」</b>——上限越高，' +
+              '你能在<sk>狂龙之怒</sk>期间连续按出的消耗技能越多。'
+          },
+          {
+            n: "Eternity's Span", tree: '专精', u: 31,
+            b: '<sk>永恒之涌</sk>命中的目标数量翻倍。' +
+              '<br><b>典型的看赛制格。</b>3v3 里对面站近时收益翻倍；' +
+              '打单体或者对面很分散，这一点几乎不动。62% 的分布正反映这种不确定性。'
+          },
+        ],
+        src: '使用率：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 湮灭唤魔师 top 50</b> 实测配点。' +
+          '「什么时候点」为编者按天赋效果与该专精打法推导，非实测结论。' +
+          '暂无官方简体中文名的天赋使用英文原名。',
+      },
+    },
+    gear: {
+      stats: [
+        { n: '全能', v: '主堆', pct: 100 },
+        { n: '精通', v: '兼顾', pct: 59, mid: 1 },
+        { n: '急速', v: '兼顾', pct: 46, mid: 1 },
+        { n: '爆击', v: '可弃', pct: 13, dim: 1 },
+      ],
+      statRead: '<b>全能领先，精通和急速跟在后面，只有爆击掉队。</b>' +
+        '这是站上属性分布最平均的专精之一 —— <b>前三条拿到什么用什么</b>，' +
+        '不用为了排序去换件。',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 湮灭唤魔师 top 50</b> 实测配装。' +
+        '档位划分为编者按断层位置判定。',
+    },
+  },
+  {
     file: 'rogue-priest-2v2', kind: 'comp', h1: '贼 + 戒律牧 · 2v2 组合训练器', short: '贼牧 2v2',
     icon: 'classicon_rogue', icon2: 'classicon_priest', tier: null, color: '#8b6fd4',
     crumb: ['组合', '2v2 贼牧'], store: 'banyeRoguePriest2v2_1207', quizSec: 's5',

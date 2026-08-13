@@ -1060,6 +1060,110 @@
   "月火术": {
    "id": 8921,
    "en": "Moonfire"
+  },
+  "活化烈焰": {
+   "id": 361469,
+   "en": "Living Flame"
+  },
+  "火焰吐息": {
+   "id": 357208,
+   "en": "Fire Breath"
+  },
+  "裂解": {
+   "id": 356995,
+   "en": "Disintegrate"
+  },
+  "葬火": {
+   "id": 357211,
+   "en": "Pyre"
+  },
+  "碧蓝打击": {
+   "id": 362969,
+   "en": "Azure Strike"
+  },
+  "翱翔": {
+   "id": 369536,
+   "en": "Soar"
+  },
+  "营救": {
+   "id": 370665,
+   "en": "Rescue"
+  },
+  "翡翠之花": {
+   "id": 355913,
+   "en": "Emerald Blossom"
+  },
+  "青翠之拥": {
+   "id": 360995,
+   "en": "Verdant Embrace"
+  },
+  "时间膨胀": {
+   "id": 357170,
+   "en": "Time Dilation"
+  },
+  "新生光焰": {
+   "id": 374348,
+   "en": "Renewing Blaze"
+  },
+  "回溯": {
+   "id": 363534,
+   "en": "Rewind"
+  },
+  "翡翠交融": {
+   "id": 370960,
+   "en": "Emerald Communion"
+  },
+  "深呼吸": {
+   "id": 357210,
+   "en": "Deep Breath"
+  },
+  "火焰风暴": {
+   "id": 368847,
+   "en": "Firestorm"
+  },
+  "镇压": {
+   "id": 351338,
+   "en": "Quell"
+  },
+  "压迫怒吼": {
+   "id": 372048,
+   "en": "Oppressing Roar"
+  },
+  "飞翼打击": {
+   "id": 357214,
+   "en": "Wing Buffet"
+  },
+  "山崩": {
+   "id": 358385,
+   "en": "Landslide"
+  },
+  "天空霸主": {
+   "id": 372245,
+   "en": "Terror of the Skies"
+  },
+  "梦游": {
+   "id": 360806,
+   "en": "Sleep Walk"
+  },
+  "狂龙之怒": {
+   "id": 375087,
+   "en": "Dragonrage"
+  },
+  "永恒之涌": {
+   "id": 359073,
+   "en": "Eternity Surge"
+  },
+  "净除": {
+   "id": 365585,
+   "en": "Expunge"
+  },
+  "灼烧之焰": {
+   "id": 374251,
+   "en": "Cauterizing Flame"
+  },
+  "微风": {
+   "id": 374227,
+   "en": "Zephyr"
   }
  }
 }
