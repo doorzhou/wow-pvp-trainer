@@ -70,7 +70,7 @@ window.REG = {
       id: 'shaman', n: '萨满祭司', en: 'Shaman', c: '#0070DD', ic: 'classicon_shaman', armor: '锁甲',
       specs: [
         { id: 'elemental', n: '元素', en: 'Elemental', role: 'dps', tier: 'A', ic: 'spell_nature_lightning', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'enhancement', n: '增强', en: 'Enhancement', role: 'dps', tier: 'A+', ic: 'spell_shaman_improvedstormstrike', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'enhancement', n: '增强', en: 'Enhancement', role: 'dps', tier: 'A+', ic: 'spell_shaman_improvedstormstrike', page: 'enhance-shaman.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'restoration', n: '恢复', en: 'Restoration', role: 'heal', tier: null, ic: 'spell_nature_magicimmunity', page: null, st: [0, 0, 0, 0, 0, 0] },
       ]
     },

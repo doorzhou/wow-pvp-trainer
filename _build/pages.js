@@ -731,6 +731,99 @@ const PAGES = [
     },
   },
   {
+    file: 'enhance-shaman', kind: 'spec', cls: 'shaman', spec: 'enhancement',
+    h1: '增强萨 PvP 判断训练器', short: '增强萨',
+    icon: 'spell_shaman_improvedstormstrike', tier: 'A+', color: '#0070DD',
+    crumb: ['萨满祭司', '增强'], store: 'banyeEnhShamPvP1207', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在算「什么时候花层数」，不是一味贴脸打。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「该不该开」的四条件过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋 · 有主流但有得选', vv: '<b>唤雷者 Stormbringer</b>（36/50）　vs　<b>图腾师 Totemic</b>（14/50）<br>' +
+          '<span class="dimtx">28% 的人走另一条线 —— 这不是 50/0 那种唯一解，这一格有真实的讨论空间。</span>' },
+        { lb: 'PvP 天赋 · 三格几乎固定', vv: '<b>Shamanism</b>（50/50）—— 嗜血冷却降到 60 秒且不受疲惫限制<br>' +
+          '<b>Burrow</b>（48/50）—— 钻地免疫 + 清减速<br>' +
+          '<sk>根基图腾</sk>（43/50）—— 吸掉一个针对队友的有害法术<br>' +
+          '<span class="dimtx">三项占了全部选择的 94%。<b>其中两格是救命牌不是输出牌</b>。</span>' },
+      ],
+      note: '「Shamanism」「Burrow」暂无官方简体中文名，使用英文原名。',
+      imp: {
+        str: 'CcQALMl7AwW51MWzGneuHE3tPOzMDMzMzMzMMzMDAAAAAAAAwGWw2yMmZ2W0ssNMDzMNYBgZbwYstMjFmZ2GLmZmhZ2GzAAMDzMzYmJmZmZwgxA',
+        who: 'Frogtide', where: 'US · Tichondrius', rating: '3v3 3227', at: '2026-08-14',
+        note: '这是<b>一个人的配点</b>，不是 top50 的平均——平均配点没有对应的串。' +
+          '选它的理由是：<b>它在下面 6 个分歧格上与多数派完全一致（6/6）</b>。' +
+          '<b>但增强萨有 20 个分歧格，是站上最多的</b>——' +
+          '这串只是一个起点，剩下那些格子更要按自己的阵容重调。',
+      },
+      tree: {
+        survey: '职业树 46 格 + 专精树 37 格 + 英雄天赋 28 格，共 <b>111 格</b>。' +
+          'top50 的实测里 91 格定死，<b>需要判断的有 20 格 —— 站上分歧最多的一棵树</b>。' +
+          '英雄天赋 36 比 14 也不是一边倒。' +
+          '这个专精的配点自由度明显高于多数专精，下面是其中 6 格。',
+        picks: [
+          {
+            n: "Storm's Wrath", tree: '专精', u: 41,
+            b: '精通「Enhanced Elements」触发 Windfury 和 Stormsurge 的几率大幅提高。' +
+              '<br><b>82% 接近定盘。</b>它加快的是触发频率，也就是<b>攒漩涡武器的速度</b>——' +
+              '对一个靠层数吃饭的专精，这一格买的是资源效率。'
+          },
+          {
+            n: 'Flurry', tree: '专精', u: 36,
+            b: '法术或技能爆击后，接下来 3 次近战挥击的攻击速度提高。' +
+              '<br>同样是攒层效率。<b>它依附于爆击</b>——而增强萨的爆击实测只有 3，' +
+              '所以这一格的实际触发频率比看起来低。72% 的人仍然点它，说明近战出手速度本身就值。'
+          },
+          {
+            n: 'Converging Storms', tree: '专精', u: 36,
+            b: '<sk>毁灭闪电</sk>每击中一个目标，你下一次<sk>风暴打击</sk>的伤害提高，最多叠 6 层。' +
+              '<br><b>它的价值直接跟对面站多近挂钩。</b>3v3 里对面挤在一起时能叠满；' +
+              '对面分散或者你在打单体，这一格只能叠一两层。'
+          },
+          {
+            n: 'Ascendance', tree: '专精', u: 36, ch: 1,
+            b: '化身风之升腾者，攻击转为无视护甲的远程风之攻击，并释放<sk>毁灭之风</sk>。' +
+              '<br><b>这是二选一格</b>——同格另一个选项数据源没给。' +
+              '它解决的是增强萨最大的结构问题：<b>贴不上人就攒不了资源</b>。' +
+              '对面机动性强、总把你赶开时，这一格是刚需；对面站桩硬打，它只是普通爆发。'
+          },
+          {
+            n: 'Chaining Storms', tree: '专精', u: 35,
+            b: '<sk>闪电链</sk>额外跳跃到 2 个目标，伤害提高。' +
+              '<br><b>它加的是「花层数那一下」的收益。</b>' +
+              '3v3 里目标多、闪电链跳得满时很值；单体局面下这一格的加成打折。'
+          },
+          {
+            n: "Nature's Protection", tree: '英雄', u: 35, ch: 1,
+            b: 'Lightning Shield 使你受到的伤害降低。' +
+              '<br><b>又一个二选一格。</b>纯生存加成，不看对面伤害类型。' +
+              '70% 的使用率说明多数人认为增强萨在 PvP 里挨打太多——' +
+              '你不是集火目标的局，这一点可以换成输出。'
+          },
+        ],
+        src: '使用率：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 增强萨 top 50</b> 实测配点。' +
+          '「什么时候点」为编者按天赋效果与该专精打法推导，非实测结论。' +
+          '暂无官方简体中文名的天赋使用英文原名。',
+      },
+    },
+    gear: {
+      stats: [
+        { n: '全能', v: '主堆', pct: 100 },
+        { n: '急速', v: '兼顾', pct: 65, mid: 1 },
+        { n: '精通', v: '可弃', pct: 15, dim: 1 },
+        { n: '爆击', v: '可弃', pct: 3, dim: 1 },
+      ],
+      statRead: '<b>全能领先、急速紧跟，之后是断崖。</b>' +
+        '急速对增强萨的价值高于多数专精 —— 它加快近战出手，也就加快漩涡武器的攒层速度。' +
+        '<b>前两条一起堆，精通和爆击装备上带多少算多少。</b>',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' 赛季一 · 美/欧/韩/台四区 <b>3v3 增强萨 top 50</b> 实测配装。' +
+        '档位划分为编者按断层位置判定。',
+    },
+  },
+  {
     file: 'rogue-priest-2v2', kind: 'comp', h1: '贼 + 戒律牧 · 2v2 组合训练器', short: '贼牧 2v2',
     icon: 'classicon_rogue', icon2: 'classicon_priest', tier: null, color: '#8b6fd4',
     crumb: ['组合', '2v2 贼牧'], store: 'banyeRoguePriest2v2_1207', quizSec: 's5',

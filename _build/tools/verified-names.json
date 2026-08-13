@@ -808,6 +808,130 @@
   "盲目之光": {
    "id": 115750,
    "en": "Blinding Light"
+  },
+  "风暴打击": {
+   "id": 17364,
+   "en": "Stormstrike"
+  },
+  "熔岩猛击": {
+   "id": 60103,
+   "en": "Lava Lash"
+  },
+  "烈焰震击": {
+   "id": 188389,
+   "en": "Flame Shock"
+  },
+  "狂野扑击": {
+   "id": 196884,
+   "en": "Feral Lunge"
+  },
+  "野性狼魂": {
+   "id": 51533,
+   "en": "Feral Spirit"
+  },
+  "升腾": {
+   "id": 114050,
+   "en": "Ascendance"
+  },
+  "幽魂步": {
+   "id": 58875,
+   "en": "Spirit Walk"
+  },
+  "电能图腾": {
+   "id": 192058,
+   "en": "Capacitor Totem"
+  },
+  "妖术": {
+   "id": 51514,
+   "en": "Hex"
+  },
+  "风剪": {
+   "id": 57994,
+   "en": "Wind Shear"
+  },
+  "幽魂之狼": {
+   "id": 2645,
+   "en": "Ghost Wolf"
+  },
+  "治疗之涌": {
+   "id": 8004,
+   "en": "Healing Surge"
+  },
+  "大地之盾": {
+   "id": 974,
+   "en": "Earth Shield"
+  },
+  "狂风图腾": {
+   "id": 192077,
+   "en": "Wind Rush Totem"
+  },
+  "土元素": {
+   "id": 198103,
+   "en": "Earth Elemental"
+  },
+  "石壁图腾": {
+   "id": 108270,
+   "en": "Stone Bulwark Totem"
+  },
+  "治疗之泉图腾": {
+   "id": 5394,
+   "en": "Healing Stream Totem"
+  },
+  "根基图腾": {
+   "id": 204336,
+   "en": "Grounding Totem"
+  },
+  "巫毒图腾": {
+   "id": 196932,
+   "en": "Voodoo Totem"
+  },
+  "阵风": {
+   "id": 192063,
+   "en": "Gust of Wind"
+  },
+  "治疗之雨": {
+   "id": 73920,
+   "en": "Healing Rain"
+  },
+  "大地震击": {
+   "id": 8042,
+   "en": "Earth Shock"
+  },
+  "闪电链": {
+   "id": 188443,
+   "en": "Chain Lightning"
+  },
+  "毁灭闪电": {
+   "id": 187874,
+   "en": "Crash Lightning"
+  },
+  "裂地术": {
+   "id": 197214,
+   "en": "Sundering"
+  },
+  "火焰新星": {
+   "id": 333974,
+   "en": "Fire Nova"
+  },
+  "毁灭之风": {
+   "id": 384352,
+   "en": "Doom Winds"
+  },
+  "风切": {
+   "id": 115356,
+   "en": "Windstrike"
+  },
+  "灵魂行者的恩赐": {
+   "id": 79206,
+   "en": "Spiritwalker's Grace"
+  },
+  "水上行走": {
+   "id": 546,
+   "en": "Water Walking"
+  },
+  "星界传送": {
+   "id": 556,
+   "en": "Astral Recall"
   }
  }
 }
