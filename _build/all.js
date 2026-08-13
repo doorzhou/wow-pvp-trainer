@@ -78,4 +78,29 @@ for (const f of fs.readdirSync(SITE).filter(x => x.endsWith('.html'))) {
 }
 console.log('  h1 数量异常 ' + h1Err + ' 页');
 
-console.log('\n' + (bad + synErr + h1Err === 0 ? '✅ 全部通过' : '⚠️  有 ' + (bad + synErr + h1Err) + ' 处问题'));
+// 题库结构。重点是最后一条：答题引擎会打乱选项顺序，
+// 所以「B 和 C 都对」「以上都对」这类写法在页面上必然是错的 —— 靠人眼看不出来，只能焊在这里。
+let quizErr = 0;
+const qbad = (id, why) => { console.log('  ✗ ' + id + '：' + why); quizErr++ };
+for (const f of fs.readdirSync(path.join(__dirname, 'content')).filter(x => !x.startsWith('_'))) {
+  const c = require(path.join(__dirname, 'content', f));
+  const seen = new Set();
+  (c.quiz || []).forEach(q => {
+    const at = f.replace('.js', '') + '/' + q.id;
+    if (seen.has(q.id)) qbad(at, 'id 重复');
+    seen.add(q.id);
+    if (!Array.isArray(q.o) || q.o.length !== 4) qbad(at, '选项不是 4 个');
+    if (!Array.isArray(q.e) || q.e.length !== (q.o || []).length) qbad(at, '解析数与选项数对不上');
+    if (!(q.r >= 0 && q.r < (q.o || []).length)) qbad(at, '正确答案下标越界');
+    if (![1, 2, 3].includes(q.d)) qbad(at, '难度不是 1/2/3');
+    if (!q.k) qbad(at, '缺「可迁移的那一条」');
+    [...(q.o || []), ...(q.e || [])].forEach(t => {
+      if (/\b[ABCD]\s*和\s*[ABCD]\b|以上都|上述都|选项\s*[1234一二三四]/.test(String(t)))
+        qbad(at, '引用了选项位置，但选项会被打乱：' + String(t).slice(0, 30));
+    });
+  });
+}
+console.log('  题库问题 ' + quizErr + ' 处');
+
+const total = bad + synErr + h1Err + quizErr;
+console.log('\n' + (total === 0 ? '✅ 全部通过' : '⚠️  有 ' + total + ' 处问题'));
