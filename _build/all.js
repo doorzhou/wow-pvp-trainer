@@ -102,5 +102,22 @@ for (const f of fs.readdirSync(path.join(__dirname, 'content')).filter(x => !x.s
 }
 console.log('  题库问题 ' + quizErr + ' 处');
 
-const total = bad + synErr + h1Err + quizErr;
+// 专精页结构。第一版新增专精时照着一个已经跑偏的页面抄，结果 setup/general 空着、
+// 对手缺 arena/duel、s5 硬编码 —— 页面照样渲染得出来，只有跟标准逐字段比才发现。
+let structErr = 0;
+for (const f of fs.readdirSync(path.join(__dirname, 'content')).filter(x => !x.startsWith('_'))) {
+  const c = require(path.join(__dirname, 'content', f));
+  const id = f.replace('.js', '');
+  if (!c.match || !c.match.list || c.match.list.length < 13) continue;   // 只查专精页
+  const bad = (why) => { console.log('  ✗ ' + id + '：' + why); structErr++ };
+  ['clocks', 'setup', 'general', 'sheet'].forEach(k => {
+    if (!c.fragments[k]) bad('缺 fragments.' + k);
+  });
+  const noMode = c.match.list.filter(m => !m.arena || !m.duel);
+  if (noMode.length) bad(noMode.length + ' 个对手缺 arena/duel（分职业页有模式切换）');
+  if ((c.sections.s5 || '').length > 200) bad('s5 应该是空壳，内容放 fragments.sheet');
+}
+console.log('  专精页结构问题 ' + structErr + ' 处');
+
+const total = bad + synErr + h1Err + quizErr + structErr;
 console.log('\n' + (total === 0 ? '✅ 全部通过' : '⚠️  有 ' + total + ' 处问题'));

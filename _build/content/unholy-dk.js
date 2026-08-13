@@ -29,19 +29,17 @@ module.exports = {
     }
   ],
   "sections": {
-    "s1": "<div class=\"wrap\">\n<div class=\"thesis\">\n  <div class=\"lbl\">实测数据先给一个坐标</div>\n  <div class=\"big\">Necrotic Wounds <b>50/50</b> 全员必带 —— 减疗是<b>疫病顺带完成</b>的，不用额外花手法。<br>这个专精在队里的活，是让对面从被你缠上那一刻起就一直在掉血、一直补不满。</div>\n</div>\n<h2>三格 PvP 天赋：一格没得选，两格看阵容</h2>\n<p class=\"lead\">50 人 × 3 格 = 150 个选择。Necrotic Wounds 拿走 50 个（全员必带），剩下两格才是判断。</p>\n<div class=\"rows\" id=\"pvptal\"></div>\n<h2>英雄天赋：没有分歧，只有一条线</h2>\n<div class=\"rows\" id=\"heroline\"></div>\n<h2>该不该开？勾一下就知道</h2>\n<p class=\"lead\">四条都从技能效果推得出来，不是感觉。</p>\n<div class=\"gobox\">\n  <div class=\"gh\">开场决策器</div>\n  <div class=\"gt\">现在的局面满足哪几条？</div>\n  <div class=\"checks\" id=\"checks\"></div>\n  <div class=\"verdict\" id=\"verdict\"></div>\n</div>\n<h2>三个时钟</h2>\n<p class=\"lead\">邪恶死骑的节奏全挂在这三个数字上。</p>\n<div class=\"rows\" id=\"clocks\"></div>\n</div>",
-    "s2": "<div class=\"wrap\">\n<h2>一轮交战的完整流程</h2>\n<p class=\"lead\">点着走一遍。</p>\n<div class=\"rows\" id=\"general\"></div>\n</div>",
-    "s3": "<div class=\"wrap\">\n<h2>13 职业 · 对局四问</h2>\n<p class=\"lead\">只写机制：他有哪些牌、你怎么接。数值与强弱评级每个补丁都在动，这里不写。</p>\n<div class=\"clsgrid\" id=\"clsGrid\"></div>\n<div id=\"clsDetail\"></div>\n</div>",
+    "s1": "<div class=\"wrap\">\n\n<div class=\"thesis\">\n  <div class=\"lbl\">这版本唯一要记住的一句</div>\n  <div class=\"big\">邪恶不是靠一下打死人。<br>你的活是让对面从被缠上那一刻起，就一直在掉血、一直补不满。</div>\n</div>\n\n<div class=\"rows\">\n  <div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"爆发\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_deathvortex.jpg\" alt=\"爆发\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"天启\" style=\"width:20px;height:20px\" src=\"assets/icons/artifactability_unholydeathknight_deathsembrace.jpg\" alt=\"天启\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"黑暗突变\" style=\"width:20px;height:20px\" src=\"assets/icons/achievement_boss_festergutrotface.jpg\" alt=\"黑暗突变\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">为什么？这个专精的伤害有一半不在你手上</span><span class=\"sub\">疫病 + 召唤物，两样都要先铺好</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>战士的伤害全在自己身上，开了窗口就能兑现。<b>邪恶不一样</b>——疫病在对方身上走、召唤物在场上打，这两部分加起来占了你伤害的很大一块。</p><p style=\"margin-top:8px\">所以邪恶的准备动作比别的专精重：<b>病没铺满，<sk>天启</sk>引爆的是空气；宠物贴不上人，窗口就是空转</b>。反过来，一旦铺好了，你的压力是持续的，不像战士那样只有 10 秒。</p></div></div>\n</div>\n\n<h2>该不该开？勾一下就知道</h2>\n<p class=\"lead\">勾掉几条，就有多少胜算。</p>\n<div class=\"gobox\">\n  <div class=\"gh\">开场决策器</div>\n  <div class=\"gt\">现在的局面满足哪几条？</div>\n  <div class=\"checks\" id=\"checks\"></div>\n  <div class=\"verdict\" id=\"verdict\"></div>\n</div>\n\n<h2>三个时钟</h2>\n<p class=\"lead\">邪恶的节奏挂在这三个数字上。</p>\n<div class=\"rows\" id=\"clocks\"></div>\n\n<h2>本版定盘（top50 三对三实测）</h2>\n<div class=\"rows\" id=\"setup\"></div>\n\n</div>",
+    "s2": "<div class=\"wrap\">\n  <div class=\"rows\" id=\"general\"></div>\n</div>",
+    "s3": "<div class=\"wrap\">\n  <p class=\"lead\">四问对所有敌人是同一套。</p>\n  <div class=\"split\">\n    <div class=\"sidecol\">\n      <div class=\"cls-grid\" id=\"clsGrid\"></div>\n      <div class=\"modebar\" id=\"modebar\">\n        <button class=\"on\" data-m=\"arena\">竞技场</button>\n        <button data-m=\"duel\">单挑</button>\n      </div>\n    </div>\n    <div id=\"clsDetail\"></div>\n  </div>\n</div>",
     "s4": "<div class=\"wrap\">\n  <div class=\"statbar\">\n    <div class=\"stat\"><span class=\"k\">累计答题</span><span class=\"v\" id=\"stPlayed\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">总正确率</span><span class=\"v\" id=\"stAcc\">—</span></div>\n    <div class=\"stat\"><span class=\"k\">最长连对</span><span class=\"v\" id=\"stBest\">0</span></div>\n    <div class=\"stat\"><span class=\"k\">错题库</span><span class=\"v\" id=\"stWrong\">0</span></div>\n  </div>\n  <div class=\"qtop\">\n    <select id=\"fCat\"><option value=\"all\">全部范围</option></select>\n    <select id=\"fDiff\">\n      <option value=\"all\">全部难度</option>\n      <option value=\"1\">基础 · 机制</option>\n      <option value=\"2\">进阶 · 时机</option>\n      <option value=\"3\">高阶 · 权衡</option>\n    </select>\n    <button class=\"btn\" onclick=\"startQuiz(false)\">开始一轮（10 题）</button>\n    <button class=\"btn ghost\" onclick=\"startQuiz(true)\">只练错题</button>\n    <button class=\"btn ghost\" onclick=\"resetStats()\">清空记录</button>\n  </div>\n  <div id=\"quizArea\"></div>\n</div>",
-    "s5": "<div class=\"wrap\">\n<h2>赛前速查</h2>\n<div id=\"sheet\"></div>\n<h2>开赛前先问自己三句</h2>\n<div class=\"rows\"><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\">对面谁有免疫牌？</span><span class=\"sub\">决定你的疫病铺给谁</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>圣盾术、<sk>寒冰屏障</sk>、<sk>暗影斗篷</sk>——<b>邪恶没有撕免疫的手段</b>，遇到只能等或换目标。但疫病在免疫期间照走，所以<b>先把病铺在免疫牌最少的那个人身上</b>。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\">对面法系多还是物理多？</span><span class=\"sub\">决定 PvP 天赋第二、三格</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>Spellwarden（41/50）抗法术，Bloodforged Armor（12/50）抗物理。<b>这两格是看阵容换的，不是固定的</b>——24% 对 82% 的差距说明大多数局面里法系威胁更大。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\"><sk>天启</sk>和<sk>黑暗突变</sk>叠还是错开？</span><span class=\"sub\">这局最主要的节奏判断</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>叠一起是一波结账，错开是两段持续压力。<b>对面防御池厚就错开</b>——一波打不穿，不如让他一直处在压力里；<b>对面脆就叠</b>，一次带走。</p></div></div></div>\n</div>"
+    "s5": "<div class=\"wrap\">\n  <div class=\"sheet\" id=\"sheet\"></div>\n</div>"
   },
   "fragments": {
-    "pvptal": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\"><sk>绞袭</sk>　38/50</span><span class=\"sub\">76%，沉默</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>暗影触须勒住敌人咽喉，使其<b>沉默</b>。</p><p style=\"margin-top:8px\"><b>沉默不吃昏迷递减</b>，这是它和<sk>窒息</sk>最大的区别。留给「治疗必须把这一发读出来」的那一刻——他被沉默的时候不能读条、不能交保命，你的伤害才真正落地。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\">Spellwarden　41/50</span><span class=\"sub\">82%，抗法术</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>反魔法护罩</sk>的冷却缩短，并额外吸收法术伤害。</p><p style=\"margin-top:8px\"><b>对面法系越多，这一格越硬。</b>邪恶自己不怕物理（板甲 + 减伤多），怕的是被法系集火秒——这一格买的是活着输出的时间。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\">Necrotic Wounds　50/50</span><span class=\"sub\">100%，没有例外</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>你的疫病使目标受到的治疗降低。</p><p style=\"margin-top:8px\"><b>50/50，全员必带。</b>邪恶的减疗不像战士挂在单个技能上，是靠疫病铺开的——这一格让你的 DoT 顺带完成减疗，不用额外花 GCD。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\">Bloodforged Armor　12/50</span><span class=\"sub\">24%，看对面物理压力</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>受到的物理伤害降低。</p><p style=\"margin-top:8px\">只有对面双近战、你被当成集火目标时才值。<b>24% 的使用率正说明它是看阵容的</b>，不是常驻。</p></div></div>",
-    "heroline": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\">天启骑手 Rider of the Apocalypse　<b>50/50</b></span><span class=\"sub\">唯一解，不是推荐</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>top50 里 50 人全走这条线，圣血 San'layn <b>0 人</b>。</p><p style=\"margin-top:8px\"><b>这不是「更好」，是「只有这一条」。</b>另一条线在 3v3 里一个人都没走——遇到分歧格的时候不用在两条线之间纠结，直接照这条配。</p></div></div>",
-    "clocks": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\">60 秒 · <sk>天启</sk></span><span class=\"sub\">你的窗口多久来一次</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>召唤次级食尸鬼并引爆脓疮之伤。<b>这是邪恶的爆发起点</b>，后面所有伤害都要落在它开的这段里。</p><p style=\"margin-top:8px\">战士的窗口靠增伤撑开，邪恶的窗口靠<b>召唤物堆叠</b>撑开——所以它比战士更怕被打断节奏：宠物打不到人，窗口就是空的。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\">90 秒 · <sk>黑暗突变</sk></span><span class=\"sub\">宠物什么时候变强</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>把食尸鬼进化为畸兽，大幅强化。<b>它和<sk>天启</sk>错开还是叠一起，是这个专精最主要的节奏判断。</b></p><p style=\"margin-top:8px\">叠一起 = 一波打死人；错开 = 两段持续压力。对面防御池厚就错开，对面脆就叠。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"t\">3 分钟 · <sk>亡者大军</sk></span><span class=\"sub\">你的明牌</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>召唤一支亡灵大军。<b>这是明牌</b>——交出去对面就知道你要杀人了，防御池会立刻推出来。</p><p style=\"margin-top:8px\">和战士的<sk>天神下凡</sk>同理：牌不齐的时候交，等于把三分钟冷却送给对面看。</p></div></div>",
-    "setup": "",
-    "general": "",
-    "sheet": "<div class=\"sc wide\"><h4>三条铁律</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">疫病先铺满，再谈爆发</div><div class=\"dd\">减疗和伤害都从疫病来。身上没病，<sk>天启</sk>引爆的就是空气。</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">宠物打不到人 = 窗口是空的</div><div class=\"dd\">你的伤害有很大一部分在召唤物身上。目标跑了、宠物还在原地，伤害就断了。</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">沉默留给读条，不留给开场</div><div class=\"dd\"><sk>绞袭</sk>不吃昏迷递减。治疗抬手那一下用，比开场交值十倍。</div></div></div></div></div>"
+    "clocks": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"天启\" style=\"width:20px;height:20px\" src=\"assets/icons/artifactability_unholydeathknight_deathsembrace.jpg\" alt=\"天启\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">爆发时钟 · <sk>天启</sk></span><span class=\"sub\">你的窗口多久来一次</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>引爆脓疮之伤并召唤次级食尸鬼，<b>这是邪恶的爆发起点</b>。</p><p style=\"margin-top:8px\">战士的窗口靠增伤撑开，邪恶的窗口靠<b>召唤物堆叠</b>撑开——所以它比战士更怕被打断节奏：宠物打不到人，窗口就是空的。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"绞袭\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_soulleech_3.jpg\" alt=\"绞袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"窒息\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_deathknight_asphixiate.jpg\" alt=\"窒息\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">控制时钟 · 沉默与昏迷</span><span class=\"sub\">两种控制，两套递减</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>绞袭</sk>是沉默、<sk>窒息</sk>是昏迷，<b>它们走不同的递减</b>。</p><p style=\"margin-top:8px\">这意味着你可以先沉默再昏迷，不互相缩短。<b>沉默留给治疗读条，昏迷留给需要人彻底动不了的时候。</b></p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"反魔法护罩\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_antimagicshell.jpg\" alt=\"反魔法护罩\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"冰封之韧\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_deathknight_iceboundfortitude.jpg\" alt=\"冰封之韧\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">生存时钟 · 两张减伤</span><span class=\"sub\">一张抗法术，一张抗全部</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>反魔法护罩</sk>吸法术伤害，<sk>冰封之韧</sk>是全类型大减伤加免疫昏迷。</p><p style=\"margin-top:8px\"><b>对面法系多的时候，护罩几乎是免疫。</b>但它冷却比冰封短，所以护罩是常规牌、冰封是保命牌。</p></div></div>",
+    "setup": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"亡者大军\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_deathknight_armyofthedead.jpg\" alt=\"亡者大军\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">英雄天赋：天启骑手</span><span class=\"sub\">top50 里 50 人全用，没有取舍空间</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><b>天启骑手（Rider of the Apocalypse）</b>——top50 三对三里 50 人全用，圣血（San'layn）是 <b>0</b>。这不是「推荐」，是唯一解。</p><p style=\"margin-top:8px\">所以英雄天赋那 28 格不用逐格纠结：跟着这条线走，格子自己就定了。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"绞袭\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_soulleech_3.jpg\" alt=\"绞袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">PvP 天赋：一格没得选，两格看阵容</span><span class=\"sub\">Necrotic Wounds 必带 · 另两格按对面换</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><b>Necrotic Wounds（50/50）</b>——全员必带。它让你的疫病顺带完成减疗，<b>不用额外花 GCD</b>，这是邪恶比战士省手法的地方。</p><p style=\"margin-top:8px\"><b>Spellwarden（41/50）</b>抗法术、<sk>绞袭</sk>（38/50）4 秒沉默、<b>Bloodforged Armor（12/50）</b>抗物理。前两个是常态，最后一个只在对面双近战、你被当成集火目标时换上——<b>24% 对 82% 的差距说明大多数局面里法系威胁更大</b>。</p><p style=\"margin-top:8px\"><span class=\"dimtx\">三格 50 人 = 150 个选择，上面四项占了其中 141 个。</span></p></div></div>",
+    "general": "<div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"爆发\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_deathvortex.jpg\" alt=\"爆发\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"天启\" style=\"width:20px;height:20px\" src=\"assets/icons/artifactability_unholydeathknight_deathsembrace.jpg\" alt=\"天启\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"灵魂收割\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_deathknight_soulreaper.jpg\" alt=\"灵魂收割\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">01 · 一轮交战的完整流程</span><span class=\"sub\">八步，点着走一遍</span><span class=\"ar\">▸</span></div><div class=\"b\"><div class=\"stepper\" id=\"stepBody\"></div></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"爆发\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_deathvortex.jpg\" alt=\"爆发\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"脓疮打击\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_deathknight_festering_strike.jpg\" alt=\"脓疮打击\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">02 · 疫病：所有伤害的地基</span><span class=\"sub\">铺病同时完成减疗</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>爆发</sk>上恐惧瘟疫、<sk>脓疮打击</sk>叠脓疮之伤。<b>Necrotic Wounds 让减疗跟着疫病一起走</b>，所以铺病这一件事把伤害和减疗都准备好了。</p><p style=\"margin-top:8px\">判据很简单：<b>开爆发之前先看目标身上有没有病</b>。没有就先铺，别急着交冷却。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"天启\" style=\"width:20px;height:20px\" src=\"assets/icons/artifactability_unholydeathknight_deathsembrace.jpg\" alt=\"天启\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"黑暗突变\" style=\"width:20px;height:20px\" src=\"assets/icons/achievement_boss_festergutrotface.jpg\" alt=\"黑暗突变\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">03 · 叠还是错开：这个专精最主要的判断</span><span class=\"sub\">看对面扛不扛得住一波</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>天启</sk>和<sk>黑暗突变</sk>叠在一起 = 一波结账；错开 = 两段持续压力。</p><p style=\"margin-top:8px\"><b>对面防御池厚就错开</b>——一波打不穿的话，不如让他一直处在压力里，逼他一张一张交牌。<b>对面脆就叠</b>，不给喘息。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"绞袭\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_soulleech_3.jpg\" alt=\"绞袭\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">04 · 沉默卡在治疗抬手那一刻</span><span class=\"sub\">不吃昏迷递减，别浪费在开场</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>绞袭</sk>沉默 4 秒，<b>不进昏迷递减</b>——这是它比<sk>窒息</sk>金贵的地方。</p><p style=\"margin-top:8px\">不要开场就交。要卡在「治疗必须把这一发读出来」的时候，那一下才真正让你的伤害落地。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"死亡之握\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_deathknight_strangulate.jpg\" alt=\"死亡之握\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">05 · 你抓得住人，但只有一次</span><span class=\"sub\">握留给对手真要走的那一刻</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>死骑没有脱身手段，但有抓人手段。<b>这是少数你不怕对面跑的专精</b>——前提是别把握空交了。</p><p style=\"margin-top:8px\">对手有位移时（法师闪现、DH 二段跳、德鲁伊变形），<b>等他的位移交完再握</b>，这次才拉得住。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"灵魂收割\" style=\"width:20px;height:20px\" src=\"assets/icons/ability_deathknight_soulreaper.jpg\" alt=\"灵魂收割\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">06 · 处决阶段：标记要提前打</span><span class=\"sub\">不是掉血之后才补</span><span class=\"ar\">▸</span></div><div class=\"b\"><p><sk>灵魂收割</sk>是标记不是即时伤害——目标在短时间内掉到低血量会再受一次伤害。</p><p style=\"margin-top:8px\"><b>要在血线掉下去之前打上</b>。等他更低了再打，那一段标记时间就浪费了。</p></div></div><div class=\"row\"><div class=\"h\" onclick=\"tg(this)\"><span class=\"icrow\"><img class=\"ic\" data-sk=\"反魔法护罩\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_shadow_antimagicshell.jpg\" alt=\"反魔法护罩\" loading=\"lazy\" onerror=\"this.style.display='none'\"><img class=\"ic\" data-sk=\"冰封之韧\" style=\"width:20px;height:20px\" src=\"assets/icons/spell_deathknight_iceboundfortitude.jpg\" alt=\"冰封之韧\" loading=\"lazy\" onerror=\"this.style.display='none'\"></span><span class=\"t\">07 · 召唤物冷却期是你的软弱期</span><span class=\"sub\">这段时间的任务是活着</span><span class=\"ar\">▸</span></div><div class=\"b\"><p>窗口过了、宠物冷却没转好，<b>你的输出会明显掉一截</b>。</p><p style=\"margin-top:8px\">这时候转防御不是怂，是必要动作：扛过去，等<sk>天启</sk>转好，重新铺病开下一轮。</p></div></div>",
+    "sheet": "<div class=\"sc wide\"><h4>三条铁律</h4><div class=\"big3\"><div class=\"b3\"><div class=\"n\">1</div><div><div class=\"tt\">疫病先铺满，再谈爆发</div><div class=\"dd\">减疗和伤害都从疫病来。身上没病，<sk>天启</sk>引爆的就是空气。</div></div></div><div class=\"b3\"><div class=\"n\">2</div><div><div class=\"tt\">宠物打不到人 = 窗口是空的</div><div class=\"dd\">你的伤害有很大一部分在召唤物身上。目标跑了、宠物在原地，那部分直接归零。</div></div></div><div class=\"b3\"><div class=\"n\">3</div><div><div class=\"tt\">沉默留给读条，不留给开场</div><div class=\"dd\"><sk>绞袭</sk>不吃昏迷递减。治疗抬手那一下用，比开场交值十倍。</div></div></div></div></div><div class=\"sc\"><h4>开赛前先问三句</h4><p><b>1 · 对面谁有免疫牌？</b>邪恶没有撕免疫的手段，遇到只能等或换目标。但疫病在免疫期间照走——<b>先把病铺在免疫牌最少的那个人身上</b>。</p><p style=\"margin-top:8px\"><b>2 · 对面法系多还是物理多？</b>决定 PvP 天赋第三格：Spellwarden 抗法术（41/50）还是 Bloodforged Armor 抗物理（12/50）。</p><p style=\"margin-top:8px\"><b>3 · <sk>天启</sk>和<sk>黑暗突变</sk>叠还是错开？</b>对面防御池厚就错开、脆就叠。这是这局最主要的节奏判断。</p></div><div class=\"sc\"><h4>免疫牌对邪恶的分级</h4><p><b>接近全免</b>：<sk>暗影斗篷</sk>（免法术）—— 你的伤害以暗影为主，这是最难受的一张。</p><p style=\"margin-top:8px\"><b>影响小</b>：<sk>闪避</sk>（挡物理）、<sk>保护祝福</sk>（免物理）—— 暗影伤害照进，比战士舒服。</p><p style=\"margin-top:8px\"><b>完全免疫但疫病照走</b>：圣盾术、<sk>寒冰屏障</sk>、<sk>星界转移</sk> —— 人换掉，病留着。</p></div>"
   },
   "sk": {
     "业报之触": "ability_monk_touchofkarma",
@@ -213,7 +211,9 @@ module.exports = {
             "用疫病耗，不要拼窗口",
             "他的爆发集中在一个窗口，你的伤害是持续的。<b>错开他的窗口，在他冷却真空期压上去</b>。"
           ]
-        ]
+        ],
+        "arena": "他的爆发是明牌，看到<sk>天神下凡</sk>就交<sk>冰封之韧</sk>。错开他的窗口，在他冷却真空期压上去。",
+        "duel": "单挑时距离不是问题（两边都不跑），纯拼疫病铺得快不快、减伤省不省。"
       },
       {
         "id": "paladin",
@@ -244,7 +244,9 @@ module.exports = {
             "铺满疫病等他交牌",
             "他交<sk>圣盾术</sk>的那几秒你打不动，但疫病还在他身上走。<b>疫病是唯一不受免疫时机影响的伤害</b>。"
           ]
-        ]
+        ],
+        "arena": "他的<sk>保护祝福</sk>会保队友，被保的目标暗影伤害还能进一部分——不用像战士那样立刻换人。",
+        "duel": "单挑就是等<sk>圣盾术</sk>。免疫期间疫病照走，这几秒去铺满另一层病。"
       },
       {
         "id": "hunter",
@@ -276,7 +278,9 @@ module.exports = {
             "先握后爆，不要反过来",
             "贴上去再开<sk>天启</sk>。窗口开了人跑了，召唤物追不上，伤害全断。"
           ]
-        ]
+        ],
+        "arena": "<sk>假死</sk>会清掉你铺的疫病，这是这个对局最亏的一点。把病优先铺在他队友身上。",
+        "duel": "单挑追不上猎人，<sk>死亡之握</sk>留给他交完<sk>逃脱</sk>之后。"
       },
       {
         "id": "rogue",
@@ -308,7 +312,9 @@ module.exports = {
             "保命牌留在手上",
             "贼从潜行开局，开场主动权不在你。<b>别在他现身之前就把<sk>反魔法护罩</sk>交了</b>。"
           ]
-        ]
+        ],
+        "arena": "<sk>暗影斗篷</sk>期间转去打他队友，别硬扛——你的暗影伤害在斗篷面前接近全免。",
+        "duel": "单挑时<sk>闪避</sk>对你影响小（挡物理），斗篷才是要躲的那张。"
       },
       {
         "id": "priest",
@@ -340,7 +346,9 @@ module.exports = {
             "<sk>绞袭</sk>卡他的大治疗",
             "沉默不吃昏迷递减。他读大招那一下沉默掉，这一轮就赢了。"
           ]
-        ]
+        ],
+        "arena": "减疗是自动的，你的活是用<sk>绞袭</sk>卡他的大治疗，不是拼输出。",
+        "duel": "单挑靠<sk>巫妖之躯</sk>免疫恐惧，然后持续压——牧师的自愈耗不过疫病的减疗。"
       },
       {
         "id": "deathknight",
@@ -371,7 +379,9 @@ module.exports = {
             "别在他护罩期间开爆发",
             "看到<sk>反魔法护罩</sk>就等。三秒的耐心换一整个窗口。"
           ]
-        ]
+        ],
+        "arena": "镜像看谁的疫病先铺满。<sk>反魔法护罩</sk>互相克制，看到他交就等三秒。",
+        "duel": "单挑纯对耗，减伤用得省的赢。<sk>冰封之韧</sk>留给他的<sk>天启</sk>窗口。"
       },
       {
         "id": "shaman",
@@ -402,7 +412,9 @@ module.exports = {
             "卡在图腾冷却的空当",
             "他刚交完一轮图腾那段时间，是你最好的窗口。"
           ]
-        ]
+        ],
+        "arena": "<sk>枯萎凋零</sk>顺手清关键图腾，收益常常大于继续砍人。",
+        "duel": "单挑等<sk>星界转移</sk>过去，免疫期间疫病照走，不算亏。"
       },
       {
         "id": "mage",
@@ -434,7 +446,9 @@ module.exports = {
             "握要留给他的位移",
             "他闪现之后你才握，不是他站着的时候。握空了这个对局就很难打。"
           ]
-        ]
+        ],
+        "arena": "<sk>反魔法护罩</sk>要卡在他爆发那一刻——法师是纯法系，护罩期间你几乎免疫。",
+        "duel": "单挑靠<sk>死亡之握</sk>抓人，握要等他闪现交完。<sk>幻影步</sk>受伤会断，别用来追。"
       },
       {
         "id": "warlock",
@@ -465,7 +479,9 @@ module.exports = {
             "压住不给喘息",
             "术士需要时间读条叠 DoT。<b>持续贴身比爆发窗口更能限制他</b>——这正是邪恶擅长的。"
           ]
-        ]
+        ],
+        "arena": "疫病的减疗正好克制他的自愈。持续贴身比等窗口更能限制他读条。",
+        "duel": "单挑用<sk>巫妖之躯</sk>免疫恐惧，然后一直压。术士需要时间叠 DoT，别给他。"
       },
       {
         "id": "monk",
@@ -496,7 +512,9 @@ module.exports = {
             "先试探再全交",
             "这个对局值得先打两下看反应。试探成本远低于整套被反弹。"
           ]
-        ]
+        ],
+        "arena": "<sk>业报之触</sk>要停两份手：自己的和宠物的。把<sk>天启</sk>和<sk>黑暗突变</sk>错开交。",
+        "duel": "单挑先打两下试探，业报通常就是接你的爆发来的。试探成本远低于整套被反弹。"
       },
       {
         "id": "druid",
@@ -527,7 +545,9 @@ module.exports = {
             "疫病是你对抗风筝的武器",
             "他跑得掉你的近战，跑不掉身上的病。<b>铺满了再让他跑，也在掉血</b>。"
           ]
-        ]
+        ],
+        "arena": "<sk>死亡之握</sk>卡在他要变形那一刻，这是德鲁伊对局里最值的一次握。",
+        "duel": "单挑追不上就别追，疫病铺满让他跑着也掉血。"
       },
       {
         "id": "demonhunter",
@@ -558,7 +578,9 @@ module.exports = {
             "守株待兔",
             "站在治疗身边，等他自己贴上来。他必须近身才能输出。"
           ]
-        ]
+        ],
+        "arena": "守在治疗身边等他贴上来——他必须近身才能输出，握留给他想撤的那一刻。",
+        "duel": "单挑他的打断对你影响很小（你几乎没有读条技能），放心压。"
       },
       {
         "id": "evoker",
@@ -588,7 +610,9 @@ module.exports = {
             "贴上就别松",
             "一旦脱开很难再贴。贴身期间把疫病铺满，为下一次接触做准备。"
           ]
-        ]
+        ],
+        "arena": "<sk>悬空</sk>期间疫病照走，把<sk>死亡之握</sk>留给他落地那一刻。",
+        "duel": "单挑用<sk>心灵冰冻</sk>打断蓄力，唤魔师蓄力技能多，短冷却打断价值极高。"
       }
     ]
   },
