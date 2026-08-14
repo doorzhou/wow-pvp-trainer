@@ -110,7 +110,7 @@ window.REG = {
     {
       id: 'demonhunter', n: '恶魔猎手', en: 'Demon Hunter', c: '#A330C9', ic: 'classicon_demonhunter', armor: '皮甲',
       specs: [
-        { id: 'havoc', n: '浩劫', en: 'Havoc', role: 'dps', tier: 'A', ic: 'ability_demonhunter_specdps', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'havoc', n: '浩劫', en: 'Havoc', role: 'dps', tier: 'A', ic: 'ability_demonhunter_specdps', page: 'havoc-dh.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'vengeance', n: '复仇', en: 'Vengeance', role: 'tank', tier: null, ic: 'ability_demonhunter_spectank', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'devourer', n: 'Devourer', en: 'Devourer', role: 'dps', tier: 'B', ic: 'spell_priest_void-blast', page: null, st: [0, 0, 0, 0, 0, 0], note: 'Midnight 新增的虚空系专精。官方简体中文名尚未查到，暂用原文——不编译名。' },
       ]

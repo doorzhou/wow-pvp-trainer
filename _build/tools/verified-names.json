@@ -1352,6 +1352,122 @@
   "召唤地狱猎犬": {
    "id": 691,
    "en": "Summon Felhunter"
+  },
+  "恶魔之咬": {
+   "id": 162243,
+   "en": "Demon's Bite"
+  },
+  "混乱打击": {
+   "id": 162794,
+   "en": "Chaos Strike"
+  },
+  "眼棱": {
+   "id": 198013,
+   "en": "Eye Beam"
+  },
+  "刃舞": {
+   "id": 188499,
+   "en": "Blade Dance"
+  },
+  "恶魔变形": {
+   "id": 191427,
+   "en": "Metamorphosis"
+  },
+  "疾影": {
+   "id": 198589,
+   "en": "Blur"
+  },
+  "黑暗": {
+   "id": 196718,
+   "en": "Darkness"
+  },
+  "混乱新星": {
+   "id": 179057,
+   "en": "Chaos Nova"
+  },
+  "瓦解": {
+   "id": 183752,
+   "en": "Disrupt"
+  },
+  "禁锢": {
+   "id": 217832,
+   "en": "Imprison"
+  },
+  "投掷利刃": {
+   "id": 185123,
+   "en": "Throw Glaive"
+  },
+  "邪能冲撞": {
+   "id": 195072,
+   "en": "Fel Rush"
+  },
+  "复仇回避": {
+   "id": 198793,
+   "en": "Vengeful Retreat"
+  },
+  "幽灵视觉": {
+   "id": 188501,
+   "en": "Spectral Sight"
+  },
+  "虚空行走": {
+   "id": 196555,
+   "en": "Netherwalk"
+  },
+  "邪能之刃": {
+   "id": 232893,
+   "en": "Felblade"
+  },
+  "献祭光环": {
+   "id": 258920,
+   "en": "Immolation Aura"
+  },
+  "悲苦咒符": {
+   "id": 207684,
+   "en": "Sigil of Misery"
+  },
+  "锁链咒符": {
+   "id": 202138,
+   "en": "Sigil of Chains"
+  },
+  "怨念咒符": {
+   "id": 390163,
+   "en": "Sigil of Spite"
+  },
+  "邪能弹幕": {
+   "id": 258925,
+   "en": "Fel Barrage"
+  },
+  "恶魔追击": {
+   "id": 370965,
+   "en": "The Hunt"
+  },
+  "伊利达雷之怒": {
+   "id": 201467,
+   "en": "Fury of the Illidari"
+  },
+  "第一滴血": {
+   "id": 206416,
+   "en": "First Blood"
+  },
+  "先发制人": {
+   "id": 388108,
+   "en": "Initiative"
+  },
+  "内心之魔": {
+   "id": 389693,
+   "en": "Inner Demon"
+  },
+  "猛烈变形": {
+   "id": 452409,
+   "en": "Violent Transformation"
+  },
+  "魔涌": {
+   "id": 452402,
+   "en": "Demonsurge"
+  },
+  "恶魔尖刺": {
+   "id": 203819,
+   "en": "Demon Spikes"
   }
  }
 }
