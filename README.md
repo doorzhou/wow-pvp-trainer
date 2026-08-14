@@ -28,14 +28,14 @@
 | [痛苦术士](https://doorzhou.github.io/wow-pvp-trainer/affliction-warlock.html) | 输出 | 51 | ●●●●●● |
 | [踏风武僧](https://doorzhou.github.io/wow-pvp-trainer/windwalker-monk.html) | 输出 | 51 | ●●●●●● |
 | [平衡德](https://doorzhou.github.io/wow-pvp-trainer/balance-druid.html) | 输出 | 51 | ●●●●●● |
-| [恢复德](https://doorzhou.github.io/wow-pvp-trainer/resto-druid.html) | 治疗 | 0 | ●●●●●○ |
+| [恢复德](https://doorzhou.github.io/wow-pvp-trainer/resto-druid.html) | 治疗 | 51 | ●●●●●● |
 | [浩劫 DH](https://doorzhou.github.io/wow-pvp-trainer/havoc-dh.html) | 输出 | 51 | ●●●●●● |
 | [湮灭唤魔师](https://doorzhou.github.io/wow-pvp-trainer/devastation-evoker.html) | 输出 | 51 | ●●●●●● |
 | [Thug Cleave](https://doorzhou.github.io/wow-pvp-trainer/thug-cleave-3v3.html) | 3v3 组合 | 51 | ●●●◐●● |
 | [RMP](https://doorzhou.github.io/wow-pvp-trainer/rmp-3v3.html) | 3v3 组合 | 51 | ●●●◐●● |
 | [贼牧 2v2](https://doorzhou.github.io/wow-pvp-trainer/rogue-priest-2v2.html) | 2v2 组合 | 40 | ●●●◐●● |
 
-合计 **861 道情境判断题**，18 个训练器。
+合计 **912 道情境判断题**，18 个训练器。
 六轴依次是 骨架 / 手法 / 对阵 / 天赋 / 装备 / 训练 —— ● 完成 ◐ 部分 ○ 没有。
 首页每张卡下方的六个小格就是这个。
 

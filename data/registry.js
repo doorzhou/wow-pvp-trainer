@@ -107,7 +107,7 @@ window.REG = {
         { id: 'balance', n: '平衡', en: 'Balance', role: 'dps', tier: 'A+', ic: 'spell_nature_starfall', page: 'balance-druid.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'feral', n: '野性', en: 'Feral', role: 'dps', tier: 'A', ic: 'ability_druid_catform', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'guardian', n: '守护', en: 'Guardian', role: 'tank', tier: null, skip: '竞技场没有坦克位', ic:'ability_racial_bearform', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'restoration', n: '恢复', en: 'Restoration', role: 'heal', tier: null, ic: 'spell_nature_healingtouch', page: 'resto-druid.html', st: [2, 2, 2, 2, 2, 0] },
+        { id: 'restoration', n: '恢复', en: 'Restoration', role: 'heal', tier: null, ic: 'spell_nature_healingtouch', page: 'resto-druid.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
     {
