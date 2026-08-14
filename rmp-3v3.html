@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-view="rogue">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>RMP 3v3 组合训练 · 12.1 Midnight | WOW打架营地</title>
+<meta name="description" content="魔兽世界 12.1 RMP（贼/法/牧）3v3 三视角配合训练。RMP 的窗口是共享的——贼开窗，贼和法师都要在这扇窗里把伤害打完。含失能类递减详解、八步击杀链、六种对局分解与 51 道判断题。">
+<meta name="keywords" content="RMP,贼法牧,3v3,竞技场,魔兽世界,12.1,Midnight,rogue mage priest,arena">
+<meta name="author" content="WOW打架营地">
+<link rel="canonical" href="https://doorzhou.github.io/wow-pvp-trainer/rmp-3v3.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RMP 3v3 组合训练 · 12.1 Midnight | WOW打架营地">
+<meta property="og:description" content="魔兽世界 12.1 RMP（贼/法/牧）3v3 三视角配合训练。RMP 的窗口是共享的——贼开窗，贼和法师都要在这扇窗里把伤害打完。含失能类递减详解、八步击杀链、六种对局分解与 51 道判断题。">
+<meta property="og:url" content="https://doorzhou.github.io/wow-pvp-trainer/rmp-3v3.html">
+<meta property="og:site_name" content="WOW打架营地">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RMP 3v3 组合训练 · 12.1 Midnight | WOW打架营地">
+<meta name="twitter:description" content="魔兽世界 12.1 RMP（贼/法/牧）3v3 三视角配合训练。RMP 的窗口是共享的——贼开窗，贼和法师都要在这扇窗里把伤害打完。含失能类递减详解、八步击杀链、六种对局分解与 51 道判断题。">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="assets/css/core.css?v=b96cf32a">
+
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="index.html"><span class="mk">营</span>WOW打架营地</a>
+    <span class="badge" id="pcount">—</span>
+    <div class="spacer"></div>
+    <div class="vswitch" id="vsw"></div>
+    <span class="badge" id="topAcc">正确率 —</span>
+    
+    <button class="tbtn" onclick="toggleTheme()" title="切换深浅色">◐</button>
+  </div>
+  <div class="wrap"><nav>
+    <button class="on" data-s="s1">① 骨架</button>
+    <button data-s="s2">② 窗口</button>
+    <button data-s="s3">③ 击杀链</button>
+    <button data-s="s4">④ 防守链</button>
+    <button data-s="s5">⑤ 分对局</button>
+    <button data-s="sTal">⑥ 天赋</button>
+    <button data-s="sGear">⑦ 装备与属性</button>
+    <button data-s="s6">⑧ 判断训练</button>
+    <button data-s="s7">⑨ 赛前速查</button>
+  </nav></div>
+</header>
+
+<div class="wrap"><div class="crumb"><a href="index.html">WOW打架营地</a><i>/</i><a href="index.html#matrix">组合</a><i>/</i><span>3v3 RMP</span></div></div>
+
+<section id="s1" class="on"><div class="wrap">
+
+<div class="spechero"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'"><div><h1>RMP · 贼 + 法 + 牧 3v3</h1><div class="meta"><span class="badge">组合 · 3v3 RMP</span><span class="badge hot">12.1 · Midnight S1</span></div></div></div>
+
+
+  <div class="thesis"><div class="big">RMP 的窗口是<b>共享</b>的。<br>
+    贼开窗，贼和法师<b>都要在这个窗口里把伤害打完</b>。</div>
+    <div class="quote">Icy Veins 对敏锐贼的原话：「目前它只在<b>围绕 set-up 的组合</b>里出场，
+      因为它几乎没有持续伤害」（only played in comps revolving around set-ups）。
+      RMP 就是那个组合 —— <b>整支队伍靠一个人开的那扇窗吃饭。</b></div></div>
+
+  <h2>它跟 Thug Cleave 差在哪</h2>
+  <p class="lead">同样是贼带牧的三人队，两页教的不是同一件事。<b>搞混了会用错判断。</b></p>
+  <div class="rows">
+  <div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="夺命射击" style="width:20px;height:20px"><img class="ic" data-sk="寒冰宝珠" style="width:20px;height:20px"></span><span class="t">Thug Cleave 求「接得上」，RMP 求「对得齐」</span><span class="sub">一个是链条问题，一个是时间问题</span><span class="ar">▸</span></div><div class="b"><p><b>Thug Cleave（贼/猎/牧）</b>：猎人的伤害是持续的，不依赖窗口。所以那一页的核心是<b>控制链接不接得上</b> —— 链断了就换个人接，伤害一直在走。</p><p><b>RMP（贼/法/牧）</b>：贼和法师<b>都</b>是爆发型，两个人的伤害都要落在同一扇窗里。<b>窗口是共享资源，两个人抢。</b></p><p>所以 RMP 会输在一个 Thug Cleave 不存在的地方：<b>窗口开了，但法师没准备好</b> —— 他在读变形、在被打断、或者他的爆发还在冷却。这时候贼一个人的伤害打不穿治疗，窗口就空转了。</p></div></div>
+  <div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="闷棍" style="width:20px;height:20px"><img class="ic" data-sk="变形术" style="width:20px;height:20px"></span><span class="t">这个组合最贵的一课：闷棍和变形术吃同一条递减</span><span class="sub">开场之后你的变形只剩一半</span><span class="ar">▸</span></div><div class="b"><p>Icy Veins 法师页的原话：<b>「跟贼一起玩的时候记住，<sk>变形术</sk>和<sk>闷棍</sk>共享递减，你开场的变形会只有一半时长」</b>（Polymorph shares a diminishing return with Sap）。</p><p>为什么这条特别贵：<b>它把 RMP 的两个主力控制绑在了一起。</b>贼开场闷了治疗，法师想再变形第二个人 —— 时长砍半。而 Thug Cleave 里贼和猎人的控制虽然也会撞递减，但猎人还有<sk>胁迫</sk>这类不同类别的手段可以换。</p><p><b>RMP 的解法是顺序：</b>先变形，再闷棍；或者变形留给第二轮。两个都在开场用，等于自愿把其中一个减半。</p></div></div>
+  <div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="寒冰屏障" style="width:20px;height:20px"><img class="ic" data-sk="消失" style="width:20px;height:20px"><img class="ic" data-sk="渐隐术" style="width:20px;height:20px"></span><span class="t">三个人的退路都很好，这不是优点</span><span class="sub">容易打成三个人各自逃命</span><span class="ar">▸</span></div><div class="b"><p>贼有<sk>消失</sk>、法师有<sk>寒冰屏障</sk>和<sk>操控时间</sk>、牧师有<sk>渐隐术</sk>。<b>RMP 是全场脱身手段最多的组合之一。</b></p><p>但这带来一个具体的坏习惯：<b>三个人都能跑，于是三个人分头跑</b> —— 跑散之后你们要重新做一次完整的 set-up，而对面只需要抓住落单的那个。</p><p><b>退路多的队伍要一起退。</b>这跟"退路少所以不敢进"是相反的问题，但代价一样。</p></div></div>
+  </div>
+
+  <h2>三个人的分工</h2>
+  <p class="lead">RMP 的角色<b>不轮换</b> —— 这跟 Thug Cleave 不一样，那边三个人都能当锁匠。</p>
+  <div class="trio">
+    <div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼 · 开窗的人</div>
+      <div class="txt"><b>他决定这一轮什么时候开始。</b><sk>闷棍</sk>控住对面治疗那一刻，窗口就开了。
+        窗口有多长、够不够法师用完爆发，取决于他这一控干不干净。</div></div>
+    <div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师 · 窗口里的主伤害</div>
+      <div class="txt"><b>他是这个组合的伤害上限，也是对面的首要目标。</b>
+        每读一次<sk>变形术</sk>他就少打一段 —— <b>控制和伤害在他这里是同一份预算。</b></div></div>
+    <div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师 · 保住法师</div>
+      <div class="txt"><b>他的第一职责不是治疗量，是让法师活到窗口结束。</b>
+        法师一死，这个组合就没有伤害了 —— 贼一个人打不穿任何治疗。</div></div>
+    <div class="link"><span class="lk">耦合点</span><div>
+      <b>三个职责是一条因果链：贼开窗 → 法师在窗里输出 → 牧师保证法师能待在窗里。</b>
+      任何一环断了，另外两个人做的事都白费。</div></div>
+  </div>
+
+  <h2>开赛前先问三句</h2>
+  <div class="checks" id="checks"></div>
+</div></section>
+
+<section id="s2"><div class="wrap">
+  <p class="lead">窗口从<b>对面治疗被控住</b>那一刻开始，到<b>他能重新治疗</b>为止。
+    这段时间三个人要做完所有事 —— <b>它比你以为的短</b>。</p>
+
+  <h2>递减规则：你们的窗口预算</h2>
+  <div class="drt" id="drtable"><div class="drc"><div class="dn">失能类 · 你们最紧张的一条</div><div class="dl"><sk>闷棍</sk> <sk>致盲</sk>（贼）· <sk>变形术</sk>（法）<br><b>受伤即破，而且这三个共享同一条递减</b>——RMP 全部的长控都挤在这里。</div></div><div class="drc"><div class="dn">眩晕类</div><div class="dl"><sk>偷袭</sk> <sk>肾击</sk>（贼）</div></div><div class="drc"><div class="dn">恐惧类</div><div class="dl"><sk>心灵尖啸</sk>（牧）<br><b>失能用光之后唯一满时长的控制</b></div></div><div class="drc"><div class="dn">定身 / 减速</div><div class="dl"><sk>冰霜之环</sk> <sk>寒冰新星</sk> <sk>冰锥术</sk>（法）· <sk>凿击</sk>（贼）</div></div><div class="drc"><div class="dn">缴械 / 打断</div><div class="dl"><sk>卸除武装</sk> <sk>脚踢</sk>（贼）· <sk>法术反制</sk>（法）</div></div></div>
+
+  <h2>窗口为什么比预期短</h2>
+  <div class="rows" id="chainfail"><div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="变形术" style="width:20px;height:20px"><img class="ic" data-sk="闷棍" style="width:20px;height:20px"></span><span class="t">① 开场同时用了闷棍和变形术</span><span class="sub">这个组合最贵的一课</span><span class="ar">▸</span></div><div class="b"><p><b>两个技能共享递减。</b>先闷棍再变形，第二个只剩一半；反过来也一样。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><sk>闷棍</sk>控治疗之前<b>先问法师要不要变形</b>。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>你的<sk>变形术</sk>要么用在开场，要么留给第二轮</b>，别跟贼的闷棍挤在一起。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt">两个都用掉之后，你的<sk>心灵尖啸</sk>是<b>唯一一个满时长的控制</b>——留着。</div></div><div class="link"><span class="lk">耦合点</span><div><b>失能类只有一条递减，三个人的四个技能都在抢它。</b>这是 RMP 最容易浪费的资源。</div></div></div></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="寒冰宝珠" style="width:20px;height:20px"><img class="ic" data-sk="暗影之舞" style="width:20px;height:20px"></span><span class="t">② 贼开窗了，法师的爆发还在冷却</span><span class="sub">窗口空转</span><span class="ar">▸</span></div><div class="b"><p>贼的<sk>暗影之舞</sk>和法师的<sk>寒冰宝珠</sk>/<sk>冰冷血脉</sk><b>冷却长度不一样</b>——不主动对齐，迟早会错开。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt">开窗之前<b>问一句法师好没好</b>。你的窗口比他的冷却便宜。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>你的爆发没好就说</b>，别让贼开一个只有他自己在打的窗口。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt">这种时候你该<b>提醒而不是跟着输出</b>——半套爆发打不穿治疗，不如攒着。</div></div><div class="link"><span class="lk">耦合点</span><div><b>贼一个人的伤害打不穿任何治疗。</b>没有法师的窗口不是"打得少一点"，是"完全打不动"。</div></div></div></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="法术反制" style="width:20px;height:20px"><img class="ic" data-sk="寒冰箭" style="width:20px;height:20px"></span><span class="t">③ 法师在窗口里被打断了</span><span class="sub">他的伤害要读条</span><span class="ar">▸</span></div><div class="b"><p><sk>寒冰箭</sk>、<sk>冰枪术</sk>都要读条。<b>对面一个打断，法师这一窗就废了一半。</b></p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><b>盯住对面的打断者</b>。<sk>卸除武装</sk>或<sk>脚踢</sk>能让他打断不了。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>假读条骗打断</b>是你必须会的基本功——先骗掉，再放真的。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><sk>驱散魔法</sk>解掉法师身上的沉默或减速。</div></div><div class="link"><span class="lk">耦合点</span><div><b>法师的输出是有施法时间的，贼的不是。</b>所以保护打断窗口这件事，只对法师成立。</div></div></div></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="寒冰屏障" style="width:20px;height:20px"><img class="ic" data-sk="痛苦压制" style="width:20px;height:20px"></span><span class="t">④ 法师被集火，三个人同时去救</span><span class="sub">救过头也是浪费</span><span class="ar">▸</span></div><div class="b"><p>法师是对面的首要目标——Icy Veins 法师页原话：<b>「大多数对局里你就是那个被集火的」</b>（being the primary target most games）。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><b>你去控住抓他的那个人</b>，不是回来陪他挨打。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>先自救</b>：<sk>寒冰屏障</sk>、<sk>操控时间</sk>、<sk>镜像</sk>——你的保命牌比谁都多。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><sk>痛苦压制</sk>给他，<b>但别把整套治疗都倒在这一下</b>。</div></div><div class="link"><span class="lk">耦合点</span><div><b>法师的保命牌是全场最多的，所以他挨打的默认答案是"先自己顶"。</b>三个人同时救，等于把整队的资源换他一个人的一次失误。</div></div></div></div></div></div>
+</div></section>
+
+<section id="s3"><div class="wrap">
+  <p class="lead">八步，三栏同时看。中间的「耦合点」是这三件事为什么必须配套。</p>
+  <div class="stepper" id="stepBody"></div>
+</div></section>
+
+<section id="s4"><div class="wrap">
+  <p class="lead">RMP 的防守重心跟大多数组合不同：<b>要保的不是治疗，是法师。</b></p>
+  <div class="rows" id="defense"><div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="寒冰屏障" style="width:20px;height:20px"><img class="ic" data-sk="操控时间" style="width:20px;height:20px"><img class="ic" data-sk="镜像" style="width:20px;height:20px"></span><span class="t">法师被抓 —— 这是最要紧的一条</span><span class="sub">他死了你们就没伤害了</span><span class="ar">▸</span></div><div class="b"><p><b>这个组合大部分的失败从这里开始。</b>法师是伤害主体，也是对面的首选目标。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><b>去控抓他的人</b>，别回来陪站。你在他身边挨打不会让他更安全。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>按顺序交</b>：先<sk>寒冰护体</sk>和位移，再<sk>寒冰屏障</sk>，最后<sk>操控时间</sk>。一次全交等于没有第二次。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><sk>真言术：盾</sk>先垫上，<sk>痛苦压制</sk>留给真正危险的那一下。</div></div><div class="link"><span class="lk">耦合点</span><div><b>法师的保命牌多到可以自己撑很久 —— 前提是他按顺序交。</b>一次全交的法师，和没有保命牌的法师，活的时间差不多。</div></div></div></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="渐隐术" style="width:20px;height:20px"><img class="ic" data-sk="心灵尖啸" style="width:20px;height:20px"></span><span class="t">牧师被抓</span><span class="sub">你们有两个人可以救</span><span class="ar">▸</span></div><div class="b"><p>RMP 的好消息：救牧师不只有贼一个人，法师的控制手段也够。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><sk>致盲</sk>或<sk>肾击</sk>控住抓他的人。<b>如果你在窗口里且目标一击能死，先收完。</b></div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><sk>冰霜之环</sk>或<sk>寒冰新星</sk>把追击的人钉住——<b>这不打断你的输出节奏</b>。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><sk>渐隐术</sk>甩掉仇恨，<sk>真言术：障</sk>挡住法术伤害。<b>先自救再喊人。</b></div></div><div class="link"><span class="lk">耦合点</span><div><b>法师的定身是"顺手"的，贼的控制是"要停手"的。</b>所以这种情况优先让法师处理——他的机会成本更低。</div></div></div></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="暗影斗篷" style="width:20px;height:20px"><img class="ic" data-sk="消失" style="width:20px;height:20px"></span><span class="t">贼被抓</span><span class="sub">三个人里他最不需要被救</span><span class="ar">▸</span></div><div class="b"><p><b>贼有全场最好的自保</b>：<sk>暗影斗篷</sk>免疫法术、<sk>消失</sk>直接脱战、<sk>闪避</sk>挡物理。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><b>自己处理。</b>队友来救你，等于把他们的资源花在最不需要的地方。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt">继续输出。<b>贼被抓的时候，对面就没在打你了</b>——这是你的自由输出时间。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt">继续保法师。<b>贼能自己回来，法师不能。</b></div></div><div class="link"><span class="lk">耦合点</span><div><b>三个人挨打的处置完全不同：法师要按顺序交牌、牧师要两个人帮、贼自己解决。</b>搞混这个顺序是 RMP 最常见的资源浪费。</div></div></div></div></div><div class="row"><div class="h" onclick="tg(this)"><span class="icrow"><img class="ic" data-sk="寒冰屏障" style="width:20px;height:20px"><img class="ic" data-sk="暗影斗篷" style="width:20px;height:20px"><img class="ic" data-sk="渐隐术" style="width:20px;height:20px"></span><span class="t">三个人都想跑的时候</span><span class="sub">退路多的队伍要一起退</span><span class="ar">▸</span></div><div class="b"><p>RMP 是全场脱身手段最多的组合之一 —— <b>这带来一个具体的坏习惯：分头跑。</b></p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><sk>消失</sk>脱战之后<b>去队友那边重新潜行</b>，不是去对角。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><sk>闪现术</sk>的落点要<b>朝着队友</b>。你落单就是对面下一个目标。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><sk>渐隐术</sk>之后<b>跟着法师走</b>。你俩分开，法师就没人保了。</div></div><div class="link"><span class="lk">耦合点</span><div><b>跑散之后你们要重新做一次完整的 set-up，而对面只需要抓住落单的那个。</b>这个组合退得起，但退散就赢不了。</div></div></div></div></div></div>
+</div></section>
+
+<section id="s5"><div class="wrap">
+  <p class="lead">3v3 按<b>对面的结构</b>分。RMP 的核心问题只有一个：
+    <b>你们能不能做出一次完整的 set-up。</b></p>
+  <div class="split">
+    <div class="sidecol"><div class="cls-grid" id="clsGrid"><button class="cls-btn on" data-c="lockable" style="--cc:var(--ok)">治疗好锁</button><button class="cls-btn" data-c="hardlock" style="--cc:var(--no)">治疗难锁</button><button class="cls-btn" data-c="interrupt" style="--cc:var(--no)">对面打断多</button><button class="cls-btn" data-c="melee3" style="--cc:var(--warn)">对面多近战</button><button class="cls-btn" data-c="nohealer3" style="--cc:var(--warn)">对面无治疗（三 DPS）</button><button class="cls-btn" data-c="mirror3" style="--cc:var(--warn)">镜像 / 其他 setup 队</button></div></div>
+    <div class="cdetail" id="clsDetail"><div class="mpanel on" data-cid="lockable"><div class="cdetail"><h3 style="--cc:var(--ok)">治疗好锁</h3><div class="oneline">标准套路成立。窗口开得干净，两套爆发压进去就是击杀。</div><div class="egs"><span class="lb">典型</span><span class="eg">戒律牧</span><span class="eg">神牧</span><span class="eg">奶德（无形态优势时）</span></div><p style="margin-bottom:10px"><b>威胁在哪：</b>这类治疗缺少免控、解控或形态切换手段，<b>你们的<sk>闷棍</sk>能把窗口开满</b>。剩下的问题只有一个：<b>两套爆发对没对齐。</b></p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><sk>闷棍</sk>之前确认全队停手。<b>这个对局你的控制不会被拆，所以窗口质量全看你这一手干不干净。</b></div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>把<sk>变形术</sk>留给第二轮。</b>开场贼已经用掉失能类了，你现在变形只有一半时长——不如把这几秒用来输出。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><sk>驱散魔法</sk>解掉对面治疗给队友的关键增益。<b>你的输出优先级在这个对局可以往上提一点</b>，因为法师不太需要你专职保护。</div></div><div class="link"><span class="lk">耦合点</span><div><b>好锁的对局，胜负只取决于你们的爆发对没对齐。</b>连续两轮对齐还杀不掉，说明目标选错了，换个人打。</div></div></div></div></div>
+<div class="mpanel" data-cid="hardlock"><div class="cdetail"><h3 style="--cc:var(--no)">治疗难锁</h3><div class="oneline">窗口开不满。别硬开，改成打对面的 DPS。</div><div class="egs"><span class="lb">典型</span><span class="eg">恢复德（形态切换）</span><span class="eg">奶萨（图腾破控）</span><span class="eg">圣骑（免控 + 净化）</span></div><p style="margin-bottom:10px"><b>威胁在哪：</b><b>形态切换、破控图腾、免控和净化</b>会让你们的失能类控制失效——而 RMP 的窗口<b>完全依赖失能类</b>，没有替代手段。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><b>别把<sk>闷棍</sk>喂给治疗。</b>改成控住对面一个 DPS，三个人集火另一个——<b>换目标比换手段有效</b>。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><sk>变形术</sk>同理，用在 DPS 身上。<b>你的<sk>冰霜之环</sk>在这个对局价值更高</b>——把对面治疗和战场隔开，比控住他现实。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><b>你的驱散在这个对局价值最高</b>（对萨满图腾、骑士祝福尤其）。同时认清：<b>这局要打消耗</b>，法力管理比爆发时机重要。</div></div><div class="link"><span class="lk">耦合点</span><div><b>锁不住治疗时，正确做法是换目标不是加大力度。</b>RMP 打不出 set-up 就没有伤害，所以这个对局要早做决定，别耗到冷却都空转。</div></div></div></div></div>
+<div class="mpanel" data-cid="interrupt"><div class="cdetail"><h3 style="--cc:var(--no)">对面打断多</h3><div class="oneline">RMP 独有的坏对局：法师读不了条，你们的伤害主体就没了。</div><div class="egs"><span class="lb">典型</span><span class="eg">萨满（风剪 + 图腾）</span><span class="eg">死骑（窒息 + 反魔法）</span><span class="eg">恶魔猎手（瓦解 + 咒符）</span></div><p style="margin-bottom:10px"><b>威胁在哪：</b><b>法师的伤害要读条，贼的不要。</b>所以对面的打断只对法师有效——这是 RMP 比 Thug Cleave 更怕打断的原因（猎人的伤害不读条）。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><b>你的活变成了保护法师的施法窗口。</b><sk>卸除武装</sk>、<sk>脚踢</sk>、<sk>肾击</sk>——优先花在对面的打断者身上，不是击杀目标身上。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>假读条骗打断是这个对局的核心技术。</b>先骗掉再放真的。同时多用瞬发（<sk>冰锥术</sk>、被<sk>寒冰指</sk>强化的<sk>冰枪术</sk>）。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><sk>驱散魔法</sk>解掉法师身上的沉默。<b>但注意大部分沉默不可驱散</b>——更实际的做法是提前给护盾，让他扛着打断也能站住。</div></div><div class="link"><span class="lk">耦合点</span><div><b>这个对局的胜负在"法师能不能站着读完条"，不在控制链。</b>贼要从"输出者"临时切换成"保镖"——这个角色切换是 RMP 最难的判断之一。</div></div></div></div></div>
+<div class="mpanel" data-cid="melee3"><div class="cdetail"><h3 style="--cc:var(--warn)">对面多近战</h3><div class="oneline">法师被贴住就做不成 set-up。先解决距离问题。</div><div class="egs"><span class="lb">典型</span><span class="eg">双近战 + 治疗</span><span class="eg">战士 + DK + 奶</span></div><p style="margin-bottom:10px"><b>威胁在哪：</b><b>近战贴住法师 = RMP 失去伤害来源。</b>而且近战的打断通常冷却很短，法师连读条都困难。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><b>你的控制要用在"让法师有空间"上。</b>把贴脸的那个控住，比你自己多打一轮伤害值钱。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>风筝是你的主要工作。</b><sk>冰霜之环</sk>、<sk>寒冰新星</sk>、<sk>冰锥术</sk>拉开距离——<b>这个对局你的减速和定身比爆发重要</b>。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><sk>心灵尖啸</sk>是你唯一的群体控制，<b>留给"两个近战同时贴上法师"的那一刻</b>。</div></div><div class="link"><span class="lk">耦合点</span><div><b>对面多近战时，RMP 的第一目标不是杀人，是让法师站得住。</b>法师有空间，伤害自然回来；没空间，控制链再干净也没用。</div></div></div></div></div>
+<div class="mpanel" data-cid="nohealer3"><div class="cdetail"><h3 style="--cc:var(--warn)">对面无治疗（三 DPS）</h3><div class="oneline">比谁的窗口先落地。你们的 set-up 慢，但更致命。</div><div class="egs"><span class="lb">典型</span><span class="eg">三 DPS 爆发队</span></div><p style="margin-bottom:10px"><b>威胁在哪：</b><b>没有治疗意味着不用做 set-up 就能杀人</b>——对面会直接开爆发。你们准备的那几秒，可能已经死了一个。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><b>放弃标准流程。</b>不用控治疗（没有治疗），直接<sk>偷袭</sk>控住对面爆发最猛的那个。</div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>你的<sk>变形术</sk>现在是防御技能</b>——变掉正在爆发的那个人，比控住一个远程有价值得多。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><b>这个对局你要全职治疗。</b>没有对面治疗需要你去压，你的全部价值在于让队友活过对面的第一波。</div></div><div class="link"><span class="lk">耦合点</span><div><b>无治疗对局的判断反过来了：先活过对面的窗口，再谈自己的窗口。</b>RMP 的准备时间是劣势，但准备好之后的爆发也没人能救。</div></div></div></div></div>
+<div class="mpanel" data-cid="mirror3"><div class="cdetail"><h3 style="--cc:var(--warn)">镜像 / 其他 setup 队</h3><div class="oneline">两边都在等一个成型的机会。先做出来的那个赢。</div><div class="egs"><span class="lb">典型</span><span class="eg">RMP vs RMP</span><span class="eg">RMD</span><span class="eg">其他围绕 set-up 的队伍</span></div><p style="margin-bottom:10px"><b>威胁在哪：</b><b>两边都不会主动压上</b>，所以这种局会拖很久。真正的分水岭是谁的失能类递减先用完。</p><div class="trio"><div class="cR"><div class="who"><img src="assets/icons/classicon_rogue.jpg" alt="" onerror="this.style.display='none'">贼</div><div class="txt"><b>耐心。</b>你的<sk>闷棍</sk>是开局的钥匙，被对面贼先手闷了，你们这一轮就只能防守。<b>开局互相摸位置的阶段别急着现身。</b></div></div><div class="cM"><div class="who"><img src="assets/icons/classicon_mage.jpg" alt="" onerror="this.style.display='none'">法师</div><div class="txt"><b>盯住对面法师。</b>他跟你一样是伤害主体也是软肋——你的<sk>法术反制</sk>打断他的关键法术，价值高于多打一轮伤害。</div></div><div class="cP"><div class="who"><img src="assets/icons/classicon_priest.jpg" alt="" onerror="this.style.display='none'">牧师</div><div class="txt"><b>你的<sk>心灵尖啸</sk>可以打断对面整个 set-up。</b>看到对面贼现身、法师开始读条，就是交它的时候。</div></div><div class="link"><span class="lk">耦合点</span><div><b>镜像对局比的是耐心和失能类的管理。</b>先把失能类用完的那一队，后面就只能靠眩晕和恐惧硬来——那撑不起一个完整窗口。</div></div></div></div></div></div>
+  </div>
+</div></section>
+
+<section id="sTal"><div class="wrap">
+<div id="talentBox"></div>
+</div></section>
+
+<section id="sGear"><div class="wrap">
+<div id="gearBox"></div>
+</div></section>
+
+<section id="s6"><div class="wrap">
+  <div class="statbar">
+    <div class="stat"><span class="k">累计答题</span><span class="v" id="stPlayed">0</span></div>
+    <div class="stat"><span class="k">总正确率</span><span class="v" id="stAcc">—</span></div>
+    <div class="stat"><span class="k">最长连对</span><span class="v" id="stBest">0</span></div>
+    <div class="stat"><span class="k">错题库</span><span class="v" id="stWrong">0</span></div>
+  </div>
+  <div class="qtop">
+    <select id="fWho">
+      <option value="cur">跟随当前视角</option>
+      <option value="all">三个视角都练</option>
+      <option value="rogue">只练贼</option>
+      <option value="priest">只练牧师</option>
+      <option value="hunter">只练法师</option>
+    </select>
+    <select id="fDiff">
+      <option value="all">全部难度</option>
+      <option value="1">基础 · 机制</option>
+      <option value="2">进阶 · 时机</option>
+      <option value="3">高阶 · 权衡</option>
+    </select>
+    <button class="btn" onclick="startQuiz(false)">开始一轮（10 题）</button>
+    <button class="btn ghost" onclick="startQuiz(true)">只练错题</button>
+    <button class="btn ghost" onclick="resetStats()">清空记录</button>
+  </div>
+  <div id="quizArea"></div>
+</div></section>
+
+<section id="s7"><div class="wrap">
+  <p class="lead">一人一栏。三个人各看一遍另外两栏。</p>
+  <div class="sheet" id="sheet"><div class="sheet">
+  <div class="sc r"><h4 class="tt">🗡 贼 · 开窗的人</h4>
+    <div class="line">1 · <b>开窗之前问法师好没好</b>。你的窗口比他的冷却便宜。</div>
+    <div class="line">2 · <sk>闷棍</sk>和法师的<sk>变形术</sk>共享递减，<b>别挤在开场</b>。</div>
+    <div class="line">3 · 控之前喊，让另外两个人停手（包括还在跳的持续伤害）。</div>
+    <div class="line">4 · 队友被抓：先判断目标能不能一击收掉，再决定回不回。</div>
+    <div class="line">5 · 你被抓：<b>自己处理</b>，别让队友来救。</div>
+  </div>
+  <div class="sc m"><h4 class="tt">❄ 法师 · 窗口里的主伤害</h4>
+    <div class="line">1 · <b>你的控制和伤害是同一份预算</b>——每读一次变形就少打一段。</div>
+    <div class="line">2 · <sk>变形术</sk>要么用在开场，要么留给第二轮，别跟闷棍撞。</div>
+    <div class="line">3 · <b>假读条骗打断</b>是基本功，先骗掉再放真的。</div>
+    <div class="line">4 · 挨打<b>按顺序交</b>：位移 → <sk>寒冰屏障</sk> → <sk>操控时间</sk>。</div>
+    <div class="line">5 · 爆发没好就说出来，别让贼开一个空窗。</div>
+  </div>
+  <div class="sc p"><h4 class="tt">✚ 牧师 · 保住法师</h4>
+    <div class="line">1 · <b>你的第一职责是让法师活到窗口结束</b>，不是治疗量。</div>
+    <div class="line">2 · 贼喊控制就立刻停手，<b>包括<sk>暗言术：痛</sk></b>。</div>
+    <div class="line">3 · <sk>心灵尖啸</sk>是失能类用光之后<b>唯一满时长的控制</b>，留着。</div>
+    <div class="line">4 · 贼被抓不用救，<b>他自己有牌</b>。</div>
+    <div class="line">5 · 撤的时候跟着法师走，别单独走。</div>
+  </div>
+</div></div>
+</div></section>
+
+<div class="wrap" style="margin-top:38px">
+  <h2>换一个练</h2>
+  <div class="related" id="related"></div>
+</div>
+
+<footer><div class="wrap">
+  Patch 12.1 · Midnight 赛季一。技能名与图标： <a href="https://www.wowhead.com" target="_blank">Wowhead</a> 官方数据接口。组合定位 <a href="https://www.icy-veins.com/wow/subtlety-rogue-pvp-best-arena-compositions" target="_blank">Icy Veins（Thug Cleave）</a> · 天赋数据 <a href="https://murlok.io/rogue/subtlety/3v3" target="_blank">Murlok.io</a>。<br><a href="index.html">← 返回全部训练器</a> · <a href="index.html#legal">数据来源与免责声明</a>
+</div></footer>
+
+<script src="assets/js/skdb.js?v=f6e64f79"></script>
+<script src="data/registry.js?v=0d488d7a"></script>
+<script src="data/specs/rmp-3v3.js?v=0f243767"></script>
+<script src="assets/js/app.js?v=15ff40ce"></script>
+
+</body>
+</html>

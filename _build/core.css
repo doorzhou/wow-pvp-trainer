@@ -24,6 +24,7 @@
   --rogue:#8b6fd4; --rogue2:#a98bec;
   --priest:#c9a961; --priest2:#e3c684;
   --hunter:#7fb84a; --hunter2:#a3d46f;
+  --mage:#3fc7eb; --mage2:#7bd9f2;
 }
 html[data-theme="light"]{
   --bg:#f6f7f9; --bg2:#ffffff; --bg3:#eef0f4; --bg4:#e3e6ec;
@@ -39,6 +40,7 @@ html[data-theme="light"]{
   --rogue:#6b4fc4; --rogue2:#5a3fb0;
   --priest:#9a7c2c; --priest2:#7d6420;
   --hunter:#5b8a2e; --hunter2:#456b21;
+  --mage:#1f9dbf; --mage2:#177b99;
 }
 /* 组合页视角：换掉强调色，让整页跟着当前视角走 */
 html[data-view="rogue"]{--ac:var(--rogue);--ac2:var(--rogue2)}

@@ -1328,6 +1328,37 @@ const PAGES = [
     },
   },
   {
+    file: 'rmp-3v3', kind: 'comp', h1: 'RMP · 贼 + 法 + 牧 3v3', short: 'RMP',
+    icon: 'classicon_rogue', icon2: 'classicon_mage', icon3: 'classicon_priest',
+    tier: null, color: '#5b8fd4',
+    crumb: ['组合', '3v3 RMP'], store: 'banyeRMP3v3_1207', quizSec: 's6',
+    views: [{ k: 'rogue', label: '🗡 贼' }, { k: 'mage', label: '❄ 法' }, { k: 'priest', label: '✚ 牧' }],
+    v2c: { rogue: 'r', mage: 'm', priest: 'p' },
+    members: [
+      { k: 'r', cls: 'R', label: '贼', icon: 'classicon_rogue' },
+      { k: 'm', cls: 'M', label: '法师', icon: 'classicon_mage' },
+      { k: 'p', cls: 'P', label: '牧师', icon: 'classicon_priest' },
+    ],
+    ownKeys: { r: 'R_SK', m: 'M_SK', p: 'P_SK' },
+    catLabel: { r: '🗡 贼', m: '❄ 法师', p: '✚ 牧师', b: '⚔ 全队' },
+    tagCls: { r: 'r', m: 'm', p: 'p', b: '' },
+    done: {
+      hi: '你们已经在对齐两套爆发，不是各开各的窗口。',
+      mid: '基础配合成立，把错题再过一轮。',
+      lo: '先回骨架页把「窗口是共享的」这一条过一遍。',
+    },
+    talent: { rows: [{ lb: '三人的天赋定盘', todo: 1 }] },
+    gear: {
+      referNote: '<b>属性跟着专精走，三个人各自按自己的专精堆。</b>' +
+        '组合层面没有额外取舍——队友是谁不改变副属性的收益。',
+      refer: [
+        { n: '敏锐贼', ic: 'classicon_rogue', page: 'subtlety-rogue.html' },
+        { n: '冰法', ic: 'classicon_mage', page: 'frost-mage.html' },
+        { n: '戒律牧', ic: 'classicon_priest', page: 'discipline-priest.html' },
+      ],
+    },
+  },
+  {
     file: 'thug-cleave-3v3', kind: 'comp', h1: 'Thug Cleave · 贼 + 牧 + 猎 3v3', short: 'Thug Cleave',
     icon: 'classicon_rogue', icon2: 'classicon_priest', icon3: 'classicon_hunter', tier: null, color: '#8b6fd4',
     crumb: ['组合', '3v3 Thug Cleave'], store: 'banyeThugCleave3v3_1207', quizSec: 's6',

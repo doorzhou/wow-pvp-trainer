@@ -151,5 +151,17 @@ for (const f of fs.readdirSync(path.join(__dirname, 'content')).filter(x => !x.s
 }
 console.log('  空段 ' + emptyErr + ' 处');
 
-const total = bad + synErr + h1Err + quizErr + structErr + emptyErr;
+// 指纹算的是文件内容，而题库文件是在算完指纹之后才写出来的 —— 新增页面的
+// 第一次构建拿到的永远是 ?v=0（ver.js 里文件不存在的兜底值）。跑第二次就对了。
+// 影响：带 v=0 的资源没有缓存指纹，以后更新题库时回访用户会拿到旧的。
+let fpErr = 0;
+for (const f of fs.readdirSync(path.join(SITE, 'data', 'specs'))) {
+  if (/\?v=0["']/.test(fs.readFileSync(path.join(SITE, 'data', 'specs', f), 'utf8'))) {
+    console.log('  ✗ ' + f + ' 里有 ?v=0 的资源（指纹没算上），再跑一次 node all.js');
+    fpErr++;
+  }
+}
+console.log('  资源指纹缺失 ' + fpErr + ' 处');
+
+const total = bad + synErr + h1Err + quizErr + structErr + emptyErr + fpErr;
 console.log('\n' + (total === 0 ? '✅ 全部通过' : '⚠️  有 ' + total + ' 处问题'));
