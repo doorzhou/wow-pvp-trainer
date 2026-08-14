@@ -152,6 +152,29 @@ for (const f of fs.readdirSync(path.join(__dirname, 'content')).filter(x => !x.s
 }
 console.log('  空段 ' + emptyErr + ' 处');
 
+// 天赋树的 slug 在一份树里必须唯一。恢复德撞过一次：英雄天赋和 PvP 天赋
+// 各有一个叫 Early Spring 的格子，效果完全不同（一个减 1 秒冷却，一个让野性成长瞬发），
+// 而描述是按 slug 取的 —— 页面会给其中一个配上另一个的说明，看着完全正常。
+// 顺带查描述缺失：格子有 slug 而 desc 里没有，浮窗就是空的。
+let slugErr = 0;
+for (const f of fs.readdirSync(path.join(__dirname, 'tree')).filter(x => x.endsWith('.json') && !x.endsWith('.desc.json'))) {
+  const id = f.replace('.json', '');
+  const tree = JSON.parse(fs.readFileSync(path.join(__dirname, 'tree', f), 'utf8'));
+  const dp = path.join(__dirname, 'tree', id + '.desc.json');
+  const desc = fs.existsSync(dp) ? JSON.parse(fs.readFileSync(dp, 'utf8')) : {};
+  const seen = new Map(), noDesc = [];
+  for (const b of tree) for (const g of b.groups) for (const c of g.cells) {
+    if (seen.has(c.s)) {
+      console.log('  ✗ ' + id + '：slug「' + c.s + '」在 ' + seen.get(c.s) + ' 与 ' + b.k +
+        ' 两棵树里重复（' + c.n + '），描述会串台');
+      slugErr++;
+    } else seen.set(c.s, b.k);
+    if (!desc[c.s] || !desc[c.s].desc) noDesc.push(c.n);
+  }
+  if (noDesc.length) { console.log('  ✗ ' + id + '：' + noDesc.length + ' 格没有中文描述 —— ' + noDesc.slice(0, 5).join('、')); slugErr++ }
+}
+console.log('  天赋树 slug 与描述问题 ' + slugErr + ' 处');
+
 // 指纹算的是文件内容，而题库文件是在算完指纹之后才写出来的 —— 新增页面的
 // 第一次构建拿到的永远是 ?v=0（ver.js 里文件不存在的兜底值）。跑第二次就对了。
 // 影响：带 v=0 的资源没有缓存指纹，以后更新题库时回访用户会拿到旧的。
@@ -164,5 +187,5 @@ for (const f of fs.readdirSync(path.join(SITE, 'data', 'specs'))) {
 }
 console.log('  资源指纹缺失 ' + fpErr + ' 处');
 
-const total = bad + synErr + h1Err + quizErr + structErr + emptyErr + fpErr;
+const total = bad + synErr + h1Err + quizErr + structErr + emptyErr + slugErr + fpErr;
 console.log('\n' + (total === 0 ? '✅ 全部通过' : '⚠️  有 ' + total + ' 处问题'));
