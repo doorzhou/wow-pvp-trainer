@@ -1468,6 +1468,126 @@
   "恶魔尖刺": {
    "id": 203819,
    "en": "Demon Spikes"
+  },
+  "生命绽放": {
+   "id": 33763,
+   "en": "Lifebloom"
+  },
+  "迅捷治愈": {
+   "id": 18562,
+   "en": "Swiftmend"
+  },
+  "宁静": {
+   "id": 740,
+   "en": "Tranquility"
+  },
+  "铁木树皮": {
+   "id": 102342,
+   "en": "Ironbark"
+  },
+  "百花齐放": {
+   "id": 145205,
+   "en": "Efflorescence"
+  },
+  "繁盛": {
+   "id": 197721,
+   "en": "Flourish"
+  },
+  "自然迅捷": {
+   "id": 132158,
+   "en": "Nature's Swiftness"
+  },
+  "乌索尔旋风": {
+   "id": 102793,
+   "en": "Ursol's Vortex"
+  },
+  "夺魂咆哮": {
+   "id": 99,
+   "en": "Incapacitating Roar"
+  },
+  "林莽卫士": {
+   "id": 102693,
+   "en": "Grove Guardians"
+  },
+  "化身：生命之树": {
+   "id": 33891,
+   "en": "Incarnation: Tree of Life"
+  },
+  "安抚": {
+   "id": 2908,
+   "en": "Soothe"
+  },
+  "休眠": {
+   "id": 2637,
+   "en": "Hibernate"
+  },
+  "狂暴回复": {
+   "id": 22842,
+   "en": "Frenzied Regeneration"
+  },
+  "铁鬃": {
+   "id": 192081,
+   "en": "Ironfur"
+  },
+  "野性冲锋": {
+   "id": 102401,
+   "en": "Wild Charge"
+  },
+  "万灵之召": {
+   "id": 391528,
+   "en": "Convoke the Spirits"
+  },
+  "过度生长": {
+   "id": 203651,
+   "en": "Overgrowth"
+  },
+  "激变蜂群": {
+   "id": 391888,
+   "en": "Adaptive Swarm"
+  },
+  "荆棘术": {
+   "id": 305497,
+   "en": "Thorns"
+  },
+  "丰饶": {
+   "id": 207383,
+   "en": "Abundance"
+  },
+  "塞纳里奥结界": {
+   "id": 102351,
+   "en": "Cenarion Ward"
+  },
+  "光合作用": {
+   "id": 274902,
+   "en": "Photosynthesis"
+  },
+  "斜掠": {
+   "id": 1822,
+   "en": "Rake"
+  },
+  "割碎": {
+   "id": 22570,
+   "en": "Maim"
+  },
+  "横扫": {
+   "id": 213764,
+   "en": "Swipe"
+  },
+  "迎头痛击": {
+   "id": 106839,
+   "en": "Skull Bash"
+  },
+  "滋养": {
+   "id": 50464,
+   "en": "Nourish"
+  },
+  "猛虎冲刺": {
+   "id": 252216,
+   "en": "Tiger Dash"
+  },
+  "伊瑟拉之赐": {
+   "id": 145108,
+   "en": "Ysera's Gift"
   }
  }
 }
