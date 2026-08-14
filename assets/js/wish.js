@@ -1,14 +1,33 @@
 /* ============================================================
-   许愿池 —— 用户写内容，经 Web3Forms 转发到站长邮箱
-   纯静态站自己发不了邮件，必须借转发服务。
+   许愿池 —— 收集「想先看哪个」。两条投递路径：
+
+     有 KEY  经 Web3Forms 转发到站长邮箱（纯静态站自己发不了邮件）
+     没 KEY  开一个填好内容的 GitHub Issue，用户点「提交」即可
+
+   没有 key 时**不要把入口藏起来**——藏起来等于一条信号都收不到，
+   而 GitHub 这条路是通的，只是多一步登录。
+
    access key 写在 window.WISH_KEY（由构建注入），邮箱地址不出现在页面里。
    ============================================================ */
 (function () {
 'use strict';
 var $ = function (i) { return document.getElementById(i) };
 var KEY = window.WISH_KEY || '';
+var MAIL = !!KEY;                                    // 邮件通道是否可用
+var ISSUES = window.WISH_ISSUES || '';
 var ENDPOINT = 'https://api.web3forms.com/submit';
 var box = null, sending = false;
+
+/* 拼一个填好标题与正文的 GitHub Issue 地址 */
+function issueURL(topic, msg, from) {
+  if (!ISSUES) return '';
+  var body = '## 想看的内容\n' + (topic || '未指定') +
+    '\n\n## 具体想说什么\n' + msg +
+    (from ? '\n\n## 联系方式\n' + from : '') +
+    '\n\n<sub>来自站内许愿池</sub>';
+  return ISSUES + '/new?title=' + encodeURIComponent('【许愿】' + (topic || '未指定')) +
+    '&body=' + encodeURIComponent(body);
+}
 
 /* 待做清单：从注册表现算，不用手工维护 */
 function todoOptions() {
@@ -50,8 +69,11 @@ function build() {
         '<input id="wfrom" type="text" maxlength="120" placeholder="邮箱 / QQ / 游戏ID，随便哪个">' +
         '<input type="checkbox" id="wbot" tabindex="-1" autocomplete="off" class="wbot">' +
         '<div class="wfoot">' +
-          '<button type="submit" class="btn" id="wsend">投进许愿池</button>' +
-          '<span class="wnote">不会公开显示，只发到站长邮箱。</span>' +
+          '<button type="submit" class="btn" id="wsend">' +
+            (MAIL ? '投进许愿池' : '去 GitHub 提交') + '</button>' +
+          '<span class="wnote">' + (MAIL
+            ? '不会公开显示，只发到站长邮箱。'
+            : '会带着你写的内容打开 GitHub，点一下提交就行——内容公开可见。') + '</span>' +
         '</div>' +
         '<div class="wres" id="wres"></div>' +
       '</form>' +
@@ -92,8 +114,15 @@ function send(e) {
   if (msg.length < 4) { result('bad', '写具体一点，四个字以上。'); return }
   if ($('wbot').checked) return;                     // 蜜罐：机器人才会勾上
 
-  if (!KEY) {
-    fallback('表单还没接通（缺 access key）。');
+  /* 没有邮件通道：直接开填好的 Issue，不走「先失败再退路」 */
+  if (!MAIL) {
+    var url = issueURL($('wtopic').value, msg, $('wfrom').value.trim());
+    if (url) {
+      window.open(url, '_blank', 'noopener');
+      result('ok', 'GitHub 已经打开了，内容替你填好——<b>点那边的绿色按钮提交就成。</b>');
+    } else {
+      fallback('提交通道还没配好。');
+    }
     return;
   }
   sending = true;
@@ -145,11 +174,13 @@ function reset() {
 
 /* 发不出去时的退路：把内容复制走，自己发 issue */
 function fallback(why) {
-  var txt = '【许愿池】' + ($('wtopic').value || '未指定') + '\n\n' + $('wmsg').value.trim() +
-    '\n\n联系方式：' + ($('wfrom').value.trim() || '未留');
+  var topic = $('wtopic').value, msg = $('wmsg').value.trim(), from = $('wfrom').value.trim();
+  var txt = '【许愿池】' + (topic || '未指定') + '\n\n' + msg +
+    '\n\n联系方式：' + (from || '未留');
   result('bad', why + '内容没丢——' +
     '<button type="button" class="wcopy" id="wcopy">复制内容</button>' +
-    '<a href="' + (window.WISH_ISSUES || '#') + '" target="_blank" rel="noopener">去 GitHub 提交</a>');
+    '<a href="' + (issueURL(topic, msg, from) || ISSUES || '#') +
+    '" target="_blank" rel="noopener">去 GitHub 提交</a>');
   var b = $('wcopy'); if (!b) return;
   b.onclick = function () {
     if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { b.textContent = '已复制 ✓' });

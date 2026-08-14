@@ -242,7 +242,7 @@ ${m.jsonld ? '<script type="application/ld+json">' + m.jsonld + '</script>' : ''
     <div class="spacer"></div>
     ${vsw}${(C[cfg.file].quiz || []).length
       ? '<span class="badge" id="topAcc">正确率 —</span>' : ''}
-    ${WISH_KEY ? '<button class="wishbtn" data-wish>✦ 许愿池</button>' : ''}
+    <button class="wishbtn" data-wish>✦ 许愿池</button>
     <button class="tbtn" onclick="toggleTheme()" title="切换深浅色">◐</button>
   </div>
   <div class="wrap"><nav>
@@ -265,7 +265,8 @@ ${body}<div class="wrap" style="margin-top:38px">
 <script src="${v('data/registry.js')}"></script>
 <script src="${v('data/specs/'+cfg.file+'.js')}"></script>
 <script src="${v('assets/js/app.js')}"></script>
-${WISH_KEY ? `<script>window.WISH_KEY='${WISH_KEY}';window.WISH_ISSUES='${ISSUES}';</script>\n<script src="${v('assets/js/wish.js')}"></script>` : ''}
+<script>window.WISH_KEY='${WISH_KEY}';window.WISH_ISSUES='${ISSUES}';</script>
+<script src="${v('assets/js/wish.js')}"></script>
 </body>
 </html>
 `;
@@ -288,7 +289,7 @@ for (const cfg of PAGES) {
     '页面 ' + KB(a) + 'KB + 数据 ' + KB(b) + 'KB = 首屏 ' + KB(a + b) + 'KB' +
     '   │ 题库 ' + KB(c) + 'KB（点开才加载，' + C[cfg.file].quiz.length + ' 题）');
 }
-console.log('\n首屏合计 ' + (first / 1024).toFixed(0) + 'KB / 6 页  ·  延迟加载 ' + (lazy / 1024).toFixed(0) + 'KB');
+console.log('\n首屏合计 ' + (first / 1024).toFixed(0) + 'KB / ' + PAGES.length + ' 页  ·  延迟加载 ' + (lazy / 1024).toFixed(0) + 'KB');
 console.log('共享且只下一次：core.css ' + KB(fs.statSync(path.join(SITE, 'assets/css/core.css')).size) +
   'KB · app.js ' + KB(fs.statSync(path.join(SITE, 'assets/js/app.js')).size) +
   'KB · skdb.js ' + KB(fs.statSync(path.join(SITE, 'assets/js/skdb.js')).size) + 'KB');

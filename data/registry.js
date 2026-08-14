@@ -8,6 +8,9 @@
      page   有内容的专精指向它的页面文件名；null = 尚未开工（首页显示为"规划中"）
      st     六个内容轴的完成度: 0=没有 1=部分 2=完成
             [骨架, 手法, 对阵, 天赋, 装备, 训练]
+     skip   写了就是「不做」，值是不做的理由。不计入分母，不出现在首页与许愿池。
+            跟 page:null 的区别：null 是「还没做」，skip 是「不会做」——
+            把两者混在一起，进度条会一直挂着永远不会清的账。
    ============================================================ */
 window.REG = {
   patch: '12.1',
@@ -23,14 +26,14 @@ window.REG = {
       specs: [
         { id: 'arms', n: '武器', en: 'Arms', role: 'dps', tier: 'S', ic: 'ability_warrior_savageblow', page: 'arms-warrior.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'fury', n: '狂怒', en: 'Fury', role: 'dps', tier: 'B', ic: 'ability_warrior_innerrage', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'protection', n: '防护', en: 'Protection', role: 'tank', tier: null, ic: 'ability_warrior_defensivestance', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'protection', n: '防护', en: 'Protection', role: 'tank', tier: null, skip: '竞技场没有坦克位', ic:'ability_warrior_defensivestance', page: null, st: [0, 0, 0, 0, 0, 0] },
       ]
     },
     {
       id: 'paladin', n: '圣骑士', en: 'Paladin', c: '#F48CBA', ic: 'classicon_paladin', armor: '板甲',
       specs: [
         { id: 'holy', n: '神圣', en: 'Holy', role: 'heal', tier: null, ic: 'spell_holy_holybolt', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'protection', n: '防护', en: 'Protection', role: 'tank', tier: null, ic: 'ability_paladin_shieldofthetemplar', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'protection', n: '防护', en: 'Protection', role: 'tank', tier: null, skip: '竞技场没有坦克位', ic:'ability_paladin_shieldofthetemplar', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'retribution', n: '惩戒', en: 'Retribution', role: 'dps', tier: 'A+', ic: 'spell_holy_auraoflight', page: 'ret-paladin.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
@@ -61,7 +64,7 @@ window.REG = {
     {
       id: 'deathknight', n: '死亡骑士', en: 'Death Knight', c: '#C41E3A', ic: 'classicon_deathknight', armor: '板甲',
       specs: [
-        { id: 'blood', n: '鲜血', en: 'Blood', role: 'tank', tier: null, ic: 'spell_deathknight_bloodpresence', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'blood', n: '鲜血', en: 'Blood', role: 'tank', tier: null, skip: '竞技场没有坦克位', ic:'spell_deathknight_bloodpresence', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'frost', n: '冰霜', en: 'Frost', role: 'dps', tier: 'C', ic: 'spell_deathknight_frostpresence', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'unholy', n: '邪恶', en: 'Unholy', role: 'dps', tier: 'S', ic: 'spell_deathknight_unholypresence', page: 'unholy-dk.html', st: [2, 2, 2, 2, 2, 2] },
       ]
@@ -93,7 +96,7 @@ window.REG = {
     {
       id: 'monk', n: '武僧', en: 'Monk', c: '#00FF98', ic: 'classicon_monk', armor: '皮甲',
       specs: [
-        { id: 'brewmaster', n: '酒仙', en: 'Brewmaster', role: 'tank', tier: null, ic: 'spell_monk_brewmaster_spec', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'brewmaster', n: '酒仙', en: 'Brewmaster', role: 'tank', tier: null, skip: '竞技场没有坦克位', ic:'spell_monk_brewmaster_spec', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'mistweaver', n: '织雾', en: 'Mistweaver', role: 'heal', tier: null, ic: 'spell_monk_mistweaver_spec', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'windwalker', n: '踏风', en: 'Windwalker', role: 'dps', tier: 'S', ic: 'spell_monk_windwalker_spec', page: 'windwalker-monk.html', st: [2, 2, 2, 2, 2, 2] },
       ]
@@ -103,7 +106,7 @@ window.REG = {
       specs: [
         { id: 'balance', n: '平衡', en: 'Balance', role: 'dps', tier: 'A+', ic: 'spell_nature_starfall', page: 'balance-druid.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'feral', n: '野性', en: 'Feral', role: 'dps', tier: 'A', ic: 'ability_druid_catform', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'guardian', n: '守护', en: 'Guardian', role: 'tank', tier: null, ic: 'ability_racial_bearform', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'guardian', n: '守护', en: 'Guardian', role: 'tank', tier: null, skip: '竞技场没有坦克位', ic:'ability_racial_bearform', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'restoration', n: '恢复', en: 'Restoration', role: 'heal', tier: null, ic: 'spell_nature_healingtouch', page: null, st: [0, 0, 0, 0, 0, 0] },
       ]
     },
@@ -111,7 +114,7 @@ window.REG = {
       id: 'demonhunter', n: '恶魔猎手', en: 'Demon Hunter', c: '#A330C9', ic: 'classicon_demonhunter', armor: '皮甲',
       specs: [
         { id: 'havoc', n: '浩劫', en: 'Havoc', role: 'dps', tier: 'A', ic: 'ability_demonhunter_specdps', page: 'havoc-dh.html', st: [2, 2, 2, 2, 2, 2] },
-        { id: 'vengeance', n: '复仇', en: 'Vengeance', role: 'tank', tier: null, ic: 'ability_demonhunter_spectank', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'vengeance', n: '复仇', en: 'Vengeance', role: 'tank', tier: null, skip: '竞技场没有坦克位', ic:'ability_demonhunter_spectank', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'devourer', n: 'Devourer', en: 'Devourer', role: 'dps', tier: 'B', ic: 'spell_priest_void-blast', page: null, st: [0, 0, 0, 0, 0, 0], note: 'Midnight 新增的虚空系专精。官方简体中文名尚未查到，暂用原文——不编译名。' },
       ]
     },
@@ -225,6 +228,11 @@ window.REG.flat = window.REG.classes.flatMap(c =>
     full: s.n + c.n,
   }))
 );
+/* 标了 skip 的专精不进分母——它们不是「还没做」，是「不会做」。
+   REG.flat 只留在做的；要拿全量（含不做的）用 REG.flatAll。 */
+window.REG.flatAll = window.REG.flat;
+window.REG.skipped = window.REG.flat.filter(s => s.skip);
+window.REG.flat = window.REG.flat.filter(s => !s.skip);
 window.REG.stats = (function (f) {
   const done = f.filter(s => s.page).length;
   return { total: f.length, done, pct: Math.round(done / f.length * 100) };

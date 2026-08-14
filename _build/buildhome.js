@@ -29,7 +29,8 @@ const dots = st => '<span class="dots6">' + st.map(v => '<i class="s' + v + '"><
 /* ---------- 职业矩阵 ---------- */
 function matrix() {
   return REG.classes.map(c => {
-    const specs = c.specs.map(s => {
+    /* 标了 skip 的不进矩阵——首页只列在做的。跟 REG.flat 的口径保持一致 */
+    const specs = c.specs.filter(s => !s.skip).map(s => {
       const live = !!s.page;
       const attrs = 'data-role="' + s.role + '" data-live="' + (live ? '1' : '0') +
         '" data-q="' + (c.n + s.n + ' ' + c.en + ' ' + s.en + ' ' + s.id).toLowerCase() + '"';
@@ -135,7 +136,7 @@ const html = `<!DOCTYPE html>
     <div class="spacer"></div>
     <a class="homelink" href="#matrix">职业专精</a>
     <a class="homelink" href="#comps">竞技场组合</a>
-    ${WISH_KEY ? '<button class="wishbtn" data-wish>✦ 许愿池</button>' : ''}
+    <button class="wishbtn" data-wish>✦ 许愿池</button>
     <button class="tbtn" onclick="toggleTheme()" title="切换深浅色">◐</button>
   </div>
 </header>
@@ -168,9 +169,8 @@ const html = `<!DOCTYPE html>
   <div class="filters">
     <div class="fgroup" id="fRole">
       <button class="on" data-v="all">全部</button>
-      <button data-v="dps">输出</button>
-      <button data-v="heal">治疗</button>
-      <button data-v="tank">坦克</button>
+${Object.keys(REG.roles).filter(r => REG.flat.some(s => s.role === r))
+  .map(r => '      <button data-v="' + r + '">' + REG.roles[r] + '</button>').join('\n')}
     </div>
     <div class="fgroup" id="fLive">
       <button class="on" data-v="all">不限状态</button>
@@ -238,7 +238,7 @@ ${comps()}
   <div class="note" style="margin-top:14px">不收录具体冷却秒数与装等数值——每次平衡改动即失效，内容按相对关系描述。</div>
 </div>
 
-${WISH_KEY ? `<div class="wrap" id="wish">
+<div class="wrap" id="wish">
   <h2>许愿池</h2>
   <div class="wishcta">
     <div class="wt">
@@ -247,7 +247,7 @@ ${WISH_KEY ? `<div class="wrap" id="wish">
     </div>
     <button class="btn" data-wish>投个愿望</button>
   </div>
-</div>` : ''}
+</div>
 
 <div class="wrap" id="legal">
   <h2>版本与免责</h2>
@@ -286,7 +286,8 @@ ${WISH_KEY ? `<div class="wrap" id="wish">
 <script src="${v('assets/js/skdb.js')}"></script>
 <script src="${v('data/registry.js')}"></script>
 <script src="${v('assets/js/home.js')}"></script>
-${WISH_KEY ? `<script>window.WISH_KEY='${WISH_KEY}';window.WISH_ISSUES='${ISSUES}';</script>\n<script src="${v('assets/js/wish.js')}"></script>` : ''}
+<script>window.WISH_KEY='${WISH_KEY}';window.WISH_ISSUES='${ISSUES}';</script>
+<script src="${v('assets/js/wish.js')}"></script>
 </body>
 </html>
 `;

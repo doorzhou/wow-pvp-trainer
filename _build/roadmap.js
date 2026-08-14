@@ -43,9 +43,20 @@ const comps = REG.compList.slice().sort((a, b) =>
 const doneSpecs = specs.filter(s => s.page), todoSpecs = specs.filter(s => !s.page);
 const doneComps = comps.filter(c => c.page), todoComps = comps.filter(c => !c.page);
 
-/* 下一批建议：未开工里梯队最高的 5 个专精 + 3v3 里最主流的 3 个组合 */
-const nextSpecs = todoSpecs.filter(s => s.role === 'dps').sort((a, b) => tierRank(a.tier) - tierRank(b.tier)).slice(0, 5);
+/* 下一批建议：治疗排在 DPS 前面。
+   梯队表只给 DPS 排名，治疗在表里全是 null——照梯队排序，治疗永远轮不到。
+   而 2v2/3v3 必带治疗，组合轴的前置件全在这儿。
+   所以顺序是：未开工的治疗（按职业名）→ 未开工的 DPS（按梯队）。 */
+const todoHeal = todoSpecs.filter(s => s.role === 'heal');
+const todoDps = todoSpecs.filter(s => s.role === 'dps').sort((a, b) => tierRank(a.tier) - tierRank(b.tier));
+const nextSpecs = todoHeal.slice(0, 3).concat(todoDps.slice(0, 2));
 const nextComps = todoComps.filter(c => c.bracket === '3v3').slice(0, 3);
+
+/* 存量补齐：拿注册表现算，别手写数字 */
+const partial = doneSpecs.concat(doneComps).filter(x => x.st.some(v => v < 2));
+const axeGaps = AX.map((name, i) => ({
+  name, n: doneSpecs.concat(doneComps).filter(x => x.st[i] < 2).length,
+})).filter(a => a.n > 0);
 
 const md = `# 路线图
 
@@ -63,22 +74,24 @@ const md = `# 路线图
 **六个内容轴**：${AX.join(' / ')}
 **图例**：● 完成 ◐ 部分 ○ 没有
 
-每个训练器都要六轴齐全才算做完。目前已上线的六个，**天赋只做了实测到的定盘项、装备的逐专精属性排序全部欠着**——
-这两块是补齐存量的优先项，比新开一个专精更值得先做。
+每个训练器都要六轴齐全才算做完。${REG.skipped.length ? `${REG.skipped.length} 个专精不做，不计入分母——见下方「不做」一节。` : ''}
 
 ## 建议的下一批
 
-排序依据是 PvP 梯队（Icy Veins ${TIER_PATCH}）与组合的主流程度，**不是我的判断，是公开数据的坐标**。
+**治疗排在 DPS 前面。** 梯队表（Icy Veins ${TIER_PATCH}）只给 DPS 排名，治疗在表里全是 \`null\`——
+照它排序，治疗永远轮不到。而 2v2/3v3 必带治疗，${todoComps.length} 组未开工的组合，前置件全卡在这儿。
+组合是这站唯一别处没有的东西；单专精页 Icy Veins 和 Murlok 都有。
 
 ### 专精
-${nextSpecs.map((s, i) => (i + 1) + '. **' + s.n + s.clsName + '**（${t}）'.replace('${t}', s.tier || '—') + ' — ' + s.en).join('\n')}
+${nextSpecs.map((s, i) => (i + 1) + '. **' + s.n + s.clsName + '**（' + (s.role === 'heal' ? '治疗' : s.tier || '—') + '） — ' + s.en).join('\n')}
 
 ### 组合
 ${nextComps.map((c, i) => (i + 1) + '. **' + c.name + '** — ' + c.make).join('\n')}
 
 ### 存量补齐
-1. 六个已上线训练器的**装备与属性**——每个专精的副属性排序，需要查 Murlok.io top50 实测配装
-2. 六个已上线训练器的**完整天赋树**——职业树/专精树配点与关键分歧点
+${partial.length
+  ? axeGaps.map(a => '- **' + a.name + '**：' + a.n + ' 个训练器未满').join('\n')
+  : '已上线的训练器六轴都是满的，没有欠账。'}
 
 ---
 
@@ -91,7 +104,15 @@ ${specTable(doneSpecs)}
 ### 未开工（${todoSpecs.length}）
 
 ${specTable(todoSpecs)}
+${REG.skipped.length ? `
+### 不做（${REG.skipped.length} 个）
 
+不计入分母。**「还没做」和「不会做」混在一起，进度条上会一直挂着永远不会清的账。**
+
+| 专精 | 职业 | 角色 | 为什么不做 |
+|---|---|---|---|
+${REG.skipped.map(s => '| **' + s.n + '** | ' + s.clsName + ' | ' + REG.roles[s.role] + ' | ' + s.skip + ' |').join('\n')}
+` : ''}
 ---
 
 ## 竞技场组合（${REG.compStats.total}）
@@ -112,7 +133,9 @@ ${compTable(todoComps)}
 ## 站点层面
 
 - [ ] 提交 sitemap 到 Google Search Console 与百度搜索资源平台（需登录账号，只能人工做）
-- [ ] 许愿池接通（代码已就位，缺 Web3Forms access key；见 [\`_build/config.js\`](../_build/config.js)）
+- [ ] 许愿池升级到邮件投递——现在走 GitHub Issue 预填（通的，但要用户有账号且内容公开）。
+      去 [web3forms.com](https://web3forms.com) 填收件邮箱拿 access key，粘进 [\`_build/config.js\`](../_build/config.js) 的 \`WISH_KEY\`，
+      前端会自动切到邮件通道，不用改代码
 - [ ] 仓库名与站名对齐（现为 \`wow-pvp-trainer\`，站名已是「${SITE_NAME}」）
 - [ ] 补丁升级流程：12.1 出来后需要复核天赋使用率、梯队、组合清单
 `;
