@@ -6,6 +6,7 @@ const { execSync } = require('child_process');
 const fs = require('fs'), path = require('path');
 const SITE = path.join(__dirname, '..');
 const { DOMAIN } = require('./config.js');
+const { PAGES } = require('./pages.js');
 
 const step = (name, cmd) => {
   console.log('\n▸ ' + name);
@@ -119,5 +120,36 @@ for (const f of fs.readdirSync(path.join(__dirname, 'content')).filter(x => !x.s
 }
 console.log('  专精页结构问题 ' + structErr + ' 处');
 
-const total = bad + synErr + h1Err + quizErr + structErr;
+// 空段。导航承诺一段，正文就得有那一段 —— Thug Cleave 的「击杀链」曾经只有一句
+// 导语加一个空容器（steps 数据从来没写过），页面渲染正常、构建全绿，
+// 但用户点进去看到的是空白。导航是承诺，这道检查确认承诺兑现了。
+let emptyErr = 0;
+for (const f of fs.readdirSync(path.join(__dirname, 'content')).filter(x => !x.startsWith('_'))) {
+  const c = require(path.join(__dirname, 'content', f));
+  const id = f.replace('.js', '');
+  if (!c.nav) continue;
+  const cfg = PAGES.find(p => p.file === id) || {};
+  const html = fs.readFileSync(path.join(SITE, id + '.html'), 'utf8');
+  // 容器摆在那儿但喂它的数据是空的 —— 页面会渲染出一块什么都没有的区域
+  if (/id="stepBody"/.test(html) && !(c.steps || []).length) {
+    console.log('  ✗ ' + id + '：有 stepBody 容器但 steps 是空的，那一段会渲染成空白');
+    emptyErr++;
+  }
+  // 运行时才填内容的容器 → 喂它的数据。有数据就不算空段。
+  const fed = { stepBody: (c.steps || []).length, quizArea: (c.quiz || []).length };
+  for (const n of c.nav) {
+    if (n.s === cfg.quizSec) continue;                  // 题库是运行时填的
+    const m = html.match(new RegExp('id="' + n.s + '"[\\s\\S]*?(?=<section|$)'));
+    const seg = m ? m[0] : '';
+    if (Object.keys(fed).some(k => fed[k] && seg.includes('id="' + k + '"'))) continue;
+    const txt = seg.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (txt.length < 120) {
+      console.log('  ✗ ' + id + ' 的「' + n.label + '」(' + n.s + ') 只有 ' + txt.length + ' 字，导航承诺了这一段');
+      emptyErr++;
+    }
+  }
+}
+console.log('  空段 ' + emptyErr + ' 处');
+
+const total = bad + synErr + h1Err + quizErr + structErr + emptyErr;
 console.log('\n' + (total === 0 ? '✅ 全部通过' : '⚠️  有 ' + total + ' 处问题'));

@@ -244,7 +244,48 @@ module.exports = {
   },
   "cond": null,
   "verdicts": null,
-  "steps": null,
+  "steps": [
+    [
+      "开场之前，先分角色再定目标",
+      "<div class=\"trio\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\">默认你当锁匠——<sk>闷棍</sk>是全场最干净的开场控制。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\">你当接手。<b>把<sk>心灵尖啸</sk>留着接第二环，别拿它开场。</b></div></div><div class=\"cH\"><div class=\"who\"><img src=\"assets/icons/classicon_hunter.jpg\" alt=\"\" onerror=\"this.style.display='none'\">猎人</div><div class=\"txt\">默认你当杀手。<b>你的持续伤害不需要窗口，一直在走。</b></div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>三个角色必须各有其人。</b>重复分配等于自愿退回 2v2——3v3 的全部优势就是三个人同时做三件不同的事。</div></div></div>",
+      "潜行"
+    ],
+    [
+      "布置：猎人先把陷阱埋下",
+      "<div class=\"trio\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\">潜行绕后，<b>找一个能同时看到治疗和击杀目标的位置</b>。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><sk>真言术：盾</sk>给自己和杀手，<sk>暗言术：痛</sk>挂到击杀目标身上。</div></div><div class=\"cH\"><div class=\"who\"><img src=\"assets/icons/classicon_hunter.jpg\" alt=\"\" onerror=\"this.style.display='none'\">猎人</div><div class=\"txt\"><sk>冰冻陷阱</sk>提前埋在治疗必经之路。<b>你是唯一能\"预先\"布控的人，这个优势要用满。</b></div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>陷阱要在开场前埋好。</b>开打之后对面会散开，那时候再埋就只能碰运气了。</div></div></div>",
+      "冰冻陷阱"
+    ],
+    [
+      "第一环：锁住治疗，全队停手",
+      "<div class=\"trio\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><sk>闷棍</sk>或<sk>致盲</sk>控住对面治疗。<b>控之前喊，让另外两个人停手。</b></div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>听到就停</b>——包括<sk>暗言术：痛</sk>这种还在跳的持续伤害。它会瞬间破掉贼的控制。</div></div><div class=\"cH\"><div class=\"who\"><img src=\"assets/icons/classicon_hunter.jpg\" alt=\"\" onerror=\"this.style.display='none'\">猎人</div><div class=\"txt\"><b>停手包括宠物。</b>宠物的自动攻击是最容易被忘掉的破控源。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>受伤即破的控制，三个人里任何一个手滑都白搭。</b>这一环是纯沟通问题，不是操作问题。</div></div></div>",
+      "闷棍"
+    ],
+    [
+      "第二环：处理对面第三人",
+      "<div class=\"trio\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\">如果他要来救，<sk>凿击</sk>减速或<sk>卸除武装</sk>缴械。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><sk>驱散魔法</sk>解掉他给队友的关键增益。</div></div><div class=\"cH\"><div class=\"who\"><img src=\"assets/icons/classicon_hunter.jpg\" alt=\"\" onerror=\"this.style.display='none'\">猎人</div><div class=\"txt\"><sk>胁迫</sk>或<sk>束缚射击</sk>把他钉在原地。<b>你有最多的中距离控制手段。</b></div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>不控第三人，他会反手杀掉你们的一个。</b>Icy Veins 对这个组合的原话：「每次想杀人，都要控住对面每一个人」。</div></div></div>",
+      "胁迫"
+    ],
+    [
+      "进场：三个人的伤害同时压上",
+      "<div class=\"trio\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><sk>暗影之舞</sk>进场，<sk>偷袭</sk>控住击杀目标。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><sk>惩击</sk>、<sk>心灵震爆</sk>压上去。<b>戒律牧打伤害的同时也在回血，不用留手。</b></div></div><div class=\"cH\"><div class=\"who\"><img src=\"assets/icons/classicon_hunter.jpg\" alt=\"\" onerror=\"this.style.display='none'\">猎人</div><div class=\"txt\"><sk>瞄准射击</sk>、<sk>夺命射击</sk>全交。<b>你的伤害是这一波的主体。</b></div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>三个伤害源要落在同一个目标同一个窗口。</b>分开打，对面治疗只需要应付一个人。</div></div></div>",
+      "暗影之舞"
+    ],
+    [
+      "控制链跨类别接",
+      "<div class=\"trio\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><sk>偷袭</sk>之后接<sk>肾击</sk>——<b>但两个都是眩晕类，第二个只剩一半</b>。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><sk>心灵尖啸</sk>是恐惧类，<b>跟眩晕和失能都不同类，接上去是满时长</b>。</div></div><div class=\"cH\"><div class=\"who\"><img src=\"assets/icons/classicon_hunter.jpg\" alt=\"\" onerror=\"this.style.display='none'\">猎人</div><div class=\"txt\"><sk>冰冻陷阱</sk>是失能类，跟贼的<sk>闷棍</sk><sk>致盲</sk>同类——<b>别接在一起</b>。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>失能 → 恐惧 → 眩晕，三段都是满时长。</b>同类别接同类别，第二段直接砍半，第三段只剩四分之一。</div></div></div>",
+      "心灵尖啸"
+    ],
+    [
+      "收人窗口：能不能收掉",
+      "<div class=\"trio\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><b>目标一击能死就收完，半管血就放弃窗口。</b>你在窗口里是\"瞎\"的，需要队友报血量。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>报血量是你的活。</b>同时盯着自己——对面这时候最可能反手抓你。</div></div><div class=\"cH\"><div class=\"who\"><img src=\"assets/icons/classicon_hunter.jpg\" alt=\"\" onerror=\"this.style.display='none'\">猎人</div><div class=\"txt\"><b>你的伤害不依赖窗口</b>，所以你是三个人里唯一能一边收人一边观察全局的。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>贼的窗口有时限，猎人的没有。</b>所以窗口结束不等于这一轮结束——猎人的压力还在，可以直接续到下一轮。</div></div></div>",
+      "夺命射击"
+    ],
+    [
+      "链断了：先判断断在哪一环",
+      "<div class=\"trio\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><b>第一环断了（控制被破）→ 立刻<sk>消失</sk>重来</b>，别硬打。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>第二环断了（对面第三人自由了）→ 优先自保</b>，你是他的首选目标。</div></div><div class=\"cH\"><div class=\"who\"><img src=\"assets/icons/classicon_hunter.jpg\" alt=\"\" onerror=\"this.style.display='none'\">猎人</div><div class=\"txt\"><b>第三环断了（收人没收掉）→ 你继续压</b>，用持续伤害逼对面治疗掉蓝。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>断在不同环，处置完全不同。</b>第一环断了要重来，第三环断了反而可以硬续——因为对面的冷却也交掉了。</div></div></div>",
+      "消失"
+    ]
+  ],
   "match": {
     "list": [
       {

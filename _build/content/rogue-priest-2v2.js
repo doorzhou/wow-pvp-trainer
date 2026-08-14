@@ -259,7 +259,48 @@ module.exports = {
       "html": "<div class=\"vi\">◆</div><div style=\"flex:1\"><h3>全压。两个人的条件同时成立不常有</h3><p><b>这是 2v2 里最稀缺的时刻</b>——两个人同时处在最好状态。这时候不开，前面所有的消耗都白做了。</p><div class=\"vsplit\"><div class=\"vc r\"><span class=\"w\">🗡 贼</span><sk>偷袭</sk> 上点 → 爆发全交 → <sk>肾击</sk> 卡伤害落地。<b>控住对面治疗的活交给牧师。</b></div><div class=\"vc p\"><span class=\"w\">✚ 牧师</span><b>全力输出</b>（你的伤害就是治疗），同时准备 <sk>心灵尖啸</sk> 挡掉对面的救援动作。<b>这一轮你是第二个 DPS。</b></div></div><!--MISSING--></div>"
     }
   ],
-  "steps": null,
+  "steps": [
+    [
+      "开场之前，先把目标说定",
+      "<div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\">你说了算——<b>看对面哪个更好杀</b>：治疗难锁就杀 DPS，治疗好锁就直接打治疗。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\">听贼的。<b>你的活是把<sk>暗言术：痛</sk>提前挂在<u>那个目标</u>身上</b>，不是随便找人挂。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>目标说不定，两个人的伤害就落在两个人身上。</b>2v2 只有两个伤害源，分开就永远打不穿。</div></div></div>",
+      "潜行"
+    ],
+    [
+      "贼潜行接近，牧师把前置铺好",
+      "<div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\">绕后接近。<b>别急着开——先看牧师铺好没有。</b>你早进场几秒，换来的是他跟不上。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\">把<sk>真言术：盾</sk>先给自己，<sk>暗言术：痛</sk>挂到目标身上。<b>这几秒是你唯一能从容铺的时间。</b></div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>贼的窗口一开，牧师就没空铺了</b>——他要么在输出要么在治疗。前置只能在这一步做完。</div></div></div>",
+      "真言术：盾"
+    ],
+    [
+      "锁治疗之前，喊一声",
+      "<div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><sk>闷棍</sk>或<sk>致盲</sk>控住对面治疗。<b>喊出来</b>，别指望队友读心。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>听到就立刻停手</b>——包括还在跳的<sk>暗言术：痛</sk>。持续伤害会瞬间破掉贼的控制。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>这是纯沟通问题，不是操作问题。</b>修好它，你们的击杀率会立刻上一档。</div></div></div>",
+      "闷棍"
+    ],
+    [
+      "贼进场，牧师<u>同时</u>开始输出",
+      "<div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><sk>暗影之舞</sk>进场，<sk>偷袭</sk>控住击杀目标。<b>进场那一刻给个明确信号。</b></div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>贼进场你就该在输出了，不是等他打出伤害才跟。</b><sk>惩击</sk>、<sk>心灵震爆</sk>压上去。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>2v2 只有两个伤害源，不叠在一起就打不穿治疗。</b>这是这个组合最基本的乘法。</div></div></div>",
+      "暗影之舞"
+    ],
+    [
+      "控制链的第二环",
+      "<div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><sk>偷袭</sk>之后接<sk>肾击</sk>。<b>但这两个都是眩晕类，第二个只剩一半时长</b>——中间垫一手输出。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\">如果治疗要挣脱，<sk>心灵尖啸</sk>补一环。<b>恐惧跟眩晕不同类，是满时长的。</b></div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>跨类别接才有满时长。</b>贼的两个眩晕接在一起，第二段就只剩一半——这是最常见的浪费。</div></div></div>",
+      "肾击"
+    ],
+    [
+      "两个人的爆发叠在同一个目标",
+      "<div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><sk>暗影之刃</sk>、<sk>影分身</sk>全交。<b>这是你伤害最集中的几秒。</b></div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><sk>能量灌注</sk>加速，<sk>摧心魔</sk>压上去。<b>戒律牧的伤害同时在回血——你不用在输出和治疗之间选。</b></div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>戒律牧打伤害没有取舍成本</b>（<sk>救赎</sk>把伤害转成治疗）。所以他该跟着贼一起爆发，而不是留着手。</div></div></div>",
+      "暗影之刃"
+    ],
+    [
+      "窗口快结束了，先问一句：收得掉吗",
+      "<div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><b>目标一击能死 → 收完再说。半管血 → 立刻放弃窗口。</b>硬打下去只是把冷却喂给对面。</div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\">喊出目标血量。<b>贼在窗口里是\"瞎\"的</b>——他盯着自己的连击点，不一定看得清对面还剩多少。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>窗口不是必须用完的。</b>打不死就退，冷却还在，下一轮再来——这跟单人训练时\"窗口不能空转\"的直觉冲突，但在 2v2 里经常是对的。</div></div></div>",
+      "刺骨"
+    ],
+    [
+      "撤，两个人一起撤",
+      "<div class=\"duo\"><div class=\"cR\"><div class=\"who\"><img src=\"assets/icons/classicon_rogue.jpg\" alt=\"\" onerror=\"this.style.display='none'\">贼</div><div class=\"txt\"><sk>消失</sk>或<sk>疾跑</sk>脱战重新潜行。<b>撤的时候喊一声，别默默消失。</b></div></div><div class=\"cP\"><div class=\"who\"><img src=\"assets/icons/classicon_priest.jpg\" alt=\"\" onerror=\"this.style.display='none'\">牧师</div><div class=\"txt\"><b>贼撤你就撤。</b>你没有位移，落单等于送。撤的路上用<sk>渐隐术</sk>甩掉追击。</div></div><div class=\"link\"><span class=\"lk\">耦合点</span><div><b>牧师留在原地的那点伤害，永远不值一次被抓的风险。</b>这个组合唯一的输法是牧师先死。</div></div></div>",
+      "消失"
+    ]
+  ],
   "match": {
     "list": [
       {
