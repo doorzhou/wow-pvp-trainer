@@ -1,6 +1,8 @@
 # WOW打架营地
 
-**魔兽世界竞技场 PvP 判断训练** · 对应补丁 12.0.7（Midnight 赛季一）
+<!-- AUTO:patch -->
+**魔兽世界竞技场 PvP 判断训练** · 对应补丁 12.1（Midnight 赛季一）
+<!-- /AUTO:patch -->
 
 **站点：<https://doorzhou.github.io/wow-pvp-trainer/>**
 
@@ -11,22 +13,38 @@
 
 ## 现在有什么
 
-| 训练器 | 题量 | 内容 |
-|---|---|---|
-| [敏锐贼](https://doorzhou.github.io/wow-pvp-trainer/subtlety-rogue.html) | 56 | 骨架 · 手法 · 13 职业对阵 · 天赋 · 训练 · 速查 |
-| [狂徒贼](https://doorzhou.github.io/wow-pvp-trainer/outlaw-rogue.html) | 51 | 同上 |
-| [冰法](https://doorzhou.github.io/wow-pvp-trainer/frost-mage.html) | 51 | 同上 |
-| [戒律牧](https://doorzhou.github.io/wow-pvp-trainer/discipline-priest.html) | 51 | 同上 |
-| [贼 + 戒律牧 2v2](https://doorzhou.github.io/wow-pvp-trainer/rogue-priest-2v2.html) | 40 | 双视角 · 击杀链 · 防守链 · 分对局 |
-| [Thug Cleave 3v3](https://doorzhou.github.io/wow-pvp-trainer/thug-cleave-3v3.html) | 51 | 三视角 · 角色分配器 · 控制链 · 递减表 |
+<!-- AUTO:now -->
+| 训练器 | 类型 | 题量 | 六轴完成度 |
+|---|---|---:|---|
+| [武器战士](https://doorzhou.github.io/wow-pvp-trainer/arms-warrior.html) | 输出 | 51 | ●●●●●● |
+| [惩戒骑](https://doorzhou.github.io/wow-pvp-trainer/ret-paladin.html) | 输出 | 51 | ●●●●●● |
+| [射击猎人](https://doorzhou.github.io/wow-pvp-trainer/mm-hunter.html) | 输出 | 51 | ●●●●●● |
+| [狂徒贼](https://doorzhou.github.io/wow-pvp-trainer/outlaw-rogue.html) | 输出 | 51 | ●●●●●● |
+| [敏锐贼](https://doorzhou.github.io/wow-pvp-trainer/subtlety-rogue.html) | 输出 | 56 | ●●●●●● |
+| [戒律牧](https://doorzhou.github.io/wow-pvp-trainer/discipline-priest.html) | 治疗 | 51 | ●●●●●● |
+| [邪恶死骑](https://doorzhou.github.io/wow-pvp-trainer/unholy-dk.html) | 输出 | 51 | ●●●●●● |
+| [增强萨](https://doorzhou.github.io/wow-pvp-trainer/enhance-shaman.html) | 输出 | 51 | ●●●●●● |
+| [冰法](https://doorzhou.github.io/wow-pvp-trainer/frost-mage.html) | 输出 | 51 | ●●●●●● |
+| [痛苦术士](https://doorzhou.github.io/wow-pvp-trainer/affliction-warlock.html) | 输出 | 51 | ●●●●●● |
+| [踏风武僧](https://doorzhou.github.io/wow-pvp-trainer/windwalker-monk.html) | 输出 | 51 | ●●●●●● |
+| [平衡德](https://doorzhou.github.io/wow-pvp-trainer/balance-druid.html) | 输出 | 51 | ●●●●●● |
+| [浩劫 DH](https://doorzhou.github.io/wow-pvp-trainer/havoc-dh.html) | 输出 | 51 | ●●●●●● |
+| [湮灭唤魔师](https://doorzhou.github.io/wow-pvp-trainer/devastation-evoker.html) | 输出 | 51 | ●●●●●● |
+| [Thug Cleave](https://doorzhou.github.io/wow-pvp-trainer/thug-cleave-3v3.html) | 3v3 组合 | 51 | ●●●◐●● |
+| [RMP](https://doorzhou.github.io/wow-pvp-trainer/rmp-3v3.html) | 3v3 组合 | 51 | ●●●◐●● |
+| [贼牧 2v2](https://doorzhou.github.io/wow-pvp-trainer/rogue-priest-2v2.html) | 2v2 组合 | 40 | ●●●◐●● |
 
-合计 **300 道情境判断题**。
+合计 **861 道情境判断题**，17 个训练器。
+六轴依次是 骨架 / 手法 / 对阵 / 天赋 / 装备 / 训练 —— ● 完成 ◐ 部分 ○ 没有。
+首页每张卡下方的六个小格就是这个。
 
-**目标是 13 职业 40 专精 + 33 组竞技场组合全覆盖**，每个含天赋与装备属性。
-当前进度 **专精 4/40 · 组合 2/33**，完整清单与下一批见 **[路线图](docs/ROADMAP.md)**。
+**目标是 13 职业 34 专精 + 33 组竞技场组合全覆盖**，每个含天赋与装备属性。
+当前进度 **专精 14/34 · 组合 3/33**，还剩 50 个待办。
+完整清单与建议顺序见 **[路线图](docs/ROADMAP.md)**。
 
-每个训练器分六个内容轴：骨架 / 手法 / 对阵 / 天赋 / 装备 / 训练。
-首页每张卡下方的六个小格就是完成度，没做的是空的。
+6 个坦克专精不做，也不计入分母 —— 竞技场没有坦克位，
+把「还没做」和「不会做」混在一起，进度条上会一直挂着永远不会清的账。
+<!-- /AUTO:now -->
 
 ---
 
@@ -34,7 +52,7 @@
 
 | | |
 |---|---|
-| [路线图](docs/ROADMAP.md) | 67 个待办的完整清单与建议顺序（由注册表自动生成） |
+| [路线图](docs/ROADMAP.md) | 待办的完整清单与建议顺序（由注册表自动生成） |
 | [架构说明](docs/架构说明.md) | 为什么是「内容 + 构建 + 静态页」三层 |
 | [新增专精](docs/新增专精.md) | 加一个专精的完整步骤 |
 | [贡献指南](docs/贡献指南.md) | 两条内容纪律、文案调性、动手前要知道的 |

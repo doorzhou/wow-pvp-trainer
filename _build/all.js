@@ -17,6 +17,7 @@ step('样式', 'css.js');
 step('专精页与组合页', 'build.js');
 step('首页', 'buildhome.js');
 step('路线图', 'roadmap.js');
+step('README', 'readme.js');
 
 /* ---------- sitemap ---------- */
 console.log('\n▸ sitemap');
