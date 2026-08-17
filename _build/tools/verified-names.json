@@ -482,12 +482,12 @@
    "en": "Astral Shift"
   },
   "悬空": {
-   "id": null,
-   "en": null
+   "id": 358267,
+   "en": "Hover"
   },
   "黑曜鳞片": {
-   "id": null,
-   "en": null
+   "id": 363916,
+   "en": "Obsidian Scales"
   },
   "变易幻能": {
    "id": null,
@@ -1656,6 +1656,26 @@
   "虚空洪流": {
    "id": 263165,
    "en": "Void Torrent"
+  },
+  "回响": {
+   "id": 364343,
+   "en": "Echo"
+  },
+  "逆转": {
+   "id": 366155,
+   "en": "Reversion"
+  },
+  "梦境吐息": {
+   "id": 355936,
+   "en": "Dream Breath"
+  },
+  "静滞": {
+   "id": 370537,
+   "en": "Stasis"
+  },
+  "废灵遮罩": {
+   "id": 378464,
+   "en": "Nullifying Shroud"
   }
  }
 }

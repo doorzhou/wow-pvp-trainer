@@ -109,6 +109,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://doorzhou.github.io/wow-pvp-trainer/preservation-evoker.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://doorzhou.github.io/wow-pvp-trainer/thug-cleave-3v3.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -134,6 +140,12 @@
   </url>
   <url>
     <loc>https://doorzhou.github.io/wow-pvp-trainer/rls.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://doorzhou.github.io/wow-pvp-trainer/ret-warrior.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

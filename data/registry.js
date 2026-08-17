@@ -122,7 +122,7 @@ window.REG = {
       id: 'evoker', n: '唤魔师', en: 'Evoker', c: '#33937F', ic: 'classicon_evoker', armor: '锁甲',
       specs: [
         { id: 'devastation', n: '湮灭', en: 'Devastation', role: 'dps', tier: 'A+', ic: 'classicon_evoker_devastation', page: 'devastation-evoker.html', st: [2, 2, 2, 2, 2, 2] },
-        { id: 'preservation', n: '恩护', en: 'Preservation', role: 'heal', tier: null, ic: 'classicon_evoker_preservation', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'preservation', n: '恩护', en: 'Preservation', role: 'heal', tier: null, ic: 'classicon_evoker_preservation', page: 'preservation-evoker.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'augmentation', n: '增辉', en: 'Augmentation', role: 'dps', tier: 'C', ic: 'classicon_evoker_augmentation', page: null, st: [0, 0, 0, 0, 0, 0] },
       ]
     },
@@ -157,8 +157,9 @@ window.REG = {
           page: 'rls.html', st: [2, 2, 2, 1, 2, 2] },
         { id: 'jungle', name: 'Jungle', members: ['druid', 'hunter', 'priest'],
           make: '野性德 + 猎人 + 戒律牧', one: '两个近战持续压制，控制来源多。', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'ret-warrior', name: 'Ret / Warrior', members: ['paladin', 'warrior', 'priest'],
-          make: '惩戒骑 + 战士 + 戒律牧', one: '单体爆发上限极高。', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'ret-warrior', name: 'Ret / Warrior', members: ['paladin', 'warrior', 'evoker'],
+          make: '惩戒骑 + 武器战 + 恩护唤魔师', one: '战士留住目标，惩戒骑抬高一轮，恩护负责整队进退。',
+          page: 'ret-warrior.html', st: [2, 2, 2, 1, 2, 2] },
         { id: 'god-comp', name: 'God Comp', members: ['mage', 'priest', 'paladin'],
           make: '法师 + 暗牧 + 奶骑 / 恢复德', one: '全法术组合，控制密度最高。', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'mlp', name: 'MLP', members: ['mage', 'warlock', 'priest'],

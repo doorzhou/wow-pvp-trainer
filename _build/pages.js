@@ -893,6 +893,41 @@ const PAGES = [
     },
   },
   {
+    file: 'preservation-evoker', kind: 'spec', cls: 'evoker', spec: 'preservation',
+    h1: '恩护唤魔师 PvP 判断训练器', short: '恩护唤魔师',
+    icon: 'classicon_evoker_preservation', tier: null, color: '#33937F',
+    crumb: ['唤魔师', '恩护'], store: 'banyePreservationEvokerPvP121', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在预付下一拍，不是在血掉后追账。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「回响永远在治疗之前」过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋 · 当前明显主流', vv: '<b>时空守卫 Chronowarden</b>（46/50）　vs　<b>塑焰者 Flameshaper</b>（4/50）<br>' +
+          '<span class="dimtx">92% 走时空守卫；仍保留 4 名塑焰者，不写成唯一解。</span>' },
+        { lb: 'PvP 天赋 · 两格定盘，一格看阵容', vv: '<sk>废灵遮罩</sk>（50/50） · <sk>翡翠交融</sk>（50/50）<br>' +
+          '<b>Obsidian Mettle</b>（24/50） · <b>Scouring Flame</b>（19/50） · <b>Time Stop</b>（3/50）<br>' +
+          '<span class="dimtx">第三格按对面的控制、可驱散增益与爆发类型换。</span>' },
+      ],
+      note: '使用率来自 Murlok.io 四区 3v3 top50；无官方简体中文名的天赋保留英文。',
+    },
+    gear: {
+      stats: [
+        { n: '全能', v: '主堆', pct: 100 },
+        { n: '急速', v: '主堆', pct: 93 },
+        { n: '精通', v: '可弃', pct: 30, dim: 1 },
+        { n: '爆击', v: '可弃', pct: 13, dim: 1 },
+      ],
+      statRead: '<b>全能与急速并排在第一组，之后断崖。</b>' +
+        '全能同时保治疗与自身生存；急速压缩回响、逆转与控制之间的动作间隔。' +
+        '<b>恩护的瓶颈是顺序和可用动作，不是靠精通补一次大数字。</b>',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' · 美/欧/韩/台四区 <b>3v3 恩护 top 50</b> 平均评级值：' +
+        '全能 811 · 急速 753 · 精通 243 · 爆击 107。档位为编者按断层判定。',
+    },
+  },
+  {
     file: 'balance-druid', kind: 'spec', cls: 'druid', spec: 'balance',
     h1: '平衡德 PvP 判断训练器', short: '平衡德',
     icon: 'spell_nature_starfall', tier: 'A+', color: '#FF7C0A',
@@ -1587,6 +1622,22 @@ const PAGES = [
       { n:'敏锐贼', ic:'classicon_rogue', page:'subtlety-rogue.html' },
       { n:'痛苦术士', ic:'classicon_warlock', page:'affliction-warlock.html' },
       { n:'恢复萨', ic:'classicon_shaman', page:'resto-shaman.html' },
+    ] },
+  },
+  {
+    file: 'ret-warrior', kind: 'comp', h1: 'Ret / Warrior · 惩戒骑 + 武器战 + 恩护 3v3', short: 'Ret / Warrior',
+    icon: 'classicon_paladin', icon2: 'classicon_warrior', icon3: 'classicon_evoker', tier: null, color: '#d89b4a',
+    crumb: ['组合', '3v3 Ret / Warrior'], store: 'banyeRetWarrior3v3_121', quizSec: 's5',
+    views: [{ k:'paladin', label:'✦ 惩戒骑' }, { k:'warrior', label:'⚔ 武器战' }, { k:'evoker', label:'✚ 恩护' }],
+    v2c: { paladin:'p', warrior:'w', evoker:'e' },
+    members: [{ k:'p', cls:'P', label:'惩戒骑', icon:'classicon_paladin' }, { k:'w', cls:'R', label:'武器战', icon:'classicon_warrior' }, { k:'e', cls:'H', label:'恩护', icon:'classicon_evoker' }],
+    catLabel: { p:'✦ 惩戒骑', w:'⚔ 武器战', e:'✚ 恩护', b:'⚔ 全队' }, tagCls: { p:'p', w:'r', e:'h', b:'' },
+    done: { hi:'你们已经在让持续地板、爆发上限与整队进退各走自己的时钟。', mid:'基础配合成立，把错题再过一轮。', lo:'先回骨架页把「战士留人，惩戒抬一轮，恩护带进退」过一遍。' },
+    talent: { rows: [{ lb:'三人的天赋定盘', todo:1 }] },
+    gear: { referNote:'<b>属性跟着专精走。</b>组合层面没有额外副属性取舍。', refer:[
+      { n:'惩戒骑', ic:'classicon_paladin', page:'ret-paladin.html' },
+      { n:'武器战', ic:'classicon_warrior', page:'arms-warrior.html' },
+      { n:'恩护唤魔师', ic:'classicon_evoker', page:'preservation-evoker.html' },
     ] },
   },
   {
