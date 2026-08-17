@@ -43,14 +43,26 @@ const comps = REG.compList.slice().sort((a, b) =>
 const doneSpecs = specs.filter(s => s.page), todoSpecs = specs.filter(s => !s.page);
 const doneComps = comps.filter(c => c.page), todoComps = comps.filter(c => !c.page);
 
-/* 下一批建议：治疗排在 DPS 前面。
-   梯队表只给 DPS 排名，治疗在表里全是 null——照梯队排序，治疗永远轮不到。
-   而 2v2/3v3 必带治疗，组合轴的前置件全在这儿。
-   所以顺序是：未开工的治疗（按职业名）→ 未开工的 DPS（按梯队）。 */
-const todoHeal = todoSpecs.filter(s => s.role === 'heal');
-const todoDps = todoSpecs.filter(s => s.role === 'dps').sort((a, b) => tierRank(a.tier) - tierRank(b.tier));
-const nextSpecs = todoHeal.slice(0, 3).concat(todoDps.slice(0, 2));
-const nextComps = todoComps.filter(c => c.bracket === '3v3').slice(0, 3);
+/* 下一批建议：先解锁组合，不按外部强度榜平铺。
+   RMD 的三个前置专精已经齐，直接先做；RPS / RLS 共用恢复萨，RPS 还需要暗牧。
+   之后再按能解锁的组合数量补其余治疗。 */
+const SPEC_PRIORITY = [
+  'shaman/restoration', 'priest/shadow',
+  'evoker/preservation', 'paladin/holy', 'monk/mistweaver', 'priest/holy',
+];
+const COMP_PRIORITY = ['rmd', 'rps', 'rls'];
+const specPriority = s => {
+  const i = SPEC_PRIORITY.indexOf(s.key);
+  return i < 0 ? 999 : i;
+};
+const compPriority = c => {
+  const i = COMP_PRIORITY.indexOf(c.id);
+  return i < 0 ? 999 : i;
+};
+const nextSpecs = todoSpecs.slice().sort((a, b) =>
+  specPriority(a) - specPriority(b) || tierRank(a.tier) - tierRank(b.tier)).slice(0, 5);
+const nextComps = todoComps.filter(c => c.bracket === '3v3')
+  .sort((a, b) => compPriority(a) - compPriority(b)).slice(0, 3);
 
 /* 存量补齐：拿注册表现算，别手写数字 */
 const partial = doneSpecs.concat(doneComps).filter(x => x.st.some(v => v < 2));
@@ -78,9 +90,9 @@ const md = `# 路线图
 
 ## 建议的下一批
 
-**治疗排在 DPS 前面。** 梯队表（Icy Veins ${TIER_PATCH}）只给 DPS 排名，治疗在表里全是 \`null\`——
-照它排序，治疗永远轮不到。而 2v2/3v3 必带治疗，${todoComps.length} 组未开工的组合，前置件全卡在这儿。
-组合是这站唯一别处没有的东西；单专精页 Icy Veins 和 Murlok 都有。
+**先解锁组合，不按强度榜平铺专精。** RMD 的前置已经齐，直接先做；
+RPS / RLS 共用恢复萨，RPS 还需要暗牧，所以恢复萨与暗牧排在下一组。
+之后再按能解锁的组合数量补其余治疗。组合是这站唯一别处没有的东西；单专精页 Icy Veins 和 Murlok 都有。
 
 ### 专精
 ${nextSpecs.map((s, i) => (i + 1) + '. **' + s.n + s.clsName + '**（' + (s.role === 'heal' ? '治疗' : s.tier || '—') + '） — ' + s.en).join('\n')}

@@ -15,7 +15,7 @@
 window.REG = {
   patch: '12.1',
   season: 'Midnight 赛季一',
-  updated: '2026-08-13',
+  updated: '2026-08-17',
   axes: ['骨架', '手法', '对阵', '天赋', '装备', '训练'],
   roles: { dps: '输出', heal: '治疗', tank: '坦克' },
   tierColor: { S: '#ff6b6b', 'A+': '#ffa94d', A: '#ffd43b', B: '#74c0fc', C: '#adb5bd' },
