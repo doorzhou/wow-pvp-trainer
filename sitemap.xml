@@ -127,6 +127,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://doorzhou.github.io/wow-pvp-trainer/rps.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://doorzhou.github.io/wow-pvp-trainer/rls.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://doorzhou.github.io/wow-pvp-trainer/rogue-priest-2v2.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
