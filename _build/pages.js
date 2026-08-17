@@ -1459,6 +1459,36 @@ const PAGES = [
     },
   },
   {
+    file: 'rmd', kind: 'comp', h1: 'RMD · 贼 + 法 + 恢复德 3v3', short: 'RMD',
+    icon: 'classicon_rogue', icon2: 'classicon_mage', icon3: 'classicon_druid',
+    tier: null, color: '#FF7C0A',
+    crumb: ['组合', '3v3 RMD'], store: 'banyeRMD3v3_121', quizSec: 's6',
+    views: [{ k: 'rogue', label: '🗡 贼' }, { k: 'mage', label: '❄ 法' }, { k: 'druid', label: '✚ 恢复德' }],
+    v2c: { rogue: 'r', mage: 'm', druid: 'd' },
+    members: [
+      { k: 'r', cls: 'R', label: '贼', icon: 'classicon_rogue' },
+      { k: 'm', cls: 'M', label: '法师', icon: 'classicon_mage' },
+      { k: 'd', cls: 'P', label: '恢复德', icon: 'classicon_druid' },
+    ],
+    catLabel: { r: '🗡 贼', m: '❄ 法师', d: '✚ 恢复德', b: '⚔ 全队' },
+    tagCls: { r: 'r', m: 'm', d: 'p', b: '' },
+    done: {
+      hi: '你们已经在用预付治疗换第三条控制线。',
+      mid: '基础配合成立，把错题再过一轮。',
+      lo: '先回骨架页把「先铺，再进」过一遍。',
+    },
+    talent: { rows: [{ lb: '三人的天赋定盘', todo: 1 }] },
+    gear: {
+      referNote: '<b>属性跟着专精走，三个人各自按自己的专精堆。</b>' +
+        '组合层面没有额外取舍——队友是谁不改变副属性收益。',
+      refer: [
+        { n: '敏锐贼', ic: 'classicon_rogue', page: 'subtlety-rogue.html' },
+        { n: '冰法', ic: 'classicon_mage', page: 'frost-mage.html' },
+        { n: '恢复德', ic: 'classicon_druid', page: 'resto-druid.html' },
+      ],
+    },
+  },
+  {
     file: 'thug-cleave-3v3', kind: 'comp', h1: 'Thug Cleave · 贼 + 牧 + 猎 3v3', short: 'Thug Cleave',
     icon: 'classicon_rogue', icon2: 'classicon_priest', icon3: 'classicon_hunter', tier: null, color: '#8b6fd4',
     crumb: ['组合', '3v3 Thug Cleave'], store: 'banyeThugCleave3v3_1207', quizSec: 's6',
