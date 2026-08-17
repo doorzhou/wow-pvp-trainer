@@ -451,6 +451,40 @@ const PAGES = [
     },
   },
   {
+    file: 'shadow-priest', kind: 'spec', cls: 'priest', spec: 'shadow',
+    h1: '暗影牧师 PvP 判断训练器', short: '暗影牧师',
+    icon: 'spell_shadow_shadowwordpain', tier: 'A', color: '#FFFFFF',
+    crumb: ['牧师', '暗影'], store: 'banyeShadowPriestPvP121', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在买自由施法时间，不是在等按钮变亮。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「自由施法才是爆发资源」过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋 · 两条都有人用', vv: '<b>虚空编织者 Voidweaver</b>（32/50）　vs　<b>执政官 Archon</b>（18/50）<br>' +
+          '<span class="dimtx">64 比 36。有主流，但不是唯一解。</span>' },
+        { lb: 'PvP 天赋 · 三格接近定盘', vv: '<b>Phase Shift</b>（45/50） · <b>Driven to Madness</b>（44/50） · <b>Psyfiend</b>（44/50）<br>' +
+          '<b>Cascading Horrors</b>（14/50）在双近战贴身时换入。' },
+      ],
+      note: '使用率来自 Murlok.io 四区 3v3 top50；未核到官方简体中文名的天赋保留英文。',
+    },
+    gear: {
+      stats: [
+        { n: '急速', v: '主堆', pct: 100 },
+        { n: '全能', v: '主堆', pct: 95 },
+        { n: '精通', v: '次要', pct: 23, mid: 1 },
+        { n: '爆击', v: '可弃', pct: 7, dim: 1 },
+      ],
+      statRead: '<b>急速与全能是一组，之后断崖。</b>' +
+        '急速加快 DoT 跳动、缩短公共冷却，也让有限的自由施法时间里塞进更多动作；' +
+        '全能同时补伤害与被集火时的生存。',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' · 美/欧/韩/台四区 <b>3v3 暗牧 top 50</b> 平均评级值：' +
+        '急速 863 · 全能 821 · 精通 202 · 爆击 59。档位为编者按断层判定。',
+    },
+  },
+  {
     file: 'unholy-dk', kind: 'spec', cls: 'deathknight', spec: 'unholy',
     h1: '邪恶死骑 PvP 判断训练器', short: '邪恶死骑',
     icon: 'spell_deathknight_unholypresence', tier: 'S', color: '#C41E3A',

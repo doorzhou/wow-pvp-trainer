@@ -242,24 +242,24 @@
    "en": null
   },
   "真言术：盾": {
-   "id": null,
-   "en": null
+   "id": 17,
+   "en": "Power Word: Shield"
   },
   "痛苦压制": {
    "id": null,
    "en": null
   },
   "心灵尖啸": {
-   "id": null,
-   "en": null
+   "id": 8122,
+   "en": "Psychic Scream"
   },
   "暗言术：痛": {
-   "id": null,
-   "en": null
+   "id": 589,
+   "en": "Shadow Word: Pain"
   },
   "消散": {
-   "id": null,
-   "en": null
+   "id": 47585,
+   "en": "Dispersion"
   },
   "快速治疗": {
    "id": null,
@@ -270,16 +270,16 @@
    "en": null
   },
   "能量灌注": {
-   "id": null,
-   "en": null
+   "id": 10060,
+   "en": "Power Infusion"
   },
   "苦修": {
    "id": null,
    "en": null
   },
   "绝望祷言": {
-   "id": null,
-   "en": null
+   "id": 19236,
+   "en": "Desperate Prayer"
   },
   "天堂之羽": {
    "id": null,
@@ -290,8 +290,8 @@
    "en": null
   },
   "心灵震爆": {
-   "id": null,
-   "en": null
+   "id": 8092,
+   "en": "Mind Blast"
   },
   "暗影愈合": {
    "id": null,
@@ -302,8 +302,8 @@
    "en": null
   },
   "群体驱散": {
-   "id": null,
-   "en": null
+   "id": 32375,
+   "en": "Mass Dispel"
   },
   "驱散魔法": {
    "id": null,
@@ -1620,6 +1620,42 @@
   "掘地三尺": {
    "id": 409293,
    "en": "Burrow"
+  },
+  "吸血鬼之触": {
+   "id": 34914,
+   "en": "Vampiric Touch"
+  },
+  "精神鞭笞": {
+   "id": 15407,
+   "en": "Mind Flay"
+  },
+  "信仰飞跃": {
+   "id": 73325,
+   "en": "Leap of Faith"
+  },
+  "沉默": {
+   "id": 15487,
+   "en": "Silence"
+  },
+  "吸血鬼的拥抱": {
+   "id": 15286,
+   "en": "Vampiric Embrace"
+  },
+  "渐隐术": {
+   "id": 586,
+   "en": "Fade"
+  },
+  "暗言术：灭": {
+   "id": 32379,
+   "en": "Shadow Word: Death"
+  },
+  "灵能魔": {
+   "id": 211522,
+   "en": "Psyfiend"
+  },
+  "虚空洪流": {
+   "id": 263165,
+   "en": "Void Torrent"
   }
  }
 }

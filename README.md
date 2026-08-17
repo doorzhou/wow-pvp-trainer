@@ -22,6 +22,7 @@
 | [狂徒贼](https://doorzhou.github.io/wow-pvp-trainer/outlaw-rogue.html) | 输出 | 51 | ●●●●●● |
 | [敏锐贼](https://doorzhou.github.io/wow-pvp-trainer/subtlety-rogue.html) | 输出 | 56 | ●●●●●● |
 | [戒律牧](https://doorzhou.github.io/wow-pvp-trainer/discipline-priest.html) | 治疗 | 51 | ●●●●●● |
+| [暗影牧师](https://doorzhou.github.io/wow-pvp-trainer/shadow-priest.html) | 输出 | 51 | ●●●●●● |
 | [邪恶死骑](https://doorzhou.github.io/wow-pvp-trainer/unholy-dk.html) | 输出 | 51 | ●●●●●● |
 | [增强萨](https://doorzhou.github.io/wow-pvp-trainer/enhance-shaman.html) | 输出 | 51 | ●●●●●● |
 | [恢复萨](https://doorzhou.github.io/wow-pvp-trainer/resto-shaman.html) | 治疗 | 51 | ●●●●●● |
@@ -37,12 +38,12 @@
 | [RMD](https://doorzhou.github.io/wow-pvp-trainer/rmd.html) | 3v3 组合 | 51 | ●●●◐●● |
 | [贼牧 2v2](https://doorzhou.github.io/wow-pvp-trainer/rogue-priest-2v2.html) | 2v2 组合 | 40 | ●●●◐●● |
 
-合计 **1014 道情境判断题**，20 个训练器。
+合计 **1065 道情境判断题**，21 个训练器。
 六轴依次是 骨架 / 手法 / 对阵 / 天赋 / 装备 / 训练 —— ● 完成 ◐ 部分 ○ 没有。
 首页每张卡下方的六个小格就是这个。
 
 **目标是 13 职业 34 专精 + 33 组竞技场组合全覆盖**，每个含天赋与装备属性。
-当前进度 **专精 16/34 · 组合 4/33**，还剩 47 个待办。
+当前进度 **专精 17/34 · 组合 4/33**，还剩 46 个待办。
 完整清单与建议顺序见 **[路线图](docs/ROADMAP.md)**。
 
 6 个坦克专精不做，也不计入分母 —— 竞技场没有坦克位，

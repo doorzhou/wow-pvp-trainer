@@ -58,7 +58,7 @@ window.REG = {
       specs: [
         { id: 'discipline', n: '戒律', en: 'Discipline', role: 'heal', tier: null, ic: 'spell_holy_powerwordshield', page: 'discipline-priest.html', st: [2, 2, 2, 2, 2, 2] },
         { id: 'holy', n: '神圣', en: 'Holy', role: 'heal', tier: null, ic: 'spell_holy_guardianspirit', page: null, st: [0, 0, 0, 0, 0, 0] },
-        { id: 'shadow', n: '暗影', en: 'Shadow', role: 'dps', tier: 'A', ic: 'spell_shadow_shadowwordpain', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'shadow', n: '暗影', en: 'Shadow', role: 'dps', tier: 'A', ic: 'spell_shadow_shadowwordpain', page: 'shadow-priest.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
     {
