@@ -3,7 +3,7 @@
    跑法： node all.js
    ============================================================ */
 const { execSync } = require('child_process');
-const fs = require('fs'), path = require('path');
+const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const SITE = path.join(__dirname, '..');
 const { DOMAIN } = require('./config.js');
 const { PAGES } = require('./pages.js');
@@ -192,13 +192,22 @@ console.log('  天赋树 slug 与描述问题 ' + slugErr + ' 处');
 // 第一次构建拿到的永远是 ?v=0（ver.js 里文件不存在的兜底值）。跑第二次就对了。
 // 影响：带 v=0 的资源没有缓存指纹，以后更新题库时回访用户会拿到旧的。
 let fpErr = 0;
-for (const f of fs.readdirSync(path.join(SITE, 'data', 'specs'))) {
-  if (/\?v=0["']/.test(fs.readFileSync(path.join(SITE, 'data', 'specs', f), 'utf8'))) {
-    console.log('  ✗ ' + f + ' 里有 ?v=0 的资源（指纹没算上），再跑一次 node all.js');
-    fpErr++;
+const fpFiles = fs.readdirSync(SITE).filter(x => x.endsWith('.html')).map(x => x)
+  .concat(fs.readdirSync(path.join(SITE, 'data', 'specs')).map(x => 'data/specs/' + x));
+const actualHash = f => crypto.createHash('md5').update(fs.readFileSync(path.join(SITE, f))).digest('hex').slice(0, 8);
+for (const f of fpFiles) {
+  const txt = fs.readFileSync(path.join(SITE, f), 'utf8');
+  for (const m of txt.matchAll(/([a-zA-Z0-9_./-]+)\?v=([0-9a-f]+)/g)) {
+    const target = m[1], got = m[2];
+    if (!fs.existsSync(path.join(SITE, target))) continue;
+    const want = actualHash(target);
+    if (got !== want) {
+      console.log('  ✗ ' + f + ' → ' + target + ' 指纹过期（' + got + '，应为 ' + want + '），再跑一次 node all.js');
+      fpErr++;
+    }
   }
 }
-console.log('  资源指纹缺失 ' + fpErr + ' 处');
+console.log('  资源指纹缺失或过期 ' + fpErr + ' 处');
 
 const total = bad + synErr + h1Err + iconErr + quizErr + structErr + emptyErr + slugErr + fpErr;
 console.log('\n' + (total === 0 ? '✅ 全部通过' : '⚠️  有 ' + total + ' 处问题'));
