@@ -74,7 +74,7 @@ window.REG = {
       specs: [
         { id: 'elemental', n: '元素', en: 'Elemental', role: 'dps', tier: 'A', ic: 'spell_nature_lightning', page: null, st: [0, 0, 0, 0, 0, 0] },
         { id: 'enhancement', n: '增强', en: 'Enhancement', role: 'dps', tier: 'A+', ic: 'spell_shaman_improvedstormstrike', page: 'enhance-shaman.html', st: [2, 2, 2, 2, 2, 2] },
-        { id: 'restoration', n: '恢复', en: 'Restoration', role: 'heal', tier: null, ic: 'spell_nature_magicimmunity', page: null, st: [0, 0, 0, 0, 0, 0] },
+        { id: 'restoration', n: '恢复', en: 'Restoration', role: 'heal', tier: null, ic: 'spell_nature_magicimmunity', page: 'resto-shaman.html', st: [2, 2, 2, 2, 2, 2] },
       ]
     },
     {

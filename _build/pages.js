@@ -824,6 +824,41 @@ const PAGES = [
     },
   },
   {
+    file: 'resto-shaman', kind: 'spec', cls: 'shaman', spec: 'restoration',
+    h1: '恢复萨 PvP 判断训练器', short: '恢复萨',
+    icon: 'spell_nature_magicimmunity', tier: null, color: '#0070DD',
+    crumb: ['萨满祭司', '恢复'], store: 'banyeRestoShamanPvP121', quizSec: 's4',
+    catLabel: { general: '通用手法' },
+    done: {
+      hi: '你已经在让伤害不发生，不是在事后追血。',
+      mid: '基础判断成立，把错题再过一轮。',
+      lo: '先回骨架页把「先阻断，再治疗」过一遍。',
+    },
+    talent: {
+      rows: [
+        { lb: '英雄天赋 · 主流但不是唯一解', vv: '<b>图腾师 Totemic</b>（36/50）　vs　<b>先知 Farseer</b>（14/50）<br>' +
+          '<span class="dimtx">72% 走图腾师；另一条仍有 28%，不写成唯一解。</span>' },
+        { lb: 'PvP 天赋 · 根基定盘，其余看阵容', vv: '<sk>根基图腾</sk>（48/50）<br>' +
+          '<b>Rain Dance</b>（30/50） · <b>Lightning Lasso</b>（26/50） · <b>Static Field Totem</b>（23/50） · <b>Storm Conduit</b>（17/50）<br>' +
+          '<span class="dimtx"><sk>掘地三尺</sk>只有 2/50。除根基外，另外两格有真实分歧。</span>' },
+      ],
+      note: '使用率来自 Murlok.io 四区 3v3 top50；无官方简体中文名的天赋保留英文。',
+    },
+    gear: {
+      stats: [
+        { n: '精通', v: '主堆', pct: 100 },
+        { n: '全能', v: '主堆', pct: 91 },
+        { n: '急速', v: '次要', pct: 38, mid: 1 },
+        { n: '爆击', v: '可弃', pct: 12, dim: 1 },
+      ],
+      statRead: '<b>精通与全能并排在第一组，之后断崖。</b>' +
+        '精通「深度治疗」让低血目标吃到更高治疗；全能同时提高治疗与自身生存。' +
+        '<b>恢复萨不是靠急速硬追血条，先把前两条堆稳。</b>',
+      statSrc: '数据：Murlok.io · ' + PATCH + ' · 美/欧/韩/台四区 <b>3v3 恢复萨 top 50</b> 平均评级值：' +
+        '精通 794 · 全能 720 · 急速 306 · 爆击 94。档位为编者按断层判定。',
+    },
+  },
+  {
     file: 'balance-druid', kind: 'spec', cls: 'druid', spec: 'balance',
     h1: '平衡德 PvP 判断训练器', short: '平衡德',
     icon: 'spell_nature_starfall', tier: 'A+', color: '#FF7C0A',

@@ -62,6 +62,7 @@ module.exports = {
     "sheet": "<div class=\"sheet\">\n  <div class=\"sc r\"><h4 class=\"tt\">🗡 贼 · 开窗的人</h4>\n    <div class=\"line\">1 · <b>开窗之前问法师好没好</b>。你的窗口比他的冷却便宜。</div>\n    <div class=\"line\">2 · <sk>闷棍</sk>和法师的<sk>变形术</sk>共享递减，<b>别挤在开场</b>。</div>\n    <div class=\"line\">3 · 控之前喊，让另外两个人停手（包括还在跳的持续伤害）。</div>\n    <div class=\"line\">4 · 队友被抓：先判断目标能不能一击收掉，再决定回不回。</div>\n    <div class=\"line\">5 · 你被抓：<b>自己处理</b>，别让队友来救。</div>\n  </div>\n  <div class=\"sc m\"><h4 class=\"tt\">❄ 法师 · 窗口里的主伤害</h4>\n    <div class=\"line\">1 · <b>你的控制和伤害是同一份预算</b>——每读一次变形就少打一段。</div>\n    <div class=\"line\">2 · <sk>变形术</sk>要么用在开场，要么留给第二轮，别跟闷棍撞。</div>\n    <div class=\"line\">3 · <b>假读条骗打断</b>是基本功，先骗掉再放真的。</div>\n    <div class=\"line\">4 · 挨打<b>按顺序交</b>：位移 → <sk>寒冰屏障</sk> → <sk>操控时间</sk>。</div>\n    <div class=\"line\">5 · 爆发没好就说出来，别让贼开一个空窗。</div>\n  </div>\n  <div class=\"sc p\"><h4 class=\"tt\">✚ 牧师 · 保住法师</h4>\n    <div class=\"line\">1 · <b>你的第一职责是让法师活到窗口结束</b>，不是治疗量。</div>\n    <div class=\"line\">2 · 贼喊控制就立刻停手，<b>包括<sk>暗言术：痛</sk></b>。</div>\n    <div class=\"line\">3 · <sk>心灵尖啸</sk>是失能类用光之后<b>唯一满时长的控制</b>，留着。</div>\n    <div class=\"line\">4 · 贼被抓不用救，<b>他自己有牌</b>。</div>\n    <div class=\"line\">5 · 撤的时候跟着法师走，别单独走。</div>\n  </div>\n</div>"
   },
   "sk": {
+    "夺命射击": "ability_hunter_assassinate2",
     "变形术": "spell_nature_polymorph",
     "闷棍": "ability_sap",
     "胁迫": "ability_devour",

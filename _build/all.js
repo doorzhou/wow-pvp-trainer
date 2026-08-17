@@ -80,6 +80,19 @@ for (const f of fs.readdirSync(SITE).filter(x => x.endsWith('.html'))) {
 }
 console.log('  h1 数量异常 ' + h1Err + ' 页');
 
+// 技能行里的图标必须有本地 src。只写 data-sk 不会报错，但浏览器会安静地显示空白。
+// 2026-08-17 做恢复萨时顺手照全站，翻出 RMP 同类存量问题。
+let iconErr = 0;
+for (const f of fs.readdirSync(SITE).filter(x => x.endsWith('.html'))) {
+  const h = fs.readFileSync(path.join(SITE, f), 'utf8');
+  const empty = h.match(/<img\b(?=[^>]*\bdata-sk=)(?![^>]*\bsrc=)[^>]*>/g) || [];
+  if (empty.length) {
+    console.log('  ✗ ' + f + '：' + empty.length + ' 个技能图标没有 src');
+    iconErr += empty.length;
+  }
+}
+console.log('  技能图标空源 ' + iconErr + ' 处');
+
 // 题库结构。重点是最后一条：答题引擎会打乱选项顺序，
 // 所以「B 和 C 都对」「以上都对」这类写法在页面上必然是错的 —— 靠人眼看不出来，只能焊在这里。
 let quizErr = 0;
@@ -187,5 +200,5 @@ for (const f of fs.readdirSync(path.join(SITE, 'data', 'specs'))) {
 }
 console.log('  资源指纹缺失 ' + fpErr + ' 处');
 
-const total = bad + synErr + h1Err + quizErr + structErr + emptyErr + slugErr + fpErr;
+const total = bad + synErr + h1Err + iconErr + quizErr + structErr + emptyErr + slugErr + fpErr;
 console.log('\n' + (total === 0 ? '✅ 全部通过' : '⚠️  有 ' + total + ' 处问题'));

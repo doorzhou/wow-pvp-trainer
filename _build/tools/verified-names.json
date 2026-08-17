@@ -478,8 +478,8 @@
    "en": null
   },
   "星界转移": {
-   "id": null,
-   "en": null
+   "id": 108271,
+   "en": "Astral Shift"
   },
   "悬空": {
    "id": null,
@@ -1588,6 +1588,38 @@
   "伊瑟拉之赐": {
    "id": 145108,
    "en": "Ysera's Gift"
+  },
+  "激流": {
+   "id": 61295,
+   "en": "Riptide"
+  },
+  "治疗波": {
+   "id": 77472,
+   "en": "Healing Wave"
+  },
+  "灵魂链接图腾": {
+   "id": 98008,
+   "en": "Spirit Link Totem"
+  },
+  "治疗之潮图腾": {
+   "id": 108280,
+   "en": "Healing Tide Totem"
+  },
+  "生命释放": {
+   "id": 73685,
+   "en": "Unleash Life"
+  },
+  "战栗图腾": {
+   "id": 8143,
+   "en": "Tremor Totem"
+  },
+  "净化术": {
+   "id": 370,
+   "en": "Purge"
+  },
+  "掘地三尺": {
+   "id": 409293,
+   "en": "Burrow"
   }
  }
 }

@@ -26,6 +26,17 @@ function fill(html, id, content) {
 
 /* ---------- 构建期渲染对阵面板（全部进 DOM，JS 只负责切换显示） ---------- */
 function IC(f) { return 'assets/icons/' + f + '.jpg' }
+/* 内容源里的旧组合页有一批 <img data-sk> 只写了名字、没写 src。
+   页面不会报错，只会安静地空一个图标。构建时统一补齐，别靠每页手填。 */
+function hydrateSkillImages(html, SK) {
+  return html.replace(/<img class="ic" data-sk="([^"]+)"([^>]*)>/g, (tag, name, rest) => {
+    if (/\bsrc=/.test(rest)) return tag;
+    const icon = SK[name];
+    if (!icon) return tag;
+    return '<img class="ic" data-sk="' + name + '" src="' + IC(icon) + '" alt="' + name +
+      '" loading="lazy" onerror="this.style.display=\'none\'"' + rest + '>';
+  });
+}
 function skHTMLb(n, SK, sets) {
   const f = SK[n]; if (!f) return n;
   let c = '';
@@ -205,6 +216,7 @@ function page(cfg) {
   if (!inject.has(1)) {
     body += '<section id="sTal">' + newSecs.sTal + '</section>\n\n<section id="sGear">' + newSecs.sGear + '</section>\n\n';
   }
+  body = hydrateSkillImages(body, SK);
 
   const vsw = cfg.views ? '<div class="vswitch" id="vsw"></div>\n    ' : '';
   const url = DOMAIN + '/' + cfg.file + '.html';
