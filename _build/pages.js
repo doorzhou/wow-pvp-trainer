@@ -1641,6 +1641,22 @@ const PAGES = [
     ] },
   },
   {
+    file: 'cupid', kind: 'comp', h1: 'Cupid · 射击猎 + 惩戒骑 + 戒律牧 3v3', short: 'Cupid',
+    icon: 'classicon_hunter', icon2: 'classicon_paladin', icon3: 'classicon_priest', tier: null, color: '#d68bb5',
+    crumb: ['组合', '3v3 Cupid'], store: 'banyeCupid3v3_121', quizSec: 's5',
+    views: [{ k:'hunter', label:'🏹 射击猎' }, { k:'paladin', label:'✦ 惩戒骑' }, { k:'priest', label:'✚ 戒律牧' }],
+    v2c: { hunter:'h', paladin:'p', priest:'d' },
+    members: [{ k:'h', cls:'R', label:'射击猎', icon:'classicon_hunter' }, { k:'p', cls:'P', label:'惩戒骑', icon:'classicon_paladin' }, { k:'d', cls:'H', label:'戒律牧', icon:'classicon_priest' }],
+    catLabel: { h:'🏹 射击猎', p:'✦ 惩戒骑', d:'✚ 戒律牧', b:'⚔ 全队' }, tagCls: { h:'r', p:'p', d:'h', b:'' },
+    done: { hi:'你们已经在同一拍拿走对面三个人。', mid:'基础配合成立，把错题再过一轮。', lo:'先回骨架页把「陷阱治疗、制裁目标、恐惧接链」过一遍。' },
+    talent: { rows: [{ lb:'三人的天赋定盘', todo:1 }] },
+    gear: { referNote:'<b>属性跟着专精走。</b>组合层面没有额外副属性取舍。', refer:[
+      { n:'射击猎', ic:'classicon_hunter', page:'mm-hunter.html' },
+      { n:'惩戒骑', ic:'classicon_paladin', page:'ret-paladin.html' },
+      { n:'戒律牧', ic:'classicon_priest', page:'discipline-priest.html' },
+    ] },
+  },
+  {
     file: 'thug-cleave-3v3', kind: 'comp', h1: 'Thug Cleave · 贼 + 牧 + 猎 3v3', short: 'Thug Cleave',
     icon: 'classicon_rogue', icon2: 'classicon_priest', icon3: 'classicon_hunter', tier: null, color: '#8b6fd4',
     crumb: ['组合', '3v3 Thug Cleave'], store: 'banyeThugCleave3v3_1207', quizSec: 's6',

@@ -40,14 +40,15 @@
 | [RPS](https://doorzhou.github.io/wow-pvp-trainer/rps.html) | 3v3 组合 | 51 | ●●●◐●● |
 | [RLS](https://doorzhou.github.io/wow-pvp-trainer/rls.html) | 3v3 组合 | 51 | ●●●◐●● |
 | [Ret / Warrior](https://doorzhou.github.io/wow-pvp-trainer/ret-warrior.html) | 3v3 组合 | 51 | ●●●◐●● |
+| [Cupid](https://doorzhou.github.io/wow-pvp-trainer/cupid.html) | 3v3 组合 | 51 | ●●●◐●● |
 | [贼牧 2v2](https://doorzhou.github.io/wow-pvp-trainer/rogue-priest-2v2.html) | 2v2 组合 | 40 | ●●●◐●● |
 
-合计 **1269 道情境判断题**，25 个训练器。
+合计 **1320 道情境判断题**，26 个训练器。
 六轴依次是 骨架 / 手法 / 对阵 / 天赋 / 装备 / 训练 —— ● 完成 ◐ 部分 ○ 没有。
 首页每张卡下方的六个小格就是这个。
 
 **目标是 13 职业 34 专精 + 33 组竞技场组合全覆盖**，每个含天赋与装备属性。
-当前进度 **专精 18/34 · 组合 7/33**，还剩 42 个待办。
+当前进度 **专精 18/34 · 组合 8/33**，还剩 41 个待办。
 完整清单与建议顺序见 **[路线图](docs/ROADMAP.md)**。
 
 6 个坦克专精不做，也不计入分母 —— 竞技场没有坦克位，

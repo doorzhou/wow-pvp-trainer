@@ -43,14 +43,13 @@ const comps = REG.compList.slice().sort((a, b) =>
 const doneSpecs = specs.filter(s => s.page), todoSpecs = specs.filter(s => !s.page);
 const doneComps = comps.filter(c => c.page), todoComps = comps.filter(c => !c.page);
 
-/* 下一批建议：先解锁组合，不按外部强度榜平铺。
-   RMD 的三个前置专精已经齐，直接先做；RPS / RLS 共用恢复萨，RPS 还需要暗牧。
-   之后再按能解锁的组合数量补其余治疗。 */
+/* 下一批建议：只从未完成项里选；完成后自动掉出清单。
+   组合优先级按「现有前置能否直接复用」排，不拿外部强度榜替代产品优先级。
+   verified 字段只表示构成已按当前补丁核过，不表示强度推荐。 */
 const SPEC_PRIORITY = [
-  'shaman/restoration', 'priest/shadow',
-  'evoker/preservation', 'paladin/holy', 'monk/mistweaver', 'priest/holy',
+  'paladin/holy', 'monk/mistweaver', 'priest/holy', 'mage/fire', 'druid/feral',
 ];
-const COMP_PRIORITY = ['rmd', 'rps', 'rls'];
+const COMP_PRIORITY = ['cupid', 'dh-boomkin', 'hero-cleave', 'phdk', 'jungle', 'god-comp', 'mlp'];
 const specPriority = s => {
   const i = SPEC_PRIORITY.indexOf(s.key);
   return i < 0 ? 999 : i;
@@ -90,15 +89,15 @@ const md = `# 路线图
 
 ## 建议的下一批
 
-**先解锁组合，不按强度榜平铺专精。** RMD 的前置已经齐，直接先做；
-RPS / RLS 共用恢复萨，RPS 还需要暗牧，所以恢复萨与暗牧排在下一组。
-之后再按能解锁的组合数量补其余治疗。组合是这站唯一别处没有的东西；单专精页 Icy Veins 和 Murlok 都有。
+**先解锁组合，不按强度榜平铺专精。** 下面清单只从注册表里的未完成项生成，做完会自动掉出；
+组合优先复用已上线专精。标记「${PATCH} 已核」只表示构成已按当前补丁复核，未标记的组合开工前必须先核版本。
+组合是这站唯一别处没有的东西；单专精页 Icy Veins 和 Murlok 都有。
 
 ### 专精
 ${nextSpecs.map((s, i) => (i + 1) + '. **' + s.n + s.clsName + '**（' + (s.role === 'heal' ? '治疗' : s.tier || '—') + '） — ' + s.en).join('\n')}
 
 ### 组合
-${nextComps.map((c, i) => (i + 1) + '. **' + c.name + '** — ' + c.make).join('\n')}
+${nextComps.map((c, i) => (i + 1) + '. **' + c.name + '** — ' + c.make + '（' + (c.verified === PATCH ? PATCH + ' 已核' : '待核当前版本') + '）').join('\n')}
 
 ### 存量补齐
 ${partial.length
